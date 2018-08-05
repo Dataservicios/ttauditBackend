@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/stylesheet.min.css"/>
+</head>
+<body>
+<div class="container-full-width">
+    <header>
+        <div class="logo-header">
+            <img src="http://ttaudit.com/img/logo.png" id="logo" title="System Auditor" alt="System Auditor">
+        </div>
+        <div class="zona-menu">
+            <nav class="menu">
+                <h2>Reporte de Auditorias</h2>
+            </nav>
+            <div class="zona-login">
+                <div class="zona-user"><a href="http://ttaudit.com/admin/account"><span class="icon-user"></span>Ejecutivo Bayer Estudios</a></div>
+                <div class="salir"><a href="http://ttaudit.com/logout"><span class="icon-salir"></span> Salir </a></div>
+
+            </div>
+
+        </div>
+    </header>
+    <section>
+        <div class="zona-menu-left">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluidxxxxxx">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand" href="#">Brand</a>-->
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html"> <span class=" icon-puntoventa    "></span>  Home</a></li>
+
+
+                            <li class=""><a href="product.html"> <span class="  icon-auditoria  "></span>  Bayer Productos</a></li>
+                            <li class="active"><a href="rep_venta.html"> <span class="  icon-auditoria  "></span>  Rep. Venta</a></li>
+                        </ul>
+                    </div>
+
+
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>    <div class="cuerpo">
+        <div class="cuerpo-content">
+            <!--sección titulo y buscador-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="report-title">Representantes de Ventas</h4>
+
+                </div>
+
+            </div>
+
+            <!--Filtros con combos-->
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form action="detalle.html">
+                        <div class="row">
+
+                            <!--Filtro 1-->
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="distrito">Tipo Farmacia</label>
+                                    <select class="form-control" id="distrito" onchange="javascript:handleSelect(this)">
+
+                                        <option>Farmacia 1</option>
+                                        <option>Farmacia 2</option>
+                                        <option>Farmacia 3</option>
+                                        <option>Farmacia 4</option>
+                                        <option>Farmacia 5</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- filtro 2-->
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="ciudad">Marca </label>
+                                    <select class="form-control" id="ciudad">
+                                        <option>--Seleccione--</option>
+                                        <option>Marca 1</option>
+                                        <option>Marca 2</option>
+                                        <option>Marca 3</option>
+                                        <option>Marca 4</option>
+                                        <option>Marca 5</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <!--Boton de filtrado-->
+                            <div class="col-sm-1">
+                                <div class="form-group">
+                                    <label for="rubro">&emsp;</label>
+                                    <button class="btn btn-default" type="submit">Filtrar</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+            <!-- End Filtros con combos-->
+
+            <!-- vendedor 1 -->
+            <div class="row pt pb">
+                <div class="col-sm-12">
+
+                    <div class="row pt pb">
+                        <div class="col-sm-12">
+                            <h3>Vendedor 1</h3>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="row pt pb">
+                <div class="col-sm-12">
+
+                    <div class="row pt pb">
+                        <div class="col-sm-12">
+
+                            <div class="row">
+                                <div class="col-md-12 pb">
+                                    <div class="report-marco ">
+
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>Recomendación</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="load1"></div>
+                                            <div id="chartdiv1" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- vendedor 2 -->
+            <div class="row pt pb">
+                <div class="col-sm-12">
+
+                    <div class="row pt pb">
+                        <div class="col-sm-12">
+                            <h3>Vendedor 2</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt pb">
+                <div class="col-sm-12">
+
+                    <div class="row pt pb">
+                        <div class="col-sm-12">
+
+                            <div class="row">
+                                <div class="col-md-12 pb">
+                                    <div class="report-marco ">
+
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>Recomendación</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="load2"></div>
+                                            <div id="chartdiv2" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+
+    <footer>
+
+    </footer>
+</div>
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="js/scrollspy.js"></script>
+<script type="text/javascript" src="js/dropdown.js"></script>
+<script type="text/javascript" src="js/collapse.js"></script>
+<script type="text/javascript" src="js/tooltip.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+
+<!-- Libreria AMCHART -->
+
+<script src="lib/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="lib/amcharts/serial.js" type="text/javascript"></script>
+<script src="lib/amcharts/pie.js" type="text/javascript"></script>
+
+<!-- // Libreria AMCHART -->
+
+<!-- Data para grafico y generador del gráfico -->
+
+
+<script type="text/javascript" src="js/graficos/chart.js"> </script>
+<script type="text/javascript" src="js/ajaxJsonFunction.js"> </script>
+
+
+<script>
+
+    var url = "http://ttaudit.com/json/bayerJson.php" ;
+
+   //var url = "http://localhost:8000/json/bayerJson.php" ;
+    $( document ).ready(function() {
+
+
+        var params = JSON.parse('{"company_id":"30","user":20}');
+        ajaxJson(url,params,createChartLineal,"chartdiv1","load1");
+        ajaxJson(url,params,createChartLineal,"chartdiv2","load2")
+
+    });
+
+
+
+
+
+
+
+
+</script>
+
+
+
+<script>
+    $(function () {
+
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+</script>
+<script>
+
+    $('.prueba').on( "click", function( event ) {
+        event.preventDefault();
+        console.log('hola');
+    });
+
+</script>
+</body>
+</html>

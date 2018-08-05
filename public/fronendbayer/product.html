@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/stylesheet.min.css"/>
+
+</head>
+<body>
+<div class="container-full-width">
+    <header>
+        <div class="logo-header">
+            <img src="http://ttaudit.com/img/logo.png" id="logo" title="System Auditor" alt="System Auditor">
+        </div>
+        <div class="zona-menu">
+            <nav class="menu">
+                <h2>Reporte de Auditorias</h2>
+            </nav>
+            <div class="zona-login">
+                <div class="zona-user"><a href="http://ttaudit.com/admin/account"><span class="icon-user"></span>Ejecutivo Bayer Estudios</a></div>
+                <div class="salir"><a href="http://ttaudit.com/logout"><span class="icon-salir"></span> Salir </a></div>
+
+            </div>
+
+        </div>
+    </header>
+    <section>
+        <div class="zona-menu-left">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluidxxxxxx">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand" href="#">Brand</a>-->
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html"> <span class=" icon-puntoventa    "></span>  Home</a></li>
+
+
+                            <li class="active"><a href="product.html"> <span class="  icon-auditoria  "></span>  Bayer Productos</a></li>
+                            <li class="active"><a href="rep_venta.html"> <span class="  icon-auditoria  "></span>  Rep. Venta</a></li>
+
+                        </ul>
+                    </div>
+
+
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>    <div class="cuerpo">
+        <div class="cuerpo-content">
+            <!--sección titulo y buscador-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="report-title">Envuesta de Productos Bayer</h4>
+
+                </div>
+
+            </div>
+
+            <!--Filtros con combos-->
+
+            <!-- End Filtros con combos-->
+            <div class="row pt pb">
+                <div class="col-sm-12">
+
+                    <div class="row pt pb">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-md-12 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-6 ">
+                                                <h2>Apronax</h2>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <img src="http://ttaudit.com/media/images/bayer/products/apronax.jpg" width="150px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Tiene Stock?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv534104" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Se recomendo el Producto?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv53471" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Tiene exhibición Gratis?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv53472" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-6 ">
+                                                <h2>Aspirina 500</h2>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <img src="http://ttaudit.com/media/images/bayer/products/aspirina-500.jpg" width="150px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Se recomendo el Producto?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv53571" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Tiene exhibición Gratis?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv53572" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-6 ">
+                                                <h2>Supradyn</h2>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <img src="http://ttaudit.com/media/images/bayer/products/Supradyn.jpg" width="150px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Se recomendo el Producto?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv53671" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Tiene exhibición Gratis?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv53672" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-6 ">
+                                                <h2>Gynocanesten</h2>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <img src="http://ttaudit.com/media/images/bayer/products/Gynocanesten.jpg" width="150px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Se recomendo el Producto?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv53771" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pb">
+                                    <div class="report-marco ">
+                                        <div class="row pl">
+                                            <div class="col-md-12 ">
+                                                <h4>¿Tiene exhibición Gratis?</h4>
+                                            </div>
+                                        </div>
+                                        <div class="grafico-circle">
+                                            <div id="chartdiv53772" style="width: 100%; height: 250px;" ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+
+    <footer>
+
+    </footer>
+</div>
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="js/scrollspy.js"></script>
+<script type="text/javascript" src="js/dropdown.js"></script>
+<script type="text/javascript" src="js/collapse.js"></script>
+<script type="text/javascript" src="js/tooltip.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+
+<!-- Libreria AMCHART -->
+
+<script src="lib/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="lib/amcharts/serial.js" type="text/javascript"></script>
+<script src="lib/amcharts/pie.js" type="text/javascript"></script>
+
+<!-- // Libreria AMCHART -->
+
+<!-- Data para grafico y generador del gráfico -->
+<script type="text/javascript" src="js/graficos/chart.js"> </script>
+<script>
+
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":20,"color":"#1A8EC7"},{"tipo":"No","cantidad":14,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv534104");
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":98,"color":"#1A8EC7"},{"tipo":"No","cantidad":39,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv53471");
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":17,"color":"#1A8EC7"},{"tipo":"No","cantidad":120,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv53472");
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":100,"color":"#1A8EC7"},{"tipo":"No","cantidad":36,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv53571");
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":12,"color":"#1A8EC7"},{"tipo":"No","cantidad":124,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv53572");
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":110,"color":"#1A8EC7"},{"tipo":"No","cantidad":26,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv53671");
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":7,"color":"#1A8EC7"},{"tipo":"No","cantidad":129,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv53672");
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":88,"color":"#1A8EC7"},{"tipo":"No","cantidad":47,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv53771");
+    var chartData0 = JSON.parse('[{"tipo":"Si","cantidad":3,"color":"#1A8EC7"},{"tipo":"No","cantidad":132,"color":"#1AB1E6"}]');
+    createGraphPie(chartData0,"chartdiv53772");
+
+
+</script>
+
+
+
+<script>
+    $(function () {
+
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+</script>
+<script>
+
+    $('.prueba').on( "click", function( event ) {
+        event.preventDefault();
+        console.log('hola');
+    });
+
+</script>
+</body>
+</html>

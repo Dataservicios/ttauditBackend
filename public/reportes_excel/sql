@@ -1,0 +1,57 @@
+INSERT INTO poll_options (
+`poll_id`,
+`options`,
+`options_abreviado`,
+`codigo`,
+`product_id`,
+`region`,
+`poll_options`.`comment`,
+`created_at`,
+`updated_at`
+)
+(
+  SELECT
+   CASE poll_id
+   when '1367' then '1583'
+   when '1369' then '1584'
+   when '1370' then '1585'
+   when '1371' then '1586'
+   when '1372' then '1587'
+   when '1373' then '1588'
+   when '1374' then '1589'
+   when '1375' then '1590'
+   when '1442' then '1591'
+   when '1443' then '1592'
+   when '1376' then '1593'
+   when '1378' then '1594'
+   when '1478' then '1595'
+  END AS poll_id,
+  `poll_options`.`options`,
+  `poll_options`.`options_abreviado`,
+  CASE poll_id
+   when '1367' then  CONCAT('1583', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1369' then  CONCAT('1584', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1370' then  CONCAT('1585', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1371' then  CONCAT('1586', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1372' then  CONCAT('1587', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1373' then  CONCAT('1588', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1374' then  CONCAT('1589', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1375' then  CONCAT('1590', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1442' then  CONCAT('1591', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1443' then  CONCAT('1592', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1376' then  CONCAT('1593', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1378' then  CONCAT('1594', SUBSTRING(`poll_options`.codigo, 5, 2))
+   when '1478' then  CONCAT('1595', SUBSTRING(`poll_options`.codigo, 5, 2))
+  END AS codigo,
+  `poll_options`.`product_id`,
+  `poll_options`.`region`,
+  `poll_options`.`comment`,
+  now() AS  `created_at`,
+  now() AS  `updated_at`
+FROM
+  `polls`
+  LEFT OUTER JOIN `company_audits` ON (`polls`.`company_audit_id` = `company_audits`.`id`)
+  RIGHT OUTER JOIN `poll_options` ON (`polls`.`id` = `poll_options`.`poll_id`)
+WHERE
+  `company_audits`.`company_id` = 79
+)

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/stylesheet.min.css"/>
+
+
+</head>
+<body>
+    <div class="container-full-width">
+        <header>
+            <div class="logo-header">
+                <img src="img/logo.png" alt=""/>
+            </div>
+            <div class="zona-menu">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#" class="active"><span class="icon-user activate"></span><span class="menu-text">USUARIO</span></a></li>
+                        <li><a href="#"><span class="icon-client"></span><span  class="menu-text">EMPRESA</span></a></li>
+                        <li><a href="#"><span class="icon-puntoventa"></span><span  class="menu-text">PUNTOS DE VENTA</span></a></li>
+                        <li><a href="#"><span class="icon-auditoria"></span><span  class="menu-text">AUDITORIAS</span></a></li>
+                        <li><a href="#"><span class="icon-reporte"></span><span class="menu-text">REPORTES</span></a></li>
+                    </ul>
+                </nav>
+                <div class="zona-login">
+                    <div class="zona-user"><a href=""><span class="icon-user"></span>Jaime</a></div>
+                    <div class="salir"><a href=""><span class="icon-salir"></span>Salir</a></div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="zona-menu-left">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluidxxxxxx">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!--<a class="navbar-brand" href="#">Brand</a>-->
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="users.html"> <span class="icon-listausuario"></span> Usario <span class="sr-only">(current)</span></a></li>
+                                <li><a href="users-nuevo.html"> <span class="icon-nuevousuario"></span>  Nuevo Usuario</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+            <!--Contenido -->
+            <div class="cuerpo">
+                <div class="cuerpo-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Usuario Información</h4>
+                            <div class="cuerpo-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="inputNombres" class="col-sm-2 control-label">
+                                                    Nombre
+                                                </label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="inputNombres" placeholder="Nombre">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputTipo" class="col-sm-2 control-label">
+                                                    Tipo
+                                                </label>
+                                                <div class="col-sm-3">
+                                                    <!--<input type="text" class="form-control" id="inputTipo" placeholder="Nombre">-->
+                                                    <select class="form-control" id="inputTipo" placeholder="Nombre">
+                                                        <option>Administrador</option>
+                                                        <option>Empresa</option>
+                                                        <option>Auditor</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="alert alert-danger" role="alert">sdsdfsdfsdf</div>
+                                                <label for="inputTelefono" class="col-sm-2 control-label">
+                                                    Telefono
+                                                </label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" id="inputTelefono" placeholder="Teléfono">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                                <div class="col-sm-3">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
+                                                <div class="col-sm-3">
+                                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputRepPassword3" class="col-sm-2 control-label">Repetir Contraseña</label>
+                                                <div class="col-sm-3">
+                                                    <input type="password" class="form-control" id="inputRepPassword3" placeholder="Password">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class=" col-sm-10">
+                                                    <button type="submit" class="btn btn-default btn-sm">GUARDAR</button>
+                                                    <button type="submit" class="btn btn-default btn-sm">CANCELAR</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+        </footer>
+    </div>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="js/scrollspy.js"></script>
+    <script type="text/javascript" src="js/dropdown.js"></script>
+    <script type="text/javascript" src="js/collapse.js"></script>
+    <script type="text/javascript" src="js/tooltip.js"></script>
+    <script type="text/javascript" src="js/alert.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+    </script>
+</body>
+</html>

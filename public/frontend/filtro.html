@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/stylesheet.min.css"/>
+
+</head>
+<body>
+    <div class="container-full-width">
+        <header>
+            <div class="logo-header">
+                <img src="img/logo.png" alt=""/>
+            </div>
+            <div class="zona-menu">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#" class="active"><span class="icon-user activate"></span><span class="menu-text">USUARIO</span></a></li>
+                        <li><a href="#"><span class="icon-client"></span><span  class="menu-text">EMPRESA</span></a></li>
+                        <li><a href="#"><span class="icon-puntoventa"></span><span  class="menu-text">PUNTOS DE VENTA</span></a></li>
+                        <li><a href="#"><span class="icon-auditoria"></span><span  class="menu-text">AUDITORIAS</span></a></li>
+                        <li><a href="#"><span class="icon-reporte"></span><span class="menu-text">REPORTES</span></a></li>
+                    </ul>
+                </nav>
+                <div class="zona-login">
+                    <div class="zona-user">
+                        <a href=""><span class="icon-user"></span>Jaime</a>
+                        <li role="presentation" class="dropdown">
+                            <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+
+                                <span class="caret"></span>
+                            </a>
+                            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                    <div class="salir"><a href=""><span class="icon-salir"></span>Salir</a></div>
+                </div>
+
+            </div>
+        </header>
+        <section>
+            <div class="zona-menu-left">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluidxxxxxx">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!--<a class="navbar-brand" href="#">Brand</a>-->
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="users.html"> <span class="icon-listausuario"></span> Usario <span class="sr-only">(current)</span></a></li>
+                                <li><a href="users-nuevo.html"> <span class="icon-nuevousuario"></span>  Nuevo Usuario</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+            <div class="cuerpo">
+                <div class="cuerpo-content">
+                        <!--sección titulo y buscador-->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                
+                                   <h4>Lista de Usuarios</h4>
+
+
+                            </div>
+                            
+                        </div>
+
+                        <div class="row pt pb">
+                            <div class="col-sm-12">
+                                <h4 class="report-title">Introducción</h4>
+
+                                <!-- Inicio de  Alerta para filtros -->
+                                <div id="alertaFiltro" class="alert alert-info alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <strong>Filstrado por:</strong> Ciudad, Distrito, Ejecutivo.
+                                </div>
+
+                                <!-- FIn de  Alerta para filtros -->
+
+
+                                <!--Filtros con combos-->
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="ciudad">Ciudad</label>
+                                                <select class="form-control" id="ciudad">
+                                                    <option></option>
+                                                    <option>Lima</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="distrito">Distrito</label>
+                                                <select class="form-control" id="distrito">
+                                                    <option></option>
+                                                    <option>Comas</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="ejecutivo">Ejecutivo</label>
+                                                <select class="form-control" id="ejecutivo">
+                                                    <option></option>
+                                                    <option>Jose Carlos Castro</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label for="rubro">Rubro</label>
+                                                <select class="form-control" id="rubro">
+                                                    <option></option>
+                                                    <option>Farmacia</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-1">
+                                            <div class="form-group">
+                                                <label for="rubro">&emsp;</label>
+                                                <button class="btn btn-default" type="submit">Filtrar</button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                                <!-- Fin Filtros con combos-->
+
+                                <div class="row pt pb">
+                                    <div class="col-sm-6">
+                                        <div class="report-marco ">
+                                            <div class="contenedor-report">
+                                                <h4>Auditorias Programadas</h4>
+                                                <span>30</span>
+                                                <div class="grafico-circle">
+                                                    <div id="chartdiv1" style="width: 100%; height: 250px;" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                            <div class="">
+                                                <div class="contenedor-report">
+                                                    <h4>Auditorias Programadas</h4>
+                                                    <div class="pt pb">
+                                                        <p>Hay agente interbank aquí</p>
+                                                        <div class="btn-group" role="group" aria-label="...">
+                                                              <div   class="btn btn-default btn-si">SI</div>
+                                                              <div   class="btn btn-default btn-valor">28</div>
+                                                              
+                                                        </div>
+                                                        <div class="btn-group" role="group" aria-label="...">
+                                                              <div   class="btn btn-default btn-no">No</div>
+                                                              <div   class="btn btn-default btn-valor">28</div>
+                                                              
+                                                        </div>
+                                                    </div>
+                                                     
+                                                    <div class="pt pb">
+                                                        <p>Hay agente interbank aquí</p>
+                                                        <div class="btn-group" role="group" aria-label="...">
+                                                              <div   class="btn btn-default btn-si">SI</div>
+                                                              <div   class="btn btn-default btn-valor">28</div>
+                                                              
+                                                        </div>
+                                                        <div class="btn-group" role="group" aria-label="...">
+                                                              <div   class="btn btn-default btn-no">No</div>
+                                                              <div   class="btn btn-default btn-valor">28</div>
+                                                              
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    <!--Lista de usuario-->
+                    
+                        <div class="row pt pb">
+                             
+                                <div class="col-sm-12">
+                                <h4 class="report-title">Competencias</h4>
+                            
+                                    <div class="row pt pb">
+                                        <div class="col-sm-6">
+
+                                            
+                                            <div class="report-marco ">
+                                                <div class="contenedor-report">
+                                                    <h4>Competencia mismo local</h4>
+                                                    
+                                                    <div class="grafico-circle">
+                                                        <div id="chartdiv2" style="width: 100%; height: 250px;" ></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="report-marco ">
+                                                <div class="contenedor-report">
+                                                    <h4>Pago servicio</h4>
+                                                    
+                                                    <div class="grafico-circle">
+                                                        <div id="chartdiv3" style="width: 100%; height: 250px;" ></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                        </div>
+
+                    <!-- Paginador-->
+
+
+                   
+                </div>
+
+            </div>
+        </section>
+        <footer>
+
+        </footer>
+    </div>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="js/scrollspy.js"></script>
+    <script type="text/javascript" src="js/dropdown.js"></script>
+    <script type="text/javascript" src="js/collapse.js"></script>
+    <script type="text/javascript" src="js/tooltip.js"></script>
+    <script type="text/javascript" src="js/alert.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+
+    <!-- Libreria AMCHART -->
+
+    <script src="lib/amcharts/amcharts.js" type="text/javascript"></script>
+    <script src="lib/amcharts/serial.js" type="text/javascript"></script>
+    <script src="lib/amcharts/pie.js" type="text/javascript"></script>
+
+    <!-- // Libreria AMCHART -->
+
+    <!-- Data para grafico y generador del gráfico -->
+    <script type="text/javascript" src="js/graficos/grafico1.js"> </script>
+    <script type="text/javascript" src="js/graficos/grafico2.js"> </script>
+    <script type="text/javascript" src="js/graficos/grafico3.js"> </script>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $('.dropdown-toggle').dropdown()
+        });
+
+
+        //Evento aplicado a las Alertas
+        $('#alertaFiltro').on('closed.bs.alert', function () {
+            // do something…
+            //console.log("Cerrando alerta");
+            window.location.href = "http://www.ttaudit.com";
+        })
+    </script>
+</body>
+</html>

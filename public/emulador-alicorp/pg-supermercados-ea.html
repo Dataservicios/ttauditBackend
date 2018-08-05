@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/stylesheet.min.css"/>
+
+</head>
+<body>
+<div class="container-full-width">
+    <header>
+        <div class="logo-header">
+            <img src="img/logo.png" alt=""/>
+        </div>
+        <div class="zona-menu">
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" ><span class="icon-user activate"></span><span class="menu-text">USUARIO</span></a></li>
+                    <li><a href="#"><span class="icon-client"></span><span  class="menu-text">EMPRESA</span></a></li>
+                    <li><a href="#"><span class="icon-puntoventa"></span><span  class="menu-text">PUNTOS DE VENTA</span></a></li>
+                    <li><a href="colg-puntaje.html" class="active"><span class="icon-auditoria"></span><span  class="menu-text">AUDITORIAS</span></a></li>
+                    <li><a href="#"><span class="icon-reporte"></span><span class="menu-text">REPORTES</span></a></li>
+                </ul>
+            </nav>
+            <div class="zona-login">
+                <div class="zona-user">
+                    <a href=""><span class="icon-user"></span>Jaime</a>
+
+                    <li role="presentation" class="dropdown">
+                        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="salir"><a href=""><span class="icon-salir"></span>Salir</a></div>
+            </div>
+
+        </div>
+    </header>
+    <section>
+        <!-- MENU LEFT-->
+        <div class="zona-menu-left">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluidxxxxxx">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand" href="#">Brand</a>-->
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="pg-general.html"> <span class="icon-auditoria"></span>General</a></li>
+                            <li > <a href="pg-bodega.html"> <span class="icon-materiales"></span> Bodegas</a>
+                                <!--<ul class="sub">-->
+                                    <!--<li><a href="pg-bodega-pp.html">Presencia de Producto</a></li>-->
+                                    <!--<li class="active"><a href="pg-bodega-pe.html">Presencia de Exhibidores Alicorp</a></li>-->
+                                    <!--<li><a href="pg-bodega-pv.html">Presencia de Ventanas (SOD)</a></li>-->
+                                    <!--<li><a href="pg-bodega-mp.html">Marcado de Precio</a></li>-->
+                                <!--</ul>-->
+                            </li>
+                            <li  class="active"><a href="pg-supermercados.html"> <span class="icon-auditoria"></span> Supermercados</a>
+                                <ul class="sub">
+                                    <li><a href="pg-supermercados-sod.html">SOD</a></li>
+                                    <li><a href="pg-supermercados-en.html">Exhibiciones Negociadas</a></li>
+                                    <li  class="active"><a href="pg-supermercados-ea.html">Exhibiciones Adicionales</a></li>
+                                    <!--<li><a href="pg-supermercados-mp.html">Marcado de Precio</a></li>-->
+                                    <li><a href="pg-supermercados-co.html">Cartelería / Ofertas</a></li>
+                                </ul>
+
+                            </li>
+
+                            <li><a href="pg-mayoristas.html"> <span class="icon-auditoria"></span> Mayoristas</a>
+                                <!--<ul class="sub">-->
+                                    <!--<li><a href="pg-mayoristas-pv.html">Presencia de Ventanas (SOD)</a></li>-->
+                                    <!--<li><a href="pg-mayoristas-pm.html">Presencia de mercaderistas</a></li>-->
+                                <!--</ul>-->
+                            </li>
+
+                            <li><a href="pg-canje.html"> <span class="icon-auditoria"></span> Canje Mayorista</a>
+
+
+                            </li>
+                            <li><a href="pg-seleccion-areas.html"> <span class="icon-auditoria"></span>Demo Selección de áreas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <!-- END MENU LEFT-->
+
+        <!-- CUERPO -->
+        <div class="cuerpo">
+            <div class="cuerpo-content">
+                <!--sección titulo y buscador-->
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h4 class="report-title">SUPERMERCADOS / Exihibiciones Adicionales </h4>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <img class="img-responsive" src="img/alicorp.png" alt="">
+                    </div>
+
+                </div>
+
+                <!--Filtros con combos-->
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <form>
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="ciudad">Ciudad</label>
+                                        <select class="form-control" id="ciudad">
+                                            <option>--Seleccione Ciudad</option>
+                                            <option>Lima</option>
+                                            <option>Arequipa</option>
+                                            <option>Trujillo</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label for="ejecutivo">Tipo de exhibición</label>
+                                        <select class="form-control" id="ejecutivo">
+                                            <option>--Seleccione Tipo de exhibición</option>
+                                            <option>exhibición 1</option>
+                                            <option>exhibición 2</option>
+                                            <option>exhibición 3</option>
+                                            <option>exhibición 4</option>
+                                            <option>exhibición 5</option>
+                                            <option>exhibición 6</option>
+                                            <option>exhibición 7</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="ejecutivo">Supermercado  </label>
+                                        <select class="form-control" id="ejecutivo">
+                                            <option>--Seleccione Supermercado </option>
+                                            <option>Supermercado 1</option>
+                                            <option>Supermercado 2</option>
+                                            <option>Supermercado 3</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-sm-1">
+                                    <div class="form-group">
+                                        <label for="rubro">&emsp;</label>
+                                        <button class="btn btn-default" type="submit">Filtrar</button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- End Filtros con combos-->
+
+
+                <div class="row pt pb">
+                    <div class="col-sm-12">
+                        <div class="row pt pb">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-12 pb">
+                                        <div class="report-marco ">
+                                            <div class="row pl">
+
+                                                <!--<div class="col-md-12 ">-->
+                                                    <!--<h4>19 Mandatorios</h4>-->
+                                                <!--</div>-->
+                                            </div>
+
+                                            <div class="row pl">
+
+                                                <div class="col-md-6">
+                                                    <h4>Se encontró</h4>
+
+                                                    <img src="img/aceite.jpg" alt="">
+                                                    <div class="grafico-circle">
+
+                                                        <div id="chartdiv1" style="width: 100%; height: 250px;" ></div>
+
+                                                    </div>
+                                                    <div class="row ">
+
+                                                        <div class="col-md-12 ">
+                                                            <a class="btn btn-default" href="pg-supermercado-ea-detalle-no.html">Detalle no está</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 ">
+                                                    <h4>Layout es correcto</h4>
+
+                                                    <img src="img/aceite.jpg" alt="">
+                                                    <div class="grafico-circle">
+
+                                                        <div id="chartdiv2" style="width: 100%; height: 250px;" ></div>
+
+                                                    </div>
+                                                    <div class="row ">
+
+                                                        <div class="col-md-12 ">
+                                                            <a class="btn btn-default" href="pg-supermercado-ea-detalle-layout.html">Detalle Layout incorrecto</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--<div class="row ">-->
+
+                                                <!--<div class="col-md-12 ">-->
+                                                    <!--<a class="btn btn-default" href="#">Detalle no cumplen</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+        <!-- END CUERPO-->
+    </section>
+    <footer>
+
+    </footer>
+</div>
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="js/scrollspy.js"></script>
+<script type="text/javascript" src="js/dropdown.js"></script>
+<script type="text/javascript" src="js/collapse.js"></script>
+<script type="text/javascript" src="js/tooltip.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+
+<!-- Libreria AMCHART -->
+<!-- Libreria AMCHART -->
+
+<script src="lib/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="lib/amcharts/serial.js" type="text/javascript"></script>
+<script src="lib/amcharts/pie.js" type="text/javascript"></script>
+
+<!-- // Libreria AMCHART -->
+<<!-- Data para grafico y generador del gráfico -->
+<script type="text/javascript" src="js/graficos/chart.js"> </script>
+<script>
+
+    // Gafico 1
+    var chartData = [
+        {
+            "tipo":"Si está",
+            "cantidad": 10,
+            "color": "#FE0000"
+        },
+        {
+            "tipo":"No está",
+            "cantidad": 80,
+            "color": "#FFFF00"
+        }
+    ];
+
+    createGraphPie(chartData,"chartdiv1");
+
+
+    createGraphPie(chartData,"chartdiv2");
+
+    // Gafico 2
+    //Data de archivo externo
+    var jqxhr = $.getJSON('data/data14.php');
+    //INGRESO DNI
+    jqxhr.done(function (data) {
+        //console.log(data);
+        creaGraficoColumnas(data,"char2",false);
+        //creaGraficoLineal(data,"chartdiv2");
+        //crearGraficoPastel(data,"chartdiv3");
+    });
+
+    // Gafico 3
+    var chartData2 =[
+        {
+            "respuesta": "Si está",
+            "cantidad":12,
+            "porcentaje":30,
+            "color": "#ffffff"
+        },
+        {
+            "respuesta": "No está",
+            "cantidad": 10,
+            "porcentaje":60,
+            "color": "#ffffff"
+        }
+    ]
+
+    creaGraficoColumnas(chartData2,"chartdiv1");
+
+    var chartData3 =[
+        {
+            "respuesta": "Si",
+            "cantidad":60,
+            "porcentaje":60,
+            "color": "#ffffff"
+        },
+        {
+            "respuesta": "No",
+            "cantidad": 50,
+            "porcentaje":50,
+            "color": "#ffffff"
+        }
+    ]
+
+    creaGraficoColumnas(chartData3,"chartdiv2");
+
+
+    // Grafico 4
+    var chartData4 = [
+        {
+            "tipo":"04/05/2015",
+            "bodega": 20,
+            "locutorio": 29,
+            "farmacia": 5,
+            "Tiendas COM": 12
+        },
+        {
+            "tipo":"05/05/2015",
+            "bodega": 10,
+            "locutorio": 49,
+            "farmacia":35,
+            "Tiendas COM": 12
+        },
+        {
+            "tipo":"06/05/2015",
+            "bodega": 10,
+            "locutorio": 9,
+            "farmacia":5,
+            "Tiendas COM": 2
+        }];
+
+    //PARAMETER creaGraficoColumnasPorcentajesDinamic(PARAM1,PARAM2,PARAM3,PARAM4)
+    //        STRING PARAM1=data
+    //        STRING PARAM2=CAPA DONDE SE MOSTRARÁ EL GREÁFICO
+    //        BOOL PARAM3= TRUE->ACTIVA LA LEYENDA
+    //        BOOL PARAM4= ORIENTACION DEL GRAFICO VERTIC U ORIZONTALMENT, TRUE->HORIZONTAL, FALSE -> VERTICAL
+    creaGraficoColumnasPorcentajesDinamic(chartData4,"char4",true,true);
+    creaGraficoColumnasPorcentajesDinamic(chartData4,"char5",false,false);
+
+
+    function handleSelect(elm)
+    {
+        window.location = "colg-producto-especifico.html";
+    }
+
+</script>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('.dropdown-toggle').dropdown()
+    })
+</script>
+</body>
+</html>

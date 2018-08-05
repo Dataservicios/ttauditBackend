@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>System Auditor</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/stylesheet.min.css">
+    <!-- StyleSheey mapagoogle-->
+    <link rel="stylesheet" href="css/mapa-styles.css"/>
+</head>
+<body>
+<div class="container-full-width">
+    <header>
+        <div class="logo-header">
+            <img src="img/logo.png" id="logo" title="System Auditor" alt="System Auditor">
+        </div>
+        <div class="zona-menu">
+            <nav class="menu">
+                <h2>Reporte de Auditorias</h2>
+            </nav>
+            <div class="zona-login">
+                <div class="zona-user"><a href="admin/account"><span class="icon-user"></span>Ejecutivo Interbank Ola 2</a></div>
+                <div class="salir"><a href="logout"><span class="icon-salir"></span> Salir </a></div>
+
+            </div>
+
+        </div>
+    </header>
+    <section>
+        <div class="zona-menu-left">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand" href="#">Brand</a>-->
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="general.html">  Inicio</a></li>
+
+                            <li><a href="report/excel"> <span class="icon-listausuario"></span>  Reportes en Excel</a></li>
+
+
+                            <li><a href="report/auditReport/7"> <span class="icon-nuevousuario"></span>  Introducción</a></li>
+
+
+                            <li><a href="report/auditReport/8"> <span class="icon-nuevousuario"></span>  Uso de Interbank Agente</a></li>
+
+
+                            <li><a href="report/auditReport/9"> <span class="icon-nuevousuario"></span>  Evaluación de Transacción</a></li>
+
+
+                            <li><a href="report/auditReport/10"> <span class="icon-nuevousuario"></span>  Evaluación del Trato</a></li>
+
+
+                            <li><a href="report/auditReport/11"> <span class="icon-nuevousuario"></span>  Información</a></li>
+
+
+
+                            <li><a href="report/reportAudios/Interbank-Ola2"> <span class="icon-listausuario"></span>  Lista de audios IBK Ola2</a></li>
+
+
+
+
+                        </ul>
+                    </div>
+
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>        <div class="cuerpo">
+        <div class="cuerpo-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#" id="change" class="label label-success"> Comparar Camapaña </a>
+                </div>
+            </div>
+
+
+            <!-- Inicio de  omparación Campaña -->
+            <div id="alertaFiltro" class="alert alert-info  fade in" role="alert" >
+                <button type="button" class="close"   aria-label="Close"><span aria-hidden="true">×</span></button>
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5> Selecione la campaña que desea comparar</h5>
+                        <form  action="comparacion-home.html">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="unselect" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked="true"> Selección individual
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" id="selectall" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Seleccionar todo
+                                    </label>
+                                </div>
+                                <div class="panel-body">
+                                    <!-- SCROLL PANEL-->
+                                    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="checkbox1">Campaña  Ola 1
+                                            </label>
+                                        </div>
+                                        <div class="checkbox ">
+                                            <label>
+                                                <input type="checkbox" class="checkbox1">Campaña  Ola 1
+                                            </label>
+                                        </div>
+
+                                        <div class="checkbox ">
+                                            <label>
+                                                <input type="checkbox" class="checkbox1">Campaña  Ola 1
+                                            </label>
+                                        </div>
+                                        <div class="checkbox ">
+                                            <label>
+                                                <input type="checkbox" class="checkbox1">Campaña  Ola 1
+                                            </label>
+                                        </div>
+                                        <div class="checkbox ">
+                                            <label>
+                                                <input type="checkbox" class="checkbox1">Campaña  Ola 1
+                                            </label>
+                                        </div>
+                                        <div class="checkbox ">
+                                            <label>
+                                                <input type="checkbox" class="checkbox1">Campaña  Ola 1
+                                            </label>
+                                        </div>
+
+                                        <!--<fieldset enabled>-->
+                                        <!--<div class="checkbox">-->
+                                        <!--<label>-->
+                                        <!--<input type="checkbox" class="checkbox1">Campaña  Ola 1-->
+                                        <!--</label>-->
+                                        <!--<label>-->
+                                        <!--<input type="checkbox" class="checkbox1">Campaña Ola 2-->
+                                        <!--</label>-->
+                                        <!--<label>-->
+                                        <!--<input type="checkbox" class="checkbox1">Campaña Ola 3-->
+                                        <!--</label>-->
+                                        <!--<label>-->
+                                        <!--<input type="checkbox" class="checkbox1">Campaña Ola 4-->
+                                        <!--</label>-->
+                                        <!--<label>-->
+                                        <!--<input type="checkbox" class="checkbox1">Campaña Ola 5-->
+                                        <!--</label>-->
+                                        <!--</div>-->
+                                        <!--<button type="submit" class="btn btn-primary">Comparar</button>-->
+                                        <!--</fieldset>-->
+
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Comparar</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row pt pb">
+
+                <div class="col-sm-12">
+                    <!-- Inicio de  Alerta para filtros -->
+                    <!-- FIn de  Alerta para filtros -->
+                    <!--Filtros con combos-->
+                    <form method="POST" action="report/Filter" accept-charset="UTF-8" role="form"><input name="_token" type="hidden" value="djhLM6j48JIlchTYrIi0sR71Yb07cUizqYywejXq">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <input name="audit_id" type="hidden" value="0">
+                                    <label for="ciudad">Ciudad</label>
+                                    <select id="ciudad" onchange="ejecutaEvento(this,1)" class="form-control" name="ciudad"><option value="0" selected="selected">Seleccionar</option><option value="Lima">Lima</option><option value="Arequipa">Arequipa</option><option value="Chincha">Chincha</option><option value="Ica">Ica</option><option value="Pisco">Pisco</option><option value="Trujillo">Trujillo</option><option value="1">Todo Lima</option><option value="2">Todo Arequipa</option><option value="3">Toda Ica</option><option value="4">Todo Trujillo</option><option value="5">Todo Provincias</option></select>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="distrito">Distrito</label>
+                                    <select id="distrito" class="form-control" disabled="true" name="distrito"><option value="0" selected="selected">Seleccionar</option></select>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="ejecutivo">Ejecutivo</label>
+                                    <select id="ejecutivo" class="form-control" disabled="true" name="ejecutivo"><option value="0" selected="selected">Seleccionar</option></select>
+
+                                </div>
+
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="rubro">Rubro</label>
+                                    <select id="rubro" class="form-control" disabled="true" name="rubro"><option value="0" selected="selected">Seleccionar</option></select>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-group">
+                                    <label for="rubro">&emsp;</label>
+                                    <button class="btn btn-default" type="submit">Filtrar</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <!-- Fin Filtros con combos-->
+                </div>
+            </div>
+
+
+            <div class="row pt pb">
+                <div class="col-sm-12">
+                    <div class="report-marco ">
+                        <div class="contenedor-report">
+                            <h4>Disponibilidad de Agentes</h4>
+
+                            <div class="grafico-circle">
+                                <div id="chartdivSiNo" style="width: 100%; height: 330px;" ></div>
+                            </div>
+                            <div class="grafico-circle">
+                                <div id="charOptionsSiNo" style="width: 100%; height: 400px;" ></div>
+                            </div>
+                            <div>
+                                <a href="report/getDetailResultQuestion/67/0-0-0-0-0/222" class="btn btn-primary btn-sm active" role="button">Ver Detalle de No Disponible</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row pt pb">
+                <div class="col-sm-12">
+                    <div class="report-marco ">
+                        <div class="contenedor-report">
+                            <h4>Transacciones</h4>
+
+                            <div class="grafico-circle">
+                                <div id="chartdiv0" style="width: 100%; height: 330px;" ></div>
+                            </div>
+
+                            <div class="grafico-circle">
+                                <div id="chartdiv1" style="width: 100%; height: 330px;" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row pt pb">
+
+                <div class="col-sm-12">
+                    <div class="report-marco ">
+                        <div class="contenedor-report">
+                            <h4>Trato</h4>
+
+                            <div class="grafico-circle">
+                                <div id="chartdiv2" style="width: 100%; height: 250px;" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+
+    <footer>
+
+    </footer>
+</div>
+<script src="lib/jquery.min.js"></script>
+
+<script src="js/scrollspy.js"></script>
+
+<script src="js/dropdown.js"></script>
+
+<script src="js/collapse.js"></script>
+
+<script src="js/alert.js"></script>
+
+<script src="js/tooltip.js"></script>
+
+<script src="js/modal.js"></script>
+
+<script src="lib/bootstrap.min.js"></script>
+
+<script src="assets/js/admin.js"></script>
+
+
+
+<!-- Libreria AMCHART -->
+
+
+<script src="lib/amcharts/amcharts.js"></script>
+
+<script src="lib/amcharts/serial.js"></script>
+
+<script src="lib/amcharts/pie.js"></script>
+
+
+<script src="js/graficos/chart.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#ejecutivo option').remove();
+        $('#rubro option').remove();
+        $('#ejecutivo').prop('disabled',false);
+
+        $.post('getEjecutivos', function(json){
+            //if (item.latitud != 0 && item.longitud != 0){
+            poblandoCombo(json,2);
+        });
+        $('#rubro').prop('disabled',false);
+
+        $.post('getRubros', function(json){
+            //if (item.latitud != 0 && item.longitud != 0){
+            poblandoCombo(json,3);
+
+        });
+    });
+    function ejecutaEvento(valor,tipo){
+        //$('#auditor').on('change', 'select', function (e) {
+        // var val = $(e.target).val();
+        //  var text = $(e.target).find("option:selected").text(); //only time the find is required
+        // var name = $(e.target).attr('name');
+        console.log(valor.value);
+        if (tipo==1){
+            user = valor.options[valor.selectedIndex].value;
+            $('#distrito').prop('disabled',false);
+            $('#distrito option').remove();
+            $("#distrito").append("<option value='0'>--Seleccione--</option>");
+            if ((user != 1) && (user != 2) && (user != 3) && (user != 4) && (user != 5)){
+                $('#distrito').prop('disabled',false);
+                $('#distrito option').remove();
+                $.post('getDistrictxRegion',{ region : valor.value }, function(json){
+                    //if (item.latitud != 0 && item.longitud != 0){
+                    poblandoCombo(json,tipo);
+                });
+            }
+
+        }
+
+        if (tipo==2){
+            $('#ejecutivo').prop('disabled',false);
+            $('#ejecutivo option').remove();
+            $('#rubro option').remove();
+            $('#rubro').prop('disabled',true);
+            $("#rubro").append("<option value='0'>--Seleccione--</option>");
+            user = valor.options[valor.selectedIndex].text;
+            //});
+            $.post('getEjecutivoxRegionxDistric',{ district : valor.value }, function(json){
+                //if (item.latitud != 0 && item.longitud != 0){
+                poblandoCombo(json,tipo);
+            });
+        }
+
+        if (tipo==3){
+            $('#rubro').prop('disabled',false);
+            $('#rubro option').remove();
+            user = valor.options[valor.selectedIndex].text;
+            //});
+            $.post('getRubroxEjecxRegionxDistric',{ ejecutivo : valor.value }, function(json){
+                //if (item.latitud != 0 && item.longitud != 0){
+                poblandoCombo(json,tipo);
+            });
+        }
+    }
+
+    function poblandoCombo(data,tipo) {
+        var total_puntos = 0;
+        if (tipo==1){
+            $("#distrito").append("<option value='0'>--Seleccione un Distrito--</option>");
+            $.each(data, function (i, item) {
+                console.log(item);
+                $("#distrito").append("<option value=\""+ item.region + "|" + item.id +"\">"+ item.fullname +"</option>");
+            });
+        }
+
+        if (tipo==2){
+            $("#ejecutivo").append("<option value='0'>--Seleccione un Ejecutivo--</option>");
+            $.each(data, function (i, item) {
+                console.log(item);
+                $("#ejecutivo").append("<option value=\"" + item.id +"\">"+ item.fullname +"</option>");
+            });
+        }
+
+        if (tipo==3){
+            $("#rubro").append("<option value='0'>--Seleccione Rubro--</option>");
+            $.each(data, function (i, item) {
+                console.log(item);
+                $("#rubro").append("<option value=\"" + item.id +"\">"+ item.fullname +"</option>");
+            });
+        }
+    }
+</script>
+
+<script>
+    var chartData = JSON.parse('[{"respuesta":"Disponible","cantidad":355,"porcentaje":82},{"respuesta":"No Disponible","cantidad":80,"porcentaje":18}]');
+    var charDiv = "chartdivSiNo";
+    creaGraficoColumnas(chartData,charDiv,true);
+
+    var chartData1 = JSON.parse('[{"respuesta":"Local Cerrado","cantidad":56,"porcentaje":70},{"respuesta":"Ya no es Agente","cantidad":18,"porcentaje":23},{"respuesta":"Pidio Retiro","cantidad":6,"porcentaje":8}]');
+    var charDiv1 = "charOptionsSiNo";
+
+    creaGraficoColumnas(chartData1,charDiv1,false);
+
+    var chartData2 = JSON.parse('[{"respuesta":"Op. Con Exito","cantidad":266,"porcentaje":75},{"respuesta":"Op. Sin Exito","cantidad":17,"porcentaje":5},{"respuesta":"No Aceptaron Trans.","cantidad":72,"porcentaje":20}]');
+    var charDiv2 = "chartdiv0";
+    creaGraficoColumnas(chartData2,charDiv2,true);
+
+    var chartData3 = JSON.parse('[{"respuesta":"No hab\u00eda sistema","cantidad":37,"porcentaje":42},{"respuesta":"L\u00ednea excedida","cantidad":9,"porcentaje":10},{"respuesta":"Operador no disponible","cantidad":28,"porcentaje":31},{"respuesta":"POS no operativo","cantidad":10,"porcentaje":11},{"respuesta":"Sin efectivo","cantidad":1,"porcentaje":1},{"respuesta":"Otro","cantidad":4,"porcentaje":4}]');
+    var charDiv3 = "chartdiv1";
+
+    creaGraficoColumnas(chartData3,charDiv3,false);
+
+    var chartData4 = JSON.parse('[{"tipo":"Disposici\u00f3n","Debajo de Estandar":202,"Estandar":26,"Superior":127},{"tipo":"Conocimiento","Debajo de Estandar":51,"Estandar":202,"Superior":102},{"tipo":"Amabilidad","Debajo de Estandar":55,"Estandar":256,"Superior":44}]');
+    //console.log("Char3" + chartData3);
+    creaGraficoColumnasPorcentajesDinamic(chartData4,"chartdiv2",true,true);
+</script>
+
+
+<script>
+    $(function () {
+
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+</script>
+<script>
+
+    $('.prueba').on( "click", function( event ) {
+        event.preventDefault();
+        console.log('hola');
+    });
+
+
+
+    //Activa cuadro de comparación de campaªna
+    $( "#change" ).on( "click", function( event ) {
+        event.preventDefault();
+        $('#alertaFiltro').show();
+        $('#change').hide();
+//            $("#alertaFiltro").toggleClass("show");
+
+    });
+
+    $('.close').click(function() {
+        $("#alertaFiltro").hide();
+        $('#change').show();
+    });
+
+</script>
+
+</body>
+</html>

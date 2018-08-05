@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/stylesheet.css"/>
+    <link rel="stylesheet" href="css/mapa-styles.css"/>
+</head>
+<body>
+<div class="contenedor">
+    <div class="wrapper">
+        <h4>Seleccione el auditor</h4>
+        <div class="controles">
+            <select class="form-control" id="auditor" onchange="ejecutaEvento(this)">
+
+            </select>
+        </div>
+        <!--<div class="controles">-->
+            <!--<select class="form-control" id="rutas" onchange="loadDepartamento(this)">-->
+            <!--</select>-->
+        <!--</div>-->
+        <div class="controles">
+            <select class="form-control" id="ubigeo" onchange="loadVisit(this)">
+            </select>
+        </div>
+
+        <div class="controles">
+            <select class="form-control" id="visit" onchange="abreMapa(this)">
+            </select>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script>
+    var dominio = "http://ttaudit.com";
+    //var dominio = "http://localhost/ttaudit.com/backend/ttaudit1/public";
+    var user ;
+    var user_id;
+    var company_id;
+    var visit_id;
+    var deparatamento ;
+    $.post( dominio + '/getAuditores', function(json){
+        //if (item.latitud != 0 && item.longitud != 0){
+        poblandoComboAuditor(json);
+    });
+
+    function poblandoComboAuditor(data) {
+        $("#auditor").append("<option value=0>--Seleccione auditor--</option>");
+        $.each(data, function (i, item) {
+           // console.log(item);
+            $("#auditor").append("<option value=\""+ item.id +"\">"+ item.Auditor +"</option>");
+        });
+    }
+
+    function ejecutaEvento(valor){
+        $('#rutas option').remove();
+        user = valor.options[valor.selectedIndex].text;
+        user_id = valor.value;
+
+        $.get(dominio + '/getCompanies',{ user_id : valor.value }, function(json){
+            loadDepartamento("0");
+        });
+    }
+
+    function loadVisit(valor){
+        $('#rutas option').remove();
+        $("#visit").append("<option value=-1>--Seleccione Visita--</option>");
+        $("#visit").append("<option value=0>Sin Visitas</option>");
+        deparatamento = valor.options[valor.selectedIndex].text;
+        //user = valor.options[valor.selectedIndex].text;
+        //user_id = valor.value;
+
+        $.post(dominio + '/admin_api/api_get_visit.php',{}, function(json){
+            $.each(json.visits, function (i, item) {
+                console.log(item);
+                $("#visit").append("<option value=\""+ item.id +"\">"+ item.fullname + " -  " + item.company   +"</option>");
+            });
+        });
+    }
+    function loadDepartamento(valor){
+
+
+        $('#ubigeo option').remove();
+        company_id = valor.value;
+        //console.log(company_id);
+        //$.get('http://ttaudit.com/getDepartmentCompanies',{ company_id : valor.value }, function(json){
+       $.get(dominio +'/getDepartmentCompanies',{ company_id : valor.value }, function(json){
+            //if (item.latitud != 0 && item.longitud != 0){
+            poblandoDepartamentos(json);
+        });
+        function poblandoDepartamentos(data) {
+            var total_puntos = 0;
+            $("#ubigeo").append("<option value=0>--Seleccione Departamento--</option>");
+            $.each(data, function (i, item) {
+                //console.log(item);
+                $("#ubigeo").append("<option value=\""+ item.ubigeo +"\">"+ item.ubigeo +"</option>");
+            });
+        }
+    }
+    function abreMapa(valor){
+
+        visit = valor.options[valor.selectedIndex].text;
+        visit_id = valor.value;;
+        if(valor.value >= 0){
+            //window.location.href = "http://www.ttaudit.com/geolocalizaciones/geolocalizacionUser.php?road_id=" + valor.value;
+            var fullname = valor.options[valor.selectedIndex].text;
+            var url= dominio + "/rutas-auditor/asignar-rutas_visit.php?"  + "&user=" + user + "&user_id=" + user_id  + "&visit_id="+ visit_id + "&visit="+ visit + "&departament=" + deparatamento ;
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+    }
+
+</script>
+</body>
+</html>

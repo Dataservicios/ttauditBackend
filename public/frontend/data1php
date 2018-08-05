@@ -1,0 +1,36 @@
+<?php
+
+	$data = array(
+					array(
+							"fecha" => "25-Jul",
+	 						"cantidad" => 4025.5
+						),
+					array(
+							"fecha" => "26-Jul",
+	 						"cantidad" => 345.35
+						),
+					array(
+							"fecha" => "27-Jul",
+	 						"cantidad" => 33
+						),
+					array(
+							"fecha" => "28-Jul",
+	 						"cantidad" => 234
+						),
+					array(
+							"fecha" => "2-Jul",
+	 						"cantidad" => 23
+						),
+					array(
+							"fecha" => "25-Jul",
+	 						"cantidad" => 789
+						),
+					array(
+							"fecha" => "30-Jul",
+	 						"cantidad" => 566
+						)
+				);
+
+		header('Content-Type: application/json');
+		echo json_encode($data);
+?>

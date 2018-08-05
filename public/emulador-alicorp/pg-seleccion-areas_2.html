@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/stylesheet.min.css"/>
+
+</head>
+<body>
+<div class="container-full-width">
+    <header>
+        <div class="logo-header">
+            <img src="img/logo.png" alt=""/>
+        </div>
+        <div class="zona-menu">
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" ><span class="icon-user activate"></span><span class="menu-text">USUARIO</span></a></li>
+                    <li><a href="#"><span class="icon-client"></span><span  class="menu-text">EMPRESA</span></a></li>
+                    <li><a href="#"><span class="icon-puntoventa"></span><span  class="menu-text">PUNTOS DE VENTA</span></a></li>
+                    <li><a href="colg-puntaje.html" class="active"><span class="icon-auditoria"></span><span  class="menu-text">AUDITORIAS</span></a></li>
+                    <li><a href="#"><span class="icon-reporte"></span><span class="menu-text">REPORTES</span></a></li>
+                </ul>
+            </nav>
+            <div class="zona-login">
+                <div class="zona-user">
+                    <a href=""><span class="icon-user"></span>Jaime</a>
+                    <li role="presentation" class="dropdown">
+                        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="salir"><a href=""><span class="icon-salir"></span>Salir</a></div>
+            </div>
+
+        </div>
+    </header>
+    <section>
+        <!-- MENU LEFT-->
+        <div class="zona-menu-left">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluidxxxxxx">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand" href="#">Brand</a>-->
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="pg-general.html"> <span class="icon-auditoria"></span>General</a></li>
+                            <li> <a href="pg-bodega.html"> <span class="icon-materiales"></span> Bodega</a>
+                                <!--<ul class="sub">-->
+                                    <!--<li><a href="pg-bodega-pp.html">Presencia de Producto</a></li>-->
+                                    <!--<li><a href="pg-bodega-pe.html">Presencia de Exhibidores Alicorp</a></li>-->
+                                    <!--<li><a href="pg-bodega-pv.html">Presencia de Ventanas (SOD)</a></li>-->
+                                    <!--<li><a href="pg-bodega-mp.html">Marcado de Precio</a></li>-->
+                                <!--</ul>-->
+                            </li>
+                            <li><a href="pg-supermercados.html"> <span class="icon-auditoria"></span> Supermercados</a>
+                                <!--<ul class="sub">-->
+                                    <!--<li><a href="pg-supermercados-sod.html">SOD</a></li>-->
+                                    <!--<li><a href="pg-supermercados-en.html">Exhibiciones Negociadas</a></li>-->
+                                    <!--<li><a href="pg-supermercados-ea.html">Exhibiciones Adicionales</a></li>-->
+                                    <!--<li><a href="pg-supermercados-mp.html">Marcado de Precio</a></li>-->
+                                    <!--<li><a href="pg-supermercados-co.html">Cartelería / Ofertas</a></li>-->
+                                <!--</ul>-->
+
+                            </li>
+
+                            <li><a href="pg-mayoristas.html"> <span class="icon-auditoria"></span> Mayoristas</a>
+                                <!--<ul class="sub">-->
+                                    <!--<li><a href="pg-mayoristas-pv.html">Presencia de Ventanas (SOD)</a></li>-->
+                                    <!--<li><a href="pg-mayoristas-pm.html">Presencia de mercaderistas</a></li>-->
+                                <!--</ul>-->
+
+                            </li>
+
+                            <li><a href="pg-canje.html">
+                                <span class="icon-auditoria"></span> Canje Mayoristas</a>
+
+
+                            </li>
+
+                            <li  class="active"><a href="pg-seleccion-areas.html"> <span class="icon-auditoria"></span>Demo Selección de áreas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <!-- END MENU LEFT-->
+
+        <!-- CUERPO -->
+        <div class="cuerpo">
+            <div class="cuerpo-content">
+                <!--sección titulo y buscador-->
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h4 class="report-title">Demo Selección de Áreas</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <img class="img-responsive" src="img/alicorp.png" alt="">
+                    </div>
+                </div>
+
+                <div class="row pt pb">
+
+
+                    <div class="col-sm-4">
+                        <button  class="btn btn-default" id="generate" type="button"> Recortar </button>
+                        <button  class="btn btn-default" id="calcular">Medir Porcentaje</button>
+                    </div>
+
+                    <div class="col-sm-4">
+
+                        <div class="label label-info">
+                            Pocentaje: <span  id="porcentaje"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4">
+
+
+                        <button  class="btn btn-default" id="guarda">Guardar Medición</button>
+                    </div>
+
+
+                </div>
+
+                <!-- ZONA DE CAMBAS DE LA IMAGEN-->
+                <div class="row pt pb">
+                    <div class=" ">
+                                <div id="canvasDiv">
+                                </div>
+                    </div>
+
+                </div>
+
+                <div class="row pt pb">
+
+                    <div  class="col-sm-12">
+
+                        <button style="position:relative;float: left  "  class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Descargar Imagen" type="button" onclick="descargarFoto('http://ttaudit.com/media/fotos/003668-Alicorp_foto_20160330_145645.jpg');">
+                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                        </button>
+
+
+                        <div style="position:relative;float: left ;margin-left: 40px ">
+                            <a class='btn btn-primary' href='javascript:;'>
+                               Seleccionar archivo
+                                <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                            </a>
+                            &nbsp;
+                            <span class='label label-info' id="upload-file-info"></span>
+                        </div>
+
+                        <button  class="btn btn-default"  data-toggle="tooltip" data-placement="bottom" title="Cargar Imagen"  id="" type="button">
+                        <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                        </button>
+
+
+
+                    </div>
+                </div>
+
+                <div class="row pt pb">
+
+
+                                <div id="new_canvas" class="clipParent" style="float:left; ">
+
+                                </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- END CUERPO-->
+    </section>
+    <footer>
+
+    </footer>
+</div>
+
+
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>-->
+<script type="text/javascript" src="js/scrollspy.js"></script>
+<script type="text/javascript" src="js/dropdown.js"></script>
+<script type="text/javascript" src="js/collapse.js"></script>
+<script type="text/javascript" src="js/tooltip.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+    var polyClip=
+            new function(){
+                function s(b,c){
+                    q[b]=new Image;
+                    var e=q[b];
+                    $(c).attr("data-polyclip-index",b);
+                    $(e).bind("load",function(){
+                                                    d.drawShape(b,c)
+
+                                                });
+                    e.src=c.src
+
+                }
+
+                var d=this,r,k=[],q=[];
+
+                d.isOldIE=window.G_vmlCanvasManager;
+                d.init=function(){
+                                    r=$("img[data-polyclip]");
+                                    r.each(s)
+
+                                 };
+
+                d.drawShape=function(b,c){
+                    var e=$(c),  a=document.createElement("canvas");
+
+                    a.width=c.offsetWidth;
+                    a.height=c.offsetHeight;
+                    a.id="polyClip"+b;
+
+                    var l=jQuery.trim(e.attr("data-polyclip")).split(","),j=c.src;
+                    k[a.id]=[];
+                    e.replaceWith(a);
+                    d.isOldIE&&G_vmlCanvasManager.initElement(a);
+
+                    for(var f=a.getContext("2d"),e=0;e<l.length;e+=2)
+                    {
+                        var h=parseInt(jQuery.trim(l[e])),i=parseInt(jQuery.trim(l[e+1]));
+                        k[a.id].push({x:h,y:i});
+                        e==0?f.moveTo(h,i):f.lineTo(h,i)
+                    }
+
+                    if(d.isOldIE) {
+                        f.fillStyle="",f.fill(),a=$("fill",a).get(0),a.color="",a.src=c.src,a.type="tile",a.alignShape=false;
+                    }else{
+                        var g=new Image;
+                        g.onload=function(){
+                            var a=f.createPattern(g,"repeat");
+                            f.fillStyle=a;
+                            f.fill();
+                            a:{
+                                for(var b=parseInt(jQuery.trim(l[0])),c=parseInt(jQuery.trim(l[1])),e=-1;e<=1;e++)
+                                    for(var d=0;d<=1;d++)
+                                        if(a=f.getImageData(b+e,c+d,1,1).data[3],a!=0){
+                                            a=true;break a
+                                        }
+                                    a=false
+                            }a||g.src.indexOf("?chromeError")<0&&(g.src+="?chromeError")
+                        };
+                        g.src=j
+                    }
+
+
+                };
+
+
+                d.findObject=function(b){
+                    var c=b.currentTarget;
+                    if($(c).hasClass("cropParent"))return $(c);
+                    for(var e in k)
+                        if(k.hasOwnProperty(e)&&(c=$("#"+e),d.isInPolygon(c,b.pageX,b.pageY,true)))
+                            return c
+                };
+
+                d.isInPolygon=function(b,c,e,a){
+                    var d=b.get(0),d=k[d.id],j=d.length,f,h,i,g,o,m,p=false,n={left:0,top:0};
+                    a&&(n=b.offset());
+                    if(j<3)return false;
+                    f=d[j-1].x+n.left;
+                    h=d[j-1].y+n.top;
+                    for(m=0;
+                        m<j;
+                        m++)b=d[m].x+n.left,a=d[m].y+n.top,b>f?(i=f,o=b,g=h,h=a):(i=b,o=f,g=a),b<c==c<=f&&(e-g)*(o-i)<(h-g)*(c-i)&&(p=!p),f=b,h=a;
+                    return p
+                }
+                //alert("There are "+getFilledPixelCount(a.getContext("2d"),a)+" filled pixels.");
+
+            };
+
+
+
+    document.write('<style type="text/css">img[data-polyclip], img.polyClip { visibility: hidden;}</style>');
+    polyClip.isOldIE?$(window).bind("load",polyClip.init):$(document).ready(polyClip.init);
+
+    var fillColor =  {r: 255,g: 255,b: 255};
+    var canvasDiv = document.getElementById('canvasDiv');
+
+    canvas = document.createElement('canvas');
+    canvas.setAttribute('width', 700);
+    canvas.setAttribute('height',525);
+    canvas.setAttribute('id', 'canvas');
+
+    $(canvasDiv).prepend(canvas);
+
+    if(typeof G_vmlCanvasManager != 'undefined') {
+        canvas = G_vmlCanvasManager.initElement(canvas);
+    }
+
+    var context = canvas.getContext('2d');
+    var imageObj = new Image();
+
+    imageObj.onload = function() {
+        $(canvas).attr({width : this.width, height: this.height});
+        context.drawImage(imageObj,0,0);
+    };
+
+    imageObj.src = 'img/foto1.jpg';
+  // imageObj.src = 'http://ttaudit.com/media/fotos/003668-Alicorp_foto_20160330_145645.jpg';
+
+    var clickX = new Array();
+    var clickY = new Array();
+    var clickDrag = new Array();
+    var paint;
+
+
+    function addClick(x, y, dragging)
+    {
+        clickX.push(x);
+        clickY.push(y);
+        clickDrag.push(dragging);
+    }
+
+    function redraw(){
+        canvas.width = canvas.width;
+        // Clears the canvas
+        context.drawImage(imageObj,0,0);
+        context.strokeStyle = "#ffffff";
+        context.lineJoin = "round";
+        context.lineWidth = 5;
+        for(var i=0;
+            i < clickX.length;
+            i++)
+        {
+            context.beginPath();
+            context.arc(clickX[i], clickY[i], 3, 0, 2 * Math.PI, false);
+            context.fillStyle = '#FFFFFF';
+            context.fill();
+            context.lineWidth = 5;
+            context.stroke();
+        }
+    }
+
+    $('#canvas').click(function(e){
+        var mouseX = e.pageX - this.offsetLeft;
+        var mouseY = e.pageY - this.offsetTop;
+        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+        redraw();
+    });
+
+
+
+    $('#generate').click(function(){
+        $(".clipParent").empty();
+        $(".clipParent").prepend('<img src="img/foto1.jpg" id="genimg" />');
+      // $(".clipParent").prepend('<img src="http://ttaudit.com/media/fotos/003668-Alicorp_foto_20160330_145645.jpg" id="genimg" />');
+        var arr = [];
+        for(var i=0;
+            i < clickX.length;
+            i++){
+            arr.push(clickX[i]);
+            arr.push(clickY[i]);
+        }
+        $("#genimg")[0].setAttribute("data-polyclip",arr.join(", "));
+        clickX=[];
+        clickY=[];
+        redraw();
+        polyClip.init();
+       // calculaArea();
+
+    });
+
+
+
+    function getFilledPixelCount(theContext,theCanvas){
+        // get the pixel data from the fill canvas
+        var imgData=theContext.getImageData(0,0,theCanvas.width,theCanvas.height);
+        console.log(imgData.data.length);
+        var count=0;
+        for (var i=0;
+             i<imgData.data.length;
+             i+=4){
+            r = imgData.data[i],
+                    g = imgData.data[i + 1],
+                    b = imgData.data[i + 2],
+                    a = imgData.data[i + 3];
+            if (r === fillColor.r && g === fillColor.g && b === fillColor.b) {
+                count++;
+            }
+        }
+        return(count);
+    }
+
+    $("#calcular").click(function(){
+        calculaArea();
+    });
+
+
+
+    function calculaArea() {
+        var canvas_1 = document.getElementById('polyClip0');
+        var alphaPixels = 0;
+        var ctx = canvas_1.getContext("2d");
+        var data = ctx.getImageData(0,0, ctx.canvas.width,ctx.canvas.height).data;
+        for(var i=3; i<data.length; i+=4) {
+            if(data[i] > 0) alphaPixels++;
+        }
+
+        var porcentaje = alphaPixels / (ctx.canvas.width * ctx.canvas.height)*100 ;
+       // alert(alphaPixels / (ctx.canvas.width * ctx.canvas.height)*100);
+
+        $('#porcentaje').html(porcentaje.toFixed(2));
+        //$('#porcentaje').html(porcentaje + " -- " + porcentaje.toFixed(2));
+
+    }
+
+</script>
+
+<script language="JavaScript">
+
+
+
+    function descargarFoto(archivo) {
+        document.location.href = archivo;
+    }
+
+
+
+    $('#guarda').click(function(e) {
+        e.preventDefault();
+        var company_id =1;
+        var nombre = "";
+        var store_id = 1;
+
+        var strPorcentaje=$('#porcentaje').text();
+        if(strPorcentaje=="") {
+
+            alert("Debe recortar una área y medir el espacio");
+            return;
+
+        } else {
+
+            console.log(data_store);
+//            $.post('http://ttaudit.com/saveRoute',  {  company_id : 3 , user_id : 1, store_id : store_id },
+//            function(data){
+//                if(data.success==1 ){
+//                    location.reload();
+//                }
+//            });
+        }
+
+
+    });
+
+
+
+
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('.dropdown-toggle').dropdown()
+    })
+</script>
+
+
+
+</body>
+</html>

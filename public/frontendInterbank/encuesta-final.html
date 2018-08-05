@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/stylesheet.min.css"/>
+
+
+</head>
+<body>
+    <div class="container-full-width">
+        <header>
+            <div class="logo-header">
+                <img src="img/logo.png" alt=""/>
+            </div>
+            <div class="zona-menu">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#" class="active"><span class="icon-user activate"></span><span class="menu-text">USUARIO</span></a></li>
+                        <li><a href="#"><span class="icon-client"></span><span  class="menu-text">EMPRESA</span></a></li>
+                        <li><a href="#"><span class="icon-puntoventa"></span><span  class="menu-text">PUNTOS DE VENTA</span></a></li>
+                        <li><a href="#"><span class="icon-auditoria"></span><span  class="menu-text">AUDITORIAS</span></a></li>
+                        <li><a href="#"><span class="icon-reporte"></span><span class="menu-text">REPORTES</span></a></li>
+                    </ul>
+                </nav>
+                <div class="zona-login">
+                    <div class="zona-user">
+                        <a href=""><span class="icon-user"></span>Jaime</a>
+                        <li role="presentation" class="dropdown">
+                            <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+
+                                <span class="caret"></span>
+                            </a>
+                            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                    <div class="salir"><a href=""><span class="icon-salir"></span>Salir</a></div>
+                </div>
+
+            </div>
+        </header>
+        <section>
+            <div class="zona-menu-left">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluidxxxxxx">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!--<a class="navbar-brand" href="#">Brand</a>-->
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="users.html"> <span class="icon-listausuario"></span> Usario <span class="sr-only">(current)</span></a></li>
+                                <li><a href="users-nuevo.html"> <span class="icon-nuevousuario"></span>  Nuevo Usuario</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+            <div class="cuerpo">
+                <div class="cuerpo-content">
+                        <div class="row pt pb">
+                            <div class="col-sm-12">
+                                <h4 class="report-title">Encuestas Mercado Ciudad de Dios  - Junio 2015</h4>
+                                <div class="row pt pb">
+                                   <div class="col-sm-12">
+
+
+                                       <!-- Inicia ventana Modal -->
+
+                                       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                           <div class="modal-dialog modal-sm">
+                                               <div class="modal-content">
+                                                   <div class="modal-header">
+                                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                       <h4 class="modal-title" id="myModalTitle">Modal title</h4>
+                                                   </div>
+                                                   <div class="modal-body" id="myModalBody">
+                                                       ...
+                                                   </div>
+                                                   <div class="modal-footer">
+                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                       <button type="button" id="btAceptar" class="btn btn-primary" >Aceptar</button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- fin ventana Modal -->
+
+
+
+                                       <!-- INICIO DE PANEL PARA CONTENIDOS-->
+                                       <form method="POST" action="http://ttaudit.com/auditor/insertResponsePoll" accept-charset="UTF-8" role="form" class="form-horizontal" id="pollResult" name="pollResult" validate="validate"><input name="_token" type="hidden" value="ea2BY9CqLqhTpY6HBCfSKB9gT0GQ5R6Ql03L0NhO">
+                                       <input name="company_id" type="hidden" value="6">
+                                       <input name="audit_id" type="hidden" value="12">
+                                       <div class="panel panel-default" id="panel30">
+                                           <div class="panel-heading"><h4>1 - Sexo Encuestado</h4></div>
+
+                                           <input name="sino-30" type="hidden" value="">
+
+                                           <div class="panel-body">
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="30-62" name="option-30" type="radio" value="62">
+                                                       Hombre
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="30-63" name="option-30" type="radio" value="63">
+                                                       Mujer
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel31">
+                                           <div class="panel-heading"><h4>2 - Edad</h4></div>
+
+                                           <input name="sino-31" type="hidden" value="">
+
+                                           <div class="panel-body">
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="31-64" name="option-31" type="radio" value="64">
+                                                       20-35
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="31-65" name="option-31" type="radio" value="65">
+                                                       36-45
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="31-66" name="option-31" type="radio" value="66">
+                                                       46-60
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel32">
+                                           <div class="panel-heading"><h4>3 - Distrito de procedencia</h4></div>
+
+                                           <input name="sino-32" type="hidden" value="">
+
+                                           <div class="panel-body">
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="32-67" name="option-32" type="radio" value="67">
+                                                       SJM
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="32-68" name="option-32" type="radio" value="68">
+                                                       VMT
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="32-69" name="option-32" type="radio" value="69">
+                                                       VES
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="32-70" name="option-32" type="radio" value="70">
+                                                       Surco
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="32-71" name="option-32" type="radio" value="71">
+                                                       Chorrillos
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="32-72" name="option-32" type="radio" value="72">
+                                                       Otros
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel33">
+                                           <div class="panel-heading"><h4>4 - Cuantas veces a la semana va al mercado</h4></div>
+
+                                           <input name="sino-33" type="hidden" value="">
+
+                                           <div class="panel-body">
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="33-73" name="option-33" type="radio" value="73">
+                                                       todos los días
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="33-74" name="option-33" type="radio" value="74">
+                                                       3 veces por semana
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="33-75" name="option-33" type="radio" value="75">
+                                                       1 vez a la semana
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="33-76" name="option-33" type="radio" value="76">
+                                                       menos de una vez a la semana
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel34">
+                                           <div class="panel-heading"><h4>5 - Que tipo de productos recuerda haber visto publicidades en el interior del mercado:</h4></div>
+
+                                           <input name="sino-34" type="hidden" value="">
+
+                                           <div class="panel-body">
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-77" name="option-34" type="checkbox" value="77">
+
+                                                       Pañales
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-78" name="option-34" type="checkbox" value="78">
+                                                       Papel Higiénico
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-79" name="option-34" type="checkbox" value="79">
+                                                       Champú
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-80" name="option-34" type="checkbox" value="80">
+                                                       Detergente
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-81" name="option-34" type="checkbox" value="81">
+                                                       Jabón de tocador
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-82" name="option-34" type="checkbox" value="82">
+                                                       Jabón de lavar
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-83" name="option-34" type="checkbox" value="83">
+                                                       Fideos
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-84" name="option-34" type="checkbox" value="84">
+                                                       Toallas higiénicas
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-85" name="option-34" type="checkbox" value="85">
+                                                       Crema dental
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-86" name="option-34" type="checkbox" value="86">
+                                                       Margarina
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-87" name="option-34" type="checkbox" value="87">
+                                                       Salsa de Tomate
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-88" name="option-34" type="checkbox" value="88">
+                                                       Desodorantes
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-89" name="option-34" type="checkbox" value="89">
+                                                       Suavizantes
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-90" name="option-34" type="checkbox" value="90">
+                                                       Papel de cocina
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-91" name="option-34" type="checkbox" value="91">
+                                                       Pañal para adultos
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-92" name="option-34" type="checkbox" value="92">
+                                                       Infusiones
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="34-93" name="option-34" type="checkbox" value="93">
+                                                       Afeitadoras
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel35">
+                                           <div class="panel-heading"><h4>6 - Ha visto las pantallas publicitarias en el mercado?</h4></div>
+
+                                           <div class="panel-body" >
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="35" name="sino-35" type="radio" value="0">
+                                                       No
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="35" name="sino-35" type="radio" value="1">
+                                                       Si
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                           <div class="panel-body">
+                                               <blockquote>                                                                                       <div class="radio">
+                                                   <label>
+                                                       <input id="35-94" name="option-35" type="radio" value="94">
+                                                       Muy agradable
+                                                   </label>
+                                               </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="35-95" name="option-35" type="radio" value="95">
+                                                           Agradable
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="35-96" name="option-35" type="radio" value="96">
+                                                           No le causa ninguna percepción
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="35-97" name="option-35" type="radio" value="97">
+                                                           Desagradable
+                                                       </label>
+                                                   </div>
+                                               </blockquote>                                        </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel36">
+                                           <div class="panel-heading"><h4>7 - Con respecto a las pantallas El ver la publicidad en las pantallas influyó en su decisión de compra??</h4></div>
+
+                                           <div class="panel-body" >
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="36" name="sino-36" type="radio" value="0">
+                                                       No
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="36" name="sino-36" type="radio" value="1">
+                                                       Si
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                           <div class="panel-body">
+                                               <blockquote>                                                                                       <div class="radio">
+                                                   <label>
+                                                       <input id="36-98" name="option-36" type="checkbox" value="98">
+                                                       Le recordó que debe comprarlo
+                                                   </label>
+                                               </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="36-99" name="option-36" type="checkbox" value="99">
+                                                           Le inspiró confianza seguridad
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="36-100" name="option-36" type="checkbox" value="100">
+                                                           Le permitió conocer las variedades novedades
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="36-101" name="option-36" type="checkbox" value="101">
+                                                           Vió que eran productos de uso frecuente
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="36-102" name="option-36" type="checkbox" value="102">
+                                                           Le dio imagen a la marca
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="36-103" name="option-36" type="checkbox" value="103">
+                                                           Despertó curiosidad en probarlo
+                                                       </label>
+                                                   </div>
+                                               </blockquote>                                        </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel37">
+                                           <div class="panel-heading"><h4>8 - Que tipo de productos recuerda haber visto publicidades en las pantallas en el interior del mercado:</h4></div>
+
+                                           <input name="sino-37" type="hidden" value="">
+
+                                           <div class="panel-body">
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-104" name="option-37" type="checkbox" value="104">
+                                                       Pañales
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-105" name="option-37" type="checkbox" value="105">
+                                                       Papel Higiénico
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-106" name="option-37" type="checkbox" value="106">
+                                                       Champú
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-107" name="option-37" type="checkbox" value="107">
+                                                       Detergente
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-108" name="option-37" type="checkbox" value="108">
+                                                       Jabón de tocador
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-109" name="option-37" type="checkbox" value="109">
+                                                       Jabón de lavar
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-110" name="option-37" type="checkbox" value="110">
+                                                       Fideos
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-111" name="option-37" type="checkbox" value="111">
+                                                       Toallas higiénicas
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-112" name="option-37" type="checkbox" value="112">
+                                                       Crema dental
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-113" name="option-37" type="checkbox" value="113">
+                                                       Margarina
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-114" name="option-37" type="checkbox" value="114">
+                                                       Salsa de Tomate
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-115" name="option-37" type="checkbox" value="115">
+                                                       Desodorantes
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-116" name="option-37" type="checkbox" value="116">
+                                                       Suavizantes
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-117" name="option-37" type="checkbox" value="117">
+                                                       Papel de cocina
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-118" name="option-37" type="checkbox" value="118">
+                                                       Pañal para adultos
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-119" name="option-37" type="checkbox" value="119">
+                                                       Infusiones
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="37-120" name="option-37" type="checkbox" value="120">
+                                                       Afeitadoras
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel38">
+                                           <div class="panel-heading"><h4>9 - Ha visto los siguientes materiales en el interior del mercado</h4></div>
+
+                                           <div class="panel-body" >
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="38" name="sino-38" type="radio" value="2">
+                                                       Afiches
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="38" name="sino-38" type="radio" value="3">
+                                                       Afiche plástico
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="38" name="sino-38" type="radio" value="4">
+                                                       Letreros
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                           <div class="panel-body">
+                                               <blockquote>                                                                                       <div class="radio">
+                                                   <label>
+                                                       <input id="38-121" name="option-38" type="radio" value="121">
+                                                       Muy agradable
+                                                   </label>
+                                               </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="38-122" name="option-38" type="radio" value="122">
+                                                           Agradable
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="38-123" name="option-38" type="radio" value="123">
+                                                           No le causa ninguna percepción
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="38-124" name="option-38" type="radio" value="124">
+                                                           Desagradable
+                                                       </label>
+                                                   </div>
+                                               </blockquote>                                        </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel39">
+                                           <div class="panel-heading"><h4>10 - El ver la publicidad en estos materiales influyó en su decisión de compra?</h4></div>
+
+                                           <div class="panel-body" >
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="39" name="sino-39" type="radio" value="0">
+                                                       No
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="39" name="sino-39" type="radio" value="1">
+                                                       Si
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                           <div class="panel-body">
+                                               <blockquote>                                                                                       <div class="radio">
+                                                   <label>
+                                                       <input id="39-125" name="option-39" type="checkbox" value="125">
+                                                       Le recordó que debe comprarlo
+                                                   </label>
+                                               </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="39-126" name="option-39" type="checkbox" value="126">
+                                                           Le inspiró confianza seguridad
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="39-127" name="option-39" type="checkbox" value="127">
+                                                           Le permitió conocer las variedades novedades
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="39-128" name="option-39" type="checkbox" value="128">
+                                                           Vió que eran productos de uso frecuente
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="39-129" name="option-39" type="checkbox" value="129">
+                                                           Le dio imagen a la marca
+                                                       </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                       <label>
+                                                           <input id="39-130" name="option-39" type="checkbox" value="130">
+                                                           Despertó curiosidad en probarlo
+                                                       </label>
+                                                   </div>
+                                               </blockquote>                                        </div>
+
+                                       </div>
+                                       <div class="panel panel-default" id="panel40">
+                                           <div class="panel-heading"><h4>11 - Que tipo de productos recuerda haber visto publicidades (leteros, afiches, afiches plásticos) en el interior del mercado:</h4></div>
+
+                                           <input name="sino-40" type="hidden" value="">
+
+                                           <div class="panel-body">
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-131" name="option-40" type="checkbox" value="131">
+                                                       Pañales
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-132" name="option-40" type="checkbox" value="132">
+                                                       Papel Higiénico
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-133" name="option-40" type="checkbox" value="133">
+                                                       Champú
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-134" name="option-40" type="checkbox" value="134">
+                                                       Detergente
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-135" name="option-40" type="checkbox" value="135">
+                                                       Jabón de tocador
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-136" name="option-40" type="checkbox" value="136">
+                                                       Jabón de lavar
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-137" name="option-40" type="checkbox" value="137">
+                                                       Fideos
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-138" name="option-40" type="checkbox" value="138">
+                                                       Toallas higiénicas
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-139" name="option-40" type="checkbox" value="139">
+                                                       Crema dental
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-140" name="option-40" type="checkbox" value="140">
+                                                       Margarina
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-141" name="option-40" type="checkbox" value="141">
+                                                       Salsa de Tomate
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-142" name="option-40" type="checkbox" value="142">
+                                                       Desodorantes
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-143" name="option-40" type="checkbox" value="143">
+                                                       Suavizantes
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-144" name="option-40" type="checkbox" value="144">
+                                                       Papel de cocina
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-145" name="option-40" type="checkbox" value="145">
+                                                       Pañal para adultos
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-146" name="option-40" type="checkbox" value="146">
+                                                       Infusiones
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
+                                                   <label>
+                                                       <input id="40-147" name="option-40" type="checkbox" value="147">
+                                                       Afeitadoras
+                                                   </label>
+                                               </div>
+                                           </div>
+
+                                       </div>
+                                       </form>
+                                       <!-- FIN DE PANEL PARA CONTENIDOS-->
+
+
+                                       <a href='#' class="btn btn-default" onClick="javascript:showMyModalSetTitle('Guardar Encuesta', 'Está seguro que decea guarda la encuesta')">GUARDAR ENCUESTA</a>
+                                   </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                </div>
+
+            </div>
+        </section>
+        <footer>
+
+        </footer>
+    </div>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="js/scrollspy.js"></script>
+    <script type="text/javascript" src="js/dropdown.js"></script>
+    <script type="text/javascript" src="js/collapse.js"></script>
+    <script type="text/javascript" src="js/tooltip.js"></script>
+    <script type="text/javascript" src="js/modal.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+
+
+
+    <script>
+
+        function showMyModalSetTitle(myTitle, myBodyHtml, id) {
+           ;
+            $('#myModalTitle').html(myTitle);
+            $('#myModalBody').html(myBodyHtml);
+            $('#myModal').modal('show');
+
+        }
+
+        $('#btAceptar').on("click", function () {
+            //console.log($(this).text());
+
+
+            $('#myModal').modal('toggle');
+
+
+        });
+
+
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $('.dropdown-toggle').dropdown()
+        })
+
+
+       // Habilitando y deshabilitando radio buttons
+        // Añadiendo efecto show y Hiden a los paneles
+
+        $("input[name=option-35]:radio").attr("disabled",true);
+        $("input[name=sino-35]:radio").click(function() {
+            if($(this).attr("value")=="1") {
+               // $(".inputclassname").show();
+
+                console.log("Si");
+
+                $("input[name=option-35]:radio").attr("disabled",false);
+                $( "#panel36" ).show( "slow" );
+                $( "#panel37" ).show( "slow" );
+
+            }
+            if($(this).attr("value")=="0") {
+               // $(".inputclassname").hide();
+                console.log("No");
+                $("input[name=option-35]:radio").attr("disabled",true);
+                $( "#panel36" ).hide( "slow" );
+                $( "#panel37" ).hide( "slow" );
+
+            }
+        });
+
+        $("input[name=option-36]:checkbox").attr("disabled",true);
+        $("input[name=sino-36]:radio").click(function() {
+            if($(this).attr("value")=="1") {
+                // $(".inputclassname").show();
+
+                console.log("Si");
+
+                $("input[name=option-36]:checkbox").attr("disabled",false);
+                $("input[name=option-36]:checkbox").attr("checked",true);
+
+
+            }
+            if($(this).attr("value")=="0") {
+                // $(".inputclassname").hide();
+                console.log("No");
+                $("input[name=option-36]:checkbox").attr("disabled",true);
+                $("input[name=option-36]:checkbox").attr("checked",true);
+
+
+            }
+        });
+
+
+        $("input[name=option-39]:checkbox").attr("disabled",true);
+        $("input[name=sino-39]:radio").click(function() {
+            if($(this).attr("value")=="1") {
+                // $(".inputclassname").show();
+
+                console.log("Si");
+
+                $("input[name=option-39]:checkbox").attr("disabled",false);
+                $("input[name=option-39]:checkbox").attr("checked",false);
+
+
+            }
+            if($(this).attr("value")=="0") {
+                // $(".inputclassname").hide();
+                console.log("No");
+                $("input[name=option-39]:checkbox").attr("disabled",true);
+                $("input[name=option-39]:checkbox").attr("checked",false);
+
+
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>

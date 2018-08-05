@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/stylesheet.min.css"/>
+
+
+</head>
+<body>
+<div class="container-full-width">
+    <header>
+        <div class="logo-header">
+            <img src="img/logo.png" alt=""/>
+        </div>
+        <div class="zona-menu">
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" class="active"><span class="icon-user activate"></span><span class="menu-text">USUARIO</span></a></li>
+                    <li><a href="#"><span class="icon-client"></span><span  class="menu-text">EMPRESA</span></a></li>
+                    <li><a href="#"><span class="icon-puntoventa"></span><span  class="menu-text">PUNTOS DE VENTA</span></a></li>
+                    <li><a href="#"><span class="icon-auditoria"></span><span  class="menu-text">AUDITORIAS</span></a></li>
+                    <li><a href="#"><span class="icon-reporte"></span><span class="menu-text">REPORTES</span></a></li>
+                </ul>
+            </nav>
+            <div class="zona-login">
+                <div class="zona-user">
+                    <a href=""><span class="icon-user"></span>Jaime</a>
+                    <li role="presentation" class="dropdown">
+                        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="salir"><a href=""><span class="icon-salir"></span>Salir</a></div>
+            </div>
+
+        </div>
+    </header>
+    <section>
+        <div class="zona-menu-left">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluidxxxxxx">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand" href="#">Brand</a>-->
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="ibk-notification-list.html">
+                                <span class="icon-listausuario"></span> Listado de Alertas <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class=""><a href="ibk-notification-list.html">
+                                <span class="icon-listausuario"></span> Descargar Excel <span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <!--<li><a href="users-nuevo.html"> <span class="icon-nuevousuario"></span>  Nuevo Usuario</a></li>-->
+                        </ul>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="cuerpo">
+            <div class="cuerpo-content">
+                <div class="row pt pb">
+                    <div class="col-sm-12">
+                        <h4 class="report-title">Notificaciones de Alerta IBK</h4>
+                        <div class="row pt pb">
+                            <div class="col-sm-12">
+                                <!-- Inicia ventana Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                                                <h4 class="modal-title" id="myModalTitle">Modal title</h4>
+                                            </div>
+                                            <div class="modal-body" id="myModalBody">
+                                                ...
+                                            </div>
+                                            <!--<div class="modal-footer">-->
+                                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>-->
+                                                <!--<button type="button" id="btAceptar" class="btn btn-primary" >Aceptar</button>-->
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- fin ventana Modal -->
+
+
+
+                                <!-- INICIO DE PANEL PARA CONTENIDOS-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <h4>1. Local Cerrado <span class="label label-danger">(ID:57877)</span></h4>
+                                            </div>
+                                            <div class="col-lg-6 ">
+                                                <div class="text-right"><b>03/04/2017</b></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <b>DIR: 458</b> <br>
+                                                <b>NOMBRE: </b> Tienda Prueba <br>
+                                                <b>DIRECCION:</b>  Psj. 14  # 115 Coop Nuestra sra. del carmen <br>
+                                                <b>DISTRITO: </b> Comas <br>
+                                                <b>DEPARTAMENTO:</b> Lima <br>
+                                                <b>AUDITOR ID: 57787</b> <br>
+                                                <b>AUDITOR: </b> JOSE CARLOS RAMIREZ  <br>
+                                                <b>MOTIVO: </b> Ya no es agente  <br>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <img src="http://ttaudit.com/media/fotos/042543_69_IBK_20170317_092113.jpg" width="100">
+                                            </div>
+                                        </div>
+
+                                        <div class="row pt">
+                                            <div class="col-lg-12">
+                                                <h>Respuesta</h>
+                                                <ul class="list-group" id="reponse">
+                                                    <!--<li class="list-group-item list-group-item-success">-->
+                                                        <!--<div><span class="label label-danger "> <span class="glyphicon glyphicon-user"></span> Jose Castro</span> <b>04/04/2017</b> </div>-->
+                                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet at cupiditate debitis deserunt dolores expedita laudantium nesciunt pariatur, quam soluta ullam veniam! At ea ipsum itaque sequi vero voluptatum!-->
+                                                    <!--</li>-->
+                                                    <!--<li class="list-group-item list-group-item-success">-->
+                                                        <!--<div><span class="label label-danger "> <span class="glyphicon glyphicon-user"></span> Jose Castro</span> <b>04/04/2017</b> </div>-->
+                                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet at cupiditate debitis deserunt dolores expedita laudantium nesciunt pariatur, quam soluta ullam veniam! At ea ipsum itaque sequi vero voluptatum!-->
+                                                    <!--</li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="row pt">
+                                            <div class="col-lg-12">
+                                                <h>Responder</h>
+                                                <textarea class="form-control" rows="3" id="txt-message" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row pt">
+                                            <div class="col-lg-12">
+                                                <a href='#' class="btn btn-default" id="bt-response">RESPONDER</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FIN DE PANEL PARA CONTENIDOS-->
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+</div>
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="js/scrollspy.js"></script>
+<script type="text/javascript" src="js/dropdown.js"></script>
+<script type="text/javascript" src="js/collapse.js"></script>
+<script type="text/javascript" src="js/tooltip.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+
+
+
+<script>
+
+    function showMyModalSetTitle(myTitle, myBodyHtml, id) {
+        ;
+        $('#myModalTitle').html(myTitle);
+        $('#myModalBody').html(myBodyHtml);
+        $('#myModal').modal({
+            backdrop: 'static',
+            keyboard: false,
+            show: true
+        });
+
+    }
+
+    $('#btAceptar').on("click", function () {
+        //console.log($(this).text());
+        $('#myModal').modal('toggle');
+    });
+
+    $('#bt-response').on("click", function (e) {
+
+        e.preventDefault(e);
+        showMyModalSetTitle("Notificación","Espere por favor, cargando contenido....");
+        message = $('#txt-message').val();
+        $('#txt-message').val("");
+
+        var f = new Date();
+        fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+
+        createElement("Jaime Eduardo",fecha, message)
+
+
+        //console.log($(this).text());
+
+    });
+
+    function createElement(user,date_creation,message){
+
+        var string = "<li class='list-group-item list-group-item-success'> " +
+            "<div><span class='label label-danger '> <span class='glyphicon glyphicon-user'></span> " + user +
+            "</span> " + " <b> " + date_creation + "</b> " + " </div> " + message + " </li> ";
+
+        setTimeout(function () {
+            $( "#reponse" ).append( $( string ) );
+            $('#myModal').modal('toggle');
+        }, 3000);
+
+    }
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('.dropdown-toggle').dropdown()
+    })
+
+
+    // Habilitando y deshabilitando radio buttons
+    // Añadiendo efecto show y Hiden a los paneles
+    $("input[name=optionsRadios5]:radio").click(function() {
+        if($(this).attr("value")=="si") {
+            // $(".inputclassname").show();
+
+            console.log("Si");
+
+            $("input[name=optionsRadios6]:radio").attr("disabled",false);
+            $( "#panel7" ).show( "slow" );
+            $( "#panel8" ).show( "slow" );
+
+        }
+        if($(this).attr("value")=="no") {
+            // $(".inputclassname").hide();
+            console.log("No");
+            $("input[name=optionsRadios6]:radio").attr("disabled",true);
+            $( "#panel7" ).hide( "slow" );
+            $( "#panel8" ).hide( "slow" );
+
+        }
+    });
+
+
+
+</script>
+</body>
+</html>
