@@ -398,12 +398,13 @@ class AuditsController extends BaseController{
         $store_id= $valoresPost['store_id'];
         $product_id = $valoresPost['product_id'];
         $publicity_id = $valoresPost['publicity_id'];
-        if ($this->PollOptionDetailRepo->deleteOptions($store_id,$company_id,$product_id,$publicity_id))
-        { //deleteOptions($store_id,$company_id,$product_id,$publicity_id,$poll_id)
-            return Response::json([ 'success'=> 1]);
-        }else{
-            return Response::json([ 'success'=> 0]);
+        $poll_id = $valoresPost['poll_id'];
+        $poll_option_ids = $this->PollOptionRepo->getOptions($poll_id);
+        foreach ($poll_option_ids as $poll_option_id) {
+            $this->PollOptionDetailRepo->deleteOptions($store_id,$company_id,$product_id,$publicity_id,$poll_option_id->id);
         }
+        return Response::json([ 'success'=> 1]);
+
 
     }
 

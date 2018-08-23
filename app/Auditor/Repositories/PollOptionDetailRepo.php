@@ -1499,9 +1499,14 @@ GROUP BY
         return $detailResult;
     }
 
-    public function deleteOptions($store_id,$company_id,$product_id,$publicity_id)
+    public function deleteOptions($store_id,$company_id,$product_id,$publicity_id,$poll_option_id="0")
     {
-        $affectedRows = PollOptionDetail::where('store_id', $store_id)->where('company_id', $company_id)->where('product_id', $product_id)->where('publicity_id', $publicity_id)->delete();
+        if ($poll_option_id=="0"){
+            $affectedRows = PollOptionDetail::where('store_id', $store_id)->where('company_id', $company_id)->where('product_id', $product_id)->where('publicity_id', $publicity_id)->delete();
+        }else{
+            $affectedRows = PollOptionDetail::where('store_id', $store_id)->where('company_id', $company_id)->where('product_id', $product_id)->where('publicity_id', $publicity_id)->where('poll_option_id',$poll_option_id)->delete();
+        }
+
         if ($affectedRows>0){
             return true;
         }else{

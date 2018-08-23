@@ -534,7 +534,7 @@
                                                                                             @endforeach
                                                                                         @endif
                                                                                     @endif
-                                                                                    <span id="valoptions{{$poll_detail['poll_detail']->id}}">{{$valOptionsSaves}}</span>
+                                                                                    {{--<span id="valoptions{{$poll_detail['poll_detail']->id}}">{{$valOptionsSaves}}</span>--}}
 
                                                                                 <!-- Progress bar-->
                                                                                     <div class="progress">
@@ -1041,7 +1041,7 @@
                     if (optionStrings != optionSaves)
                     {
                         $('#progress-bar'+poll_details_id).css('width', '30%').attr('aria-valuenow', "0");
-                        var jqxhrDelete = $.post("{{route('deleteAllOptions')}}", { company_id : company_id, store_id : store_id , product_id :  product_id, publicity_id : 0  },  function(data) {
+                        var jqxhrDelete = $.post("{{route('deleteAllOptions')}}", { company_id : company_id, store_id : store_id , product_id :  product_id, publicity_id : 0, poll_id: poll_id  },  function(data) {
                             console.log ("success => " + data);
                         })
                                 .done(function() {

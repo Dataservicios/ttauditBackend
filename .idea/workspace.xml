@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="470c9b69-5898-45cf-aae6-acbf48105379" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/appBT.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/CompanyRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/CompanyRepo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/StoreRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/StoreRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/AuditsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuditsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelAlicorpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelAlicorpController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/MediasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MediasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/OperationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/OperationsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ReportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/temp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/temp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/temp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/temp26.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/temp26.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/jaime.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/jaime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/transferencistas.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/transferencistas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/audits/audit63.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/audit63.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/audits/excelsCompany.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/excelsCompany.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/report/bayer/prospeccionExcels.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/report/bayer/prospeccionExcels.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pruebas/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/pruebas/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/includes/configure.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/includes/configure.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,16 +21,16 @@
     <session id="463827063">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.13" value="3" />
+          <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="2" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -62,14 +39,14 @@
           <entry key="f3b64c34d4ecac76524d2363e2972214" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="3" />
-          <entry key="php" value="40" />
+          <entry key="php" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Blade" value="11" />
           <entry key="HTML" value="3" />
-          <entry key="PHP" value="29" />
+          <entry key="PHP" value="31" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -77,15 +54,15 @@
         <counts>
           <entry key="html" value="1" />
           <entry key="js" value="4" />
-          <entry key="php" value="3012" />
+          <entry key="php" value="3235" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="1515" />
+          <entry key="Blade" value="1547" />
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="1497" />
+          <entry key="PHP" value="1688" />
         </counts>
       </usages-collector>
     </session>
@@ -94,14 +71,14 @@
     <favorites_list name="ttaudit" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5012854">
+    <splitter split-orientation="horizontal" split-proportion="0.50192803">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/routes.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="224">
-                  <caret line="321" column="140" selection-start-line="321" selection-start-column="120" selection-end-line="321" selection-end-column="140" />
+                <state relative-caret-position="207">
+                  <caret line="157" selection-start-line="157" selection-end-line="157" />
                 </state>
               </provider>
             </entry>
@@ -109,8 +86,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/controllers/AuditsController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="122">
-                  <caret line="361" column="42" lean-forward="true" selection-start-line="361" selection-start-column="42" selection-end-line="361" selection-end-column="42" />
+                <state relative-caret-position="360">
+                  <caret line="401" column="71" selection-start-line="401" selection-start-column="71" selection-end-line="401" selection-end-column="71" />
                   <folding>
                     <element signature="e#96#134#0#PHP" expanded="true" />
                     <element signature="n#excelCompanies#0;n#AuditsController#0;n#!!top" />
@@ -124,9 +101,18 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionRepo.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/controllers/MediasController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="445">
+                <state relative-caret-position="7140">
                   <caret line="446" column="14" selection-start-line="446" selection-start-column="14" selection-end-line="446" selection-end-column="14" />
                 </state>
               </provider>
@@ -135,8 +121,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="207">
-                  <caret line="517" column="128" selection-start-line="517" selection-start-column="128" selection-end-line="517" selection-end-column="128" />
+                <state relative-caret-position="547">
+                  <caret line="555" column="273" selection-start-line="555" selection-start-column="273" selection-end-line="555" selection-end-column="273" />
                   <folding>
                     <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -151,7 +137,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/controllers/BaseController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="115">
+                <state relative-caret-position="7174">
                   <caret line="425" column="57" selection-start-line="425" selection-start-column="57" selection-end-line="425" selection-end-column="57" />
                 </state>
               </provider>
@@ -160,17 +146,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="224">
+                <state relative-caret-position="1700">
                   <caret line="100" column="37" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="37" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="211">
-                  <caret line="1501" column="20" selection-start-line="1501" selection-start-column="20" selection-end-line="1501" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -179,11 +156,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="141">
-                  <caret line="1023" column="59" selection-start-line="1023" selection-start-column="37" selection-end-line="1023" selection-end-column="59" />
+                <state relative-caret-position="434">
+                  <caret line="1043" column="75" selection-start-line="1043" selection-start-column="59" selection-end-line="1043" selection-end-column="75" />
                   <folding>
                     <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -195,13 +172,21 @@
               </provider>
             </entry>
           </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="351">
+                  <caret line="1506" column="220" selection-start-line="1506" selection-start-column="220" selection-end-line="1506" selection-end-column="220" />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-second>
     </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>modalDowload</find>
       <find>ajaxGetProductsCompetition</find>
       <find>getProductsForCompetition</find>
       <find>saveOrder</find>
@@ -223,7 +208,6 @@
       <find>Comentario</find>
       <find>detailPhoto</find>
       <find>coment</find>
-      <find>deleteAllOptions</find>
       <find>[]</find>
       <find>update</find>
       <find>optionSaves</find>
@@ -231,6 +215,8 @@
       <find>$valOptions</find>
       <find>updatePollDetailsAll</find>
       <find>updateRegPollDetailAll</find>
+      <find>PollOptionRepo</find>
+      <find>deleteAllOptions</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -285,17 +271,17 @@
         <option value="$PROJECT_DIR$/public/js/appBT.js" />
         <option value="$PROJECT_DIR$/app/routes/transferencistas.php" />
         <option value="$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" />
         <option value="$PROJECT_DIR$/app/views/audits/audit63.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/temp.html" />
         <option value="$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/BaseController.php" />
         <option value="$PROJECT_DIR$/app/views/pruebas/excelDownloadPrueba.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php" />
         <option value="$PROJECT_DIR$/app/controllers/MediasController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/AuditsController.php" />
+        <option value="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" />
         <option value="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/controllers/AuditsController.php" />
       </list>
     </option>
   </component>
@@ -369,6 +355,64 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Auditor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Auditor" type="462c0819:PsiDirectoryNode" />
+              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -423,64 +467,6 @@
               <item name="public" type="cbb8eebc:String" user="public" />
               <item name="reportes_excel" type="cbb8eebc:String" user="reportes_excel" />
               <item name="includes" type="cbb8eebc:String" user="includes" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Auditor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Auditor" type="462c0819:PsiDirectoryNode" />
-              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -687,17 +673,19 @@
       <workItem from="1534805250540" duration="1521000" />
       <workItem from="1534880838876" duration="12301000" />
       <workItem from="1534910324687" duration="17331000" />
-      <workItem from="1535036793602" duration="14368000" />
+      <workItem from="1535036793602" duration="15100000" />
+      <workItem from="1535056929891" duration="3451000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="936827000" />
+    <option name="totallyTimeSpent" value="941010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1616" height="886" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5199468" visible="true" weight="0.18573265" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5199468" weight="0.18830334" />
       <window_info id="Structure" order="1" sideWeight="0.4800532" side_tool="true" weight="0.17159383" />
       <window_info id="Favorites" order="2" sideWeight="0.44" side_tool="true" weight="0.20244215" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -710,8 +698,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32912722" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32978722" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.27659574" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.33111703" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -743,6 +731,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -758,9 +772,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/audits/partials/menuLeftAudit.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/audits/auditExhiCampaign3.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1041,38 +1052,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/MediasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="100" column="37" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="37" />
+        <state relative-caret-position="7140">
+          <caret line="446" column="14" selection-start-line="446" selection-start-column="14" selection-end-line="446" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/BaseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
+        <state relative-caret-position="7174">
           <caret line="425" column="57" selection-start-line="425" selection-start-column="57" selection-end-line="425" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/MediasController.php">
+    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="446" column="14" selection-start-line="446" selection-start-column="14" selection-end-line="446" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="1501" column="20" selection-start-line="1501" selection-start-column="20" selection-end-line="1501" selection-end-column="20" />
+        <state relative-caret-position="1700">
+          <caret line="100" column="37" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="517" column="128" selection-start-line="517" selection-start-column="128" selection-end-line="517" selection-end-column="128" />
+        <state relative-caret-position="547">
+          <caret line="555" column="273" selection-start-line="555" selection-start-column="273" selection-end-line="555" selection-end-column="273" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -1083,20 +1090,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="321" column="140" selection-start-line="321" selection-start-column="120" selection-end-line="321" selection-end-column="140" />
+        <state relative-caret-position="351">
+          <caret line="1506" column="220" selection-start-line="1506" selection-start-column="220" selection-end-line="1506" selection-end-column="220" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AuditsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="361" column="42" lean-forward="true" selection-start-line="361" selection-start-column="42" selection-end-line="361" selection-end-column="42" />
+        <state relative-caret-position="360">
+          <caret line="401" column="71" selection-start-line="401" selection-start-column="71" selection-end-line="401" selection-end-column="71" />
           <folding>
             <element signature="e#96#134#0#PHP" expanded="true" />
             <element signature="n#excelCompanies#0;n#AuditsController#0;n#!!top" />
