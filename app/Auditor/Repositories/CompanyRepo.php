@@ -53,19 +53,27 @@ class CompanyRepo extends BaseRepo{
         //dd(\DB::select($sql));
     }
 
-    public function getCompaniesForClient($client_id,$visible="1",$estudio="")
+    public function getCompaniesForClient($client_id,$visible="1",$estudio="",$active="1")
     {
         if ($estudio<>""){
             if ($visible=="T"){
                 $consulta = Company::where('customer_id', $client_id)->where('study_id',$estudio)->get();
             }else{
-                $consulta = Company::where('customer_id', $client_id)->where('active',1)->where('visible',$visible)->where('study_id',$estudio)->orderBy('id','ASC')->get();
+                if ($active=="T"){
+                    $consulta = Company::where('customer_id', $client_id)->where('visible',$visible)->where('study_id',$estudio)->orderBy('id','ASC')->get();
+                }else{
+                    $consulta = Company::where('customer_id', $client_id)->where('active',$active)->where('visible',$visible)->where('study_id',$estudio)->orderBy('id','ASC')->get();
+                }
             }
         }else{
             if ($visible=="T"){
                 $consulta = Company::where('customer_id', $client_id)->get();
             }else{
-                $consulta = Company::where('customer_id', $client_id)->where('active',1)->where('visible',$visible)->get();
+                if ($active=="T"){
+                    $consulta = Company::where('customer_id', $client_id)->where('visible',$visible)->get();
+                }else{
+                    $consulta = Company::where('customer_id', $client_id)->where('active',$active)->where('visible',$visible)->get();
+                }
             }
         }
 

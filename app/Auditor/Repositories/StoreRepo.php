@@ -343,5 +343,9 @@ ORDER BY `a`.`created_at` DESC";
         return $store;
     }
 
-
+    public function searchStoresVisits($company_id,$search,$limit)
+    {
+        $sqlcoord="CALL sp_search_store_visit(".$company_id.",".$search.",".$limit.")";
+        return  \DB::select($sqlcoord);
+    }
 } 

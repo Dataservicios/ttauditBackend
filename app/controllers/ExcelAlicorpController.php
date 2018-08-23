@@ -2323,13 +2323,13 @@ class ExcelAlicorpController extends BaseController {
     {
 
 
-
+        header('Access-Control-Allow-Origin: *');
         Excel::create('AlicorpRegular', function($excel) use ($company_id, $category_id,$desde,$hasta,$pag) {
             $excel->setTitle('Reporte Alicorp Regular');
             if($category_id == 53){
                 if($pag == 1){
                     $excel->sheet('Categoría 53 - pag1', function($sheet) use ($category_id, $company_id,$desde,$hasta,$pag) {
-                        $sqlcoord="CALL sp_alicorp_regular_v3(".$company_id.",".$category_id.",".$desde.",".$hasta.",".$pag.");";
+                        $sqlcoord="CALL sp_alicorp_regular_v3(".$company_id.",".$category_id.",".$desde.",".$hasta.",".$pag.",". Auth::user()->id .")";
                         $stores = DB::select($sqlcoord);
                         $data = array();
                         $data = array();
@@ -2510,12 +2510,7 @@ class ExcelAlicorpController extends BaseController {
                             "20%",
                             "50%",
                             "100%",
-
-
-
                         );
-
-
 
                         $sheet->prependRow(4, $headings);
                         $sheet->getCell('A1')->setValue(count($data));
@@ -2566,13 +2561,6 @@ class ExcelAlicorpController extends BaseController {
                             "dx",
                             "el",
                             "ez",
-//                            "DZ",
-//                            "EJ",
-//                            "ET",
-//                            "FD",
-//                            "FN",
-//                            "FX",
-//                            "GH"
                         );
 
                         for ($i = 1; $i <= count($data); $i++) {
@@ -2682,79 +2670,10 @@ class ExcelAlicorpController extends BaseController {
                             $cell->setBorder('solid', 'none', 'none', 'solid');
                         });
 
-//                        $sheet->mergeCells('DQ3:DZ3');
-//                        $sheet->cell('DQ3', function($cell) {
-//                            $cell->setValue('Exhibidor Margarinas (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('EA3:EJ3');
-//                        $sheet->cell('EA3', function($cell) {
-//                            $cell->setValue('Ganchera Salsas (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('EK3:ET3');
-//                        $sheet->cell('EK3', function($cell) {
-//                            $cell->setValue('Ganchera Suavizantes y Quitamanchas (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('EU3:FD3');
-//                        $sheet->cell('EU3', function($cell) {
-//                            $cell->setValue('Mandil Don Vittorio (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('FE3:FN3');
-//                        $sheet->cell('FE3', function($cell) {
-//                            $cell->setValue('Mandil Detergente Bolivar (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('FO3:FX3');
-//                        $sheet->cell('FO3', function($cell) {
-//                            $cell->setValue('Paleta de precios Aceites Primor (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('FY3:GH3');
-//                        $sheet->cell('FY3', function($cell) {
-//                            $cell->setValue('Paleta de precios Detergente Bolivar (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
                     });
                 } else if($pag == 2) {
                     $excel->sheet('Categoría 53 - pag2', function($sheet) use ($category_id, $company_id,$desde,$hasta,$pag) {
-                        $sqlcoord="CALL sp_alicorp_regular_v3(".$company_id.",".$category_id.",".$desde.",".$hasta.",".$pag.");";
+                        $sqlcoord="CALL sp_alicorp_regular_v3(".$company_id.",".$category_id.",".$desde.",".$hasta.",".$pag.",". Auth::user()->id .")";
                         $stores = DB::select($sqlcoord);
                         $data = array();
                         $data = array();
@@ -2938,16 +2857,6 @@ class ExcelAlicorpController extends BaseController {
                             "ch",
                             "cv",
                             "dj",
-//                            "dx",
-//                            "el",
-//                            "ez",
-//                            "DZ",
-//                            "EJ",
-//                            "ET",
-//                            "FD",
-//                            "FN",
-//                            "FX",
-//                            "GH"
                         );
 
                         for ($i = 1; $i <= count($data); $i++) {
@@ -3026,114 +2935,13 @@ class ExcelAlicorpController extends BaseController {
                             // Set all borders (top, right, bottom, left)
                             $cell->setBorder('solid', 'none', 'none', 'solid');
                         });
-
-
-//                        $sheet->mergeCells('CM3:CV3');
-//                        $sheet->cell('CM3', function($cell) {
-//                            $cell->setValue('Exhibidor Atún Primor (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('CW3:DF3');
-//                        $sheet->cell('CW3', function($cell) {
-//                            $cell->setValue('Exhibidor Bolsas Don Vittorio (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('DG3:DP3');
-//                        $sheet->cell('DG3', function($cell) {
-//                            $cell->setValue('Exhibidor Frutísimos (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('DQ3:DZ3');
-//                        $sheet->cell('DQ3', function($cell) {
-//                            $cell->setValue('Exhibidor Margarinas (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('EA3:EJ3');
-//                        $sheet->cell('EA3', function($cell) {
-//                            $cell->setValue('Ganchera Salsas (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('EK3:ET3');
-//                        $sheet->cell('EK3', function($cell) {
-//                            $cell->setValue('Ganchera Suavizantes y Quitamanchas (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('EU3:FD3');
-//                        $sheet->cell('EU3', function($cell) {
-//                            $cell->setValue('Mandil Don Vittorio (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('FE3:FN3');
-//                        $sheet->cell('FE3', function($cell) {
-//                            $cell->setValue('Mandil Detergente Bolivar (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('FO3:FX3');
-//                        $sheet->cell('FO3', function($cell) {
-//                            $cell->setValue('Paleta de precios Aceites Primor (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
-//
-//                        $sheet->mergeCells('FY3:GH3');
-//                        $sheet->cell('FY3', function($cell) {
-//                            $cell->setValue('Paleta de precios Detergente Bolivar (Mercados)');
-//                            $cell->setBackground('#0e5a97');
-//                            $cell->setAlignment('center');
-//                            $cell->setFontColor('#fefffe');
-//                            // Set all borders (top, right, bottom, left)
-//                            $cell->setBorder('solid', 'none', 'none', 'solid');
-//                        });
                     });
                 }
 
 
             } else if($category_id == 54) {
                 $excel->sheet('Categoría 54', function($sheet) use ($category_id, $company_id,$desde,$hasta) {
-                    $sqlcoord="CALL sp_alicorp_regular_v3(".$company_id.",".$category_id.",".$desde.",".$hasta.",0);";
+                    $sqlcoord="CALL sp_alicorp_regular_v3(".$company_id.",".$category_id.",".$desde.",".$hasta.",0,". Auth::user()->id .")";
                     $stores = DB::select($sqlcoord);
                     $data = array();
                     $data = array();
@@ -3222,7 +3030,6 @@ class ExcelAlicorpController extends BaseController {
                         "¿Como se encuentra la Ventana?",
                         "¿Está Trabajada? (Tiene fronterizador arriba y abajo)",
                         "Foto",
-
                     );
 
                     $sheet->prependRow(4, $headings);
@@ -3310,8 +3117,6 @@ class ExcelAlicorpController extends BaseController {
                             $sheet->getCell('BR' . ($i + 4))->setValue("Foto");
                             $sheet->getCell('BR' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
-
-//
                     }
 
                     $sheet->mergeCells('N3:P3');
@@ -3440,7 +3245,7 @@ class ExcelAlicorpController extends BaseController {
 
             } else if($category_id == 58) {
                 $excel->sheet('Sod por Marca', function($sheet) use ($company_id,$desde,$hasta) {
-                    $sqlcoord="CALL ttaudit_auditors.sp_alicorp_regular_sod_v3(".$company_id.",".$desde.",".$hasta.");";
+                    $sqlcoord="CALL ttaudit_auditors.sp_alicorp_regular_sod_v3(".$company_id.",".$desde.",".$hasta.",". Auth::user()->id .")";
                     $stores = DB::select($sqlcoord);
                     $data = array();
                     $data = array();
@@ -3578,7 +3383,365 @@ class ExcelAlicorpController extends BaseController {
                 });
             }
 
-        })->export('xls');
+        })->export('xls',['Set-Cookie'=>'fileDownload=true; path=/']);
+
+    }
+
+
+    public function excelAlicorpRegularV4($company_id,$type_bodega,$category_id)
+    {
+
+        header('Access-Control-Allow-Origin: *');
+        Excel::create('AlicorpRegularV4', function($excel) use ($company_id,$type_bodega, $category_id) {
+            $excel->setTitle('Reporte Alicorp Regular V4');
+
+            $excel->sheet('Categoría 53 - pag1', function($sheet) use ($category_id, $type_bodega, $company_id) {
+//                    $sqlcoord="CALL sp_alicorp_regular_v4(".$company_id.",". $type_bodega . ",".$category_id.",". Auth::user()->id .")";
+                    $sqlcoord="CALL sp_alicorp_regular_v4(".$company_id.",". $type_bodega . ",".$category_id.",5)";
+                    $stores = DB::select($sqlcoord);
+                    $data = array();
+                    $data = array();
+                    foreach ($stores as $result) {
+                        $data[] = (array)$result;
+                    }
+
+                    $headings = array(
+                        "ID",
+                        "RUC",
+                        "NOMBRE",
+                        "DIRECCION",
+                        "DISTRITO",
+                        "UBIGEO",
+                        "CODIGO_CLIENTE",
+                        "DISTRIBUIDORA",
+                        "LATITUD",
+                        "LONGITUD",
+                        "AUDITOR",
+                        "FECHA",
+                        "HORA",
+
+                        "¿Se encuentra Abierto? Si/No",
+                        "Opciones",
+                        "FOTO",
+
+                        "¿Cliente permitió tomar informaciónn?",
+                        "Opciones",
+                        "Comentario",
+                        "FOTO",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdio o lo rompio",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdió o lo rompi",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdió o lo rompi",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdió o lo rompi",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdió o lo rompi",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdió o lo rompi",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdió o lo rompi",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdio o lo rompio",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdio o lo rompio",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+
+                        "¿ Se encontro exhibidor ?",
+                        "Aún no lo colocaron",
+                        "Cliente lo retiró",
+                        "Cliente lo perdio o lo rompio",
+                        "Cliente nunca lo aceptó",
+                        "Otros",
+                        "Comentario",
+                        "¿Es visible?",
+                        "¿Está Contaminado?",
+                        "Foto",
+                        "¿ Exhibidor Alicorp tiene carga ?",
+                        "20%",
+                        "50%",
+                        "100%",
+                    );
+
+                    $columns = array(
+                        "P",
+                        "T",
+                        "AD",
+                        "ar",
+                        "bf",
+                        "bt",
+                        "ch",
+                        "cv",
+                        "dj",
+                        "dx",
+                        "el",
+                        "ez",
+                    );
+
+                    $sheet->prependRow(4, $headings);
+                    $sheet->getCell('A1')->setValue(count($data));
+                    $datito = $sheet->getCell('A1')->getValue();
+                    $sheet->getCell('B1')->setValue($datito);
+
+                    for ($i = 1; $i <= count($data); $i++) {
+                        $sheet->getCell('Q' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('U' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('AE' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('AO' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('AY' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('BI' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('BS' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('CC' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('CM' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('CW' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('DG' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('DQ' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('EA' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('EK' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('EU' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('FE' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('FO' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('FY' . ($i + 4))->getHyperlink()->getUrl();
+                        $sheet->getCell('GI' . ($i + 4))->getHyperlink()->getUrl();
+                    }
+
+                    $sheet->fromArray($data,null,'A5',false,false);
+                    $sheet->row(4, function($row) {
+                        $row->setFontColor('#fefffe');
+                        $row->setBackground('#2196F3');
+                        $row->setFontWeight('bold');
+                        $row->setAlignment('center');
+                        $row->setFontSize(10);
+                    });
+
+                    for ($i = 1; $i <= count($data); $i++) {
+                        for($col = 0 ; $col < count($columns); $col++){
+                            $url_foto =trim($sheet->getCell($columns[$col] . ($i + 4))->getValue());
+                            if(strlen($url_foto)>0) {
+                                $sheet->getCell($columns[$col] . ($i + 4))->setValue("Foto");
+                                $sheet->getCell($columns[$col] . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imágen');
+                            }
+                        }
+                    }
+
+                    $sheet->mergeCells('U3:Ah3');
+                    $sheet->cell('U3', function($cell) {
+                        $cell->setValue('Ganchera Salsas');
+                        $cell->setBackground('#0e5a97');
+                        $cell->setAlignment('center');
+                        $cell->setFontColor('#fefffe');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+                    $sheet->mergeCells('ai3:av3');
+                    $sheet->cell('ai3', function($cell) {
+                        $cell->setValue('Ganchera Frutísimos');
+                        $cell->setBackground('#0e5a97');
+                        $cell->setAlignment('center');
+                        $cell->setFontColor('#fefffe');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+                    $sheet->mergeCells('aw3:bj3');
+                    $sheet->cell('Aw3', function($cell) {
+                        $cell->setValue('Exhibidores Margarinas');
+                        $cell->setBackground('#0e5a97');
+                        $cell->setAlignment('center');
+                        $cell->setFontColor('#fefffe');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+                    $sheet->mergeCells('bk3:bx3');
+                    $sheet->cell('bk3', function($cell) {
+                        $cell->setValue('Posavuelto Galletas');
+                        $cell->setBackground('#0e5a97');
+                        $cell->setAlignment('center');
+                        $cell->setFontColor('#fefffe');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+
+                    $sheet->mergeCells('by3:cl3');
+                    $sheet->cell('by3', function($cell) {
+                        $cell->setValue('Cubos de impulso');
+                        $cell->setBackground('#0e5a97');
+                        $cell->setAlignment('center');
+                        $cell->setFontColor('#fefffe');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+
+                    $sheet->mergeCells('cm3:cz3');
+                    $sheet->cell('cm3', function($cell) {
+                        $cell->setValue('Suavizantes/quitamanchas');
+                        $cell->setBackground('#0e5a97');
+                        $cell->setAlignment('center');
+                        $cell->setFontColor('#fefffe');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+
+                    $sheet->mergeCells('da3:dn3');
+                    $sheet->cell('da3', function($cell) {
+                        $cell->setValue('Portafiche Multicategoría');
+                        $cell->setBackground('#0e5a97');
+                        $cell->setAlignment('center');
+                        $cell->setFontColor('#fefffe');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+
+//                    $sheet->mergeCells('do3:eb3');
+//                    $sheet->cell('do3', function($cell) {
+//                        $cell->setValue('Exhibidor Atún Primor (Mercados)');
+//                        $cell->setBackground('#0e5a97');
+//                        $cell->setAlignment('center');
+//                        $cell->setFontColor('#fefffe');
+//                        // Set all borders (top, right, bottom, left)
+//                        $cell->setBorder('solid', 'none', 'none', 'solid');
+//                    });
+//
+//                    $sheet->mergeCells('ec3:ep3');
+//                    $sheet->cell('ec3', function($cell) {
+//                        $cell->setValue('Exhibidor Bolsas Don Vittorio (Mercados)');
+//                        $cell->setBackground('#0e5a97');
+//                        $cell->setAlignment('center');
+//                        $cell->setFontColor('#fefffe');
+//                        // Set all borders (top, right, bottom, left)
+//                        $cell->setBorder('solid', 'none', 'none', 'solid');
+//                    });
+//
+//                    $sheet->mergeCells('eq3:fd3');
+//                    $sheet->cell('eq3', function($cell) {
+//                        $cell->setValue('Exhibidor Frutísimos (Mercados)');
+//                        $cell->setBackground('#0e5a97');
+//                        $cell->setAlignment('center');
+//                        $cell->setFontColor('#fefffe');
+//                        // Set all borders (top, right, bottom, left)
+//                        $cell->setBorder('solid', 'none', 'none', 'solid');
+//                    });
+
+                });
+
+
+        })->export('xls',['Set-Cookie'=>'fileDownload=true; path=/']);
 
     }
 
@@ -3588,6 +3751,7 @@ class ExcelAlicorpController extends BaseController {
     public function campaigneAlicorpPreVenta()
     {
 
+        header('Access-Control-Allow-Origin: *');
         Excel::create('Alicorp Pre Venta Julio 86', function($excel) {
             $excel->setTitle('Alicorp Pre Venta');
             $excel->sheet('Datos', function($sheet) {
@@ -3876,7 +4040,7 @@ class ExcelAlicorpController extends BaseController {
 //                    ->setUrl('http://examle.com/uploads/cv/' )
 //                    ->setTooltip('Click here to access file');
             });
-        })->export('xlsx');
+        })->export('xlsx',['Set-Cookie'=>'fileDownload=true; path=/']);
     }
 
 
@@ -3885,7 +4049,6 @@ class ExcelAlicorpController extends BaseController {
      * @param $company_id
      */
     public function planCamiseta($company_id) {
-
        // dd(Auth::user()->id);
         header('Access-Control-Allow-Origin: *');
         Excel::create('Plan Camiseta 2018', function($excel) use ($company_id) {
@@ -4025,13 +4188,13 @@ class ExcelAlicorpController extends BaseController {
      * @param $end
      */
     public function alicorpMercaderismoNorte($ini,$end) {
-
+        header('Access-Control-Allow-Origin: *');
         Excel::create('Alicorp Mercaderismo Norte', function($excel) use ($ini,$end) {
             $excel->setTitle('Nuevas tiendas');
             $excel->sheet('General', function($sheet) use ($ini,$end) {
                 $ini = (string)$ini;
                 $end = (string)$end;
-                $sqlcoord="CALL sp_alicorp_mercaderismo_norte('" . $ini . "','" . $end . "')";
+                $sqlcoord="CALL sp_alicorp_mercaderismo_norte('" . $ini . "','" . $end . ",". Auth::user()->id .")";
                 $stores = DB::select($sqlcoord);
                 $data = array();
                 $count=0;
@@ -4149,7 +4312,7 @@ class ExcelAlicorpController extends BaseController {
 
             });
 
-        })->export('xls');
+        })->export('xls',['Set-Cookie'=>'fileDownload=true; path=/']);
 
     }
 
@@ -4159,14 +4322,15 @@ class ExcelAlicorpController extends BaseController {
      * @param $ini
      * @param $end
      */
-    public function alicorpMercaderismoNorteV2($ini,$end) {
 
+    public function alicorpMercaderismoNorteV2($ini,$end) {
+        header('Access-Control-Allow-Origin: *');
         Excel::create('Alicorp Mercaderismo Norte', function($excel) use ($ini,$end) {
             $excel->setTitle('Nuevas tiendas');
             $excel->sheet('General', function($sheet) use ($ini,$end) {
                 $ini = (string)$ini;
                 $end = (string)$end;
-                $sqlcoord="CALL sp_alicorp_mercaderismo_norte_v2('" . $ini . "','" . $end . "')";
+                $sqlcoord="CALL sp_alicorp_mercaderismo_norte_v2('" . $ini . "','" . $end . ",". Auth::user()->id .")";
                 $stores = DB::select($sqlcoord);
                 $data = array();
                 $count=0;
@@ -4299,7 +4463,7 @@ class ExcelAlicorpController extends BaseController {
 
             });
 
-        })->export('xls');
+        })->export('xls',['Set-Cookie'=>'fileDownload=true; path=/']);
 
     }
 }

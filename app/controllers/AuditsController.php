@@ -111,6 +111,7 @@ class AuditsController extends BaseController{
         $this->valoresCampaigne[162] = array('ventanaW' => 2673,'abierto' => 2671,'permitio' =>2672,'existeVent' => 2674, 'visibleVent' =>2675, 'comoEstaVent'=>2676);
         $this->valoresCampaigne[174] = array('ventanaW' => 2851,'abierto' => 2849,'permitio' =>2850,'existeVent' => 2852, 'visibleVent' =>2853, 'comoEstaVent'=>2854);
         $this->valoresCampaigne[186] = array('ventanaW' => 3064,'abierto' => 3062,'permitio' =>3063,'existeVent' => 3065, 'visibleVent' =>3066, 'comoEstaVent'=>3067);
+        $this->valoresCampaigne[200] = array('ventanaW' => 3276,'abierto' => 3274,'permitio' =>3275,'existeVent' => 3277, 'visibleVent' =>3278, 'comoEstaVent'=>3279);
         //$this->valoresCategory[3] = array('sod' => 54,'exhi' => 53);
 
         $this->valoresCategory = array('sod' => 54,'exhi' => 53);
@@ -365,6 +366,7 @@ class AuditsController extends BaseController{
         $company_id = $valoresPost['company_id'];
         $poll_detail_id = $valoresPost['poll_detail_id'];
         $comment = $valoresPost['comment'];
+        $limit = $valoresPost['limit'];
         $product_id = $valoresPost['product_id'];
         $publicity_id = $valoresPost['publicity_id'];
         $mytime = Carbon\Carbon::now();
@@ -374,6 +376,7 @@ class AuditsController extends BaseController{
         //return Response::json([ 'success'=> $pollDetail]);
         $user->result = $result;
         $user->comentario = $comment;
+        $user->limite = $limit;
         $user->product_id = $product_id;
         $user->company_id = $company_id;
         $user->publicity_id = $publicity_id;
@@ -412,6 +415,8 @@ class AuditsController extends BaseController{
         $product_id = $valoresPost['product_id'];
         $publicity_id = $valoresPost['publicity_id'];
         $options = $valoresPost['options'];
+        $arrayOptions = explode('|',$options);
+        $otros = $valoresPost['otros'];
         $priorities = $valoresPost['priorities'];
         $poll_id = $valoresPost['poll_id'];
         $user_id = $valoresPost['user_id'];
@@ -432,11 +437,51 @@ class AuditsController extends BaseController{
         $objPollDetail->publicity_id = $publicity_id;
         $objPollDetail->company_id = $company_id;
         $objPollDetail->created_at = $fecha;
+        $valorInsert="";$id=0;
         if ($objPollDetail->save())
         {
-            return Response::json([ 'success'=> 1, 'last_insert_id'=> $objPollDetail->id]);
+            if (count($arrayOptions)>0)
+            {
+                for($i = 0; $i < count($arrayOptions); ++$i) {
+                    if ($arrayOptions[$i] <> '') {
+                        $objPollOptionDetail = $this->PollOptionDetailRepo->getModel();
+                        $objPollOptionDetail->poll_option_id = $arrayOptions[$i];
+                        $objPollOptionDetail->result = 1;
+                        $objPollOptionDetail->product_id =$product_id;
+                        $objPollOptionDetail->company_id =$company_id;
+                        $objPollOptionDetail->store_id =$store_id;
+                        $objPollOptionDetail->auditor =$user_id;
+                        $objOption = $this->PollOptionRepo->find($arrayOptions[$i]);
+                        $txtOption= $objOption->options;
+                        if ($txtOption=='Otros'){
+                            $objPollOptionDetail->otro =$otros;
+                        }
+                        //$objPollOptionDetail->created_at =$created_at;
+                        /*if (count($arrayPriorities)>0)
+                        {
+                            if ($arrayPriorities[$i]<>'')
+                            {
+                                $objPollOptionDetail->priority = $arrayPriorities[$i];
+                            }else{
+                                $objPollOptionDetail->priority = 0;
+                            }
+                        }else{
+                            $objPollOptionDetail->priority = 0;
+                        }*/
+                        if ($objPollOptionDetail->save())
+                        {
+                            $id = $objPollOptionDetail->id;
+                            $valorInsert .=  ' Opción ingresada:'.$arrayOptions[$i];
+                        }else{
+                            $id=0;
+                            $valorInsert .=  ' Opción NO ingresada:'.$arrayOptions[$i];
+                        }
+                    }
+                }
+            }
+            return Response::json([ 'success'=> 1, 'last_insert_id'=> $objPollDetail->id,'idOption'=>$id,'options'=>$valorInsert]);
         }else{
-            return Response::json([ 'success'=> 0, 'last_insert_id'=> 0]);
+            return Response::json([ 'success'=> 0, 'last_insert_id'=> 0,'idOption'=>$id,'options'=>$valorInsert]);
         }
     }
 
@@ -454,10 +499,11 @@ class AuditsController extends BaseController{
         $priorities = $valoresPost['priorities'];
         $poll_detail_id = $valoresPost['poll_detail_id'];
         $user_id = $valoresPost['user_id'];
+        $otros = $valoresPost['otros'];
         $objPollDetailRepo = $this->PollDetailRepo->find($poll_detail_id);
         $created_at = $objPollDetailRepo->created_at;
         $arrayOptions = explode('|',$options);
-        $arrayPriorities = explode('|',$priorities);$valorInsert='';
+        $arrayPriorities = explode('|',$priorities);$valorInsert='';$id=0;
         if (count($arrayOptions)>0)
         {
             for($i = 0; $i < count($arrayOptions); ++$i) {
@@ -470,6 +516,11 @@ class AuditsController extends BaseController{
                     $objPollOptionDetail->company_id =$company_id;
                     $objPollOptionDetail->store_id =$store_id;
                     $objPollOptionDetail->auditor =$user_id;
+                    $objOption = $this->PollOptionRepo->find($arrayOptions[$i]);
+                    $txtOption= $objOption->options;
+                    if ($txtOption=='Otros'){
+                        $objPollOptionDetail->otro =$otros;
+                    }
                     $objPollOptionDetail->created_at =$created_at;
                     if (count($arrayPriorities)>0)
                     {
@@ -484,15 +535,17 @@ class AuditsController extends BaseController{
                     }
                     if ($objPollOptionDetail->save())
                     {
+                        $id = $objPollOptionDetail->id;
                         $valorInsert .=  ' Opción ingresada:'.$arrayOptions[$i];
                     }else{
+                        $id=0;
                         $valorInsert .=  ' Opción NO ingresada:'.$arrayOptions[$i];
                     }
                 }
             }
-            return Response::json([ 'success'=> 1, 'texto'=> $valorInsert]);
+            return Response::json([ 'success'=> 1, 'texto'=> $valorInsert, 'id'=> $id]);
         }else{
-            return Response::json([ 'success'=> 0, 'texto'=> 'No hay opciones']);
+            return Response::json([ 'success'=> 0, 'texto'=> 'No hay opciones', 'id'=> $id]);
         }
 
     }

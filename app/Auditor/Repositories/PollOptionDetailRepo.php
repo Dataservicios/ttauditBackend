@@ -35,10 +35,15 @@ class PollOptionDetailRepo extends BaseRepo{
         return $result_poll_option_detail;
     }
 
-    public function getResponseOptionPublicity($store_id,$poll_id,$publicity_id,$company_id,$product_id="0")
+    public function getResponseOptionPublicity($store_id,$poll_id,$publicity_id,$company_id,$product_id="0",$visit_id="0")
     {
         //$pollOptionDetail = \DB::table('poll_option_details')->join('poll_options','poll_option_details.poll_option_id','=','poll_options.id')->select('poll_options.id','poll_options.options','poll_option_details.created_at','poll_option_details.updated_at')->where('poll_options.poll_id', $poll_id)->where('poll_option_details.company_id', $company_id)->where('poll_option_details.publicity_id', $publicity_id)->where('poll_option_details.store_id', $store_id)->get();
-        $pollOptionDetail = \DB::table('poll_option_details')->join('poll_options','poll_option_details.poll_option_id','=','poll_options.id')->select('poll_options.id','poll_options.options','poll_option_details.id as poll_option_details_id','poll_option_details.product_id','poll_option_details.priority','poll_option_details.otro as coment_otro','poll_option_details.created_at','poll_option_details.updated_at')->where('poll_options.poll_id', $poll_id)->where('poll_option_details.company_id', $company_id)->where('poll_option_details.publicity_id', $publicity_id)->where('poll_option_details.product_id', $product_id)->where('poll_option_details.store_id', $store_id)->get();
+        if ($visit_id=="0"){
+            $pollOptionDetail = \DB::table('poll_option_details')->join('poll_options','poll_option_details.poll_option_id','=','poll_options.id')->select('poll_options.id','poll_options.options','poll_option_details.id as poll_option_details_id','poll_option_details.product_id','poll_option_details.priority','poll_option_details.otro as coment_otro','poll_option_details.created_at','poll_option_details.updated_at')->where('poll_options.poll_id', $poll_id)->where('poll_option_details.company_id', $company_id)->where('poll_option_details.publicity_id', $publicity_id)->where('poll_option_details.product_id', $product_id)->where('poll_option_details.store_id', $store_id)->get();
+        }else{
+            $pollOptionDetail = \DB::table('poll_option_details')->join('poll_options','poll_option_details.poll_option_id','=','poll_options.id')->select('poll_options.id','poll_options.options','poll_option_details.id as poll_option_details_id','poll_option_details.product_id','poll_option_details.priority','poll_option_details.otro as coment_otro','poll_option_details.created_at','poll_option_details.updated_at')->where('poll_options.poll_id', $poll_id)->where('poll_option_details.company_id', $company_id)->where('poll_option_details.publicity_id', $publicity_id)->where('poll_option_details.product_id', $product_id)->where('poll_option_details.store_id', $store_id)->where('poll_option_details.visit_id', $visit_id)->get();
+        }
+
         return $pollOptionDetail;
     }
 

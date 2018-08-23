@@ -142,10 +142,11 @@ class ProspeccionBayerController extends BaseController{
     {
         $valoresPost= Input::all();
         $company_id = $valoresPost['company_id'];
-        if ($company_id==166)
+        /*if ($company_id==166)
         {
             $type_payment = $valoresPost['type_payment'];
-        }
+        }*/
+        $type_payment = $valoresPost['type_payment'];
         $product_id = $valoresPost['product_id'];
         $store_id = $valoresPost['store_id'];
         $provider_id = $valoresPost['provider_id'];
@@ -165,10 +166,11 @@ class ProspeccionBayerController extends BaseController{
             $objOrder->auditor_id=$auditor_id;
             $objOrder->visit_id=$visit_id;
             $objOrder->code=$code;
-            if ($company_id==166)
+            /*if ($company_id==166)
             {
                 $objOrder->type_payment=$type_payment;
-            }
+            }*/
+            $objOrder->type_payment=$type_payment;
             $objOrder->save();
             $idOrder = $objOrder->id;
         }else{
@@ -365,7 +367,7 @@ class ProspeccionBayerController extends BaseController{
         $totalBaseBayer = $this->publicityStoreRepo->getAllPublicitiesBayerStart($company_id,"0","0","0","0",1);
         $customer =$this->customerRepo->find($this->customer_id);//dd($customer);
         $logo = $this->urlBase.$this->urlImageBase.$customer->corto.'/'.$customer->logo;
-        $campaignesClient = $this->companyRepo->getCompaniesForClient($customer->id,1,$this->estudio);//Para combo de cambio de campañas collection array de objetos Company
+        $campaignesClient = $this->companyRepo->getCompaniesForClient($customer->id,1,$this->estudio,"T");//Para combo de cambio de campañas collection array de objetos Company
         $campaignes = array(0 => "Períodos") + $campaignesClient->lists('fullname','id');
         $urlBase = $this->urlBase."/transferencista/resumeHome/";$type="CADENA";
 
@@ -1118,5 +1120,19 @@ class ProspeccionBayerController extends BaseController{
     public function insertOrders($company_id,$user_id)
     {
 
+    }
+
+    public function searchStoresVisits()
+    {
+        $valoresPost= Input::all();
+        $dir = $valoresPost['dir'];
+        $valores = explode('|',$dir);
+        $dir = $valores[0];
+        $company_id = $valores[1];$limit=15;
+        $stores = $this->storeRepo->searchStoresVisits($company_id,$dir,$limit);
+
+        header('Access-Control-Allow-Origin: *');
+        header('Content-type: application/json');
+        return \Response::json($stores);
     }
 }

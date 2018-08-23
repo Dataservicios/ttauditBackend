@@ -12,6 +12,7 @@ use Auditor\Repositories\RoadDetailRepo;
 use Auditor\Repositories\PollOptionDetailRepo;
 use Auditor\Repositories\AuditRoadStoreRepo;
 use Auditor\Repositories\CompanyStoreRepo;
+use Auditor\Repositories\VisitStoreRepo;
 
 class OperationsController extends BaseController{
 
@@ -27,11 +28,12 @@ class OperationsController extends BaseController{
     protected $pollOptionDetailRepo;
     protected $auditRoadStoreRepo;
     protected $companyStoreRepo;
+    protected $visitStoreRepo;
 
     public $urlBase;
     public $urlPhotos;
 
-    public function __construct(CompanyStoreRepo $companyStoreRepo,AuditRoadStoreRepo $auditRoadStoreRepo,PollOptionDetailRepo $pollOptionDetailRepo,RoadDetailRepo $roadDetailRepo,PollRepo $pollRepo,CompanyRepo $companyRepo,PollDetailRepo $pollDetailRepo,PublicitiesDetailRepo $publicitiesDetailRepo,ProductDetailRepo $productDetailRepo,MediaRepo $mediaRepo,StoreRepo $storeRepo,ProductStoreRegionRepo $ProductStoreRegionRepo)
+    public function __construct(VisitStoreRepo $visitStoreRepo,CompanyStoreRepo $companyStoreRepo,AuditRoadStoreRepo $auditRoadStoreRepo,PollOptionDetailRepo $pollOptionDetailRepo,RoadDetailRepo $roadDetailRepo,PollRepo $pollRepo,CompanyRepo $companyRepo,PollDetailRepo $pollDetailRepo,PublicitiesDetailRepo $publicitiesDetailRepo,ProductDetailRepo $productDetailRepo,MediaRepo $mediaRepo,StoreRepo $storeRepo,ProductStoreRegionRepo $ProductStoreRegionRepo)
     {
         $this->ProductStoreRegionRepo = $ProductStoreRegionRepo;
         $this->storeRepo = $storeRepo;
@@ -45,6 +47,7 @@ class OperationsController extends BaseController{
         $this->pollOptionDetailRepo = $pollOptionDetailRepo;
         $this->auditRoadStoreRepo = $auditRoadStoreRepo;
         $this->companyStoreRepo = $companyStoreRepo;
+        $this->visitStoreRepo = $visitStoreRepo;
 
         $this->urlBase = \App::make('url')->to('/');
         $this->urlPhotos = 'media/fotos/';
@@ -308,24 +311,33 @@ dd('ok');
         return View::make('operations/operationsRoads',compact('modulo','objRoadDetails'));
     }
 
-    public function releasePointsInBlocks($ajax="1",$arrayStores_id="0",$company_id="0",$visits="0",$returnMap="0")
+    public function releasePointsInBlocks($ajax="1",$arrayStores_id="0",$company_id="0",$returnMap="0")
     {
         if ($ajax=="1"){
             $valoresPost= Input::all();
             $arrayStores_id = $valoresPost['arrayStores_id'];
             $company_id = $valoresPost['company_id'];
             $ajax=$valoresPost['ajax'];
-            $visits=$valoresPost['visits'];
+            //$visits=$valoresPost['visits'];
             $returnMap=$valoresPost['returnMap'];
         }
         $stores_ids = explode(",",$arrayStores_id);
         $objCompany = $this->companyRepo->find($company_id);
+        $visits = $objCompany->visits;
         if (count($stores_ids)>0)
         {
             foreach ($stores_ids as $stores_id) {
-                if ($visits=="0"){
+                if ($objCompany->visits==0){
                     $visit_id=0;
                     $store_id=$stores_id;
+                    $arayResultsVisits=[];
+                }else{
+                    $storeVisits=explode(":",$stores_id);
+                    $visit_id=$storeVisits[1];
+                    $store_id=$storeVisits[0];
+                    $regsVisits = $this->visitStoreRepo->getModel();
+                    $affectedRowsVisits = $regsVisits->where('store_id',$store_id)->where('company_id',$company_id)->where('visit_id',$visit_id)->delete();
+                    $arayResultsVisits[] = array('store_id'=>$store_id,'affectCount'=>$affectedRowsVisits);
                 }
                 $regsPollDetail = $this->pollDetailRepo->getModel();
                 $affectedRowsPollDetails = $regsPollDetail->where('store_id',$store_id)->where('company_id',$company_id)->where('visit_id',$visit_id)->delete();
@@ -343,33 +355,29 @@ dd('ok');
                 $success=1;//dd($store_id,$arayResultsPollDetails,$arayResultsPollOptionDetails,$arayResultsPollPublicitiesDetails,$affectedRowsMedia);
                 if ($returnMap=="1"){
                     $regsRoadDetail = $this->roadDetailRepo->getModel();//dd($regsRoadDetail);
+                    $affectedRoadDetails = $regsRoadDetail->where('store_id',$store_id)->where('company_id',$company_id)->delete();
+                    //$affectedRoadDetails = $regsRoadDetails->delete();
+                    //$affectedRoadDetails=true;
+                    $arayRoadDetail[] = array('store_id'=>$store_id,'affectCount'=>$affectedRoadDetails);
+                    $regsAuditRoadStore = $this->auditRoadStoreRepo->getModel();
 
                     if ($objCompany->visits==0){
-                        $affectedRoadDetails = $regsRoadDetail->where('store_id',$store_id)->where('company_id',$company_id)->delete();
-                        //$affectedRoadDetails = $regsRoadDetails->delete();
-                        //$affectedRoadDetails=true;
-                        $arayRoadDetail[] = array('store_id'=>$store_id,'affectCount'=>$affectedRoadDetails);
-                        $regsAuditRoadStore = $this->auditRoadStoreRepo->getModel();
-                        if ($visits=="0"){
-                            $affectedAuditRoadStores = $regsAuditRoadStore->where('store_id',$store_id)->where('company_id',$company_id)->delete();
-                        }else{
-                            $affectedAuditRoadStores = $regsAuditRoadStore->where('store_id',$store_id)->where('company_id',$company_id)->where('visit_id',$visit_id)->delete();
-                        }
-
-                        $arayAuditRoadStores[] = array('store_id'=>$store_id,'affectCount'=>$affectedAuditRoadStores);
-
-                        $objCompanyStore = $this->companyStoreRepo->getModel();
-                        $regCompanyStore = $objCompanyStore->where('store_id',$store_id)->where('company_id',$company_id)->first();
-                        $regCompanyStore->ruteado=0;
-                        $regCompanyStore->save();
-                        $arayCompanyStore[]= array('store_id'=>$store_id,'id'=>$regCompanyStore->id);
-                        /*if (count($regCompanyStore)>0){
-
-                        }else{
-                            $arayCompanyStore=[];
-                        }*/
-
+                        $affectedAuditRoadStores = $regsAuditRoadStore->where('store_id',$store_id)->where('company_id',$company_id)->delete();
+                    }else{
+                        $affectedAuditRoadStores = $regsAuditRoadStore->where('store_id',$store_id)->where('company_id',$company_id)->where('visit_id',$visit_id)->delete();
                     }
+                    $arayAuditRoadStores[] = array('store_id'=>$store_id,'affectCount'=>$affectedAuditRoadStores);
+
+                    $objCompanyStore = $this->companyStoreRepo->getModel();
+                    $regCompanyStore = $objCompanyStore->where('store_id',$store_id)->where('company_id',$company_id)->first();
+                    $regCompanyStore->ruteado=0;
+                    $regCompanyStore->save();
+                    $arayCompanyStore[]= array('store_id'=>$store_id,'id'=>$regCompanyStore->id);
+                    /*if (count($regCompanyStore)>0){
+
+                    }else{
+                        $arayCompanyStore=[];
+                    }*/
 
                 }else{
                     $arayRoadDetail=[];

@@ -426,9 +426,10 @@ class BaseController extends Controller {
 	public function getResponsesForPoll($store_id,$company_id,$publicity_id,$poll_id,$product_id="0")
 	{
 		$objPoll_details = $this->PollDetailRepo->getResultForStore($company_id,$store_id,$poll_id,$publicity_id,$product_id);//dd(count($poll_details));
+        $poll_options=$this->PollOptionRepo->getOptions($poll_id);
 		if (count($objPoll_details)>0)
 		{
-			$poll_options=$this->PollOptionRepo->getOptions($poll_id);
+
 			foreach ($objPoll_details as $poll_detail) {
 				if (count($poll_options)>0)
 				{
@@ -452,7 +453,7 @@ class BaseController extends Controller {
 			}
 			$responses = array('poll_details' => $pollDetails, 'options' => $poll_options);//dd($pollDetails);
 		}else{
-			$responses = [];
+			$responses = array('poll_details' => [], 'options' => $poll_options);
 		}
 		return $responses;
 	}
@@ -933,7 +934,7 @@ class BaseController extends Controller {
      */
     public function getAllPollsWeb($customer_id, $estudio)
     {
-        $companies = $this->companyRepo->getCompaniesForClient($customer_id,"1",$estudio);
+        $companies = $this->companyRepo->getCompaniesForClient($customer_id,"1",$estudio,"T");
 
         $group_poll_id='';$c=0;
         if (count($companies)>0)
@@ -1071,14 +1072,14 @@ class BaseController extends Controller {
         return $responses;
     }
 
-    public function getStoresPollDetails($poll_id,$urlBase,$urlImages,$pregSino,$district="0",$region="0",$ubigeo="0",$rubro="0",$ejecutivo="0",$product_id="0",$company_id="0",$publicity_id="0",$type="0",$cadena="0",$store_id="0")
+    public function getStoresPollDetails($poll_id,$urlBase,$urlImages,$pregSino,$district="0",$region="0",$ubigeo="0",$rubro="0",$ejecutivo="0",$product_id="0",$company_id="0",$publicity_id="0",$type="0",$cadena="0",$store_id="0",$visit_id="0")
     {
         //detailsResponseSiNo($company_id, $poll_id, $visit_id, $result, $publicity_id="0", $product_id="0", $typeStore="0", $cadena="0", $ubigeo="0",$store_id="0",$district="0",$region="0",$ejecutivo="0",$rubro="0")
         $objPoll = $this->pollRepo->find($poll_id);
-        $stores = $this->PollDetailRepo->detailsResponseSiNo($company_id,$poll_id,"0",$pregSino,$publicity_id,$product_id,$type,$cadena,$ubigeo,$store_id,$district,$region,$ejecutivo,$rubro);
-        $store_ids = $stores->groupBy(function($item){ return $item->store_id; });
+        $stores = $this->PollDetailRepo->detailsResponseSiNo($company_id,$poll_id,$visit_id,$pregSino,$publicity_id,$product_id,$type,$cadena,$ubigeo,$store_id,$district,$region,$ejecutivo,$rubro);
+        $store_ids = $stores->groupBy(function($item){ return $item->store_id; });//dd($store_ids);
         if (count($store_ids) > 0) {
-            foreach ($store_ids as $index => $poll_detail){
+            foreach ($store_ids as $index => $poll_detail){//dd($poll_detail);
                 $objStore = $this->storeRepo->find($index);
                 $cantReg = count($poll_detail);
                 $photos = $this->MediaRepo->photosProductPollStore($poll_id, $poll_detail[0]->store_id,$company_id,$product_id,$publicity_id);
@@ -1103,12 +1104,12 @@ class BaseController extends Controller {
                                 $texto = "No (".$poll_detail[0]->created_at.")";
                             }
                         }
-                        $responsesSiNo = array('texto' => $texto,'pollDetails' => $poll_detail);
+                        $responsesSiNo[] = array('texto' => $texto,'pollDetails' => $poll_detail);
                     }else{
-                        $responsesSiNo = array('texto' => "No hay ingreso",'pollDetails' => []);
+                        $responsesSiNo[] = array('texto' => "No hay ingreso",'pollDetails' => []);
                     }
                 }else{
-                    $responsesSiNo = array('texto' => "No es de tipo Si y No",'pollDetails' => $poll_detail);
+                    $responsesSiNo[] = array('texto' => "No es de tipo Si y No",'pollDetails' => $poll_detail);
                 }
                 if ($objPoll->options==1){
                     $options = $this->PollOptionRepo->getOptions($poll_id,"0");

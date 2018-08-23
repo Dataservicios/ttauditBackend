@@ -20,7 +20,7 @@
 Route::get('/', ['as' => 'login', 'uses' => 'HomeController@login']);
 Route::post('login', ['as' => 'login', 'uses' => 'AuthController@login']);
 Route::post('loginMovil', ['as' => 'loginMovil', 'uses' => 'AuthController@loginMovil']);
-Route::post('ajaxGetPdvsForPollWithPhotos', ['as' => 'ajaxGetPdvsForPollWithPhotos', 'uses' => 'MediasController@ajaxGetPdvsForPollWithPhotos']);
+Route::post('ajaxGetPdvsForPollWithPhotos', ['as' => 'ajaxGetPdvsForPollWithPhotos', 'uses' => 'MediasController@ajaxGetResultsForAuditWithPhotos']);
 Route::post('getPhone', ['as' => 'getPhone', 'uses' => 'PhoneDetailController@getPhone']);
 Route::post('getPhoneForUser', ['as' => 'getPhoneForUser', 'uses' => 'PhoneDetailController@getPhoneForUser']);
 Route::post('savePhoneDetails', 'PhoneDetailController@enterPhoneLocation');
@@ -1813,8 +1813,9 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
         $sql2="SELECT fullname FROM companies where id='" . $idcompany['idCompany'] . "'";
         $consulta2 = DB::select($sql2);
 
-        //$valoresCampaigne[167] = array('cobro' => 2765,'NoTransaccion' => 2762,'externo' =>2746,'interno' => 2747, 'cerrado' =>2745,'NoTransaccionBIM' => 2780);
-        $valoresCampaigne[177] = array('cobro' => 2939,'NoTransaccion' => 2936,'externo' =>2920,'interno' => 2921, 'cerrado' =>2919,'NoTransaccionBIM' => 2954);
+        //$valoresCampaigne[177] = array('cobro' => 2939,'NoTransaccion' => 2936,'externo' =>2920,'interno' => 2921, 'cerrado' =>2919,'NoTransaccionBIM' => 2954);
+        $valoresCampaigne[198] = array('cobro' => 3202,'NoTransaccion' => 3199,'externo' =>3183,'interno' => 3184, 'cerrado' =>3182,'NoTransaccionBIM' => 2954);
+        $valoresCampaigne[202] = array('cobro' => 0,'NoTransaccion' => 0,'externo' =>0,'interno' => 0, 'cerrado' =>0,'NoTransaccionBIM' => 0);//BCP
         $company_id = $idcompany['idCompany'];
         $sqlcoord1="SELECT  b.id,b.fullname as nomb_ejecutivo,a.cadenaRuc,a.type,a.ejecutivo,a.coordinador,a.gerzonal,a.fullname, a.codclient,a.address,a.district,a.ubigeo,b.email FROM stores a, users b WHERE a.id = '".$store_id['store_id']."' AND b.email = a.ejecutivo";
         $consulEmailEjecutivo = DB::select($sqlcoord1);
@@ -2242,7 +2243,7 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
             }
 
             $emails[]=array('nombres'=>'Roberto','email'=>'roblitas@ttaudit.com');
-            $emails[]=array('nombres'=>'Daniela','email'=>'dolaguibel@ttaudit.com');
+            $emails[]=array('nombres'=>'Montenegro','email'=>'mmontenegro@ttaudit.com');
             $emails[]=array('nombres'=>'Elba','email'=>'ellerena@ttaudit.com');
             $emails[]=array('nombres'=>'Carlos Medina','email'=>'cmedinap@intercorp.com.pe');
             $emails[]=array('nombres'=>'Franco','email'=>'franbrsj@gmail.com');
@@ -2291,7 +2292,7 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
             if ($poll_id['poll_id']==$valoresCampaigne[$company_id]['cobro']){
                 $emails[]=array('nombres'=>'Karina','email'=>'Kpalominof@intercorp.com.pe');
             }
-            $emails[]=array('nombres'=>'Roberto','email'=>'roblitas@ttaudit.com');
+            $emails[]=array('nombres'=>'Montenegro','email'=>'mmontenegro@ttaudit.com');
             $emails[]=array('nombres'=>'Elba','email'=>'ellerena@ttaudit.com');
             $emails[]=array('nombres'=>'Franco','email'=>'franbrsj@gmail.com');
 
@@ -2587,12 +2588,17 @@ Route::post('insertaRoadDetails', ['as' =>'insertaRoadDetails', function(){
 
     $mytime = Carbon\Carbon::now();
     $mytime->setTimezone('America/Lima');
-    $mercado=206613;
-    $company_id=195;
-    $road_id=11991;
+    $mercado=94484;
+    $company_id=204;
+    $user_id=587;
+    $f_ejecucion='2018-08-25';
+    $nomb_ruta ="Teresa VES Sabado 25";
     $horaSistema = $mytime->toDateTimeString();$c=0;$sw=0;
+    DB::insert("INSERT INTO roads (fullname,user_id, audit, f_ejecucion, created_at,updated_at) VALUES(?,?,?,?,?,?)" , array($nomb_ruta,$user_id,0,$f_ejecucion,$horaSistema,$horaSistema));
+    $road_id = DB::getPdo()->lastInsertId();
     //$sql1="SELECT store_id,nivel FROM road_details where road_id='".$road_id."' and company_id='".$company_id."'";
-    $sql1="SELECT id FROM stores where id in (207326
+    $sql1="SELECT id FROM stores where id in (157117,
+38688
 )";
     $consulta1 = DB::select($sql1);//dd($consulta1);
     if (count($consulta1)>0){
@@ -2607,16 +2613,16 @@ Route::post('insertaRoadDetails', ['as' =>'insertaRoadDetails', function(){
                 DB::delete('DELETE FROM company_stores where company_id=? and store_id = ?',[$company_id,$valor->id]);
             }*/
 
-            /*DB::insert("INSERT INTO company_stores (company_id,store_id, ruteado, created_at,updated_at) VALUES(?,?,?,?,?)" , array($company_id,$valor->id,1,$horaSistema,$horaSistema));
+            DB::insert("INSERT INTO company_stores (company_id,store_id, ruteado, created_at,updated_at) VALUES(?,?,?,?,?)" , array($company_id,$valor->id,1,$horaSistema,$horaSistema));
             if ($c==0){
                 DB::insert("INSERT INTO road_details (company_id,store_id, audit, road_id,nivel, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$mercado,0,$road_id,1,$horaSistema,$horaSistema));
-            }*/
-            DB::insert("INSERT INTO road_details (company_id,store_id, audit, road_id,nivel, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$valor->id,0,$road_id,1,$horaSistema,$horaSistema));
-            /*$sql11="SELECT store_id FROM market_details c where store_id='".$mercado."' and point_id='".$valor->id."' and company_id='".$company_id."'";
+            }
+            DB::insert("INSERT INTO road_details (company_id,store_id, audit, road_id,nivel, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$valor->id,0,$road_id,0,$horaSistema,$horaSistema));
+            $sql11="SELECT store_id FROM market_details c where store_id='".$mercado."' and point_id='".$valor->id."' and company_id='".$company_id."'";
             $consulta11 = DB::select($sql11);
             if (count($consulta11)==0){
                 DB::insert("INSERT INTO market_details (company_id,store_id, point_id, cuota_venta, created_at,updated_at) VALUES(?,?,?,?,?,?)" , array($company_id,$mercado,$valor->id,'0',$horaSistema,$horaSistema));
-            }*/
+            }
 
             $sql2="SELECT audit_id FROM company_audits c where company_id='".$company_id."'";
             $consulta2 = DB::select($sql2);
@@ -2624,7 +2630,7 @@ Route::post('insertaRoadDetails', ['as' =>'insertaRoadDetails', function(){
                 DB::insert("INSERT INTO audit_road_stores (company_id,road_id, audit_id,store_id,audit,visit_id, created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)" , array($company_id,$road_id, $valor1->audit_id,$valor->id,0,2,$horaSistema,$horaSistema));
             }
             $c=$c+1;
-            DB::insert("INSERT INTO visit_stores (company_id, store_id, visit_id,road_id,ruteado, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$valor->id,1,$road_id,0,$horaSistema,$horaSistema));
+            //DB::insert("INSERT INTO visit_stores (company_id, store_id, visit_id,road_id,ruteado, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$valor->id,1,$road_id,0,$horaSistema,$horaSistema));
 
             /*$sql12="SELECT road_id FROM visit_stores c where store_id='".$valor->id."' and visit_id='1' and ruteado='0' and company_id='".$company_id."'";
             $consulta11 = DB::select($sql12);
@@ -3452,7 +3458,7 @@ FROM
   `publicity_store`
   INNER JOIN `publicities` ON (`publicity_store`.`publicity_id` = `publicities`.`id`)
   INNER JOIN `category_products` ON (`publicities`.`category_product_id` = `category_products`.`id`)
-WHERE
+WHERE `publicity_store`.`active`=1 and
   `publicities`.`company_id` = '" . $company_id['company_id']  . "' ".$anexo;
 
 

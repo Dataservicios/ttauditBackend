@@ -7,6 +7,8 @@
 </head>
 <body>
 <?php
+$value="pruebassss";
+setcookie("TestCookie", $value);
 //Test
 
 //$queEmp = "SELECT

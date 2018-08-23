@@ -258,6 +258,7 @@ class MediasController extends BaseController{
         }
         $nomb_arch.=$val['store_id']."_".$company_id['company_id']."_".$cliente['cliente']."_admin_".date("Ymd_Gis").'.'.$file->getClientOriginalExtension();
 
+        $media->store_id = $val['store_id'];
         $media->archivo = $nomb_arch;
         $media->tipo=1;
         if ($tipo['tipo']==1){
@@ -290,10 +291,11 @@ class MediasController extends BaseController{
         }
         $media->company_id=$company_id['company_id'];
         $media->created_at = $fecha['fecha'];
+        $media->updated_at = $fecha['fecha'];
 
-        $manager = new MediaManager($media, Input::only(['store_id']));
+        //$manager = new MediaManager($media, Input::only(['store_id']));
 
-        $manager->save();
+        $media->save();//dd($media);
 
         $file->move("media/fotos",$nomb_arch);
         if ($tipo['tipo']==0){
@@ -339,7 +341,7 @@ class MediasController extends BaseController{
         if ($tipo==0){
             $titulo = 'Encuestas';
             $companyAuditId= $this->CompanyAuditRepo->getIdForAuditForCompany($audit_id,$company_id);
-            $Polls = $this->pollRepo->getPollsForAuditForCompany($companyAuditId);//dd($Polls);
+            $Polls = $this->pollRepo->getPollsForAuditForCompany($companyAuditId);//dd($audit_id,$company_id);
             $productosCampaigne = $this->ProductDetailRepo->getProductsForCampaigne($company_id);
             if (($objStore->tipo_bodega=='3D') or ($objStore->tipo_bodega=='6D') or ($objStore->tipo_bodega=='CONGLOMERADO') or ($objStore->tipo_bodega=='') or ($objStore->tipo_bodega==null)){
                 $publicityStores= $this->publicityStoreRepo->getPublicityStores("0",$company_id);
@@ -403,7 +405,7 @@ class MediasController extends BaseController{
                 }else{
                     $valorCompany = $company_id;
                 }
-                $datos = $this->getResponsesForPoll($store_id,$valorCompany,0,$poll->id,0);
+                $datos = $this->getResponsesForPoll($store_id,$valorCompany,0,$poll->id,0);//Nuevo: getStoresPollDetails
                 /*{{--@if(count($poll_detail['poll_option_details'])>0)
                     @foreach($poll_detail['poll_option_details'] as $poll_option_detail)
                     @if(count($poll_option_detail)>0)
@@ -442,17 +444,20 @@ class MediasController extends BaseController{
                     $valFotos[$poll->id] = array('arrayFoto'=>$datosFoto,'poll_detail' => $objPollDetails);unset($datosFoto);
                 }*/
             }
-            //dd($valFotos[2358]['ObjArrayClase']);
+            //dd($valFotos[2940]['responses']['poll_details']);
             //dd($valFotos[2009]['ObjArrayClase']);
             //dd($customer);
             //dd($objRoadDetail);
-            if (($customer->id== 5) or ($customer->id== 1) or ($customer->id== 4) or ($customer->id== 9) or ($customer->id== 10)  or ($customer->id== 12)){
+            if (($customer->id== 5)  or ($customer->id== 4) or ($customer->id== 9) or ($customer->id== 10)  or ($customer->id== 12)){
                 if (($campaigne->auditoria==1) or ($campaigne->auditoria==2)){
                     $view = 'ResponsesPolls';
                 }else{
                     $view = 'ResponsesPollsPromot';
                 }
 
+            }
+            if($customer->id== 1){
+                $view = 'ResponsesPollsIBK';
             }
             /*if (($customer->id== 4) and ($company_id<>37)){
                 $view = 'detalleMediaEncuestaIBK';
@@ -606,17 +611,36 @@ class MediasController extends BaseController{
             $valoresPost= Input::all();
             $company_id = $valoresPost['company_id'];
             $publicity_id = $valoresPost['publicity_id'];
-            $poll_id = $valoresPost['poll_id'];
+            //$poll_id = $valoresPost['poll_id'];
             $product_id = $valoresPost['product_id'];
             $poll_option_id = $valoresPost['poll_option_id'];
             $ciudad = "0";
             $audit_id = $valoresPost['audit_id'];
+            $store_id_search = $valoresPost['store_id'];
             $ajax="1";
         }
+        $objCompany = $this->companyRepo->find($company_id);
+        if ($objCompany->visits==1){
+            $store_envio=explode("|",$store_id_search);
+            if (count($store_envio)>1){
+                $store_id = $store_envio[0];
+                $visit_id = $store_envio[1];
+            }else{
+                $store_id = $store_envio[0];
+                $visit_id = 0;
+            }
+        }
+        $objStore = $this->storeRepo->find($store_id);
         $companyAuditId= $this->CompanyAuditRepo->getIdForAuditForCompany($audit_id,$company_id);
         $Polls = $this->pollRepo->getPollsForAuditForCompany($companyAuditId);
         foreach ($Polls as $poll) {
-            
+            //getResponsesForPoll
+            $responses= $this->getStoresPollDetails($poll->id,$this->urlBase,$this->urlImagesFotos,"T","0","0","0","0","0",$product_id,$company_id,$publicity_id,"0","0",$store_id,$visit_id);
+            $storesPolls[]=array('polls'=>$poll,'responses'=>$responses,'store'=>$objStore);
         }
+        header('Access-Control-Allow-Origin: *');
+        header('Content-type: application/json');
+        //return Response::json($datosStores);
+        return  Response::json($storesPolls);
     }
 } 

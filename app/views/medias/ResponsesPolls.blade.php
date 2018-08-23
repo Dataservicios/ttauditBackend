@@ -497,7 +497,7 @@
 
                                                                                     @if($poll->options ==1)
                                                                                         <div class="mensaje-option"></div>
-                                                                                        <p>Seleccionar Opciones</p>
+                                                                                        <p>Seleccionar Opciones1</p>
                                                                                         @if(count($valFotos[$poll->id]['responses']['options'])>0)
 
                                                                                             @foreach ($valFotos[$poll->id]['responses']['options'] as $option)

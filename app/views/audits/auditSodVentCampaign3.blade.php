@@ -147,7 +147,7 @@
                                                         @endif
 
                                                     </td>
-                                                    <td><a href="{{route('mediaDetailPhoto',[$company_id,$audit_id,1,$publicity_id,$space['store_id']])}}" data-toggle="tooltip" data-placement="bottom" title="Admin fotos {{ $space['fullname'] }}"><span class="glyphicon glyphicon-camera"></span></a>
+                                                    <td><a href="{{route('mediaDetailPhoto',[$company_id,$audit_id,1,$publicity_id,$space['store_id']])}}"  data-placement="bottom" title="Admin fotos {{ $space['fullname'] }}"><span class="glyphicon glyphicon-camera"></span></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

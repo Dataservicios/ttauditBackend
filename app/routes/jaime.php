@@ -6,6 +6,7 @@ Route::resource('excel87category54','ExcelAlicorpController@excel87category54');
 Route::resource('excelAlicorpRegular/{company_id}/{category_id}/','ExcelAlicorpController@excelAlicorpRegular');
 Route::resource('excelAlicorpRegularV2/{company_id}/{category_id}/','ExcelAlicorpController@excelAlicorpRegularV2');
 Route::resource('excelAlicorpRegularV3/{company_id}/{category_id}/{desde}/{hasta}/{pag}/','ExcelAlicorpController@excelAlicorpRegularV3');
+Route::resource('excelAlicorpRegularV4/{company_id}/{type_bodega}/{category_id}/','ExcelAlicorpController@excelAlicorpRegularV4');
 //-------------------- Excell Alicorp Preventa-----------------------------------
 Route::resource('reporteExcelAlicorpPreVenta','ExcelAlicorpController@campaigneAlicorpPreVenta');
 
@@ -58,7 +59,7 @@ Route::post('imageUpload', 'PollDetailController@imageUpload');
 Route::get('pruebaReportExcelDowload','PruebaController@pruebaDowloadExcelAjax');
 
 
-Route::get('excel',function (){
+Route::get('excelito',function (){
    Excel::create('report',function ($excel){
 
        $excel->sheet('Sheet1',function ($sheet){
@@ -66,11 +67,11 @@ Route::get('excel',function (){
               $sheet->row($i, array('test1','test2','tes3','test4'));
           }
        });
-   })->store('xls','exports');
+   })->store('xlsx','public/excel/exports');
 
    return [
      'success' => true,
-     'path' => 'http://' . Request::server('HTTP_HOST'). '/exports/report.xlsx'
+     'path' => 'http://' . Request::server('HTTP_HOST'). '/excel/exports/report.xlsx'
    ];
 });
 

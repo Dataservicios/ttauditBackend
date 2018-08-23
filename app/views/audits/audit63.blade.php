@@ -1,7 +1,7 @@
 @extends('layouts/adminLayout')
 @section('scripts_angular')
     {{ HTML::script('https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js') }}
-    {{ HTML::script('js/app.js') }}
+    {{ HTML::script('js/appBT.js') }}
 @stop
 @section('content')
 <section>
@@ -37,7 +37,7 @@
                     <div class="report-marco ">
                         <div class="contenedor-report">
                             {{ Form::hidden('company_id', $campaigne->id, ['id' => 'company_id']) }}
-                            {{ Form::hidden('audit_id', $detailAudit->id) }}
+                            {{ Form::hidden('audit_id', $detailAudit->id,['id' => 'audit_id']) }}
                             {{ Form::hidden('tipo', "0") }}
                             {{ Form::hidden('id', "0") }}
                             {{ Form::hidden('cliente', $customer->fullname) }}
@@ -65,7 +65,7 @@
                         <div class="contenedor-report">
                             <div class="list-group" ng-repeat="store in stores">
                                 <p class="list-group-item-heading">
-                                    <a href="#" id="@{{ store.id }}" ng-click="clickSimple(store.id); clickId(store.id);cambiarMenu()" ng-model="searchData"    class="list-group-item " >id: @{{ store.id }} |Dir: @{{ store.codclient }} |Nombre: @{{ store.fullname }} |Estudio: @{{ store.company }}</a>
+                                    <a href="#" id="@{{ store.store_id }}" ng-click="clickSimple(store.search); clickId(store.search);cambiarMenu()" ng-model="searchData"    class="list-group-item " >id: @{{ store.store_id }} |Ruta_id: @{{ store.road_id }} |Punto: @{{ store.store }} |Estudio: @{{ store.company }} |Visita: @{{ store.visit_id }}</a>
                                 </p>
                             </div>
                         </div>
@@ -80,6 +80,54 @@
         </div>
     </div>
 </section>
+<!-- MODAL VENTANA Insert-->
+<div id="myModalInsert" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" id="tittleModal">
+                {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Ingresar Valores {{$objStore->fullname.'('.$objStore->id.')'}}</h4>--}}
+            </div>
+            <div class="modal-body" id="bodyModal">
+                <p id="fechaModal">{{--Fecha auditoria: {{$objRoadDetail[0]->created_at}}--}}</p>
+                <div class="mensaje-option" id="mensajes"></div>
+                <div id="sinoModal">
+                    {{--<p>Seleccionar Respuesta</p>
+                    <select name="sinoInsert{{$poll->id}}" id="sinoInsert{{$poll->id}}" class="form-control">
+                        <option value="1" >Sí</option>
+                        <option value="0" >No</option>
+                    </select>--}}
+                </div>
+                <div id="productosModal"></div>
+                <div id="publicidadModal"></div>
+                <div id="comentarioModal">
+                    {{--<p>Comentario</p>
+                    <textarea rows="10" cols="20" wrap="soft" id="comentInsert{{$poll->id}}"></textarea>--}}
+                </div>
+
+                <!-- Progress bar-->
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active"  role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="progress-barInsert">
+                        <span class="sr-only">45% Complete</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="text-center" id="messageInsert">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCancelInsert">Cancelar</button>
+
+                <button type="button" class="btn btn-primary" id="btnInsertRegister">Ingresar Registro</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- END MODAL VENTANA Insert-->
 @stop
 @section('reportCSS')
     <!-- Galeria de imagenes -->
@@ -89,10 +137,10 @@
 @endsection
 @section('report')
     <!--LIBRERIA fancybox PARA ZOOM PARA IMÁGENES-->
-    {{ HTML::script('lib/fancybox/jquery.fancybox.js?v=2.1.5'); }}
-    {{ HTML::script('lib/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5'); }}
-    {{ HTML::script('lib/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7'); }}
-    {{ HTML::script('lib/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6'); }}
+    {{ HTML::script('lib/fancybox/jquery.fancybox.js?v=2.1.5') }}
+    {{ HTML::script('lib/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5') }}
+    {{ HTML::script('lib/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7') }}
+    {{ HTML::script('lib/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6')}}
     <script>
         $('.zoom1').fancybox(  {
             openEffect : 'elastic',
@@ -132,14 +180,16 @@
             $("#pdvs").empty();
             $("#results").hide();
             var company_id = $('#company_id').val();
-            var city_select = ciudad.options[ciudad.selectedIndex].text;
-            var poll_id_select = pregunta.options[pregunta.selectedIndex].value;
+            var store_id = $('#codclient').val();
+            var audit_id = $('#audit_id').val();
+            //var city_select = ciudad.options[ciudad.selectedIndex].text;
+            //var poll_id_select = pregunta.options[pregunta.selectedIndex].value;
             var product_id = 0;
             var publicity_id=0;
             var poll_option_id=0;
             var message = 'Problemas';
             var divLoading = 'load';
-            var params = JSON.parse('{"company_id":"' + company_id + '","poll_id":"' + poll_id_select + '","city":"' + city_select + '","product_id":"' + product_id +'","publicity_id":"' + publicity_id +'","poll_option_id":"' + poll_option_id + '"}');
+            var params = JSON.parse('{"company_id":"' + company_id + '","product_id":"' + product_id +'","publicity_id":"' + publicity_id +'","poll_option_id":"' + poll_option_id + '","audit_id":"' + audit_id+'","store_id":"' + store_id+'"}');
             //alert(city_select+" - "+poll_id_select);
             var loading= "<div class='" + divLoading +"'><img src='" + url_base +  "/img/loading.gif" + "' ></div>";
 
@@ -151,154 +201,115 @@
                 .done(function(data) {
                     // alert( "second success" );
                     console.log (data);
+                    var contPoll=0;
+                    var html="";var aleatorio;
+                    $.each(data, function(o, item0){
 
-                    var html;
-                    var datos = data.datos;
-                    var poll = data.poll;
-
-                    $.each(datos, function(i, item){
-                        var store = item.store;
-                        html = "<div class=\"panel panel-default\">";
-                        html = html + "<div class=\"panel-heading\">";
-                        html = html + "<h3 class=\"panel-title\"><span class=\"badge\">" + i + "</span>" + store.id + " - " + store.fullname + "</h3>";
-                        html = html + "</div>";
-                        html = html + "<div class=\"panel-body\">";
+                        var datos = item0.responses;
+                        var poll = item0.polls;
+                        var store = item0.store;
+                        if (o==0){
+                            html = "<div class=\"panel panel-default\">";
+                            html = html + "<div class=\"panel-heading\">";
+                            html = html + "<h3 class=\"panel-title\">" + store.id + " - " + store.fullname + "</h3>";
+                            html = html + "</div>";
+                            html = html + "<div class=\"panel-body\">";
+                                html = html + "<div class=\"row\">";
+                                html = html + "<div class=\"col-sm-4\">";
+                                        html = html + "<b>DEPARTAMENTO: </b>" + store.ubigeo + "<br>";
+                                        html = html + "<b>PROVINCIA: </b>" + store.region + "<br>";
+                                        html = html + "<b>DISTRITO: </b>" + store.district + "<br>";
+                                        html = html + "<b>DIRECCIÓN: </b>" + store.address + "<br>";
+                                html = html + "</div>";
+                                html = html + "</div>";
+                            html = html + "</div>"; 
+                            html = html + "</div>"; 
+                        }
+                        contPoll ++;
                         html = html + "<div class=\"row\">";
-                        html = html + "<div class=\"col-sm-4\">";
-                        @if($customer->id==1)
-                            html = html + "<b>DIR: </b>" + store.codclient + "<br>";
-                        @endif
-                            html = html + "<b>DEPARTAMENTO: </b>" + store.ubigeo + "<br>";
-                        html = html + "<b>PROVINCIA: </b>" + store.region + "<br>";
-                        html = html + "<b>DISTRITO: </b>" + store.district + "<br>";
-                        html = html + "<b>FECHA: </b>" + item.created_at + "<br>";
+                        html = html + "<div class=\"panel panel-default\">";
+                        html = html + "<div class=\"panel-heading\">";
+                        html = html + "<h3 class=\"panel-title\"><span class=\"badge\">" + contPoll + "</span>"  + poll.question + "("+ poll.id + ")";
+                        html = html + "<a href=\"#\"  onclick=\"insertRegister(); return false;\"  id=\"btnInsert"+ poll.id + "\">\n";
+                        html = html + "<span class=\"glyphicon glyphicon-plus-sign\"></span>\n" + "</a>"+ "</h3>";
                         html = html + "</div>";
-                        html = html + "<div class=\"col-sm-4\">";
-                        var ObjResponseSiNo = item.responseSiNo;
-                        if (poll.sino==1){
-                            if ((ObjResponseSiNo.pollDetails.length)>0){
-                                html = html + "<b>Respuesta: </b><span id=\"respuesta\">" + ObjResponseSiNo.texto + "</span><br>";
-                                var ObjPollDetails = item.responseSiNo.pollDetails;
-                                $.each(ObjPollDetails, function(h, item2){
-                                    html = html + "<div class=\"btn-group\" role=\"group\" aria-label=\"...\">";
-                                    html = html + "<div class=\"btn btn-default btn-valor\">" + "Id Respuesta (" + item2.id + ") </div>";
-                                    if (item2.result == 1){
-                                        html = html + "<div class=\"btn btn-default btn-si\" id=\"" + item2.id + "\">";
-                                        html = html + "Sí (" + item2.created_at + ")";
+                        html = html + "</div>";
+                        html = html + "</div>";
+                        html = html + "<div class=\"row\">";
+                        if ((datos.length)>0){
+                            $.each(datos, function(i, item){
+                                var ObjArrayFoto = item.arrayFoto;
+                                html = html + "<div class=\"col-sm-8\">";
+                                if ((ObjArrayFoto.length)>0){
+                                    for (x=0;x<ObjArrayFoto.length;x++){
+                                        html = html + "<div id='" + ObjArrayFoto[x].id + "'>";
+                                        html = html + "<div id='Controles" + ObjArrayFoto[x].id + "'>";aleatorio = Math.random();
+                                        html = html + "<a href='#' onclick='activarModal(" + ObjArrayFoto[x].id + ");' title='" + ObjArrayFoto[x].archivo + "'><span class='glyphicon glyphicon-remove-circle' aria-hidden='true'></span></a>";
+                                        html = html + "<a href='#' title='Girar Foto " + ObjArrayFoto[x].archivo + " -90 grados' onclick=\"girarFoto('" + ObjArrayFoto[x].archivo + "',1,'Impreso" + ObjArrayFoto[x].id + "','http://ttaudit.test/media/fotos/','" + aleatorio + "','-90'); return false;\" class='btn btn-default' role='button'>-90</a>";
+                                        html = html + "<a href='#' title='Girar Foto " + ObjArrayFoto[x].archivo + " -180 grados' onclick=\"girarFoto('" + ObjArrayFoto[x].archivo + "',1,'Impreso" + ObjArrayFoto[x].id + "','http://ttaudit.test/media/fotos/','" + aleatorio + "','-180'); return false;\" class='btn btn-default' role='button'>-180</a>";
+                                        html = html + "<a href='#' title='Girar Foto " + ObjArrayFoto[x].archivo + " 90 grados' onclick=\"girarFoto('" + ObjArrayFoto[x].archivo + "',1,'Impreso" + ObjArrayFoto[x].id + "','http://ttaudit.test/media/fotos/','" + aleatorio + "','90'); return false;\" class='btn btn-default' role='button'>90</a>";
+                                        html = html + "<a href='#' title='Girar Foto " + ObjArrayFoto[x].archivo + " 180 grados' onclick=\"girarFoto('" + ObjArrayFoto[x].archivo + "',1,'Impreso" + ObjArrayFoto[x].id + "','http://ttaudit.test/media/fotos/','" + aleatorio + "','180'); return false;\" class='btn btn-default' role='button'>180</a>";
                                         html = html + "</div>";
-                                        html = html + "<div class=\"btn btn-default btn-valor\" id=\"" + "editSiNo" + item2.id + + "\">";
-                                        html = html + "<a href=\"#\" onclick=\"changeValueSiNo('" + item2.id + "',0,'" + item2.company_id + "','" + item2.id + "'); return false;\" id=\"" + "hrefSiNo" + item2.id + "\">";
-                                        html = html + "<span class=\"glyphicon glyphicon-pencil\"></span></a>";
+                                        html = html + "<div id='Impreso" + ObjArrayFoto[x].id + "'>";
+                                        html = html + "<a href='" + ObjArrayFoto[x].urlFoto + "' class='zoom1 btn btn-default' data-fancybox-group=\"button\"><img src='" + ObjArrayFoto[x].urlFoto + "' width=\"200px\" class=\"img-thumbnail\"> </a>";
                                         html = html + "</div>";
-                                    }else{
-                                        html = html + "<div class=\"btn btn-default btn-no\" id=\"" + item2.id + "\">";
-                                        html = html + "No (" + item2.created_at + ")";
-                                        html = html + "</div>";
-                                        html = html + "<div class=\"btn btn-default btn-valor\" id=\"" + "editSiNo" + item2.id + + "\">";
-                                        html = html + "<a href=\"#\" onclick=\"changeValueSiNo('" + item2.id + "',1,'" + item2.company_id + "','" + item2.id + "'); return false;\" id=\"" + "hrefSiNo" + item2.id + "\">";
-                                        html = html + "<span class=\"glyphicon glyphicon-pencil\"></span></a>";
                                         html = html + "</div>";
                                     }
-                                    html = html + "<a class=\"btn btn-default\" href=\"" + url_base + "/admin/audits/medias/detailPhoto/" + item2.company_id  + "\" target=\"_blank\">Ver detalle</a>";
-                                    html = html + "</div>";
-                                });
-                            }
-                        }else{
-                            if ((ObjResponseSiNo.pollDetails.length)>0){
-                                var ObjPollDetails = datos.responseSiNo.pollDetails;
-                                html = html + "<div class=\"btn btn-default btn-valor\">";
-                                $.each(ObjPollDetails, function(h, item2){
-                                    html = html + "Reg. Poll Detail:" + item2.id ;
-                                });
+                                }
                                 html = html + "</div>";
-                            }
-                        }
+                                html = html + "<div class=\"col-sm-4\">";
+                                var ObjResponseSiNo = item.responseSiNo;
+                                if (poll.sino==1){
+                                    if ((ObjResponseSiNo.length)>0){
+                                        for (x=0;x<ObjResponseSiNo.length;x++){
+                                            html = html + "<b>Respuesta: </b><span id=\"respuesta\">" + ObjResponseSiNo[x].texto + "</span><br>";
+                                            var ObjPollDetails = ObjResponseSiNo[x].pollDetails;
+                                            $.each(ObjPollDetails, function(h, item2){
+                                                html = html + "<div class=\"btn-group\" role=\"group\" >";
+                                                html = html + "<div class=\"btn btn-default btn-valor\">" + "Id Respuesta (" + item2.id + ") </div>";
+                                                if (item2.result == 1){
+                                                    html = html + "<div class=\"btn btn-default btn-si\" id=\"" + item2.id + "\">";
+                                                    html = html + "Sí (" + item2.created_at + ")";
+                                                    html = html + "</div>";
+                                                    html = html + "<div class=\"btn btn-default btn-valor\" id=\"" + "editSiNo" + item2.id + "\">";
+                                                    html = html + "<a href=\"#\" onclick=\"changeValueSiNo('" + item2.id + "',0,'" + item2.company_id + "','" + item2.id + "'); return false;\" id=\"" + "hrefSiNo" + item2.id + "\">";
+                                                    html = html + "<span class=\"glyphicon glyphicon-pencil\"></span></a>";
+                                                    html = html + "</div>";
+                                                }else{
+                                                    html = html + "<div class=\"btn btn-default btn-no\" id=\"" + item2.id + "\">";
+                                                    html = html + "No (" + item2.created_at + ")";
+                                                    html = html + "</div>";
+                                                    html = html + "<div class=\"btn btn-default btn-valor\" id=\"" + "editSiNo" + item2.id + "\">";
+                                                    html = html + "<a href=\"#\" onclick=\"changeValueSiNo('" + item2.id + "',1,'" + item2.company_id + "','" + item2.id + "'); return false;\" id=\"" + "hrefSiNo" + item2.id + "\">";
+                                                    html = html + "<span class=\"glyphicon glyphicon-pencil\"></span></a>";
+                                                    html = html + "</div>";
+                                                }
+                                                html = html + "<a class=\"btn btn-default\" href=\"" + url_base + "/admin/audits/medias/detailPhoto/" + item2.company_id  + "\" target=\"_blank\">Ver detalle</a>";
+                                                html = html + "</div>";
+                                            });
+                                        }
 
-                        var ObjResponseOptions = item.reponseOption;
-                        if (poll.options==1){
-                            if ((ObjResponseOptions.pollOptionsDetails.length)>0){
-                                html = html + "<div class=\"report-marco \">";
-                                html = html + "<div class=\"row pl\">";
-                                html = html + "<div class=\"col-md-12 \">";
-                                html = html + "Opciones";
-                                var opciones = ObjResponseOptions.options;
-                                $.each(opciones, function(j, item3){
-                                    html = html + "<div class=\"row\">";
-                                    html = html + "<div class=\"col-md-12\">";
-                                    html = html + "<div class=\"report-marco\" id=\"principal" + item3.id + "\">";
-                                    html = html + "<div class=\"row pl\">";
-
-                                    html = html + "<div class=\"col-md-6\">";
-                                    html = html + "<div class=\"btn-group\" role=\"group\">";
-                                    html = html + "<div class=\"btn btn-default btn-valor\" id=\"" + store.id + "_" + item3.id + "\">" + item3.options + "(" + item3.id + ")" + "</div>";
-                                    html = html + "</div>";
-                                    html = html + "</div>";
-
-                                    html = html + "<div class=\"col-md-6\" id=\"operations" + item3.id + "\">";
-
-                                    html = html + "</div>";
-
-                                    html = html + "</div>";
-                                    html = html + "</div>";
-                                    html = html + "</div>";
-                                    html = html + "</div>";
-                                });
-
-                                html = html + "</div>";
-                                html = html + "</div>";
-                                html = html + "</div>";
-                            }
-
-                        }
-
-
-                        html = html + "</div>";
-                        html = html + "<div class=\"col-sm-4\">";
-                        var arrayFotos = item.arrayFoto;
-                        if ((arrayFotos.length)>0){
-                            $.each(arrayFotos, function(j, item1){
-                                if(item1.id==0){
-
-                                }else{
-                                    html = html + "<div id='" + item1.id + "'>";
-                                    html = html + "<div id='" + "Controles" + item1.id + "'>";
-                                    html = html + "<a href='#' title='Girar Foto " + item1.archivo + " -90 grados' onclick='girarFoto(\"" + item1.archivo + "\",\"1\",\"" + "Impreso" + item1.id + "\",\"" + item1.urlFoto + "\",\"" + item1.id + "\",\"-90\"); return false;' class='btn btn-default' href='#' role='button'>";
-                                    html = html + "-90";
-                                    html = html + "</a>";
-                                    html = html + "<a href='#' title='Girar Foto " + item1.archivo + " -180 grados' onclick='girarFoto(\"" + item1.archivo + "\",\"1\",\"" + "Impreso" + item1.id + "\",\"" + item1.urlFoto + "\",\"" + item1.id + "\",\"-180\"); return false;' class='btn btn-default' href='#' role='button'>";
-                                    html = html + "-180";
-                                    html = html + "</a>";
-                                    html = html + "<a href='#' title='Girar Foto " + item1.archivo + " 90 grados' onclick='girarFoto(\"" + item1.archivo + "\",\"1\",\"" + "Impreso" + item1.id + "\",\"" + item1.urlFoto + "\",\"" + item1.id + "\",\"90\"); return false;' class='btn btn-default' href='#' role='button'>";
-                                    html = html + "90";
-                                    html = html + "</a>";
-                                    html = html + "<a href='#' title='Girar Foto " + item1.archivo + " 180 grados' onclick='girarFoto(\"" + item1.archivo + "\",\"1\",\"" + "Impreso" + item1.id + "\",\"" + item1.urlFoto + "\",\"" + item1.id + "\",\"180\"); return false;' class='btn btn-default' href='#' role='button'>";
-                                    html = html + "180";
-                                    html = html + "</a>";
-                                    html = html + "</div>";
-                                    html = html + "<div id='" + "Impreso" + item1.id + "'>";
-                                    html = html + "<a href=\"" + item1.urlFoto + "?dummy=" + item1.id + "\" class=\"zoom1 btn btn-default\" data-fancybox-group=\"button\"><img src=\"" + item1.urlFoto + "?dummy=" + item1.id + "\" width=\"200px\" class=\"img-thumbnail\"></a>";
-                                    html = html + "</div>";
-                                    html = html + "</div>";
+                                    }
                                 }
 
+                                if (poll.options==1){
+                                    html = html +"";
+                                }
+                                html = html + "</div>";
                             });
                         }else{
-                            html = html + "No hay fotos";
+                            html = html + "<div class=\"col-sm-4\">";
+                            html = html + "<div class=\"alert alert-danger\" role=\"alert\">";
+                            html = html + "<span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>";
+                            html = html + "<span class=\"sr-only\">Error:</span>";
+                            html = html + "No hay respuesta de tipo si/no";
+                            html = html + "</div>";
+                            html = html + "</div>";
                         }
-
-                        html = html + "</div>";
                         html = html + "</div>";
 
-                        $('#pdvs').append(html);
-                        if (poll.options==1){
-
-                            $.each(ObjResponseOptions.optionSelected, function(h, item4){
-                                var optionSelected = store.id + "_" + item4.poll_option_id;
-                                $("#"+optionSelected).removeClass("btn-valor").addClass("btn-si");
-                            });
-                        }
                     });
-
+                    $('#pdvs').append(html);
                 })
                 .fail(function() {
                     // alert( "error" );
@@ -314,6 +325,7 @@
     </script>
     <script>
         var url_base =  "{{ URL::to('/') }}" ;
+
         function girarFoto(namePhoto,Tipo,Div,Url,Val,grado) {
             $('#'+Div).hide(1000,'swing');
             var valAlea = "?dummy=" + (Val+1);
@@ -326,12 +338,13 @@
                 .fail(function() {
                 })
                 .always(function() {
-                    $('#'+Div).html('<a href="'+Url+valAlea+'" class="zoom1 btn btn-default" data-fancybox-group="button"><img src="'+Url+valAlea+'" width="200px" class="img-thumbnail"></a>');
+                    $('#'+Div).html('<a href="'+Url+namePhoto+valAlea+'" class="zoom1 btn btn-default" data-fancybox-group="button"><img src="'+Url+namePhoto+valAlea+'" width="200px" class="img-thumbnail"></a>');
                     $('#'+Div).show(1000,'swing');
                 });
         }
 
     </script>
+
     <script>
         var url_base =  "{{ URL::to('/') }}" ;
         function changeValueSiNo(idPollDetail, Value, company_id,div) {
@@ -374,6 +387,13 @@
                     }
                     $("#editSiNo" + idPollDetail).show('slow');
                 });
+        }
+    </script>
+    <script>
+        function insertRegister() {
+            // e.preventDefault();
+            $('#myModalInsert').modal('show');
+            return false;
         }
     </script>
 @endsection
