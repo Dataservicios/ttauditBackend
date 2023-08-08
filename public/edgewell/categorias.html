@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <title>Bienvenida</title>
+</head>
+<body>
+
+     <!-- ******************** header solo para mobile ************************* -->
+     <header>
+        <div class="header-mobile d-lg-none">
+
+        </div>
+    </header>
+    <!-- *********************************************************************** -->
+    <div class="container-fluid">
+
+        <!-- *************** header********************** -->
+        <!-- en resolución lg se muestra y resoluciones menor a lg se oculta -->
+        <header class="d-none  d-lg-block">
+            <div class="row">
+                <div class="col-2">
+                    <div class="p-lg-4">
+                        <img src="img/logo-loginpc.png" class="img-fluid mx-auto d-block logo-header" alt="">
+                    </div>
+                    
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class=" bg-lineas-diagonales-plomo-menu ">
+                                <div class="d-flex flex-row w-100">
+                                    <div style="width:130px;">
+                                        
+                                    </div>
+                                    <!-- Botones de menú -->
+                                    <div class="pt-4 pb-5 d-flex flex-row  justify-content-center w-100">
+                                        <a href="bienvenido.html" class="btn btn-menu"> <span class="icon icon-acercade"></span> ACERCA DEL PROYECTO</a>
+                                        <a href="categorias.html" class="btn btn-menu active"><span class="icon icon-ventas"></span> RESULTADO DE VENTAS</a>
+                                        <a href="#" class="btn btn-menu"><span class="icon icon-atencion"></span> ATENCION AL CLIENTE</a>
+                                        <a href="concurso_mes.html" class="btn btn-menu"><span class="icon icon-recursos"></span> CONCURSOS DEL MES</a>
+                                        <a href="cierre_mes.html" class="btn btn-menu"><span class="icon icon-cierre"></span> CIERRE DEL MES</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row w-100">
+                                <div class="" style=" width:180px; height: 50px; background-color: white;">
+
+                                </div>
+                                <div class="cuadro-menu-button float-start .bg-lineas-diagonales-cuadro-menu-button" >
+                                </div>
+                            </div>
+                            
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </header>
+        <!-- ********************** end header*************** -->
+
+        <!-- ******************* contenedor *************************** -->
+        <section class="container contenedor-full">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 pt-md-5">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                           <h2 class="fw-bold  font-text-d-din text-center text-md-start">DETALLE POR CATEGORÍA</h2> 
+                           <hr class="border border-dark border-2 opacity-75 mt-2 d-md-none">
+                        </div> 
+                        <div class="col-12 col-md-6 font-text-d-din">
+                           <h3 class="float-md-end fw-bold font-text-d-din m-0  d-flex justify-content-center">
+                            <span class="d-block">Cristina Cárdenas </span>     
+                            <span class="icon icon-user icon-user-content ps-1  d-block"></span>
+                           </h3> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4 pt-4">
+                            <div class="row">
+                                <div class="col-6 col-md-6">
+                                    <button class="btn btn-content active">DETALLE POR CATEGORÍA</button>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <button class="btn btn-content">HISTÓRICO DEPREMIOS</button>                                
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- ************** COMBO SELECIONABLE***************** -->
+                        <div class="col-12 col-md-6 col-lg-8 pt-4 pt-md-1 pe-5 ps-5 pe-md-0 ps-md-0">
+                            <div class="float-md-end ">
+                                <p class="text-center">
+                                    Seleccione el mes de análisis
+                                </p>
+                                <select class="form-select form-select-mount" aria-label="Default select example">
+                                <!--  <option selected>Seleccionar el mes</option> -->
+                                    <option value="1">ENERO </option>
+                                    <option value="2">FEBRERO</option>
+                                    <option value="3">MARZO</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <!-- *************** rectangulos bordeados ************************** -->
+                    <div class="row">
+                        <div class="col-12 pt-3 ps-lg-5 pe-lg-5">
+                            <div class="row">
+                                <div class="pb-2 col-12 col-sm-12 col-md-12  col-lg-4 ">
+                                    <div class="cuadro-radius">
+                                        <h6 class="font-text-d-din fw-bolder text-center">VENTA TOTAL</h6>
+                                        <h1 class="font-text-d-din  text-center">S/. 5,791</h1>
+                                    </div>
+                                </div>
+                                <div class="pb-2 col-12  col-sm-12  col-md-12 col-lg-4">
+                                    <div class="cuadro-radius">
+                                        <h6 class="font-text-d-din fw-bolder text-center">VENTA TOTAL</h6>
+                                        <h1 class="font-text-d-din  text-center">S/. 5,791</h1>
+                                    </div>
+                                </div>
+                                <div class="pb-2 col-12  col-sm-12 col-md-12 col-lg-4">
+                                    <div class="cuadro-radius">
+                                        <h6 class="font-text-d-din fw-bolder text-center">VENTA TOTAL</h6>
+                                        <h1 class="font-text-d-din  text-center">S/. 5,791</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- ************************************************************** -->
+
+
+                    <!-- *************************** table para tableta y escritorio *************************************** -->
+                    <div class="row pt-4 d-none d-md-block">
+                        <div class="col-12">
+                            <div class=" table-responsive">
+                                <table class="table table-bordered border-dark font-text-d-din">
+                                    <thead class="table-dark text-center">
+                                    <tr>
+                                        <td>CATEGORÍA</td>
+                                        <td>VENTA</td>
+                                        <td>CUOTA</td>
+                                        <td>ALCANCE</td>
+                                        <td>PREMIO</td>
+                                        <td>PREMIO MÁXIMO</td>
+                                        <td>FECHA DE ABONO</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                    <tr>
+                                        <td>SOLARES</td>
+                                        <td>S/. 2804</td>
+                                        <td>S/. 2000</td>
+                                        <td>140 %</td>
+                                        <td>250 %</td>
+                                        <td>250 %</td>
+                                        <td>13/02/2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SOLARES</td>
+                                        <td>S/. 2804</td>
+                                        <td>S/. 2000</td>
+                                        <td>140 %</td>
+                                        <td>250 %</td>
+                                        <td>250 %</td>
+                                        <td>13/02/2023</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <!-- *************************** table para Mobil *************************************** -->
+                    <div class="row pt-4 d-md-none">
+                        <div class="col-12">
+                            <div>
+                                <div class="select-desplegable-table">
+                                    <h3 class="font-text-d-din fw-bolder">SOLARES <span class="float-end"><img src="img/arrow-button.png" height="12px" alt=""></span></h3>
+                                </div>
+                            </div>
+                            <div class="ps-4 pe-4">
+                                <table class="table table-bordered border-dark font-text-d-din">
+                                    <!-- <thead class="table-dark text-center">
+                                    </thead> -->
+                                    <tbody class="">
+                                    <!-- <tr>
+                                            <td>CATEGORÍA</td><td>SOLARES</td>
+                                        </tr> -->
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">VENTA</td>
+                                            <td class="text-center">S/. 2804</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">CUOTA</td>
+                                            <td class="text-center">S/. 2000</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">ALCANCE</td>
+                                            <td class="text-center">140 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">PREMIO</td>
+                                            <td class="text-center">250 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">PREMIO MÁXIMO</td>
+                                            <td class="text-center">250 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">FECHA DE ABONO</td>
+                                            <td class="text-center">13/02/2023</td>
+                                        </tr>    
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- ************************************************************************************* -->
+
+                     <!-- *************************** table para Mobil *************************************** -->
+                     <div class="row pt-4 d-md-none">
+                        <div class="col-12">
+                            <div>
+                                <div class="select-desplegable-table">
+                                    <h3 class="font-text-d-din fw-bolder">AFEITADORES <span class="float-end"><img src="img/arrow-button.png" height="12px" alt=""></span></h3>
+                                </div>
+                            </div>
+                            <div class="ps-4 pe-4">
+                                <table class="table table-bordered border-dark font-text-d-din">
+                                    <!-- <thead class="table-dark text-center">
+                                    </thead> -->
+                                    <tbody class="">
+                                    <!-- <tr>
+                                            <td>CATEGORÍA</td><td>SOLARES</td>
+                                        </tr> -->
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">VENTA</td>
+                                            <td class="text-center">S/. 2804</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">CUOTA</td>
+                                            <td class="text-center">S/. 2000</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">ALCANCE</td>
+                                            <td class="text-center">140 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">PREMIO</td>
+                                            <td class="text-center">250 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">PREMIO MÁXIMO</td>
+                                            <td class="text-center">250 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4 text-start table-dark">FECHA DE ABONO</td>
+                                            <td class="text-center">13/02/2023</td>
+                                        </tr>    
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- ************************************************************************************* -->
+                     <!-- ***************** wattsap ************************ -->
+                     <div class="row mb-5">
+                        <div class="col-12">
+                            <a href="#"><img  class="img-wattsap float-end" src="img/wattsapp.png" alt=""  ></a>
+                        </div>
+                    </div>
+
+                    <div class="pt-5 pb-5 ">
+
+                    </div>
+
+
+                    
+                </div>
+            </div>
+
+
+
+        </section>
+        <!-- ******************** end contenedor ********************* -->
+
+        <footer class="fixed-bottom d-lg-none">
+            <div class="bg-black">
+                <div class="pt-3 pb-3 d-flex flex-row  justify-content-center w-100">
+                    <a href="bienvenido.html" class="btn btn-menu-footer"> <span class="icon icon-acercade d-block icon-btn-menu-footer"></span> ACERCA DEL PROYECTO</a>
+                    <a href="categorias.html" class="btn btn-menu-footer active"><span class="icon icon-ventas d-block icon-btn-menu-footer"></span> RESULTADO DE VENTAS</a>
+                    <a href="#" class="btn btn-menu-footer"><span class="icon icon-atencion d-block icon-btn-menu-footer"></span> ATENCION AL CLIENTE</a>
+                    <a href="concurso_mes.html" class="btn btn-menu-footer"><span class="icon icon-recursos d-block icon-btn-menu-footer"></span> CONCURSOS DEL MES</a>
+                    <a href="cierre_mes.html" class="btn btn-menu-footer"><span class="icon icon-cierre d-block icon-btn-menu-footer"></span> CIERRE DEL MES</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    
+</body>
+</html>

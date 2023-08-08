@@ -362,8 +362,21 @@ $(document).ready(function() {
             total_puntos ++;
             var icono;
 
-            if (item.estudio_id == 6 && item.tipo == "Puesto de Mercado" ){
-                item.marker_point_web =  "{{ asset('/') }}" + "/rutas-auditor/img/maker_alicorp_mercado.png"
+            // if (item.estudio_id == 6 && item.tipo == "Puesto de Mercado" ){
+            //     item.marker_point_web =  "{{ asset('/') }}" + "/rutas-auditor/img/maker_alicorp_mercado.png"
+            // }
+            
+            if (item.estudio_id == 6  ){
+                //item.marker_point_web =  "{{ asset('/') }}" + "/rutas-auditor/img/maker_alicorp_mercado.png"
+                if(item.store_type_id == '27') {
+                    item.marker_point_web = 'http://ttaudit.com/rutas-auditor/img/maker_alicorp_cliente.png';
+                } if(item.store_type_id == '28') {
+                    item.marker_point_web =  'http://ttaudit.com/rutas-auditor/img/maker_alicorp_merc.png';
+                } if(item.store_type_id == '29') {
+                    item.marker_point_web =  'http://ttaudit.com/rutas-auditor/img/maker_alicorp_aass.png';
+                } if(item.store_type_id == '30') {
+                    item.marker_point_web =  'http://ttaudit.com/rutas-auditor/img/ic_marker_riqra.png';
+                }
             }
 
 

@@ -21,7 +21,7 @@ $statement=$pdo->prepare('SELECT
   `products`.`id`,
   `products`.`eam`,
   `products`.`fullname`,
-  `products`.`company_id`,
+  `product_detail`.`company_id`,
   `products`.`category_product_id`,
   `products`.`precio`,
   `products`.`imagen`,
@@ -31,7 +31,8 @@ $statement=$pdo->prepare('SELECT
   `products`.`unidad`,
   `products`.`created_at`,
   `products`.`updated_at`,
-  `product_detail`.`competencia`
+  `product_detail`.`competencia`,
+  `product_detail`.`store_type_id`
 FROM
   `product_detail`
   LEFT OUTER JOIN `products` ON (`product_detail`.`product_id` = `products`.`id`)

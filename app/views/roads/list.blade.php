@@ -30,7 +30,7 @@
 
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="user_id">Auditor</label>
+                        <label for="user_id">Auditor11</label>
                         {{Form::select('user_id', array('0' => 'Seleccionar'), '0', ['id'=>'user_id','class' => 'form-control']);}}
 
                     </div>
@@ -102,8 +102,7 @@
         })
         $(document).ready(function(){
             $('#user_id option').remove();
-            $.post('http://ttaudit.test/getAuditors', function(json){
-                console.log('json',json)
+            $.post('https://ttaudit.com/getAuditors', function(json){
                 //if (item.latitud != 0 && item.longitud != 0){
                 poblandoCombo(json,1);
             });

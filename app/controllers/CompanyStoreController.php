@@ -177,6 +177,7 @@ class CompanyStoreController extends BaseController{
                         'estudio_id'        =>      $objCompanyStore->study_id,
                         'estudio'           =>      $objCompanyStore->estudio,
                         'owner'        =>      $objCompanyStore->owner,
+                        'store_type_id'        =>      $objCompanyStore->store_type_id,
                         'cabecera'          =>      0,
                         'dif_campaigne'     =>      $objCompanyStore->cell,
                         'marker_point_web'  =>      $objCompanyStore->marker_point_web,

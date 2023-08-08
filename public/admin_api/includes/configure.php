@@ -8,11 +8,8 @@
 //echo  __DIR__.'/../bootstrap/autoload.php';
 
 $host = '104.197.133.79';
-//$host = '35.225.97.74';
-//$host = 'localhost';
 $db   = 'ttaudit_auditors';
 $user = 'dataser_admin';
-$pass = 'franbrsj09';
-//$pass = 'irmagaguevara';
+$pass = 'JQ7:a/D$+"roIeVl';
 $charset = 'utf8';
 
