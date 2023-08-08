@@ -71,7 +71,7 @@ class RoadController extends BaseController{
         {
             if($roadDetail->audit==1) $auditados ++;
         }
-        //dd($roadDetails[0]);
+        //dd($roadDetails);
         return View::make('roads/show',compact('road','roadDetails','auditados','urlBase'));
     }
 
@@ -161,12 +161,15 @@ class RoadController extends BaseController{
         $user_id = Input::only('user_id');
         $id_store = Input::only('id_store');
         $nombreRuta = Input::only('nombreRuta');
+        $dateEject= Input::only('date');
+        
         $customer_id=5;$study_id=2;
 
         $objVisitStore = $this->visitStoreRepo->getModel();
         $objRoad = $this->roadRepo->getModel();
         $objRoad->fullname = $nombreRuta['nombreRuta'];
         $objRoad->user_id = $user_id['user_id'];
+        $objRoad->f_ejecucion = $dateEject['date'];
         $objRoad->save();
         $lastInsert = $objRoad->id;
 
@@ -213,17 +216,24 @@ class RoadController extends BaseController{
                     }else{
                         $this->visitStoreRepo->updateRoutingForVisit($valores[0],$valores[1],$visit_id_now,1);
                     }
-                    $objVisitStore = $this->visitStoreRepo->getModel();
-                    $objVisitStore->store_id= $valores[0];
-                    $objVisitStore->company_id = $valores[1];
-                    $objVisitStore->visit_id = $visit_id_new;
-                    $objVisitStore->road_id = $idRoad;
-                    $objVisitStore->ruteado=0;
-                    $objVisitStore->save();
-                    if ($num_visitas == $visit_id_new)
+                    $objCompany = $this->CompanyRepo->find($valores[1]);
+                    if ($objCompany->visits==1)
                     {
+                        $objVisitStore = $this->visitStoreRepo->getModel();
+                        $objVisitStore->store_id= $valores[0];
+                        $objVisitStore->company_id = $valores[1];
+                        $objVisitStore->visit_id = $visit_id_new;
+                        $objVisitStore->road_id = $idRoad;
+                        $objVisitStore->ruteado=0;
+                        $objVisitStore->save();
+                        if ($num_visitas == $visit_id_new)
+                        {
+                            $this->companyStoreRepo->updateRouteForStore($valores[0],$valores[1],1);
+                        }
+                    }else{
                         $this->companyStoreRepo->updateRouteForStore($valores[0],$valores[1],1);
                     }
+                    
                 }
             }
             header('Access-Control-Allow-Origin: *');

@@ -7,6 +7,12 @@ ini_set('display_startup_errors', TRUE);
 date_default_timezone_set('America/Lima');
 include("includes/configure.php");
 
+$inicio=$_GET['inicio'];
+$fin=$_GET['fin'];
+
+
+//echo $inicio ;
+//exit();
 
 if (PHP_SAPI == 'cli')
 	die('This example should only be run from a Web Browser');
@@ -131,7 +137,7 @@ $objPHPExcel->createSheet(NULL, 0);
 /* Ejecuta el Store Procedure que tiene el resumen del reporte */
 //mysql_query("call sp_reporte_dia_company_8", $conexion_db) or die(mysql_error());
 
-$query_detalle_puntos = "call sp_reporte_company_63";
+$query_detalle_puntos = "call sp_reporte_company_63('$inicio','$fin',0)" ;
 $resEmp = mysql_query($query_detalle_puntos, $conexion_db) or die(mysql_error());
 $total_comercios = mysql_num_rows($resEmp);
 
@@ -326,7 +332,7 @@ while ($rowEmp = mysql_fetch_assoc($resEmp)) {
 		$tipo_campo = $campos[$row][1];
 
 		if ($tipo_campo == "0") {
-			 $objPHPExcel->setActiveSheetIndex(0)->setCellValue(coordinates($contador_columna , $contador_1), utf8_encode($rowEmp[$campo]) );
+			 $objPHPExcel->setActiveSheetIndex(0)->setCellValue(coordinates($contador_columna , $contador_1), strtoupper(utf8_encode($rowEmp[$campo])) );
 		} else if ($tipo_campo == "1") {
 			if ($rowEmp[$campo] == null || $rowEmp[$campo]   == "") {
 				$objPHPExcel->setActiveSheetIndex(0)->setCellValue(coordinates($contador_columna , $contador_1), '' );

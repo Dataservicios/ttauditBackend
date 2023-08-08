@@ -1,7 +1,8 @@
 <?php
 namespace Auditor\Entities;
 class PollOptionDetail extends \Eloquent {
-    protected $fillable = ['poll_option_id','result','otro','store_id','auditor'];
+    protected $fillable = ['poll_option_id','result','otro','store_id','auditor','product_id','company_id','poll_id','category_product_id','road_id',
+        'poll_detail_id'];
     protected $perPage = 15;
     protected $table = 'poll_option_details';
 

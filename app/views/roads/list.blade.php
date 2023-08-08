@@ -102,7 +102,8 @@
         })
         $(document).ready(function(){
             $('#user_id option').remove();
-            $.post('http://ttaudit.com/getAuditors', function(json){
+            $.post('http://ttaudit.test/getAuditors', function(json){
+                console.log('json',json)
                 //if (item.latitud != 0 && item.longitud != 0){
                 poblandoCombo(json,1);
             });

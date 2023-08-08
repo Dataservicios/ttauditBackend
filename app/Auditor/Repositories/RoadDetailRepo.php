@@ -25,6 +25,29 @@ class RoadDetailRepo extends BaseRepo{
         return $roadDetails;
     }
 
+    public function getRoadForStoreCompanyVisits($store_id,$company_id,$visit_id)
+    {
+        $sql = "SELECT
+  `road_details`.`id` as road_detail_id,
+  `road_details`.`store_id`,
+  `road_details`.`audit`,
+  `road_details`.`company_id`,
+  `road_details`.`road_id`,
+  `road_details`.`nivel`,
+  `road_details`.`created_at`,
+  `visit_stores`.`visit_id`
+FROM
+  `road_details`
+  INNER JOIN `visit_stores` ON ((`visit_stores`.`road_id` = `road_details`.`road_id`) and (`visit_stores`.`store_id`=" . $store_id . "))
+WHERE
+  `road_details`.`company_id` = " . $company_id . " AND 
+  `road_details`.`store_id` = " . $store_id . " AND 
+  `visit_stores`.`visit_id` = " . $visit_id;
+
+        $consulta=\DB::select($sql);
+        return  $consulta;
+    }
+
     /**
      * @param $matrizRoads
      * @param $type 0 -> todos, 1-> auditados, 2-> sin auditar

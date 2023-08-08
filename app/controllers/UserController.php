@@ -4,15 +4,21 @@ use Auditor\Managers\RegisterManager;
 use Auditor\Repositories\UserRepo;
 use Auditor\Managers\AccountManager;
 use Auditor\Managers\UserManager;
+use Auditor\Repositories\ContactStoreRepo;
+use Auditor\Repositories\CreditDistributorRepo;
 
 
 class UserController extends BaseController{
 
     protected $userRepo;
+    protected $contactStoreRepo;
+    protected $creditDistributorRepo;
 
-    public function __construct(UserRepo $userRepo)
+    public function __construct(UserRepo $userRepo,ContactStoreRepo $contactStoreRepo,CreditDistributorRepo $creditDistributorRepo)
     {
         $this->userRepo = $userRepo;
+        $this->contactStoreRepo = $contactStoreRepo;
+        $this->creditDistributorRepo = $creditDistributorRepo;
     }
 
 
@@ -208,5 +214,105 @@ class UserController extends BaseController{
         $manager->save();
         return Redirect::route('admin');
     }*/
+
+    public function insertContact()
+    {
+        $valoresPost= Input::all();
+        $store_id = $valoresPost['store_id'];
+        $fullname = $valoresPost['fullname'];
+        $cargo = $valoresPost['cargo'];
+        $tipo = $valoresPost['tipo'];//principal(0) o secundario(1)
+        $fnac = $valoresPost['fnac'];
+        $phone = $valoresPost['phone'];
+        $cel = $valoresPost['cel'];
+        $email = $valoresPost['email'];
+        $objUserRepo = $this->userRepo->getModel();
+        $objUserRepo->type = 'contact';
+        $objUserRepo->fullname = $fullname;
+        $objUserRepo->cargo = $cargo;
+        $objUserRepo->tipo_contact = $tipo;
+        $objUserRepo->phone = $phone;
+        $objUserRepo->celular = $cel;
+        $objUserRepo->email = $email;
+        $objUserRepo->active = 1;
+        if ($fnac<>''){
+            $objUserRepo->f_nac = $fnac;
+        }
+        $valueResult = $this->userRepo->verifyContactStore($objUserRepo);
+        header('Access-Control-Allow-Origin: *');
+        if ($valueResult)
+        {
+            if ($objUserRepo->save())
+            {
+                $objContact = $this->contactStoreRepo->getModel();
+                $objContact->store_id = $store_id;
+                $objContact->user_id = $objUserRepo->id;
+                if ($objContact->save())
+                {
+                    return Response::json([ 'success'=> 1]);
+                }else{
+                    return Response::json([ 'success'=> 0]);
+                }
+
+            }else{
+                return Response::json([ 'success'=> 0]);
+            }
+        }else{
+            return Response::json([ 'success'=> 0]);
+        }
+
+    }
+
+    public function listContacts()
+    {
+        $valoresPost= Input::all();
+        $store_id = $valoresPost['store_id'];
+        $lista_contacts = $this->contactStoreRepo->getModel();
+        $contacts = $lista_contacts->where('store_id',$store_id)->get();
+        $contacts_list =[];
+        if (count($contacts)>0)
+        {
+            foreach ($contacts as $contact) {
+                $objUser = $this->userRepo->find($contact->user_id);
+                $contacts_list[] = $objUser;
+            }
+            return Response::json([ 'success'=> 1,'contacts'=>$contacts_list]);
+        }else{
+            return Response::json([ 'success'=> 0,'contacts'=>$contacts_list]);
+        }
+
+    }
+
+    public function insertCreditDistributor()
+    {
+        $valoresPost= Input::all();
+        $store_id = $valoresPost['store_id'];
+        $user_id = $valoresPost['distributor_id'];
+        $linea = $valoresPost['linea'];
+        $plazo = $valoresPost['plazo'];
+        $objCDRepo = $this->creditDistributorRepo->getModel();
+        $objCDRepo->user_id = $user_id;
+        $objCDRepo->store_id = $store_id;
+        $objCDRepo->linea = $linea;
+        $objCDRepo->plazo = $plazo;
+        $valueResult = $this->creditDistributorRepo->updateInsertCreditDistributor($objCDRepo);
+        header('Access-Control-Allow-Origin: *');
+        return Response::json([ 'success'=> 1]);
+    }
+
+    public function listCreditDistributor()
+    {
+        $valoresPost= Input::all();
+        $store_id = $valoresPost['store_id'];
+        $lista_creditos = $this->creditDistributorRepo->listCreditDistributor($store_id);
+
+        if (count($lista_creditos)>0)
+        {
+            return Response::json([ 'success'=> 1,'credits'=>$lista_creditos]);
+        }else{
+            return Response::json([ 'success'=> 0,'credits'=>[]]);
+        }
+
+    }
 
 } 

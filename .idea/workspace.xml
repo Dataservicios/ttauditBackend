@@ -1,14 +1,365 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="470c9b69-5898-45cf-aae6-acbf48105379" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/Attribute.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/AttributeDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/ContactStore.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/CreditDistributor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/LogProcess.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/Reservation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/ReservationServiceDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/ReservationStatu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/StoreType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/AttributeDetailRepo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/AttributeRepo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ContactStoreRepo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/CreditDistributorRepo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/LogProcessRepo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ReservationRepo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ReservationServiceDetailRepo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ReservationStatuRepo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/ExcelControllerV2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/ExcelGloriaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/ProductsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/temp22.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/temp3.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/tempNew.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/alicorp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/apiAdminTools.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/gloria.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/home_back.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/layouts/home_back.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPollsBT.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/roads/partials/roadsAuditor.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/roads/roadsAuditorMap_xxx.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/001-dashboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/002-camera.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/003-shop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/004-update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/005-peru.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/006-group.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/fono1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/fono2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/fono3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/gestion-ventas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/palmera-logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/pepsico.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/pepsicologo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/plataforma-tec.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/punto-de-venta.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/punto-de-venta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/unilever-food.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/css/color/white.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/css/owl.carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/css/prettyPhoto.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/css/responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/alicorp-soluciones.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/alicorp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/alicorpsoluciones.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/bg5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/cobertura.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/comunal.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/duel-phone-big.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/ga-logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/ga.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/gloria.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/interbank.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logo-gloria.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logo-kasnet.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logo-molitalia.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logounilever.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/molitalia.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/pattern5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/phone1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/phone2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/phone3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/phone4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/contentPattern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/contentPattern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/default_thumb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite_next.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite_prev.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite_x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite_y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/contentPatternBottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/contentPatternLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/contentPatternRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/contentPatternTop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/real.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/images/unilever.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.localScroll.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.nav.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.parallax-1.1.3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.prettyPhoto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.scrollto.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/modernizr-latest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/owl.carousel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/js/skrollr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home_2019/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/alicorp/publicities/balde_victorio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/alicorp/publicities/paleta_precios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/78511172_s-1280x720.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/Logo-TT-Audit-solo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/bat-fondo.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/logo_bat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-1-d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-1-e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-2-d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-2-e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-3-d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-3-e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-4-d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-4-e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-5-d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-5-e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_JsonRoadsDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_JsonRoadsDetailMarket.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_JsonRoadsDetailNoAudits.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_add_assitent_control.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_all_mechanic.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_audit_road_store.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_audit_road_stores.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_category_product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_close_audit_road_stores.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_close_audit_road_stores_visit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_company.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_company_85.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_company_app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_company_audits.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_distributor_mechanic.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_get_distributors_app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_get_products.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_get_visit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_liberation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_orders_detail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_orders_detail_store.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_orders_store.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_poll.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_poll_option.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_publicity_history.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_publicity_type_bodega.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_search_cod_client_app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_search_stores.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_search_stores_distributor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_search_stores_markets.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_audit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_audit_visit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_liberation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_open_for_orders.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_visit_liberation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_swaps.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_update_assitent_control.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_events.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_files_store.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_files_store_all.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_markets.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_poll_type_stores.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_sectors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_type_store.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/includes/configure.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/phpinfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/prueba.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/validate_qr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ttaudit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ttaudit.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Entities/PollDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Entities/PollDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Entities/PollOptionDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Entities/PollOptionDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Entities/ProductDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Entities/ProductDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/CategoryProductRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/CategoryProductRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/CompanyStoreRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/CompanyStoreRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/MediaRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/MediaRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/ProductDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ProductDetailRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/ProjectionSaleRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ProjectionSaleRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/PublicitiesDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/PublicitiesDetailRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/RoadDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/RoadDetailRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/UserCompanyRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/UserCompanyRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/UserRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/UserRepo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AlertsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AlertsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/AuditsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuditsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/CompanyStoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CompanyStoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelAlicorpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelAlicorpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelBayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelGeneralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelGeneralController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/InventoryIBKController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/InventoryIBKController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/MapRoadAuditorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MapRoadAuditorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/MediasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MediasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/MercantilistaBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MercantilistaBayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/OperationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/OperationsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/PollDetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PollDetailController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ReportBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ReportBayerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ReportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/RoadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/RoadController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/StoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/StoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/temp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/temp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/temp26.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/temp26.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lang/es/utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/lang/es/utils.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/canjes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/canjes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/jaime.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/jaime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/transferencistas.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/transferencistas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/audits/auditBayerTransferencista.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/auditBayerTransferencista.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/audits/detailSod.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/detailSod.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/emails/formatoEmail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/emails/formatoEmail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/emails/localCerrado.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/emails/localCerrado.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/roads/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/roads/partials/menuLeft.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/partials/menuLeft.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/roads/roadsAuditorMap.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/roadsAuditorMap.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/roads/roadsAuditorMapVersion2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/roadsAuditorMapVersion2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/roads/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/api_JsonRoadsDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_JsonRoadsDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/api_audit_road_store.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_audit_road_store.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/api_audit_road_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_audit_road_stores.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/api_company.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/api_company_audits.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_company_audits.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/api_poll.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_poll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/api_poll_option.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_poll_option.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/api_store_liberation.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_store_liberation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin_api/includes/configure.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/includes/configure.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/css/color/white.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/color/white.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/css/owl.carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/owl.carousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/css/prettyPhoto.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/prettyPhoto.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/appBT.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/appBT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/phpinfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/phpinfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/includes/Classes/PHPExcel/locale/bg/config" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/includes/Classes/PHPExcel/locale/bg/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/includes/configure.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/includes/configure.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/maintenance-of-images.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/maintenance-of-images.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_alicorp_helena_premiacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_alicorp_helena_premiacion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_alicorp_helena_v3.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_alicorp_helena_v3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_bayer_33.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_bayer_33.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_bayer_35.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_bayer_35.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_bayern_fase2.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_bayern_fase2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_18_category_54.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_18_category_54.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_22_category_53.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_22_category_53.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_22_category_54.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_22_category_54.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_23.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_23.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_29_category_53.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_29_category_53.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_29_category_54.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_29_category_54.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_37.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_37.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_53_category_53.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_53_category_53.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_60.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_60.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_63.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_63.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_78.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_78.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_ibk_3.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_ibk_3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/reportes_excel/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/temp1.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/temp1.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,292 +367,36 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="463827063">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.13" value="4" />
-          <entry key="project.open.time.14" value="2" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.20" value="2" />
-          <entry key="project.opened" value="15" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="5a5f855d62c2fc15746237a46b8229d1" value="1" />
-          <entry key="f3b64c34d4ecac76524d2363e2972214" value="1" />
-          <entry key="gitignore" value="1" />
-          <entry key="html" value="3" />
-          <entry key="php" value="42" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Blade" value="11" />
-          <entry key="HTML" value="3" />
-          <entry key="PHP" value="31" />
-          <entry key="PLAIN_TEXT" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="html" value="1" />
-          <entry key="js" value="4" />
-          <entry key="php" value="3235" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Blade" value="1547" />
-          <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="1688" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="ttaudit" />
-  </component>
-  <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.50192803">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/routes.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="207">
-                  <caret line="157" selection-start-line="157" selection-end-line="157" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/controllers/AuditsController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="401" column="71" selection-start-line="401" selection-start-column="71" selection-end-line="401" selection-end-column="71" />
-                  <folding>
-                    <element signature="e#96#134#0#PHP" expanded="true" />
-                    <element signature="n#excelCompanies#0;n#AuditsController#0;n#!!top" />
-                    <element signature="n#getDetailPublicitiesCondition#0;n#AuditsController#0;n#!!top" />
-                    <element signature="n#ListStoresForAudit#0;n#AuditsController#0;n#!!top" />
-                    <element signature="n#DetailAudit#0;n#AuditsController#0;n#!!top" />
-                    <element signature="n#closedPoints#0;n#AuditsController#0;n#!!top" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionRepo.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controllers/MediasController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="7140">
-                  <caret line="446" column="14" selection-start-line="446" selection-start-column="14" selection-end-line="446" selection-end-column="14" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="547">
-                  <caret line="555" column="273" selection-start-line="555" selection-start-column="273" selection-end-line="555" selection-end-column="273" />
-                  <folding>
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controllers/BaseController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="7174">
-                  <caret line="425" column="57" selection-start-line="425" selection-start-column="57" selection-end-line="425" selection-end-column="57" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1700">
-                  <caret line="100" column="37" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="37" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="434">
-                  <caret line="1043" column="75" selection-start-line="1043" selection-start-column="59" selection-end-line="1043" selection-end-column="75" />
-                  <folding>
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="351">
-                  <caret line="1506" column="220" selection-start-line="1506" selection-start-column="220" selection-end-line="1506" selection-end-column="220" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>ajaxGetProductsCompetition</find>
-      <find>getProductsForCompetition</find>
-      <find>saveOrder</find>
-      <find>modalDelete</find>
-      <find>click</find>
-      <find>att</find>
-      <find>attr</find>
-      <find>aria-valuenow</find>
-      <find>btn-si</find>
-      <find>borrarReg</find>
-      <find>deleteRegsAll</find>
-      <find>modalErase</find>
-      <find>delRegister</find>
-      <find>visibilidadBayerTrans</find>
-      <find>excelVisibilidadBayerTrans</find>
-      <find>getResultForStore</find>
-      <find>$poll_detail</find>
-      <find>admin/audits/medias/detailPhoto</find>
-      <find>Comentario</find>
-      <find>detailPhoto</find>
-      <find>coment</find>
-      <find>[]</find>
-      <find>update</find>
-      <find>optionSaves</find>
-      <find>UpdateRegister</find>
-      <find>$valOptions</find>
-      <find>updatePollDetailsAll</find>
-      <find>updateRegPollDetailAll</find>
-      <find>PollOptionRepo</find>
-      <find>deleteAllOptions</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\laragon\www\ttaudit\app\Auditor\Repositories</dir>
-    </dirStrings>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/app/Auditor/Entities/OrderDetail.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/UserRepo.php" />
-        <option value="$PROJECT_DIR$/app/routes/canjes.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/RoadDetailRepo.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php" />
-        <option value="$PROJECT_DIR$/app/views/report/bayer/prospeccion.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/report/bayer/transferencistaDetalle.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/HistoryFicticiosController.php" />
-        <option value="$PROJECT_DIR$/app/views/operations/operationsRoads.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/audits/detailOrders.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/AlertsController.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/PollRepo.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/PublicityRepo.php" />
-        <option value="$PROJECT_DIR$/app/views/audits/detailSod.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/medias/detalleMedia.blade.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/CompanyStoreRepo.php" />
-        <option value="$PROJECT_DIR$/app/controllers/InventoryIBKController.php" />
-        <option value="$PROJECT_DIR$/app/views/report/interbank/inventarios.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/app/routes/operationsadmin.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/MediaRepo.php" />
-        <option value="$PROJECT_DIR$/app/views/operations/operationsFull.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/audits/auditExhiCampaign3.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/OperationsController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ReportController.php" />
-        <option value="$PROJECT_DIR$/app/views/audits/excelsCompany.blade.php" />
-        <option value="$PROJECT_DIR$/app/config/database.php" />
-        <option value="$PROJECT_DIR$/app/views/report/bayer/prospeccionExcels.blade.php" />
-        <option value="$PROJECT_DIR$/public/pruebas/index.php" />
-        <option value="$PROJECT_DIR$/public/reportes_excel/includes/configure.php" />
-        <option value="$PROJECT_DIR$/public/reportes_excel/reporte_company_ibk_3.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/CompanyRepo.php" />
-        <option value="$PROJECT_DIR$/app/controllers/temp.sql" />
-        <option value="$PROJECT_DIR$/public/js/app.js" />
-        <option value="$PROJECT_DIR$/app/controllers/temp26.sql" />
-        <option value="$PROJECT_DIR$/app/controllers/ExcelController.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/StoreRepo.php" />
-        <option value="$PROJECT_DIR$/public/js/appBT.js" />
-        <option value="$PROJECT_DIR$/app/routes/transferencistas.php" />
-        <option value="$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/audits/audit63.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/temp.html" />
-        <option value="$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/BaseController.php" />
-        <option value="$PROJECT_DIR$/app/views/pruebas/excelDownloadPrueba.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/MediasController.php" />
-        <option value="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" />
-        <option value="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/controllers/AuditsController.php" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
+    <option name="otherServicesEnabled" value="false" />
+    <option name="typeCheckingEnabled" value="false" />
     <service-enabled>false</service-enabled>
-    <exe-path />
-    <annotation-enable>false</annotation-enable>
     <other-services-enabled>false</other-services-enabled>
-    <auto-save>true</auto-save>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" break_at_first_line="true" />
   <component name="PhpServers">
-    <servers />
+    <servers>
+      <server host="ttaudit.test" id="21ecedda-11b3-4c3c-9348-82e94f262544" name="ttaudit" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/app/controllers" remote-root="C:/laragon/www/ttaudit/app/controllers" />
+          <mapping local-root="$PROJECT_DIR$/bootstrap" remote-root="D:/www/ttaudit/bootstrap" />
+          <mapping local-root="$PROJECT_DIR$/bootstrap/autoload.php" remote-root="D:/www/ttaudit/bootstrap/autoload.php" />
+          <mapping local-root="$PROJECT_DIR$/public" remote-root="D:/www/ttaudit/public" />
+          <mapping local-root="$PROJECT_DIR$/public/index.php" remote-root="D:/www/ttaudit/public/index.php" />
+          <mapping local-root="$PROJECT_DIR$/vendor" remote-root="C:/laragon/www/ttaudit/vendor" />
+        </path_mappings>
+      </server>
+    </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\laragon\bin\php\php-7.4.19-Win32-vc15-x64\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
@@ -343,172 +438,57 @@
       <path value="$PROJECT_DIR$/vendor/d11wtq/boris" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1414" />
-    <option name="y" value="18" />
-    <option name="width" value="1616" />
-    <option name="height" value="886" />
+  <component name="PhpXdebugProxy" ide_key="PHPSTORM" />
+  <component name="ProjectId" id="1QkHw25p8m3mW02oJxkRmKuziDc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Auditor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Auditor" type="462c0819:PsiDirectoryNode" />
-              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ttaudit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ttaudit" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="controllers" type="cbb8eebc:String" user="controllers" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="audits" type="cbb8eebc:String" user="audits" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-              <item name="public" type="cbb8eebc:String" user="public" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-              <item name="public" type="cbb8eebc:String" user="public" />
-              <item name="js" type="cbb8eebc:String" user="js" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-              <item name="public" type="cbb8eebc:String" user="public" />
-              <item name="reportes_excel" type="cbb8eebc:String" user="reportes_excel" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ttaudit" type="cbb8eebc:String" user="ttaudit" />
-              <item name="public" type="cbb8eebc:String" user="public" />
-              <item name="reportes_excel" type="cbb8eebc:String" user="reportes_excel" />
-              <item name="includes" type="cbb8eebc:String" user="includes" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin/nodejs/node-v8" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.jscs" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.path.for.package.eslint" value="$PROJECT_DIR$/../../bin/nodejs/node-v8/node" />
-    <property name="node.js.path.for.package.jscs" value="project" />
-    <property name="node.js.path.for.package.standard" value="$PROJECT_DIR$/../../bin/nodejs/node-v8/node" />
-    <property name="node.js.selected.package.eslint" value="C:\laragon\bin\nodejs\node-v8" />
-    <property name="node.js.selected.package.jscs" value="" />
-    <property name="node.js.selected.package.standard" value="C:\laragon\bin\nodejs\node-v8" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Project.color&quot;: &quot;513d23&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/www/ttauditsystems&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\ttaudit\app\views\medias" />
-      <recent name="C:\laragon\www\ttaudit\public\js" />
-      <recent name="C:\laragon\www\ttaudit\app\views\audits" />
-      <recent name="C:\laragon\www\ttaudit\app\views\report\interbank" />
-      <recent name="C:\laragon\www\ttaudit\app\routes" />
+      <recent name="C:\www\ttaudit\app\controllers" />
+      <recent name="C:\www\ttaudit\app\Auditor\Repositories" />
+      <recent name="C:\www\ttaudit\app\Auditor\Entities" />
+      <recent name="D:\www\ttaudit\app\views" />
+      <recent name="D:\www\ttaudit\app\Auditor\Entities" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RunManager">
+    <configuration name="debug_ttaudit" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="ttaudit">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -674,82 +654,380 @@
       <workItem from="1534880838876" duration="12301000" />
       <workItem from="1534910324687" duration="17331000" />
       <workItem from="1535036793602" duration="15100000" />
-      <workItem from="1535056929891" duration="3451000" />
+      <workItem from="1535056929891" duration="5508000" />
+      <workItem from="1535126367813" duration="432000" />
+      <workItem from="1535127455422" duration="3108000" />
+      <workItem from="1535138713889" duration="1245000" />
+      <workItem from="1535343678319" duration="2035000" />
+      <workItem from="1535385190868" duration="3406000" />
+      <workItem from="1535409438752" duration="2082000" />
+      <workItem from="1535481436395" duration="559000" />
+      <workItem from="1535490323033" duration="605000" />
+      <workItem from="1535499328019" duration="1183000" />
+      <workItem from="1535557066626" duration="20698000" />
+      <workItem from="1535663144404" duration="290000" />
+      <workItem from="1535729220988" duration="9043000" />
+      <workItem from="1535820704699" duration="18000" />
+      <workItem from="1535926094731" duration="16552000" />
+      <workItem from="1535989293536" duration="18280000" />
+      <workItem from="1536077087689" duration="9343000" />
+      <workItem from="1536093958941" duration="2937000" />
+      <workItem from="1536106561995" duration="650000" />
+      <workItem from="1536161959280" duration="5805000" />
+      <workItem from="1536267958788" duration="10302000" />
+      <workItem from="1536336458914" duration="3761000" />
+      <workItem from="1536592187906" duration="20578000" />
+      <workItem from="1536680256190" duration="3334000" />
+      <workItem from="1536766355657" duration="16573000" />
+      <workItem from="1536867815889" duration="287000" />
+      <workItem from="1536968113556" duration="1781000" />
+      <workItem from="1537217530283" duration="5547000" />
+      <workItem from="1537287927521" duration="16812000" />
+      <workItem from="1537370193048" duration="21372000" />
+      <workItem from="1537457223384" duration="12386000" />
+      <workItem from="1537543005932" duration="8534000" />
+      <workItem from="1537830223282" duration="18000" />
+      <workItem from="1537830961924" duration="657000" />
+      <workItem from="1537976727625" duration="412000" />
+      <workItem from="1537983740382" duration="1219000" />
+      <workItem from="1537991943623" duration="4409000" />
+      <workItem from="1538165788369" duration="3494000" />
+      <workItem from="1538408911830" duration="606000" />
+      <workItem from="1538597891632" duration="599000" />
+      <workItem from="1538608752305" duration="634000" />
+      <workItem from="1538668666480" duration="5031000" />
+      <workItem from="1538684736293" duration="1093000" />
+      <workItem from="1538761485338" duration="2960000" />
+      <workItem from="1539049450232" duration="1379000" />
+      <workItem from="1539114346021" duration="21000" />
+      <workItem from="1539193581720" duration="1587000" />
+      <workItem from="1539279532456" duration="353000" />
+      <workItem from="1539619306592" duration="9375000" />
+      <workItem from="1539702357652" duration="10074000" />
+      <workItem from="1539792574301" duration="18809000" />
+      <workItem from="1539879396223" duration="3016000" />
+      <workItem from="1539891134560" duration="986000" />
+      <workItem from="1539966005590" duration="4249000" />
+      <workItem from="1540239272384" duration="204000" />
+      <workItem from="1540250776035" duration="261000" />
+      <workItem from="1540306128743" duration="5514000" />
+      <workItem from="1540329648042" duration="1198000" />
+      <workItem from="1540403543228" duration="14342000" />
+      <workItem from="1540483806024" duration="2069000" />
+      <workItem from="1540489273150" duration="1199000" />
+      <workItem from="1540498214665" duration="4309000" />
+      <workItem from="1540829761823" duration="1574000" />
+      <workItem from="1540915667005" duration="755000" />
+      <workItem from="1540940481866" duration="599000" />
+      <workItem from="1541003115312" duration="27000" />
+      <workItem from="1541008391686" duration="2463000" />
+      <workItem from="1541177224472" duration="1278000" />
+      <workItem from="1541190681486" duration="609000" />
+      <workItem from="1541194803614" duration="617000" />
+      <workItem from="1541518716053" duration="650000" />
+      <workItem from="1541608528329" duration="605000" />
+      <workItem from="1541623547573" duration="11995000" />
+      <workItem from="1541704723189" duration="623000" />
+      <workItem from="1541986724515" duration="8000" />
+      <workItem from="1542042666172" duration="172000" />
+      <workItem from="1542055619645" duration="1323000" />
+      <workItem from="1542125300093" duration="1834000" />
+      <workItem from="1542210000101" duration="598000" />
+      <workItem from="1542299030455" duration="611000" />
+      <workItem from="1542304813014" duration="2601000" />
+      <workItem from="1542402952921" duration="5413000" />
+      <workItem from="1542643064795" duration="6561000" />
+      <workItem from="1542728169444" duration="9566000" />
+      <workItem from="1542748996666" duration="1018000" />
+      <workItem from="1542830385296" duration="598000" />
+      <workItem from="1542915926202" duration="774000" />
+      <workItem from="1543000719899" duration="2212000" />
+      <workItem from="1543011761072" duration="4542000" />
+      <workItem from="1543078334412" duration="720000" />
+      <workItem from="1543247219697" duration="5851000" />
+      <workItem from="1543332241251" duration="248000" />
+      <workItem from="1543336351253" duration="1314000" />
+      <workItem from="1543450783420" duration="737000" />
+      <workItem from="1543505298441" duration="34000" />
+      <workItem from="1543593934998" duration="6848000" />
+      <workItem from="1543857164894" duration="632000" />
+      <workItem from="1543878409759" duration="623000" />
+      <workItem from="1544023958699" duration="1246000" />
+      <workItem from="1544140656520" duration="626000" />
+      <workItem from="1544197692019" duration="1798000" />
+      <workItem from="1544460166113" duration="4391000" />
+      <workItem from="1544546878507" duration="16345000" />
+      <workItem from="1544587104558" duration="1747000" />
+      <workItem from="1544629502303" duration="2605000" />
+      <workItem from="1544632139520" duration="14257000" />
+      <workItem from="1544718437584" duration="3566000" />
+      <workItem from="1544826977922" duration="40000" />
+      <workItem from="1545174017059" duration="1366000" />
+      <workItem from="1545321065725" duration="686000" />
+      <workItem from="1545334727086" duration="1301000" />
+      <workItem from="1545407261437" duration="836000" />
+      <workItem from="1545940811818" duration="693000" />
+      <workItem from="1547050785947" duration="932000" />
+      <workItem from="1547135823396" duration="665000" />
+      <workItem from="1547237205839" duration="8314000" />
+      <workItem from="1547420821518" duration="3500000" />
+      <workItem from="1547518830964" duration="2901000" />
+      <workItem from="1547566736562" duration="5188000" />
+      <workItem from="1547652640106" duration="1617000" />
+      <workItem from="1547736560788" duration="5665000" />
+      <workItem from="1547825008507" duration="3926000" />
+      <workItem from="1548084161188" duration="1384000" />
+      <workItem from="1548341835547" duration="651000" />
+      <workItem from="1548439523647" duration="829000" />
+      <workItem from="1548470918749" duration="24000" />
+      <workItem from="1548473329397" duration="2926000" />
+      <workItem from="1548540288609" duration="600000" />
+      <workItem from="1548686313678" duration="3680000" />
+      <workItem from="1548705046680" duration="10838000" />
+      <workItem from="1548723847194" duration="1325000" />
+      <workItem from="1548773487237" duration="5316000" />
+      <workItem from="1548859918763" duration="613000" />
+      <workItem from="1548946645405" duration="2179000" />
+      <workItem from="1548978528948" duration="226000" />
+      <workItem from="1549657992260" duration="5243000" />
+      <workItem from="1549925065211" duration="7631000" />
+      <workItem from="1549981970676" duration="22796000" />
+      <workItem from="1550010237586" duration="1528000" />
+      <workItem from="1550072553044" duration="1696000" />
+      <workItem from="1550183456530" duration="2053000" />
+      <workItem from="1550245724545" duration="479000" />
+      <workItem from="1550250483513" duration="1427000" />
+      <workItem from="1550253689790" duration="612000" />
+      <workItem from="1550679135211" duration="769000" />
+      <workItem from="1550707202596" duration="775000" />
+      <workItem from="1550761967953" duration="213000" />
+      <workItem from="1550763742672" duration="1268000" />
+      <workItem from="1550781673753" duration="915000" />
+      <workItem from="1550842894610" duration="58000" />
+      <workItem from="1550858514046" duration="3992000" />
+      <workItem from="1551128688856" duration="646000" />
+      <workItem from="1551129861137" duration="9157000" />
+      <workItem from="1551192709648" duration="11295000" />
+      <workItem from="1551454340037" duration="4380000" />
+      <workItem from="1551731802942" duration="1533000" />
+      <workItem from="1551794289865" duration="574000" />
+      <workItem from="1551801931521" duration="1700000" />
+      <workItem from="1551911808929" duration="2096000" />
+      <workItem from="1551973510053" duration="255000" />
+      <workItem from="1551973871561" duration="8698000" />
+      <workItem from="1552061470461" duration="56000" />
+      <workItem from="1552319646233" duration="9484000" />
+      <workItem from="1552414008986" duration="1391000" />
+      <workItem from="1552491405490" duration="10000" />
+      <workItem from="1552494480766" duration="12121000" />
+      <workItem from="1552582421970" duration="15827000" />
+      <workItem from="1552668082858" duration="1506000" />
+      <workItem from="1552922428209" duration="1523000" />
+      <workItem from="1553009857775" duration="4949000" />
+      <workItem from="1553097997661" duration="2629000" />
+      <workItem from="1553185706560" duration="968000" />
+      <workItem from="1553187709411" duration="601000" />
+      <workItem from="1553189697097" duration="1000" />
+      <workItem from="1553190547715" duration="2520000" />
+      <workItem from="1553266895382" duration="595000" />
+      <workItem from="1553269217800" duration="2880000" />
+      <workItem from="1553285720907" duration="3468000" />
+      <workItem from="1553483825511" duration="109000" />
+      <workItem from="1553638267668" duration="4845000" />
+      <workItem from="1553698347337" duration="2239000" />
+      <workItem from="1553792259202" duration="839000" />
+      <workItem from="1553873744118" duration="2942000" />
+      <workItem from="1554130501609" duration="8038000" />
+      <workItem from="1554243833017" duration="2014000" />
+      <workItem from="1554331870464" duration="1024000" />
+      <workItem from="1554484633601" duration="986000" />
+      <workItem from="1554496933851" duration="2386000" />
+      <workItem from="1554663973629" duration="1202000" />
+      <workItem from="1554741661230" duration="3632000" />
+      <workItem from="1554823198208" duration="532000" />
+      <workItem from="1555105123439" duration="4887000" />
+      <workItem from="1555363526554" duration="1829000" />
+      <workItem from="1555432867076" duration="2506000" />
+      <workItem from="1555445084666" duration="1661000" />
+      <workItem from="1555461392724" duration="323000" />
+      <workItem from="1555518542390" duration="1483000" />
+      <workItem from="1555537208449" duration="1870000" />
+      <workItem from="1568307911978" duration="10220000" />
+      <workItem from="1568822548944" duration="1809000" />
+      <workItem from="1568838754009" duration="2541000" />
+      <workItem from="1568915424997" duration="812000" />
+      <workItem from="1569089976351" duration="6549000" />
+      <workItem from="1569362210260" duration="2817000" />
+      <workItem from="1569426964382" duration="12765000" />
+      <workItem from="1569873566560" duration="8116000" />
+      <workItem from="1569898088591" duration="3050000" />
+      <workItem from="1569952614062" duration="604000" />
+      <workItem from="1570032039445" duration="1132000" />
+      <workItem from="1570046593020" duration="635000" />
+      <workItem from="1570489040171" duration="857000" />
+      <workItem from="1570655341180" duration="923000" />
+      <workItem from="1570738563283" duration="960000" />
+      <workItem from="1571173190869" duration="5212000" />
+      <workItem from="1571416316069" duration="1889000" />
+      <workItem from="1571436064429" duration="1829000" />
+      <workItem from="1571673827962" duration="5785000" />
+      <workItem from="1571765777503" duration="639000" />
+      <workItem from="1571854399201" duration="769000" />
+      <workItem from="1571939306961" duration="7764000" />
+      <workItem from="1572370507512" duration="662000" />
+      <workItem from="1572452046105" duration="6585000" />
+      <workItem from="1572739105502" duration="19000" />
+      <workItem from="1573596046590" duration="2176000" />
+      <workItem from="1573968392483" duration="417000" />
+      <workItem from="1574097281744" duration="2525000" />
+      <workItem from="1574267288108" duration="11224000" />
+      <workItem from="1574799260981" duration="1880000" />
+      <workItem from="1574892885556" duration="39000" />
+      <workItem from="1575306944443" duration="62000" />
+      <workItem from="1575318808678" duration="17872000" />
+      <workItem from="1575394503686" duration="13339000" />
+      <workItem from="1575479842354" duration="10522000" />
+      <workItem from="1575663681681" duration="656000" />
+      <workItem from="1575911968584" duration="3941000" />
+      <workItem from="1576021103685" duration="579000" />
+      <workItem from="1576258325554" duration="719000" />
+      <workItem from="1576514961881" duration="1385000" />
+      <workItem from="1576535477924" duration="599000" />
+      <workItem from="1576601324932" duration="1793000" />
+      <workItem from="1576689222160" duration="310000" />
+      <workItem from="1576771197417" duration="736000" />
+      <workItem from="1576788947507" duration="810000" />
+      <workItem from="1578207822960" duration="14000" />
+      <workItem from="1578207854347" duration="1261000" />
+      <workItem from="1579025330074" duration="14355000" />
+      <workItem from="1579542406558" duration="646000" />
+      <workItem from="1580145078384" duration="1306000" />
+      <workItem from="1580319661057" duration="655000" />
+      <workItem from="1580499004172" duration="1692000" />
+      <workItem from="1580835329243" duration="2491000" />
+      <workItem from="1580918958001" duration="400000" />
+      <workItem from="1582132695017" duration="2946000" />
+      <workItem from="1582219330378" duration="1760000" />
+      <workItem from="1583341778836" duration="1200000" />
+      <workItem from="1583856377962" duration="878000" />
+      <workItem from="1589304646028" duration="3532000" />
+      <workItem from="1594345443576" duration="3325000" />
+      <workItem from="1594744240682" duration="4325000" />
+      <workItem from="1594828522681" duration="12827000" />
+      <workItem from="1595008829784" duration="1399000" />
+      <workItem from="1595019499353" duration="13742000" />
+      <workItem from="1596143530385" duration="1955000" />
+      <workItem from="1598718212341" duration="7422000" />
+      <workItem from="1598898736873" duration="2139000" />
+      <workItem from="1600384322365" duration="3874000" />
+      <workItem from="1602174817633" duration="315000" />
+      <workItem from="1602175565081" duration="30283000" />
+      <workItem from="1602517455329" duration="955000" />
+      <workItem from="1602778033177" duration="8339000" />
+      <workItem from="1603319146350" duration="2315000" />
+      <workItem from="1603504171514" duration="661000" />
+      <workItem from="1603899452802" duration="5269000" />
+      <workItem from="1604156841367" duration="596000" />
+      <workItem from="1604293883356" duration="13000" />
+      <workItem from="1604341015802" duration="9627000" />
+      <workItem from="1604370357522" duration="1382000" />
+      <workItem from="1604594906586" duration="966000" />
+      <workItem from="1604719854750" duration="9153000" />
+      <workItem from="1606322895627" duration="3034000" />
+      <workItem from="1606842610456" duration="1457000" />
+      <workItem from="1607442574552" duration="5243000" />
+      <workItem from="1607707376452" duration="11293000" />
+      <workItem from="1608051334868" duration="1096000" />
+      <workItem from="1610491140497" duration="683000" />
+      <workItem from="1610491849079" duration="1039000" />
+      <workItem from="1610514638750" duration="610000" />
+      <workItem from="1614355702459" duration="3103000" />
+      <workItem from="1614443716913" duration="1524000" />
+      <workItem from="1615399669993" duration="3696000" />
+      <workItem from="1616085946311" duration="1243000" />
+      <workItem from="1618443722070" duration="2228000" />
+      <workItem from="1618494844066" duration="21000" />
+      <workItem from="1618606560108" duration="780000" />
+      <workItem from="1620067587569" duration="29000" />
+      <workItem from="1621000706360" duration="1544000" />
+      <workItem from="1625359021525" duration="173000" />
+      <workItem from="1627189938124" duration="69000" />
+      <workItem from="1627190482149" duration="1210000" />
+      <workItem from="1630515351561" duration="616000" />
+      <workItem from="1632509346899" duration="1058000" />
+      <workItem from="1632763450822" duration="12653000" />
+      <workItem from="1632928787994" duration="2315000" />
+      <workItem from="1633449886719" duration="6070000" />
+      <workItem from="1634085404465" duration="637000" />
+      <workItem from="1634225393714" duration="5139000" />
+      <workItem from="1635181882495" duration="5019000" />
+      <workItem from="1635367153833" duration="840000" />
+      <workItem from="1635818524152" duration="2939000" />
+      <workItem from="1636489376751" duration="632000" />
+      <workItem from="1636952012273" duration="880000" />
+      <workItem from="1640125281623" duration="1188000" />
+      <workItem from="1642795225227" duration="4440000" />
+      <workItem from="1643151739813" duration="13071000" />
+      <workItem from="1643232075255" duration="1158000" />
+      <workItem from="1643932854437" duration="2645000" />
+      <workItem from="1643941204128" duration="15000" />
+      <workItem from="1644024858486" duration="898000" />
+      <workItem from="1644115634883" duration="338000" />
+      <workItem from="1646097025667" duration="617000" />
+      <workItem from="1646154550872" duration="18627000" />
+      <workItem from="1648082023275" duration="913000" />
+      <workItem from="1648921471160" duration="650000" />
+      <workItem from="1649034291907" duration="3233000" />
+      <workItem from="1651175663163" duration="1681000" />
+      <workItem from="1657305617742" duration="4721000" />
+      <workItem from="1658189537925" duration="632000" />
+      <workItem from="1659573388350" duration="3039000" />
+      <workItem from="1666016153376" duration="1326000" />
+      <workItem from="1666666099895" duration="49000" />
+      <workItem from="1675541921629" duration="5013000" />
+      <workItem from="1675632582412" duration="1014000" />
+      <workItem from="1675743306260" duration="5983000" />
+      <workItem from="1675803233116" duration="8000" />
+      <workItem from="1681748030167" duration="1941000" />
+      <workItem from="1686710762022" duration="4238000" />
+      <workItem from="1687812648775" duration="1385000" />
+      <workItem from="1687815209843" duration="2771000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="941010000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1616" height="886" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5199468" weight="0.18830334" />
-      <window_info id="Structure" order="1" sideWeight="0.4800532" side_tool="true" weight="0.17159383" />
-      <window_info id="Favorites" order="2" sideWeight="0.44" side_tool="true" weight="0.20244215" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32912722" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.27659574" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.33111703" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="Google Cloud Storage" order="4" weight="0.32969153" />
-      <window_info anchor="right" id="JSON Utils" order="5" weight="0.32969153" />
-      <window_info anchor="right" id="JSON Viewer" order="6" weight="0.32969153" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1762481" />
-      <window_info id="Structure" order="1" weight="0.23146747" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
               </option>
             </State>
           </value>
@@ -757,8 +1035,8 @@
       </map>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -768,363 +1046,40 @@
           <line>115</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/controllers/AuditsController.php</url>
+          <line>990</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/controllers/ProductsController.php</url>
+          <line>2</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/controllers/AuditsController.php</url>
+          <line>262</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/controllers/AuditsController.php</url>
+          <line>259</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/controllers/AuditsController.php</url>
+          <line>1249</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/controllers/StoreController.php</url>
+          <line>159</line>
+          <properties>
+            <option name="className" value="\StoreController" />
+            <option name="methodName" value="insertPollStore" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/audits/auditExhiCampaign3.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="88" column="30" lean-forward="true" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/medias/detailsPhotosForQuestions.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2176">
-          <caret line="128" column="63" selection-start-line="128" selection-start-column="35" selection-end-line="128" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/audits/auditListForCampaignIbk.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="69" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PublicityCampaigneRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/operationsadmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="124" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/report/bayer/prospeccion.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="135" column="35" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ReportController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="164" column="48" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/jaime.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="26" column="76" lean-forward="true" selection-start-line="26" selection-start-column="76" selection-end-line="26" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/adminLayout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="34" column="123" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/VersionRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/reportes_excel/prueba.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pruebas/exel1.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/pruebas/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/audits/excelsCompany.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2516">
-          <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/reportes_excel/includes/configure.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="75" lean-forward="true" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/CompanyRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/temp.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="747" column="65" selection-start-line="747" selection-start-column="65" selection-end-line="747" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/temp26.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-966">
-          <caret line="150" column="81" lean-forward="true" selection-start-line="150" selection-start-column="81" selection-end-line="150" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/reportes_excel/reporte_company_ibk_3.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="137" column="25" selection-start-line="137" selection-start-column="25" selection-end-line="137" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ExcelAlicorpController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="1033" column="31" selection-start-line="1033" selection-start-column="31" selection-end-line="1033" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/OperationsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5304">
-          <caret line="324" column="8" selection-start-line="324" selection-start-column="8" selection-end-line="324" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/php-docs-samples-master/php-docs-samples-master/datastore/tutorial/src/CreateTaskCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/StoreRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="348" column="17" selection-start-line="348" selection-start-column="17" selection-end-line="348" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="146" column="62" lean-forward="true" selection-start-line="146" selection-start-column="62" selection-end-line="146" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/appBT.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/reportes_excel/report_close_general.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="133" column="25" lean-forward="true" selection-start-line="133" selection-start-column="25" selection-end-line="179" selection-end-column="139" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="68" column="43" lean-forward="true" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/temp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="136" column="6" lean-forward="true" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/CompanyAuditRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="27" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="499" column="91" lean-forward="true" selection-start-line="499" selection-start-column="91" selection-end-line="499" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/transferencistas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="87" selection-start-line="5" selection-start-column="87" selection-end-line="5" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/audits/detailSod.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="589" column="49" selection-start-line="589" selection-start-column="25" selection-end-line="589" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/storage/views/f3b64c34d4ecac76524d2363e2972214">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/storage/views/5a5f855d62c2fc15746237a46b8229d1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17820" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/audits/audit63.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3009">
-          <caret line="177" column="59" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/MercantilistaBayerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14331">
-          <caret line="866" column="80" selection-start-line="866" selection-start-column="46" selection-end-line="866" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/report/bayer/prospeccionExcels.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2907">
-          <caret line="171" column="13" selection-start-line="139" selection-start-column="12" selection-end-line="171" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2227">
-          <caret line="155" column="49" selection-start-line="155" selection-start-column="49" selection-end-line="155" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pruebas/excelDownloadPrueba.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" column="10" selection-start-line="63" selection-start-column="4" selection-end-line="95" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ExcelController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="4278" column="41" selection-start-line="4278" selection-start-column="20" selection-end-line="4278" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/MediasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7140">
-          <caret line="446" column="14" selection-start-line="446" selection-start-column="14" selection-end-line="446" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/BaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7174">
-          <caret line="425" column="57" selection-start-line="425" selection-start-column="57" selection-end-line="425" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="100" column="37" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="555" column="273" selection-start-line="555" selection-start-column="273" selection-end-line="555" selection-end-column="273" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="1506" column="220" selection-start-line="1506" selection-start-column="220" selection-end-line="1506" selection-end-column="220" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="157" selection-start-line="157" selection-end-line="157" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auditor/Repositories/PollOptionRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AuditsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="401" column="71" selection-start-line="401" selection-start-column="71" selection-end-line="401" selection-end-column="71" />
-          <folding>
-            <element signature="e#96#134#0#PHP" expanded="true" />
-            <element signature="n#excelCompanies#0;n#AuditsController#0;n#!!top" />
-            <element signature="n#getDetailPublicitiesCondition#0;n#AuditsController#0;n#!!top" />
-            <element signature="n#ListStoresForAudit#0;n#AuditsController#0;n#!!top" />
-            <element signature="n#DetailAudit#0;n#AuditsController#0;n#!!top" />
-            <element signature="n#closedPoints#0;n#AuditsController#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

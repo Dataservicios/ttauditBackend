@@ -98,19 +98,19 @@ class PollDetailRepo extends BaseRepo{
         return $total;
     }
 
-    public function getResultForStore($company_id,$store_id,$poll_id,$publicity_id="0",$product_id="0")
+    public function getResultForStore($company_id,$store_id,$poll_id,$publicity_id="0",$product_id="0",$visit_id="0")
     {
         if ($publicity_id=="0"){
             if ($product_id=="0"){
-                $comentario = PollDetail::where('poll_id', $poll_id)->where('company_id',$company_id)->where('store_id',$store_id)->get();
+                $comentario = PollDetail::where('poll_id', $poll_id)->where('company_id',$company_id)->where('store_id',$store_id)->where('visit_id',$visit_id)->get();
             }else{
-                $comentario = PollDetail::where('poll_id', $poll_id)->where('company_id',$company_id)->where('store_id',$store_id)->where('product_id',$product_id)->get();
+                $comentario = PollDetail::where('poll_id', $poll_id)->where('company_id',$company_id)->where('store_id',$store_id)->where('product_id',$product_id)->where('visit_id',$visit_id)->get();
             }
         }else{
             if ($product_id=="0"){
-                $comentario = PollDetail::where('poll_id', $poll_id)->where('company_id',$company_id)->where('store_id',$store_id)->where('publicity_id',$publicity_id)->get();
+                $comentario = PollDetail::where('poll_id', $poll_id)->where('company_id',$company_id)->where('store_id',$store_id)->where('publicity_id',$publicity_id)->where('visit_id',$visit_id)->get();
             }else{
-                $comentario = PollDetail::where('poll_id', $poll_id)->where('company_id',$company_id)->where('store_id',$store_id)->where('publicity_id',$publicity_id)->where('product_id',$product_id)->get();
+                $comentario = PollDetail::where('poll_id', $poll_id)->where('company_id',$company_id)->where('store_id',$store_id)->where('publicity_id',$publicity_id)->where('product_id',$product_id)->where('visit_id',$visit_id)->get();
             }
         }
 
@@ -1271,8 +1271,9 @@ GROUP BY
                         $detailResult = \DB::table('poll_details')->join('stores','poll_details.store_id','=','stores.id')->select('stores.id', 'stores.cadenaRuc','stores.type','stores.tipo_bodega','stores.distributor','stores.codclient','stores.fullname','stores.address','stores.ubigeo','stores.region','stores.district','poll_details.comentario','poll_details.created_at')->where('poll_details.poll_id', $poll_id)->where('poll_details.publicity_id', $publicity_id)->where('poll_details.result', $result)->where('stores.test', 0)->where('stores.ubigeo', $ciudadB)->orderBy('poll_details.created_at', 'desc')->get();
                     }
 
-                }else{
+                }else{//dd($city);
                     $detailResult = \DB::table('poll_details')->join('stores','poll_details.store_id','=','stores.id')->select('stores.id', 'stores.cadenaRuc','stores.type','stores.tipo_bodega','stores.distributor','stores.codclient','stores.fullname','stores.address','stores.ubigeo','stores.region','stores.district','poll_details.comentario','poll_details.created_at')->where('poll_details.poll_id', $poll_id)->where('poll_details.publicity_id', $publicity_id)->where('poll_details.result', $result)->where('stores.test', 0)->where('stores.ubigeo', $city)->orderBy('poll_details.created_at', 'desc')->get();
+                    //dd($detailResult);
                 }
                 break;
             case ($city == "0" and $dex <> "0"):

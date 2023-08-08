@@ -122,6 +122,7 @@ class ReportBayerController extends BaseController{
         $this->pollArray[134] = array('abierto' => 2277,'recomendo' => 2279, 'exhibicion' => 2278,'queRecomendo' => 2280,'seRecomendo' => 2279,'premio' => 2282,'tieneStock' => 2281,'tipoPremio' => 2283,'laboratorio' => 2284,'tiempo' => 2285,'variable' => 2286,'seleccionar' => 2287,'semana' => 2288,'horario' => 2289,'orientacion' => 2290,'sugerencias' => 2057);
         $this->pollArray[144] = array('abierto' => 2431,'recomendo' => 2433, 'exhibicion' => 2432,'queRecomendo' => 2434,'seRecomendo' => 2433,'premio' => 2436,'tieneStock' => 2435,'tipoPremio' => 2437,'laboratorio' => 2438,'tiempo' => 2439,'variable' => 2440,'seleccionar' => 2441,'semana' => 2442,'horario' => 2443,'orientacion' => 2444,'sugerencias' => 2057);
         $this->pollArray[163] = array('abierto' => 2686,'recomendo' => 2688, 'exhibicion' => 2687,'queRecomendo' => 2689,'seRecomendo' => 2688,'premio' => 2691,'tieneStock' => 2690,'tipoPremio' => 2692,'laboratorio' => 2693,'tiempo' => 2694,'variable' => 2695,'seleccionar' => 2696,'semana' => 2697,'horario' => 2698,'orientacion' => 2699,'sugerencias' => 2057);
+        $this->pollArray[230] = array('abierto' => 3990,'recomendo' => 3992, 'exhibicion' => 3991,'queRecomendo' => 3993,'seRecomendo' => 3992,'premio' => 3995,'tieneStock' => 3994,'tipoPremio' => 3996,'laboratorio' => 3997,'tiempo' => 3998,'variable' => 2695,'seleccionar' => 2696,'semana' => 2697,'horario' => 2698,'orientacion' => 2699,'sugerencias' => 2057);
         $this->estudio='1';
         $this->saveSessions();
     }
@@ -324,7 +325,7 @@ class ReportBayerController extends BaseController{
         $premiados[0] = array("tipo" => 'Premiados', "cantidad" => $numPremiados, "color" => '#97C74F');
         $premiados[1] = array("tipo" => 'No Premiados', "cantidad" => $totalAbiertos-$numPremiados, "color" => '#1AB1E6');
         $valPremiados =json_encode($premiados);unset($premiados);
-        if (($company_id == 11) or ($company_id == 13) or ($company_id == 16)or ($company_id == 17) or ($company_id == 19) or ($company_id == 30) or ($company_id == 33) or ($company_id == 35) or ($company_id == 39) or ($company_id == 41) or ($company_id == 44) or ($company_id == 60) or ($company_id == 65) or ($company_id == 70) or ($company_id == 73) or ($company_id == 78) or ($company_id == 88) or ($company_id == 91) or ($company_id == 96) or ($company_id == 107) or ($company_id == 111) or ($company_id == 118) or ($company_id == 127) or ($company_id == 134) or ($company_id == 144) or ($company_id == 163)){
+        if (($company_id == 11) or ($company_id == 13) or ($company_id == 16)or ($company_id == 17) or ($company_id == 19) or ($company_id == 30) or ($company_id == 33) or ($company_id == 35) or ($company_id == 39) or ($company_id == 41) or ($company_id == 44) or ($company_id == 60) or ($company_id == 65) or ($company_id == 70) or ($company_id == 73) or ($company_id == 78) or ($company_id == 88) or ($company_id == 91) or ($company_id == 96) or ($company_id == 107) or ($company_id == 111) or ($company_id == 118) or ($company_id == 127) or ($company_id == 134) or ($company_id == 144) or ($company_id == 163) or ($company_id == 230)){
             $sinoE=$this->PollDetailRepo->getTotalSiNo($this->pollArray[$company_id]['exhibicion'],"0","0",$ejecutivo,"0","0","0",$ubigeoext,$cadena,"0","0",$horizontal);
             $totalExhibicion = $sinoE['si'];$totalNoExhibicion = $sinoE['no'];
 
@@ -360,6 +361,8 @@ class ReportBayerController extends BaseController{
                         $ValRespuesta = ucwords(trim($option->options));
                         if ($cantidadOption>0){
                             $totalOptions[] = array('cantidad' => $cantidadOption,'respuesta' => $ValRespuesta, "porcentaje" => round($porcOpcion, 0));
+                        }else{
+                            $totalOptions[]=array('cantidad' => $cantidadOption,'respuesta' => $ValRespuesta, "porcentaje" => round($porcOpcion, 0));
                         }
                     }
                 }
@@ -370,7 +373,7 @@ class ReportBayerController extends BaseController{
             }
             $totalOptionsJSON = json_encode($totalOrdenado);unset($totalOptions);unset($totalOrdenado);$cantidadTotal=0;
             //dd($options[0]);
-            if (($company_id<>30) and ($company_id<>33) and ($company_id<>35) and ($company_id<>39) and ($company_id<>41) and ($company_id<>44) and ($company_id<>60) and ($company_id<>65) and ($company_id<>70) and ($company_id<>73) and ($company_id<>78) and ($company_id<>88) and ($company_id<>91)  and ($company_id<>96) and ($company_id<>107) and ($company_id<>111) and ($company_id<>118) and ($company_id<>127) and ($company_id<>134) and ($company_id<>144)  and ($company_id<>163))
+            if (($company_id<>30) and ($company_id<>33) and ($company_id<>35) and ($company_id<>39) and ($company_id<>41) and ($company_id<>44) and ($company_id<>60) and ($company_id<>65) and ($company_id<>70) and ($company_id<>73) and ($company_id<>78) and ($company_id<>88) and ($company_id<>91)  and ($company_id<>96) and ($company_id<>107) and ($company_id<>111) and ($company_id<>118) and ($company_id<>127) and ($company_id<>134) and ($company_id<>144)  and ($company_id<>163) and ($company_id<>230))
             {
                 foreach ($options as $option) {
                     if ($option->product_id==0)

@@ -192,7 +192,7 @@ $cabecera = array(
     'AUDITOR',
     'FECHA',
     'HORA',
-    'Se encuentra Abierto? Si/No',
+    '¿Se encuentra Abierto? Si/No',
     'Opciones',
     'FOTO',
     '¿Cliente permitió tomar información?',

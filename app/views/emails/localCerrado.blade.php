@@ -60,7 +60,7 @@
                     </tr>
                     <tr>
                         <td>Responder este email a:</td>
-                        <td>aguerra@ttaudit.com ó ellerena@ttaudit.com </td>
+                        <td>James: jquintana@ttaudit.com Jorge: jorgepretell@ttaudit.com</td>
                     </tr>
                 </table>
             </td>
@@ -137,7 +137,7 @@
                     </tr>
                     <tr>
                         <td>Responder este email a:</td>
-                        <td>aguerra@ttaudit.com ó ellerena@ttaudit.com </td>
+                        <td>James: jquintana@ttaudit.com Jorge: jorgepretell@ttaudit.com</td>
                     </tr>
                 </table>
             </td>

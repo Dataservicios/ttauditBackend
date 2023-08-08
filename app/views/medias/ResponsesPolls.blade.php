@@ -135,6 +135,7 @@
                                                                     <div class="col-md-8 ">
                                                                         @if(count($valFotos[$poll->id]['media'])>0)
                                                                             @foreach($valFotos[$poll->id]['media'] as $foto)
+                                                                                <?php $valorLogico=false;?>
                                                                                 @if($objetoArray['tipo']=='Publicity')
                                                                                     @if($foto->publicities_id == $objeto->publicity_id)
                                                                                         <?php $valorLogico=true;?>
@@ -159,6 +160,8 @@
                                                                                 @if($objetoArray['tipo']=='Poll')
                                                                                     @if(($foto->category_product_id == 0) and ($foto->product_id ==0) and ($foto->publicities_id ==0))
                                                                                         <?php $valorLogico=true;?>
+                                                                                    @else
+                                                                                        <?php $valorLogico=false;?>
                                                                                     @endif
                                                                                 @endif
                                                                                 @if($valorLogico)
@@ -890,7 +893,7 @@
         var fecha_audit = $("#fecha_insert"+ poll_id).val();
         var comentario = $("#comentInsert"+ poll_id).val();
         var optionStrings ='';
-        var priorityStrings ='';
+        var priorityStrings ='';console.log(company_id,store_id,product_id,publicity_id,optionStrings,priorityStrings,poll_id, user_id, response_sino, fecha_audit, comentario)
 
         var jqxhrInsertPoll = $.post("{{route('insertRegPollDetailAll')}}", { company_id : company_id, store_id : store_id , product_id :  product_id, publicity_id : publicity_id, options : optionStrings, priorities : priorityStrings, poll_id : poll_id, user_id : user_id, sino : response_sino, fecha: fecha_audit, comentario : comentario},  function(data) {
             console.log ("success => " + data);

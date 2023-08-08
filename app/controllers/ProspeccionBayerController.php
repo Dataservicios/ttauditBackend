@@ -156,6 +156,13 @@ class ProspeccionBayerController extends BaseController{
         $auditor_id = $valoresPost['auditor_id'];
         $visit_id = $valoresPost['visit_id'];
         $code = $valoresPost['code'];
+        $objProjection = $this->projectionSaleRepo->getCodProductForProvider($company_id,$provider_id,$product_id);
+        if (count($objProjection)>0)
+        {
+            $codProductProvider = $objProjection->cod_product_provider;
+        }else{
+            $codProductProvider=0;
+        }
         $objOrder = $this->orderRepo->getModel();
         $regOrders=$objOrder->where('code',$code)->first();
         if (count($regOrders)==0)
@@ -185,6 +192,7 @@ class ProspeccionBayerController extends BaseController{
             $objOrderDetail->quantity = $quantity;
             $objOrderDetail->price = $price;
             $objOrderDetail->amount = $amount;
+            $objOrderDetail->cod_product_provider = $codProductProvider;
             $objOrderDetail->save();
         }
 

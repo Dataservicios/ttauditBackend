@@ -159,6 +159,8 @@
                                                                                 @if($objetoArray['tipo']=='Poll')
                                                                                     @if(($foto->category_product_id == 0) and ($foto->product_id ==0) and ($foto->publicities_id ==0))
                                                                                         <?php $valorLogico=true;?>
+                                                                                    @else
+                                                                                        <?php $valorLogico=false;?>
                                                                                     @endif
                                                                                 @endif
                                                                                 @if($valorLogico)
@@ -505,7 +507,7 @@
                                                                                     <textarea rows="10" cols="20" wrap="soft" id="coment{{$poll_detail['poll_detail']->id}}">{{$poll_detail['poll_detail']->comentario}}</textarea>
                                                                                     <p>Limite</p>
                                                                                     <textarea rows="10" cols="20" wrap="soft" id="limit{{$poll_detail['poll_detail']->id}}">{{$poll_detail['poll_detail']->limite}}</textarea>
-                                                                                    <?php $valOptionsSaves="";?>
+                                                                                    <?php $valOptionsSaves="";$valOtrosSaves="";?>
                                                                                     @if($poll->options ==1)
                                                                                         <div class="mensaje-option"></div>
                                                                                         <p>Seleccionar Opciones</p>
@@ -524,6 +526,7 @@
 
                                                                                                         @if(in_array($option->id, $valOptions))
                                                                                                             {{ Form::text('otros'.$poll_detail['poll_detail']->id, $valOtros[$option->id], ['id'=>'otros'.$poll_detail['poll_detail']->id]) }}
+                                                                                                            <?php $valOtrosSaves=$valOtros[$option->id]?>
                                                                                                         @else
                                                                                                             {{ Form::text('otros'.$poll_detail['poll_detail']->id, '', ['id'=>'otros'.$option->id]) }}
                                                                                                         @endif
@@ -553,7 +556,7 @@
                                                                                 <div class="modal-footer">
                                                                                     <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCancelRegister{{$poll_detail['poll_detail']->id}}">Cancelar</button>
 
-                                                                                    <button type="button" class="btn btn-primary" id="btnUpdateRegister{{$poll_detail['poll_detail']->id}}"  onclick="UpdateRegister('{{$poll_detail['poll_detail']->id}}','{{$valOptionsSaves}}')"  >Actualizar Registro</button>
+                                                                                    <button type="button" class="btn btn-primary" id="btnUpdateRegister{{$poll_detail['poll_detail']->id}}"  onclick="UpdateRegister('{{$poll_detail['poll_detail']->id}}','{{$valOptionsSaves}}','{{$valOtrosSaves}}')"  >Actualizar Registro</button>
                                                                                 </div>
                                                                             </div><!-- /.modal-content -->
                                                                         </div><!-- /.modal-dialog -->
@@ -966,6 +969,9 @@
         });
         var priorityStrings ='';
         var otrosStrings = $("#otros").val();
+        if (otrosStrings == undefined){
+            otrosStrings='';
+        }
 
         var jqxhrInsertPoll = $.post("{{route('insertRegPollDetailAll')}}", { company_id : company_id, store_id : store_id , product_id :  product_id, publicity_id : publicity_id, options : optionStrings, priorities : priorityStrings, poll_id : poll_id, user_id : user_id, sino : response_sino, fecha: fecha_audit, comentario : comentario,otros : otrosStrings},  function(data) {
             console.log ("success => " + data);
@@ -989,7 +995,7 @@
 </script>
 <script>
     //save and change options
-    function UpdateRegister(poll_details_id,optionSaves)
+    function UpdateRegister(poll_details_id,optionSaves,valOtros)
     {
         $("#btnUpdateRegister" + poll_details_id).hide('slow');
         $("#btnCancelRegister" + poll_details_id).hide('slow');
@@ -1038,7 +1044,7 @@
                 .always(function() {
                     $("#messagesUpdateReg"+ poll_details_id).html("Registro 1 Actualizado ");
 
-                    if (optionStrings != optionSaves)
+                    if ((optionStrings != optionSaves) || (otrosStrings != valOtros))
                     {
                         $('#progress-bar'+poll_details_id).css('width', '30%').attr('aria-valuenow', "0");
                         var jqxhrDelete = $.post("{{route('deleteAllOptions')}}", { company_id : company_id, store_id : store_id , product_id :  product_id, publicity_id : 0, poll_id: poll_id  },  function(data) {
@@ -1057,7 +1063,7 @@
                                 .always(function() {
                                     $("#messagesUpdateReg"+ poll_details_id).append("<br>Registro 2 Actualizado ");
                                     $('#progress-bar'+poll_details_id).css('width', '60%').attr('aria-valuenow', "0");
-                                    if (optionStrings != '')
+                                    if ((optionStrings != optionSaves) || (otrosStrings != valOtros))
                                     {
                                         var jqxhrInsert = $.post("{{route('insertRegPollOptionDetailAll')}}", { company_id : company_id, store_id : store_id , product_id :  product_id, publicity_id : 0, options : optionStrings, priorities : priorityStrings, poll_detail_id : poll_details_id, user_id : user_id,otros: otrosStrings},  function(data) {
                                             console.log ("success => " + data);

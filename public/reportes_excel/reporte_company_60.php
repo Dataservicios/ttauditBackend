@@ -273,7 +273,7 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(109 , 3), (' Come
 
 
 /* ASPIRINA 100*/
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(110 , 2), (' Supradyn') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(110 , 2), (' Supradyn/Berocca') );
 
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(110 , 3), (' Recomienda') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(111 , 3), (' Stock') );
@@ -541,35 +541,35 @@ while ($rowEmp = mysql_fetch_assoc($resEmp)) {
 	/*  Aspirina 100*/
 
 
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(110  , $contador_1), ($rowEmp['849_536_Respuesta'] ));
-	if($rowEmp['849_536_Respuesta'] == 2 ) {
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(110  , $contador_1), ($rowEmp['849_645_Respuesta'] ));
+	if($rowEmp['849_645_Respuesta'] == 2 ) {
 		$puntaje =  $puntaje + 1 ;
 	}
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(111  , $contador_1), ($rowEmp['851_536_Respuesta'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(112  , $contador_1), utf8_encode($rowEmp['851_536_comentario'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(111  , $contador_1), ($rowEmp['851_645_Respuesta'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(112  , $contador_1), utf8_encode($rowEmp['851_645_comentario'] ));
 
 
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(113  , $contador_1), ($rowEmp['850_536_eo'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(114  , $contador_1), ($rowEmp['850_536_eo_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(115  , $contador_1), ($rowEmp['850_536_ep'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(116  , $contador_1), ($rowEmp['850_536_ep_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(117  , $contador_1), ($rowEmp['850_536_eq'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(118  , $contador_1), ($rowEmp['850_536_eq_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(119  , $contador_1), ($rowEmp['850_536_er'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(120  , $contador_1), ($rowEmp['850_536_er_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(121  , $contador_1), ($rowEmp['850_536_es'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(122  , $contador_1), ($rowEmp['850_536_es_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(123  , $contador_1), ($rowEmp['850_536_et'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(124  , $contador_1), ($rowEmp['850_536_et_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(125  , $contador_1), ($rowEmp['850_536_eu'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(126  , $contador_1), ($rowEmp['850_536_eu_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(127  , $contador_1), ($rowEmp['850_536_ew'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(128  , $contador_1), ($rowEmp['850_536_ew_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(129  , $contador_1), ($rowEmp['850_536_ac'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(130  , $contador_1), ($rowEmp['850_536_ac_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(131  , $contador_1), ($rowEmp['850_536_ai'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(132  , $contador_1), ($rowEmp['850_536_ai_priority'] ));
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(133  , $contador_1), utf8_encode($rowEmp['850_536_comentario_otros'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(113  , $contador_1), ($rowEmp['850_645_eo'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(114  , $contador_1), ($rowEmp['850_645_eo_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(115  , $contador_1), ($rowEmp['850_645_ep'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(116  , $contador_1), ($rowEmp['850_645_ep_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(117  , $contador_1), ($rowEmp['850_645_eq'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(118  , $contador_1), ($rowEmp['850_645_eq_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(119  , $contador_1), ($rowEmp['850_645_er'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(120  , $contador_1), ($rowEmp['850_645_er_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(121  , $contador_1), ($rowEmp['850_645_es'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(122  , $contador_1), ($rowEmp['850_645_es_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(123  , $contador_1), ($rowEmp['850_645_et'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(124  , $contador_1), ($rowEmp['850_645_et_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(125  , $contador_1), ($rowEmp['850_645_eu'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(126  , $contador_1), ($rowEmp['850_645_eu_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(127  , $contador_1), ($rowEmp['850_645_ew'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(128  , $contador_1), ($rowEmp['850_645_ew_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(129  , $contador_1), ($rowEmp['850_645_ac'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(130  , $contador_1), ($rowEmp['850_645_ac_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(131  , $contador_1), ($rowEmp['850_645_ai'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(132  , $contador_1), ($rowEmp['850_645_ai_priority'] ));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(133  , $contador_1), utf8_encode($rowEmp['850_645_comentario_otros'] ));
 
 	/* 	EXHIBICION  */
 

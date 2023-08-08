@@ -13,43 +13,24 @@ class BaseController extends Controller {
 
 	public function getQuestionsSendEmail()
 	{
-		$this->questionSendEmail[] = array('company_id' => 37,'poll_id' => 504,'send' =>0,'result' =>0, 'poll_option_id' => 1591,'mask' =>'ttauditRaul|alicorpVT|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 48,'poll_id' => 637,'send' =>0,'result' =>0, 'poll_option_id' => 2047,'mask' =>'ttauditRaul|alicorpVT|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 42,'poll_id' => 615,'send' =>0,'result' =>0, 'poll_option_id' => 2001,'mask' =>'ttauditRaul|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 42,'poll_id' => 615,'send' =>0,'result' =>0, 'poll_option_id' => 2002,'mask' =>'ttauditRaul|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 42,'poll_id' => 615,'send' =>0,'result' =>0, 'poll_option_id' => 2003,'mask' =>'ttauditRaul|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 42,'poll_id' => 616,'send' =>0,'result' =>0, 'poll_option_id' => 2004,'mask' =>'ttauditRaul|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 42,'poll_id' => 616,'send' =>0,'result' =>0, 'poll_option_id' => 2005,'mask' =>'ttauditRaul|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 42,'poll_id' => 616,'send' =>0,'result' =>0, 'poll_option_id' => 2006,'mask' =>'ttauditRaul|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 42,'poll_id' => 616,'send' =>0,'result' =>0, 'poll_option_id' => 2007,'mask' =>'ttauditRaul|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 42,'poll_id' => 614,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul|sistemas');
-		$this->questionSendEmail[] = array('company_id' => 50,'poll_id' => 712,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul');
-		$this->questionSendEmail[] = array('company_id' => 50,'poll_id' => 708,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul');
-		$this->questionSendEmail[] = array('company_id' => 52,'poll_id' => 751,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul');
-		$this->questionSendEmail[] = array('company_id' => 52,'poll_id' => 747,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul');
-		$this->questionSendEmail[] = array('company_id' => 58,'poll_id' => 832,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul');
-		$this->questionSendEmail[] = array('company_id' => 58,'poll_id' => 828,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul');
-		$this->questionSendEmail[] = array('company_id' => 59,'poll_id' => 838,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul');
-		$this->questionSendEmail[] = array('company_id' => 59,'poll_id' => 839,'send' =>0,'result' =>0, 'poll_option_id' => 2500,'mask' =>'ttauditRaul');
-		$this->questionSendEmail[] = array('company_id' => 59,'poll_id' => 839,'send' =>0,'result' =>0, 'poll_option_id' => 2502,'mask' =>'ttauditRaul');
 
-        /*$this->questionSendEmail[] = array('company_id' => 135,'poll_id' => 2329,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul|sistemas');
-        $this->questionSendEmail[] = array('company_id' => 135,'poll_id' => 2330,'send' =>0,'result' =>0, 'poll_option_id' => 5613,'mask' =>'alicorpCP|ttauditRaul|sistemas');
-        $this->questionSendEmail[] = array('company_id' => 135,'poll_id' => 2330,'send' =>0,'result' =>0, 'poll_option_id' => 5615,'mask' =>'ttauditRaul|sistemas');*/
 
-        $this->questionSendEmail[] = array('company_id' => 140,'poll_id' => 2359,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditRaul|sistemas');
-        $this->questionSendEmail[] = array('company_id' => 140,'poll_id' => 2360,'send' =>0,'result' =>0, 'poll_option_id' => 5628,'mask' =>'alicorpCP|ttauditRaul|sistemas');
-        $this->questionSendEmail[] = array('company_id' => 140,'poll_id' => 2360,'send' =>0,'result' =>0, 'poll_option_id' => 5630,'mask' =>'ttauditRaul|sistemas');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6584,'send' =>0,'result' =>0, 'poll_option_id' => 13920,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6584,'send' =>0,'result' =>0, 'poll_option_id' => 13921,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6584,'send' =>0,'result' =>0, 'poll_option_id' => 13922,'mask' =>'sistemas|ttauditIBK|IBK');
 
-        $this->questionSendEmail[] = array('company_id' => 125,'poll_id' => 2138,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditElba|sistemas');
-        $this->questionSendEmail[] = array('company_id' => 125,'poll_id' => 2137,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditElba|sistemas');
-        $this->questionSendEmail[] = array('company_id' => 125,'poll_id' => 2146,'send' =>0,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditElba|sistemas');//*//
-        $this->questionSendEmail[] = array('company_id' => 125,'poll_id' => 2139,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'bayerMercaderismo|ttauditElba|sistemas');//*//
-        $this->questionSendEmail[] = array('company_id' => 125,'poll_id' => 2147,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'bayerMercaderismo|ttauditElba|sistemas');//*//
-        $this->questionSendEmail[] = array('company_id' => 144,'poll_id' => 2431,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditElba|sistemas');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6601,'send' =>0,'result' =>0, 'poll_option_id' => 13960,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6601,'send' =>0,'result' =>0, 'poll_option_id' => 13961,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6601,'send' =>0,'result' =>0, 'poll_option_id' => 13962,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6601,'send' =>0,'result' =>0, 'poll_option_id' => 13963,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6601,'send' =>0,'result' =>0, 'poll_option_id' => 13964,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6601,'send' =>0,'result' =>0, 'poll_option_id' => 13965,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6601,'send' =>0,'result' =>0, 'poll_option_id' => 13966,'mask' =>'sistemas|ttauditIBK|IBK');
+        $this->questionSendEmail[] = array('company_id' => 361,'poll_id' => 6604,'send' =>1,'result' =>1, 'poll_option_id' => 0,'mask' =>'sistemas|ttauditIBK');//cobro orden 23
 
-		$this->questionSendEmail[] = array('company_id' => 'change_address','poll_id' => 0,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'changeAddress|sistemas');
-        $this->questionSendEmail[] = array('company_id' => 'response_alerts','poll_id' => 0,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditIBK|sistemas');
+
+		$this->questionSendEmail[] = array('company_id' => 'change_address','poll_id' => 0,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'changeAddress');
+        $this->questionSendEmail[] = array('company_id' => 'response_alerts','poll_id' => 0,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttauditIBK');
 		//$this->questionSendEmail[] = array('company_id' => 37,'poll_id' => 499,'send' =>1,'result' =>0, 'poll_option_id' => 0,'mask' =>'ttaudit|sistemas|bayerMercaderismo');
 		return $this->questionSendEmail;
 	}
@@ -57,16 +38,18 @@ class BaseController extends Controller {
 
 	public function getGroupsEmails()
 	{
-		$this->groupsEmail['ttaudit'] = array('email' => 'aguerra@ttaudit.com:Augusto|rpulido@ttaudit.com:Raul|dolaguibel@ttaudit.com:Daniela');
-        $this->groupsEmail['changeAddress'] = array('email' => 'dolaguibel@ttaudit.com:Daniela|avinatea@ttaudit.com:Alvaro');
-		$this->groupsEmail['ttauditRaul'] = array('email' => 'rpulido@ttaudit.com:Raul|dolaguibel@ttaudit.com:Daniela|jorgepretell@ttaudit.com:Jorge');
+		$this->groupsEmail['ttaudit'] = array('email' => 'aguerra@ttaudit.com:Augusto|rpulido@ttaudit.com:Raul|dolaguibel@ttaudit.com:Daniela|mlemus@ttaudit.com:Mazciel');
+        $this->groupsEmail['changeAddress'] = array('email' => 'dolaguibel@ttaudit.com:Daniela');
+		$this->groupsEmail['ttauditRaul'] = array('email' => 'rpulido@ttaudit.com:Raul');
         $this->groupsEmail['ttauditElba'] = array('email' => 'crios@ttaudit.com:Camila|ellerena@ttaudit.com:Elba|dolaguibel@ttaudit.com:Daniela');
-        $this->groupsEmail['ttauditIBK'] = array('email' => 'ellerena@ttaudit.com:Elba|mguerra@ttaudit.com:Marcello|dolaguibel@ttaudit.com:Daniela');
+        $this->groupsEmail['ttauditIBK'] = array('email' => 'dolaguibel@ttaudit.com:Daniela|jorgepretell@ttaudit.com:Jorge');
+        //$this->groupsEmail['ttauditIBK'] = array('email' => 'jcdiaz356@gmail.com:Jaime');
+        $this->groupsEmail['IBK'] = array('email' => 'kpalominof@intercorp.com.pe:Katherine|mpalma@intercorp.com.pe:Palma');
 		//$this->groupsEmail['ttaudit'] = array('email' => 'vaguirrev@atentoperu.com.pe:Aguirre|rpulido@ttaudit.com:Raul|aguerra@ttaudit.com:Augusto');
 		$this->groupsEmail['alicorpVT'] = array('email' => 'vaguirrev@atentoperu.com.pe:Aguirre|MFernandezD@alicorp.com.pe:Fernandez|csanjinez@atentoperu.com.pe:Sanjinez|vaguirrev@atentoperu.com.pe:Aguirre');
 		$this->groupsEmail['alicorpMAY'] = array('email' => 'ASarangoU@alicorp.com.pe:Aguirre|gguzman@lucky.com.pe:Fernandez');
         $this->groupsEmail['alicorpCP'] = array('email' => 'avicente@lucky.com.pe:Vicente|lespinoza@lucky.com.pe:Espinoza|jtavares@lucky.com.pe:Tavares');
-		$this->groupsEmail['sistemas'] = array('email' => 'franbrsj@gmail.com:Franco|jcdiaz356@gmail.com:Jaime|yeltsin.ramirez@dataservicios.com:Yeltsin');
+		$this->groupsEmail['sistemas'] = array('email' => 'franbrsj@gmail.com:Franco');
         $this->groupsEmail['bayerMercaderismo'] = array('email' => 'lourdes.ramirez@bayer.com:Lourdes|david.zapata@bayer.com:David|edwinjavier.duarte@bayer.com:Edwin');
 		return $this->groupsEmail;
 	}
@@ -142,7 +125,7 @@ class BaseController extends Controller {
 				'fecha' => $fechaHoraEnvio
 			];
 		}
-		$valEmails = explode("|",$emails['email']);
+		$valEmails = explode("|",$emails['email']);//dd($valEmails);
 		for($i=0;$i<count($valEmails);$i++) {
 			$valores = explode(":", $valEmails[$i]);
 			$envio = ['responsable' => $valores[1],'email' =>$valores[0], 'subject' =>$textoContent];
@@ -423,9 +406,9 @@ class BaseController extends Controller {
 		return $responses;
 	}
 
-	public function getResponsesForPoll($store_id,$company_id,$publicity_id,$poll_id,$product_id="0")
+	public function getResponsesForPoll($store_id,$company_id,$publicity_id,$poll_id,$product_id="0",$visit_id="0")
 	{
-		$objPoll_details = $this->PollDetailRepo->getResultForStore($company_id,$store_id,$poll_id,$publicity_id,$product_id);//dd(count($poll_details));
+		$objPoll_details = $this->PollDetailRepo->getResultForStore($company_id,$store_id,$poll_id,$publicity_id,$product_id,$visit_id);//dd(count($poll_details));
         $poll_options=$this->PollOptionRepo->getOptions($poll_id);
 		if (count($objPoll_details)>0)
 		{
@@ -435,7 +418,7 @@ class BaseController extends Controller {
 				{
 					$nohayOpciones=0;
 					foreach ($poll_options as $poll_option) {
-						$poll_option_detail = $this->PollOptionDetailRepo->getPollOptionDetail($poll_detail->store_id,$poll_option->id,$poll_detail->company_id,$poll_detail->product_id,$poll_detail->publicity_id);
+						$poll_option_detail = $this->PollOptionDetailRepo->getPollOptionDetail($poll_detail->store_id,$poll_option->id,$poll_detail->company_id,$poll_detail->product_id,$poll_detail->publicity_id,$visit_id);
 						if (count($poll_option_detail)>0)
 						{
 							$pollOptionDetails[] = $poll_option_detail;
@@ -610,12 +593,14 @@ class BaseController extends Controller {
 					$stores = $this->PollDetailRepo->getDetailSiNo($poll_id,$valores[0],$valores[1],$valores[2],$valores[3],$valores[6],$product_id,$ubigeo,$cadena,$valores[7],$valores[8],"0",$horizontal);
 					                               //getDetailSiNo($poll_id,$city="0",$district="0",$ejecutivo="0",$rubro="0",$result=0,$product_id="0",$ubigeo="0",$cadena="0",$dex="0",$tipoBodega="0",$soloPhotos="0")
 				}else{
-					//getDetailSiNoPublicity($poll_id,$publicity_id,$result=0,$city="0",$dex="0")
+                    //dd($poll_id,$publicity_id,$valores[6],$valores[0],$valores[7],$valores[8]);
+					//getDetailSiNoPublicity($poll_id,$publicity_id,$result=0,$city="0",$dex="0",$tipoBodega="0")
 					$stores = $this->PollDetailRepo->getDetailSiNoPublicity($poll_id,$publicity_id,$valores[6],$valores[0],$valores[7],$valores[8]);
 				}
 
 				//bayer: $valCiudad = "0-0-0-0-".$ubigeoext.'-'.$cadena  route('getDetailQuestionBayer', "106/".$valores."-0"."/".$company_id."/0"
 			}else{
+
 				$stores = $this->PollDetailRepo->getDetailSiNo($poll_id,$valores[0],$valores[1],$valores[2],$valores[3],$valores[4],$product_id,"0","0","0","0",$soloPhotos);//IBK
 			}
 		}
@@ -649,7 +634,7 @@ class BaseController extends Controller {
 			//getTotalSiNo($poll_id,$city="0",$district="0",$ejecutivo="0",$rubro="0",$store_id="0",$product_id="0",$ubigeo="0",$cadena="0")
 		}
 
-
+//dd(count($stores),$soloPhotos,$poll_option_id);
 		if(! empty($stores)){
             $datosFoto = [];
 			foreach ($stores as $store){
@@ -689,13 +674,14 @@ class BaseController extends Controller {
 				}
 
 
-				$otherComents = $this->PollDetailRepo->getCommentQuestion(1018,$store->id);//8->63,10->95,12->134
+				//$otherComents = $this->PollDetailRepo->getCommentQuestion(1018,$store->id);//8->63,10->95,12->134
+                $otherComents="";
 				//dd($otherComents);
 				if ($soloPhotos <>1)
 				{
 					if ($poll_option_id <> 0) {
 						$datosStores[] = array('store_id' => $store->id, 'cadenaRuc' => $store->cadenaRuc,'type' =>$store->type,'codclient' => $store->codclient,'tipo_bodega' => $store->tipo_bodega,'distributor' => $store->distributor,'fullname' =>$store->fullname, 'departamento' => $store->ubigeo, 'Provincia' => $store->region, 'distrito' => $store->district, 'direccion' => '', 'comentario' => $store->comentario, 'otroComentario' => $otherComents, 'arrayFoto' => $datosFoto, 'fecha' => $store->created_at);
-					}else{
+					}else{//dd($poll_id,$datosFoto);
 						$datosStores[] = array('store_id' => $store->id, 'cadenaRuc' => $store->cadenaRuc,'type' =>$store->type,'codclient' => $store->codclient,'tipo_bodega' => $store->tipo_bodega,'distributor' => $store->distributor,'fullname' =>$store->fullname, 'departamento' => $store->ubigeo, 'Provincia' => $store->region, 'distrito' => $store->district, 'direccion' => '', 'comentario' => $store->comentario, 'otroComentario' => $otherComents, 'arrayFoto' => $datosFoto, 'fecha' => $store->created_at);
 					}
 				}else{
@@ -1147,5 +1133,41 @@ class BaseController extends Controller {
         }
 
         return $datosStores;
+    }
+
+    public function insertLog($log_process,$poll_id,$user_id,$process,$objeto,$sino,$result_origin,$result,$poll_objeto_id,$table,$type_operation)
+    {
+
+        $log_process->processes = $process;
+        $log_process->company_id = $objeto->company_id;
+        $log_process->user_id = $user_id;
+        $log_process->status = 1;
+        if ($process=='sod')
+        {
+            $log_process->auditor_id = $objeto->user_id;
+        }else{
+            $log_process->auditor_id = $objeto->auditor;
+        }
+
+        $log_process->publicity_id = $objeto->publicity_id;
+        $log_process->product_id = $objeto->product_id;
+
+        $log_process->sino = $sino;
+        $log_process->poll_id = $poll_id;
+        $log_process->category_product_id = $objeto->category_product_id;
+
+        $log_process->result_origin = $result_origin;
+        $log_process->result_new = $result;
+        $log_process->type_operation = $type_operation;
+        $log_process->table_bd = $table;
+        $log_process->reference_id = $poll_objeto_id;
+        $log_process->store_id = $objeto->store_id;
+
+        if ($log_process->save())
+        {
+            return true;
+        }else{
+            return false;
+        }
     }
 }

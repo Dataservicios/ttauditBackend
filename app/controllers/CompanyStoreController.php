@@ -98,7 +98,7 @@ class CompanyStoreController extends BaseController{
     public function getStoresForRoutingForCity(){
         $valoresPost= Input::all(); //dd($valoresPost);
         $departament = $valoresPost['departament'];
-        $objCompanyStores = $this->companyStoreRepo->getStoresForRouting(0,$departament);
+        $objCompanyStores = $this->companyStoreRepo->getStoresForRouting(0,$departament);//dd($objCompanyStores);
 
         if (count($objCompanyStores)>0){
             foreach ($objCompanyStores as $objCompanyStore) {
@@ -124,6 +124,7 @@ class CompanyStoreController extends BaseController{
                             'customer'          =>      $objCompanyStore->customer,
                             'customer_id'       =>      $objCompanyStore->customer_id,
                             'estudio_id'        =>      $objCompanyStore->study_id,
+                            'owner'        =>      $objCompanyStore->owner,
                             'estudio'           =>      $objCompanyStore->estudio,
                             'cabecera'          =>      1,
                             'dif_campaigne'     =>      $objCompanyStore->cell,
@@ -148,6 +149,7 @@ class CompanyStoreController extends BaseController{
                             'customer'          =>      $objCompanyStore->customer,
                             'customer_id'       =>      $objCompanyStore->customer_id,
                             'estudio_id'        =>      $objCompanyStore->study_id,
+                            'owner'        =>      $objCompanyStore->owner,
                             'estudio'           =>      $objCompanyStore->estudio,
                             'cabecera'          =>      0,
                             'dif_campaigne'     =>      $objCompanyStore->cell,
@@ -174,6 +176,7 @@ class CompanyStoreController extends BaseController{
                         'customer_id'       =>      $objCompanyStore->customer_id,
                         'estudio_id'        =>      $objCompanyStore->study_id,
                         'estudio'           =>      $objCompanyStore->estudio,
+                        'owner'        =>      $objCompanyStore->owner,
                         'cabecera'          =>      0,
                         'dif_campaigne'     =>      $objCompanyStore->cell,
                         'marker_point_web'  =>      $objCompanyStore->marker_point_web,
@@ -181,6 +184,8 @@ class CompanyStoreController extends BaseController{
                 }
             }
 
+        }else{
+            $valores=[];
         }
 
 //        $valores=array( 'data' => $valores);

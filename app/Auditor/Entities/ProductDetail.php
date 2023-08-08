@@ -10,4 +10,9 @@ class ProductDetail extends \Eloquent {
 	{
 		return $this->belongsto('Auditor\Entities\Product');
 	}
+
+    public function storeType()
+    {
+        return $this->belongsTo(StoreType::class,'store_type_id');
+    }
 }

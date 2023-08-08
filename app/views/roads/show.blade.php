@@ -105,8 +105,8 @@
                                             <td>{{ $roadDetail->store->ubigeo }}</td>
                                             <td>{{ $roadDetail->company->fullname."(".$roadDetail->company_id.")" }}</td>
                                             <td>{{ $roadDetail->created_at }}</td>
-                                            <td><a href="#" data-toggle="tooltip" data-placement="bottom" title="@if($roadDetail->audit==0) No Auditado @else Auditado @endif">
-                                                <span class="@if($roadDetail->audit==0)icon-indicador icon-table-size icon-color-red @else icon-indicador icon-table-size icon-color-green @endif"></span>
+                                            <td><a href="#" data-toggle="tooltip" data-placement="bottom" title="@if($roadDetail->audit=="0") No Auditado @else Auditado @endif">
+                                                <span class="@if($roadDetail->audit=="0")icon-indicador icon-table-size icon-color-red @else icon-indicador icon-table-size icon-color-green @endif"></span>
                                                 </a>
                                             </td>
                                             <td class="text-right">

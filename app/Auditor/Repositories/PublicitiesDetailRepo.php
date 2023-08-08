@@ -15,6 +15,7 @@ class PublicitiesDetailRepo extends BaseRepo{
     public function findDetailForCondition($publicity_id,$store_id,$company_id)
     {
         $totalStores = PublicityDetail::where('publicity_id', $publicity_id)->where('store_id', $store_id)->where('company_id',$company_id)->get();
+        //$totalStores = \DB::table('publicity_details')->where('store_id', $store_id)->where('company_id',$company_id)->get();
 
         //dd($totalStores);
         return $totalStores;

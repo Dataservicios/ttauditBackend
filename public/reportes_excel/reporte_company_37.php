@@ -134,9 +134,9 @@ $total_comercios = mysql_num_rows($resEmp);
 /* Definen la Cabecera */
 
 
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('N2', '¿Se encuentra Abierto? Si/No');
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('W2','Motivo de no compra');
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('Y2','Se pegó merchandising');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('P2', '¿Se encuentra Abierto? Si/No');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('Y2','Motivo de no compra');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AA2','Se pegó merchandising');
 //$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AL2','Ventana Galletas');
 //$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AR2','Ventana Refrescos');
 //$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AX2','Ventana Detergentes');
@@ -145,9 +145,9 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue('Y2','Se pegó merchandising'
 
 /* Une las Celdas para la cabecera */
 
-$objPHPExcel->setActiveSheetIndex(1)->mergeCells('N2:P2');
-$objPHPExcel->setActiveSheetIndex(1)->mergeCells('W2:W2');
-$objPHPExcel->setActiveSheetIndex(1)->mergeCells('Y2:Y2');
+$objPHPExcel->setActiveSheetIndex(1)->mergeCells('P2:T2');
+$objPHPExcel->setActiveSheetIndex(1)->mergeCells('Y2:Z2');
+$objPHPExcel->setActiveSheetIndex(1)->mergeCells('AA2:AB2');
 //$objPHPExcel->setActiveSheetIndex(1)->mergeCells('AL2:AQ2');
 //$objPHPExcel->setActiveSheetIndex(1)->mergeCells('AR2:AW2');
 //$objPHPExcel->setActiveSheetIndex(1)->mergeCells('AX2:BC2');
@@ -158,10 +158,10 @@ $objPHPExcel->setActiveSheetIndex(1)->mergeCells('Y2:Y2');
 
 /* Aplica estilo a las cabeceras */
 
-$objPHPExcel->setActiveSheetIndex(1)->getStyle('N2:P2')->applyFromArray($style);
-$objPHPExcel->setActiveSheetIndex(1)->getStyle('W2:X2')->applyFromArray($style);
+$objPHPExcel->setActiveSheetIndex(1)->getStyle('P2:T2')->applyFromArray($style);
 $objPHPExcel->setActiveSheetIndex(1)->getStyle('Y2:Z2')->applyFromArray($style);
-$objPHPExcel->setActiveSheetIndex(1)->getStyle('A3:AB3')->applyFromArray($style_1);
+$objPHPExcel->setActiveSheetIndex(1)->getStyle('AA2:AB2')->applyFromArray($style);
+$objPHPExcel->setActiveSheetIndex(1)->getStyle('A3:Ad3')->applyFromArray($style_1);
 
 
 /* Define el Ancho de las Celdas */
@@ -182,8 +182,8 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('N')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('O')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('P')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('Q')->setAutoSize(true);
-$objPHPExcel->getActiveSheet()->getColumnDimension('R')->setAutoSize(true);
-$objPHPExcel->getActiveSheet()->getColumnDimension('S')->setAutoSize(true);
+//$objPHPExcel->getActiveSheet()->getColumnDimension('R')->setAutoSize(true);
+//$objPHPExcel->getActiveSheet()->getColumnDimension('S')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('T')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('U')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('V')->setAutoSize(true);
@@ -196,6 +196,8 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('AB')->setAutoSize(true);
 
 $cabecera = array(
     'ID',
+    'CODIGO',
+    'DIA LLAMADA',
     'COMERCIO',
     'DIRECCION',
     'DISTRITO',
@@ -246,6 +248,8 @@ for ($row = 0; $row < count($cabecera) ; $row++) {
 
 $campos = array(
     array('store_id', '0'),
+    array('codclient', '0'),
+    array('comment', '0'),
     array('fullname', '0'),
     array('address', '0'),
     array('district', '0'),

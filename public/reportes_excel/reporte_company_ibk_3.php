@@ -189,6 +189,7 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(90 + 2 , 2), ('25
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(94 + 2 , 2), ('26. En una escala del 0 al 3 donde 0 significa Debajo del estándar, 2 Estándar y 3 Superior, ¿cómo calificarías la disposición de la persona que lo atendió? (id = 26)') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(98 + 2 , 2), '27. El CI deberá mostrar interés: Voy a abrir un negocio, ¿usted me recomendaría tener un agente Interbank? (id = 27)' );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(108 + 2  , 2), ('30. Otras apreciaciones a comentar (id = 28)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(109 + 2  , 2), ('Tipo Agente') );
 // -----------------Bim ------------------------------------------
 /*$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(109 + 2  , 2), ('31. ¿El letrero de Agente BIM era visible desde fuera? (id = 29)') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(111 + 2  , 2), ('32. ¿Al preguntar si se podía hacer la operación, ¿el dependiente aceptó realizar la operación?? (id = 30)') );
@@ -300,6 +301,7 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(105  + 2 , 3), ('
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(106  + 2 , 3), ('Pérdida de tiempo') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(107  + 2 , 3), ('Comisiones bajas') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(108 + 2 , 3), ('Comentario') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(109 + 2 , 3), ('Tipo Agente') );
 
 
 
@@ -367,8 +369,8 @@ $objPHPExcel->setActiveSheetIndex(1)->mergeCells('DR2:DS2');
 
 
 /* Aplica estilo a las cabeceras */
-$objPHPExcel->setActiveSheetIndex(1)->getStyle('B2:DG2')->applyFromArray($style);
-$objPHPExcel->setActiveSheetIndex(1)->getStyle('A3:DG3')->applyFromArray($style_1);
+$objPHPExcel->setActiveSheetIndex(1)->getStyle('B2:DH2')->applyFromArray($style);
+$objPHPExcel->setActiveSheetIndex(1)->getStyle('A3:DH3')->applyFromArray($style_1);
 
 
 /* Define el Ancho de las Celdas */
@@ -539,6 +541,7 @@ while ($rowEmp = mysql_fetch_assoc($resEmp)) {
     $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(106  + 2, $contador_1), ($rowEmp['27_h'] ));
     $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(107  + 2, $contador_1), ($rowEmp['27_i'] ));
     $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(108  + 2, $contador_1), utf8_encode($rowEmp['28_comentario'] ));
+    $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(109  + 2, $contador_1), utf8_encode($rowEmp['tipo_agente'] ));
 
     /*$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(109  + 2, $contador_1), utf8_encode($rowEmp['29_Respuesta'] ));
     if (($rowEmp['29_Foto']) == null || ($rowEmp['29_Foto']) == "") {
@@ -561,7 +564,7 @@ while ($rowEmp = mysql_fetch_assoc($resEmp)) {
 
 
     $objPHPExcel->setActiveSheetIndex(1)->getStyle('B'.$contador_1.':C'.$contador_1)->applyFromArray($style_2);
-    $objPHPExcel->setActiveSheetIndex(1)->getStyle('D'.$contador_1.':DG'.$contador_1)->applyFromArray($style_3);
+    $objPHPExcel->setActiveSheetIndex(1)->getStyle('D'.$contador_1.':DH'.$contador_1)->applyFromArray($style_3);
 
 
 }

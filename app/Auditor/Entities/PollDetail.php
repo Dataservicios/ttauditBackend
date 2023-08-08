@@ -1,7 +1,7 @@
 <?php
 namespace Auditor\Entities;
 class PollDetail extends \Eloquent {
-	protected $fillable = ['poll_id','store_id','sino','options','limits','media','coment','result','limite','comentario','comentOptions','auditor'];
+	protected $fillable = ['poll_id','store_id','sino','options','limits','media','coment','result','limite','comentario','comentOptions','auditor','brand_id'];
     protected $table = 'poll_details';
 
 

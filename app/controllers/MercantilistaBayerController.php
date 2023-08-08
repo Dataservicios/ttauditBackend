@@ -115,7 +115,7 @@ class MercantilistaBayerController extends BaseController{
                 //$company = $this->UserCompanyRepo->getCompany(Auth::user()->id);
                 //$company_id=$company[0]->id;//dd($company_id);
                 //$titulo = $company[0]->fullname;
-                $ObjCompany_id=$this->companyRepo->getFirstCurrentCampaigns($this->customer_id,$this->estudio);
+                $ObjCompany_id=$this->companyRepo->getFirstCurrentCampaigns($this->customer_id,$this->estudio);//dd($company_id,$ObjCompany_id,$this->customer_id,$this->estudio);
                 $company_id=$ObjCompany_id->id;
                 $company = $this->companyRepo->find($company_id);
                 $titulo = 'Resumen Período '.$company->fullname;
@@ -872,7 +872,7 @@ class MercantilistaBayerController extends BaseController{
         if ($ajax=="1"){//json
             if (count($products)>0){
                 foreach ($products as $product) {
-                    $valores[] = array('id' =>$product->product->id,'eam' =>$product->product->eam,'fullname' => $product->product->fullname,'company_id' => $product->company_id,'category_product_id' => $product->product->category_product_id,'precio' => $product->product->precio,'imagen' => $product->product->imagen,'composicion' => $product->product->composicion,'fabricante' => $product->product->fabricante,'presentacion' => $product->product->presentacion,'unidad' => $product->product->unidad,'created_at' => '','updated_at' => '');
+                    $valores[] = array('id' =>$product->product->id,'eam' =>$product->product->eam,'fullname' => $product->product->fullname,'company_id' => $product->company_id,'category_product_id' => $product->product->category_product_id,'precio' => $product->product->precio,'imagen' => $product->product->imagen,'composicion' => $product->product->composicion,'fabricante' => $product->product->fabricante,'presentacion' => $product->product->presentacion,'unidad' => $product->product->unidad,'precio_product' => $product->precio,'store_type_id' => $product->store_type_id,'store_type' => $product->storeType->fullname,'created_at' => '','updated_at' => '');
                     $success=1;
                 }
             }else{

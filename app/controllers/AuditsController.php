@@ -26,6 +26,8 @@ use Auditor\Repositories\ControlTimeRepo;
 use Auditor\Repositories\StockProductPopRepo;
 use Auditor\Repositories\VersionRepo;
 use Illuminate\Database\Eloquent\Collection;
+use Auditor\Repositories\LogProcessRepo;
+use Auditor\Repositories\RoadRepo;
 
 class AuditsController extends BaseController{
 
@@ -48,6 +50,8 @@ class AuditsController extends BaseController{
     protected $controlTimeRepo;
     protected $stockProductPopRepo;
     protected $versionRepo;
+    protected $logProcessRepo;
+    protected $roadRepo;
 
     public $urlBase;
     public $urlFotos;
@@ -56,7 +60,7 @@ class AuditsController extends BaseController{
     public $valoresCampaigne;
     public $valoresCategory;
 
-    public function __construct(VersionRepo $versionRepo,StockProductPopRepo $stockProductPopRepo,ControlTimeRepo $controlTimeRepo,PollRepo $pollRepo,PollOptionRepo $PollOptionRepo,PollOptionDetailRepo $PollOptionDetailRepo,PollDetailRepo $PollDetailRepo,PublicityRepo $publicityRepo,UserRepo $userRepo,RoadDetailRepo $RoadDetailRepo,AuditRoadStoreRepo $AuditRoadStoreRepo, MediaRepo $MediaRepo,PublicitiesDetailRepo $PublicitiesDetailRepo,StoreRepo $storeRepo,PresenceDetailRepo $presenceDetailRepo, AuditRepo $auditRepo,CompanyStoreRepo $companyStoreRepo, CompanyRepo $companyRepo, CustomerRepo $customerRepo)
+    public function __construct(RoadRepo $roadRepo,LogProcessRepo $logProcessRepo,VersionRepo $versionRepo,StockProductPopRepo $stockProductPopRepo,ControlTimeRepo $controlTimeRepo,PollRepo $pollRepo,PollOptionRepo $PollOptionRepo,PollOptionDetailRepo $PollOptionDetailRepo,PollDetailRepo $PollDetailRepo,PublicityRepo $publicityRepo,UserRepo $userRepo,RoadDetailRepo $RoadDetailRepo,AuditRoadStoreRepo $AuditRoadStoreRepo, MediaRepo $MediaRepo,PublicitiesDetailRepo $PublicitiesDetailRepo,StoreRepo $storeRepo,PresenceDetailRepo $presenceDetailRepo, AuditRepo $auditRepo,CompanyStoreRepo $companyStoreRepo, CompanyRepo $companyRepo, CustomerRepo $customerRepo)
     {
         $this->customerRepo = $customerRepo;
         $this->companyRepo = $companyRepo;
@@ -77,6 +81,8 @@ class AuditsController extends BaseController{
         $this->controlTimeRepo = $controlTimeRepo;
         $this->stockProductPopRepo = $stockProductPopRepo;
         $this->versionRepo = $versionRepo;
+        $this->logProcessRepo = $logProcessRepo;
+        $this->roadRepo = $roadRepo;
 
         $this->urlBase = \App::make('url')->to('/');
         $this->urlFotos = '/media/fotos/';
@@ -112,6 +118,17 @@ class AuditsController extends BaseController{
         $this->valoresCampaigne[174] = array('ventanaW' => 2851,'abierto' => 2849,'permitio' =>2850,'existeVent' => 2852, 'visibleVent' =>2853, 'comoEstaVent'=>2854);
         $this->valoresCampaigne[186] = array('ventanaW' => 3064,'abierto' => 3062,'permitio' =>3063,'existeVent' => 3065, 'visibleVent' =>3066, 'comoEstaVent'=>3067);
         $this->valoresCampaigne[200] = array('ventanaW' => 3276,'abierto' => 3274,'permitio' =>3275,'existeVent' => 3277, 'visibleVent' =>3278, 'comoEstaVent'=>3279);
+        $this->valoresCampaigne[200] = array('ventanaW' => 3276,'abierto' => 3274,'permitio' =>3275,'existeVent' => 3277, 'visibleVent' =>3278, 'comoEstaVent'=>3279);
+        $this->valoresCampaigne[208] = array('ventanaW' => 3452,'abierto' => 3462,'permitio' =>3463,'existeVent' => 3453, 'visibleVent' =>3454, 'comoEstaVent'=>3455);
+        $this->valoresCampaigne[216] = array('ventanaW' => 3604,'abierto' => 3614,'permitio' =>3615,'existeVent' => 3605, 'visibleVent' =>3606, 'comoEstaVent'=>3607);
+        $this->valoresCampaigne[223] = array('ventanaW' => 3825,'abierto' => 3835,'permitio' =>3836,'existeVent' => 3826, 'visibleVent' =>3827, 'comoEstaVent'=>3828);
+        $this->valoresCampaigne[235] = array('ventanaW' => 4048,'abierto' => 4058,'permitio' =>4059,'existeVent' => 4049, 'visibleVent' =>4050, 'comoEstaVent'=>4051);
+        $this->valoresCampaigne[239] = array('ventanaW' => 4122,'abierto' => 4132,'permitio' =>4133,'existeVent' => 4123, 'visibleVent' =>4124, 'comoEstaVent'=>4125);
+        $this->valoresCampaigne[246] = array('ventanaW' => 4294,'abierto' => 4304,'permitio' =>4305,'existeVent' => 4295, 'visibleVent' =>4296, 'comoEstaVent'=>4297);
+        $this->valoresCampaigne[254] = array('ventanaW' => 4442,'abierto' => 4452,'permitio' =>4453,'existeVent' => 4443, 'visibleVent' =>4444, 'comoEstaVent'=>4445);
+        $this->valoresCampaigne[264] = array('ventanaW' => 4520,'abierto' => 4530,'permitio' =>4531,'existeVent' => 4521, 'visibleVent' =>4522, 'comoEstaVent'=>4523);
+        $this->valoresCampaigne[272] = array('ventanaW' => 4614,'abierto' => 4624,'permitio' =>4625,'existeVent' => 4615, 'visibleVent' =>4616, 'comoEstaVent'=>4617);
+        $this->valoresCampaigne[279] = array('ventanaW' => 4756,'abierto' => 4766,'permitio' =>4767,'existeVent' => 4757, 'visibleVent' =>4758, 'comoEstaVent'=>4759);
         //$this->valoresCategory[3] = array('sod' => 54,'exhi' => 53);
 
         $this->valoresCategory = array('sod' => 54,'exhi' => 53);
@@ -142,12 +159,18 @@ class AuditsController extends BaseController{
 
     public function HomeCampaignForCustomer($customer_id)
     {
-        $campaigns = $this->companyRepo->getCompaniesForClient($customer_id,"1");
+        $campaigns = $this->companyRepo->getCompaniesForClient($customer_id,"1");//dd($campaigns);
         $titulo = 'Estudio';
-        foreach ($campaigns as $campaign)
+        if (count($campaigns)>0)
         {
-            $links[] = array('nombre' => $campaign->fullname, 'url' => route('auditsForCampaign', array($campaign->id)), 'target' => 0);
+            foreach ($campaigns as $campaign)
+            {
+                $links[] = array('nombre' => $campaign->fullname, 'url' => route('auditsForCampaign', array($campaign->id)), 'target' => 0);
+            }
+        }else{
+            $links=[];
         }
+
         return View::make('audits/homeAudits', compact('links','titulo'));
     }
 
@@ -158,7 +181,7 @@ class AuditsController extends BaseController{
     }
     
     public function getDetailQuestion($poll_id,$values,$company_id,$poll_option_id="0",$product_id="0",$publicity_id="0",$audit_id="0",$auditor="0")
-    {
+    {//http://ttaudit.test/admin/audits/getDetailQuestion/3064/LIMA-0-0-0-0-0-1-0-0/186/0/0/925/1/587
         $valores = explode('-',$values);
         $pregSino = $valores[6];
         $city = $valores[0];
@@ -177,7 +200,7 @@ class AuditsController extends BaseController{
         //$pollsResult = $this->getResponsePollsAlicorp($store_id,$company_id,$publicity_id);
         //dd($datosStores1);
         foreach ($datosStores1 as $datosStore) {
-            $objPublicityDetail = $this->PublicitiesDetailRepo->findDetailForCondition($publicity_id,$datosStore['store_id'],$company_id);//dd($datosStore);
+            $objPublicityDetail = $this->PublicitiesDetailRepo->findDetailForCondition($publicity_id,$datosStore['store_id'],$company_id);dd($objPublicityDetail);
             $foto="Foto";
             $valoresPolls= $this->getValores();
             $poll_comoEstaVent = $valoresPolls[$company_id]['comoEstaVent'];
@@ -222,6 +245,8 @@ class AuditsController extends BaseController{
         }
         return Response::json([ 'success'=> $sw]);
     }
+
+
     /**
      * @return json
      * solo actualiza la respuesta en poll_details para tipos si y no
@@ -236,7 +261,20 @@ class AuditsController extends BaseController{
         $horaSistema = $mytime->toDateTimeString();
         $pollDetail = $this->PollDetailRepo->getModel();
         $user = $pollDetail::find($poll_detail_id);
-        //return Response::json([ 'success'=> $pollDetail]);
+        if ($user->auditor==0)
+        {
+            $objRoadDetails=$this->RoadDetailRepo->getModel();
+            $road_details_obj=$objRoadDetails->where('store_id',$user->store_id)->where('company_id',$user->company_id)->first();
+            $road_obj = $this->roadRepo->find($road_details_obj->road_id);
+            $auditor_id=$road_obj->user_id;
+            $user->auditor= $auditor_id;
+        }
+
+        $log_process = $this->logProcessRepo->getModel();
+        $poll_id = $user->poll_id;
+        $user_id = Auth::id();
+        $this->insertLog($log_process,$poll_id,$user_id,'operations',$user,1,$user->result,$result,$poll_detail_id,'poll_details','updated');
+
         $user->result = $result;
 
         $updateResponse = $user->save();
@@ -390,6 +428,44 @@ class AuditsController extends BaseController{
         }
 
     }
+
+    /**
+     * @return json
+     * Actualiza todos los datos de poll_details por visita
+     */
+    public function updatePollDetailsAllVisits()
+    {
+        $valoresPost= Input::all();//dd($valoresPost);
+        $result = $valoresPost['result'];
+        $company_id = $valoresPost['company_id'];
+        $poll_detail_id = $valoresPost['poll_detail_id'];
+        $comment = $valoresPost['comment'];
+        $limit = $valoresPost['limit'];
+        $product_id = $valoresPost['product_id'];
+        $publicity_id = $valoresPost['publicity_id'];
+        $visit_id = $valoresPost['visit_id'];
+        $mytime = Carbon\Carbon::now();
+        $horaSistema = $mytime->toDateTimeString();
+        $pollDetail = $this->PollDetailRepo->getModel();
+        $user = $pollDetail::find($poll_detail_id);
+        //return Response::json([ 'success'=> $pollDetail]);
+        $user->result = $result;
+        $user->comentario = $comment;
+        $user->limite = $limit;
+        $user->product_id = $product_id;
+        $user->company_id = $company_id;
+        $user->publicity_id = $publicity_id;
+        $user->visit_id = $visit_id;
+
+        $updateResponse = $user->save();
+        if ($updateResponse == true)
+        {
+            return Response::json([ 'success'=> 1, 'fecha' => $user->created_at]);
+        }else{
+            return Response::json([ 'success'=> 0, 'fecha' => $user->created_at]);
+        }
+
+    }
     
     public function deleteAllOptions()
     {
@@ -402,6 +478,24 @@ class AuditsController extends BaseController{
         $poll_option_ids = $this->PollOptionRepo->getOptions($poll_id);
         foreach ($poll_option_ids as $poll_option_id) {
             $this->PollOptionDetailRepo->deleteOptions($store_id,$company_id,$product_id,$publicity_id,$poll_option_id->id);
+        }
+        return Response::json([ 'success'=> 1]);
+
+
+    }
+
+    public function deleteAllOptionsVisits()
+    {
+        $valoresPost= Input::all();
+        $company_id = $valoresPost['company_id'];
+        $store_id= $valoresPost['store_id'];
+        $product_id = $valoresPost['product_id'];
+        $publicity_id = $valoresPost['publicity_id'];
+        $poll_id = $valoresPost['poll_id'];
+        $visit_id = $valoresPost['visit_id'];
+        $poll_option_ids = $this->PollOptionRepo->getOptions($poll_id);
+        foreach ($poll_option_ids as $poll_option_id) {
+            $this->PollOptionDetailRepo->deleteOptions($store_id,$company_id,$product_id,$publicity_id,$poll_option_id->id,$visit_id);
         }
         return Response::json([ 'success'=> 1]);
 
@@ -452,6 +546,87 @@ class AuditsController extends BaseController{
                         $objPollOptionDetail->company_id =$company_id;
                         $objPollOptionDetail->store_id =$store_id;
                         $objPollOptionDetail->auditor =$user_id;
+                        $objOption = $this->PollOptionRepo->find($arrayOptions[$i]);
+                        $txtOption= $objOption->options;
+                        if ($txtOption=='Otros'){
+                            $objPollOptionDetail->otro =$otros;
+                        }
+                        //$objPollOptionDetail->created_at =$created_at;
+                        /*if (count($arrayPriorities)>0)
+                        {
+                            if ($arrayPriorities[$i]<>'')
+                            {
+                                $objPollOptionDetail->priority = $arrayPriorities[$i];
+                            }else{
+                                $objPollOptionDetail->priority = 0;
+                            }
+                        }else{
+                            $objPollOptionDetail->priority = 0;
+                        }*/
+                        if ($objPollOptionDetail->save())
+                        {
+                            $id = $objPollOptionDetail->id;
+                            $valorInsert .=  ' Opción ingresada:'.$arrayOptions[$i];
+                        }else{
+                            $id=0;
+                            $valorInsert .=  ' Opción NO ingresada:'.$arrayOptions[$i];
+                        }
+                    }
+                }
+            }
+            return Response::json([ 'success'=> 1, 'last_insert_id'=> $objPollDetail->id,'idOption'=>$id,'options'=>$valorInsert]);
+        }else{
+            return Response::json([ 'success'=> 0, 'last_insert_id'=> 0,'idOption'=>$id,'options'=>$valorInsert]);
+        }
+    }
+
+    public function insertPollDetailVisits()
+    {
+        $valoresPost= Input::all();
+        $company_id = $valoresPost['company_id'];
+        $store_id= $valoresPost['store_id'];
+        $product_id = $valoresPost['product_id'];
+        $publicity_id = $valoresPost['publicity_id'];
+        $options = $valoresPost['options'];
+        $arrayOptions = explode('|',$options);
+        $otros = $valoresPost['otros'];
+        $priorities = $valoresPost['priorities'];
+        $poll_id = $valoresPost['poll_id'];
+        $user_id = $valoresPost['user_id'];
+        $sino = $valoresPost['sino'];
+        $fecha = $valoresPost['fecha'];
+        $comentario = $valoresPost['comentario'];
+        $visit_id = $valoresPost['visit_id'];
+        $objPoll = $this->pollRepo->find($poll_id);
+        $objPollDetail = $this->PollDetailRepo->getModel();
+        $objPollDetail->poll_id = $poll_id;
+        $objPollDetail->store_id = $store_id;
+        $objPollDetail->sino = $objPoll->sino;
+        $objPollDetail->options = $objPoll->options;
+        $objPollDetail->media = $objPoll->media;
+        $objPollDetail->result = $sino;
+        $objPollDetail->comentario = $comentario;
+        $objPollDetail->auditor = $user_id;
+        $objPollDetail->product_id = $product_id;
+        $objPollDetail->publicity_id = $publicity_id;
+        $objPollDetail->visit_id = $visit_id;
+        $objPollDetail->company_id = $company_id;
+        $objPollDetail->created_at = $fecha;
+        $valorInsert="";$id=0;
+        if ($objPollDetail->save())
+        {
+            if (count($arrayOptions)>0)
+            {
+                for($i = 0; $i < count($arrayOptions); ++$i) {
+                    if ($arrayOptions[$i] <> '') {
+                        $objPollOptionDetail = $this->PollOptionDetailRepo->getModel();
+                        $objPollOptionDetail->poll_option_id = $arrayOptions[$i];
+                        $objPollOptionDetail->result = 1;
+                        $objPollOptionDetail->product_id =$product_id;
+                        $objPollOptionDetail->company_id =$company_id;
+                        $objPollOptionDetail->store_id =$store_id;
+                        $objPollOptionDetail->auditor =$user_id;
+                        $objPollOptionDetail->visit_id = $visit_id;
                         $objOption = $this->PollOptionRepo->find($arrayOptions[$i]);
                         $txtOption= $objOption->options;
                         if ($txtOption=='Otros'){
@@ -551,6 +726,73 @@ class AuditsController extends BaseController{
 
     }
 
+    /**
+     * @return json y texto con opciones ingresadas
+     * Ingresa varias opciones a la vez enviadas por post
+     */
+    public function insertOptionsVisits()
+    {
+        $valoresPost= Input::all();
+        $company_id = $valoresPost['company_id'];
+        $store_id= $valoresPost['store_id'];
+        $product_id = $valoresPost['product_id'];
+        $options = $valoresPost['options'];
+        $priorities = $valoresPost['priorities'];
+        $poll_detail_id = $valoresPost['poll_detail_id'];
+        $user_id = $valoresPost['user_id'];
+        $visit_id = $valoresPost['visit_id'];
+        $otros = $valoresPost['otros'];
+        $objPollDetailRepo = $this->PollDetailRepo->find($poll_detail_id);
+        $created_at = $objPollDetailRepo->created_at;
+        $arrayOptions = explode('|',$options);
+        $arrayPriorities = explode('|',$priorities);$valorInsert='';$id=0;
+        if (count($arrayOptions)>0)
+        {
+            for($i = 0; $i < count($arrayOptions); ++$i) {
+                if ($arrayOptions[$i]<>'')
+                {
+                    $objPollOptionDetail = $this->PollOptionDetailRepo->getModel();
+                    $objPollOptionDetail->poll_option_id = $arrayOptions[$i];
+                    $objPollOptionDetail->result = 1;
+                    $objPollOptionDetail->product_id =$product_id;
+                    $objPollOptionDetail->company_id =$company_id;
+                    $objPollOptionDetail->store_id =$store_id;
+                    $objPollOptionDetail->auditor =$user_id;
+                    $objPollOptionDetail->visit_id =$visit_id;
+                    $objOption = $this->PollOptionRepo->find($arrayOptions[$i]);
+                    $txtOption= $objOption->options;
+                    if ($txtOption=='Otros'){
+                        $objPollOptionDetail->otro =$otros;
+                    }
+                    $objPollOptionDetail->created_at =$created_at;
+                    if (count($arrayPriorities)>0)
+                    {
+                        if ($arrayPriorities[$i]<>'')
+                        {
+                            $objPollOptionDetail->priority = $arrayPriorities[$i];
+                        }else{
+                            $objPollOptionDetail->priority = 0;
+                        }
+                    }else{
+                        $objPollOptionDetail->priority = 0;
+                    }
+                    if ($objPollOptionDetail->save())
+                    {
+                        $id = $objPollOptionDetail->id;
+                        $valorInsert .=  ' Opción ingresada:'.$arrayOptions[$i];
+                    }else{
+                        $id=0;
+                        $valorInsert .=  ' Opción NO ingresada:'.$arrayOptions[$i];
+                    }
+                }
+            }
+            return Response::json([ 'success'=> 1, 'texto'=> $valorInsert, 'id'=> $id]);
+        }else{
+            return Response::json([ 'success'=> 0, 'texto'=> 'No hay opciones', 'id'=> $id]);
+        }
+
+    }
+
     //***JAIME ********
     /**
      * @return json succes y fecha de creación
@@ -568,8 +810,23 @@ class AuditsController extends BaseController{
         $horaSistema = $mytime->toDateTimeString();
         $pollOptionDetail = $this->PollOptionDetailRepo->getModel();
         $user = $pollOptionDetail::find($poll_option_details_id);
-        //return Response::json([ 'success'=> $pollDetail]);
+
+        $log_process = $this->logProcessRepo->getModel();
+        $ObjPollOptionRepo= $this->PollOptionRepo->find($user->poll_option_id);
+        $poll_id = $ObjPollOptionRepo->poll_id;
+        $user_id = Auth::id();
+        if ($user->auditor==0)
+        {
+            $objRoadDetails=$this->RoadDetailRepo->getModel();
+            $road_details_obj=$objRoadDetails->where('store_id',$user->store_id)->where('company_id',$user->company_id)->first();
+            $road_obj = $this->roadRepo->find($road_details_obj->road_id);
+            $auditor_id=$road_obj->user_id;
+            $user->auditor= $auditor_id;
+        }
+        $this->insertLog($log_process,$poll_id,$user_id,'operations',$user,0,$user->poll_option_id,$selected_pol_options_id,$poll_option_details_id,'poll_option_details','updated');
+
         $user->poll_option_id = $selected_pol_options_id;
+
 
         $updateResponse = $user->save();
         if ($updateResponse == true)
@@ -734,11 +991,11 @@ class AuditsController extends BaseController{
         return View::make('audits/detailSod', compact('productForPublicity','pollsResult','tipo','objStore','city','auditor','alertas','sod','publictyDetail_id','publicity_id','publicities','urlsFotos','filtro','storesxCampaigne','company_id','auditors','ciudades','customer','campaigne','detailAudit','cantidadStoresForCampaigne','cantidadStoresRouting','cantidadStoresAudit','audit_id','menus','poll_options_text'));
     }
 
-    public function ListStoresPublicity($ciudad="0",$publicity="0",$auditor_id="0",$audit="0",$company="0",$ventana="0")
+    public function ListStoresPublicity($ciudad="0",$publicity="0",$auditor_id="0",$audit="0",$company="0",$ventana="0",$trabajada="1")
     {
         $alertas="";
         if ($ciudad=="0"){
-            $valoresPost= Input::all();//dd($valoresPost);
+            $valoresPost= Input::all();//dd($valoresPost,$trabajada);
             $audit_id = $valoresPost['audit_id'];
             $company_id = $valoresPost['company_id'];
 
@@ -816,7 +1073,7 @@ class AuditsController extends BaseController{
                 $grouped = $collectStores->groupBy('store_id');//dd($grouped[196514]);
                 foreach ($grouped as $index =>$store)
                 {
-                    $storeAbierto="0";$permitio="0";$existeVent="0";$ventW="0";
+                    $storeAbierto="Si";$permitio="Si";$existeVent="Si";$ventW="Si";
                     //$store agrupa u array de objetos por cada poll_details_id
                     //if ($store->result == null){$result = 0;}else{$result = 1;}
                     //$publicty_detail_id = $store->publicity_details_id;$sod = $store->sod;
@@ -824,56 +1081,59 @@ class AuditsController extends BaseController{
                     $grouped1 = $collectPolls->groupBy('poll_id');
                     foreach ($grouped1 as $index1 =>$store1)
                     {
-                        if (($index1==$this->valoresCampaigne[$company_id]['abierto']) and ($store1[0]->result==1) and ($store1[0]->publicity_id==0)){
-                            $storeAbierto= "Si";
-                            $resultFiltro[$index] = array('abierto' => $storeAbierto,'permitio' => $permitio,'existe' => $existeVent,'trabajada' => $ventW);
-                        }
-                        if (($index1==$this->valoresCampaigne[$company_id]['permitio']) and ($store1[0]->result==1)  and ($store1[0]->publicity_id==0)){
-                            $permitio='Si';
-                            $resultFiltro[$index] = array('abierto' => $storeAbierto,'permitio' => $permitio,'existe' => $existeVent,'trabajada' => $ventW);
-                        }
-                        if (($index1==$this->valoresCampaigne[$company_id]['existeVent']) and ($store1[0]->result==1)  and ($store1[0]->publicity_id==$publicity_id)){
-                            $existeVent="Si";
-                            $resultFiltro[$index] = array('abierto' => $storeAbierto,'permitio' => $permitio,'existe' => $existeVent,'trabajada' => $ventW);
-                        }
-                        if (($index1==$this->valoresCampaigne[$company_id]['ventanaW']) and ($store1[0]->result==1)  and ($store1[0]->publicity_id==$publicity_id)){
-                            $ventW = "Si";
-                            $resultFiltro[$index] = array('abierto' => $storeAbierto,'permitio' => $permitio,'existe' => $existeVent,'trabajada' => $ventW);
-                        }
-                    }
+                        if ($index1==$this->valoresCampaigne[$company_id]['abierto']){
+                            if (($store1[0]->result==1) and ($store1[0]->publicity_id==0))
+                            {
+                                $storeAbierto= "Si";
+                            }else{
+                                $storeAbierto= "No";
+                            }
 
-                    /*$objPublicityDetail = $this->PublicitiesDetailRepo->findDetailForCondition($publicity_id,$store->store_id,$company_id);//dd($publicity_id,$store->store_id,$company_id,$objPublicityDetail->toArray());
-                    if (count($objPublicityDetail)>0){
-                        $publicty_detail_id = $objPublicityDetail[0]->id;$sod = $objPublicityDetail[0]->sod;
-                        $storeOpen = $this->PollDetailRepo->getRegForStoreCompanyPoll($store->store_id,$company_id,$this->valoresCampaigne[$company_id]['abierto']);//dd($store->store_id,$company_id,$this->valoresCampaigne[$company_id]['abierto'],$storeOpen->toArray());
-                        $cantReg = count($storeOpen);
-                        if (($cantReg>0) and ($storeOpen[0]->result==1)){
-                            $storeAbierto= "Si";
-                            $storePermitio = $this->PollDetailRepo->getRegForStoreCompanyPoll($store->store_id,$company_id,$this->valoresCampaigne[$company_id]['permitio']);//dd($this->valoresCampaigne[$company_id]['permitio']);
-                            $cantReg = count($storePermitio);
-                            if (($cantReg>0) and ($storePermitio[0]->result==1)){
-                                $permitio='Si';
-                                $storeExisteVent = $this->PollDetailRepo->getResultForStore($company_id,$store->store_id,$this->valoresCampaigne[$company_id]['existeVent'],$publicity_id);dd($this->valoresCampaigne[$company_id]['existeVent']);
-                                $cantReg = count($storeExisteVent);
-                                if (($cantReg>0) and ($storeExisteVent[0]->result==1)){
-                                    $existeVent="Si";
-                                    $storeSodW = $this->PollDetailRepo->getResultForStore($company_id,$store->store_id,$this->valoresCampaigne[$company_id]['ventanaW'],$publicity_id);
-                                    $cantReg = count($storeSodW);
-                                    if (($cantReg>0) and($storeSodW[0]->result==1)){$sw =$sw + 1;
-                                        $ventW = "Si";
-                                        $resultFiltro = array('abierto' => $storeAbierto,'permitio' => $permitio,'existe' => $existeVent,'trabajada' => $ventW);
-                                        $storesxCampaigne[] = array('store_id' => $store->store_id,'filtros' => $resultFiltro,'fullname' =>$store->fullname,'auditor_id' =>$store->auditor_id, 'auditor' =>$store->auditor,'departamento'=>$store->departamento,'fecha' =>$store->fecha,'hora' => $store->hora,'result'=>$result,'foto' => $store->foto,'publicity_detail_id' => $publicty_detail_id,'sod'=>$sod);
+                        }else{
+                            if ($index1==$this->valoresCampaigne[$company_id]['permitio'])
+                            {
+                                if (($store1[0]->result==1)  and ($store1[0]->publicity_id==0)){
+                                    $permitio='Si';
+                                }else{
+                                    $permitio='No';
+                                }
+                            }else{
+                                if ($index1==$this->valoresCampaigne[$company_id]['existeVent'])
+                                {
+                                    if (($store1[0]->result==1)  and ($store1[0]->publicity_id==$publicity_id)){
+                                        $existeVent="Si";
+                                    }else{
+                                        $existeVent="No";
+                                    }
+                                }else{
+                                    if ($index1==$this->valoresCampaigne[$company_id]['ventanaW'])
+                                    {
+                                        if ($trabajada==1)
+                                        {
+                                            if (($store1[0]->result==1)  and ($store1[0]->publicity_id==$publicity_id)){
+                                                $ventW = "Si";
+                                            }else{
+                                                $ventW = "No";
+                                            }
+                                        }else{
+                                            if (($store1[0]->result==0)  and ($store1[0]->publicity_id==$publicity_id)){
+                                                $ventW = "No";
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
-                    }*/
-
-                }//dd($resultFiltro[196514]);
-
+                        $resultFiltro[$index] = array('abierto' => $storeAbierto,'permitio' => $permitio,'existe' => $existeVent,'trabajada' => $ventW);
+                        //if (($store1[0]->store_id==186667) and ($publicity_id==961)){dd($trabajada,$store1[0],$index1,$this->valoresCampaigne[$company_id]['ventanaW'],$resultFiltro);}
+                    }
+                    //if ($store1[0]->store_id==186667){dd($resultFiltro);}
+                }//dd($resultFiltro);
+                $storesxCampaigne=[];
                 foreach ($resultFiltro as $index2 =>$store2){
-                    //if ($index2==186403) dd($store2['trabajada']);
-                    if (($store2['abierto']=="Si") and ($store2['permitio']=="Si") and ($store2['existe']=="Si") and ($store2['trabajada']=="Si")){
+                    if ($trabajada==1){$respW="Si";}else{$respW="No";}
+                    if (($store2['abierto']=="Si") and ($store2['permitio']=="Si") and ($store2['existe']=="Si") and ($store2['trabajada']==$respW)){
+                        $foto='';
                         foreach ($grouped[$index2] as $values){
                             if ($values->publicity_id==$publicity_id){
                                 $foto = $values->Foto;
@@ -883,6 +1143,7 @@ class AuditsController extends BaseController{
                         $storesxCampaigne[] = array('store_id' => $grouped[$index2][0]->store_id,'filtros' => $resultFiltro[$index2],'fullname' =>$grouped[$index2][0]->fullname,'auditor_id' =>$auditor, 'auditor' =>$obAuditor->fullname,'departamento'=>$grouped[$index2][0]->ubigeo,'fecha' =>$grouped[$index2][0]->fecha,'hora' => $grouped[$index2][0]->hora,'result'=>1,'foto' => $foto,'publicity_detail_id' => $grouped[$index2][0]->publicity_details_id,'sod'=>$sod);
                     }
                 }
+                //dd($storesxCampaigne,$respW);
             }else{
                 $storesxCampaigne = [];
             }
@@ -916,7 +1177,7 @@ class AuditsController extends BaseController{
         }//dd($storesxCampaigne);
         $filtro = 'SOD';$urlsFotos = $this->urlBase.$this->urlFotos;$publictyDetail_id='';$sod=0;$objStore=0;//dd($this->valoresCampaigne[$company_id]['ventanaW']);
 
-        if ($tipo=="Sod"){
+        if ($tipo=="Sod"){//dd(count($storesxCampaigne),$respW);
             $valorPoll = $this->getValores();
             $pollW = $valorPoll[$company_id]['ventanaW'];
             return View::make('audits/auditSodVentCampaign3', compact('pollW','tipo','objStore','city','auditor','alertas','sod','publictyDetail_id','publicity_id','publicities','urlsFotos','filtro','storesxCampaigne','company_id','auditors','ciudades','customer','campaigne','detailAudit','cantidadStoresForCampaigne','cantidadStoresRouting','cantidadStoresAudit','audit_id','menus'));
@@ -985,7 +1246,21 @@ class AuditsController extends BaseController{
 
             return View::make('audits/auditSodVentCampaign3', compact('tipo','objStore','city','auditor','alertas','sod','publictyDetail_id','publicity_id','publicities','urlsFotos','filtro','storesxCampaigne','company_id','auditors','ciudades','customer','campaigne','detailAudit','cantidadStoresForCampaigne','cantidadStoresRouting','cantidadStoresAudit','audit_id','menus'));
         }
-        if ((($audit_id >= 7) and ($audit_id <= 11)) or (($audit_id >= 20) and ($audit_id <= 24)) or (($audit_id >= 25) and ($audit_id <= 29)) or (($audit_id >= 30) and ($audit_id <= 34)  and ($audit_id == 54)) or ($audit_id == 52) or ($audit_id == 61) or ($audit_id == 62) )
+        //alicorp Mistery
+        if (($audit_id >= 68) and ($audit_id <= 71)  or ($audit_id == 77) or ($audit_id == 80) or ($audit_id == 85) or ($audit_id == 86) or ($audit_id == 87) or ($audit_id == 94) or ($audit_id == 93) or ($audit_id == 95) or ($audit_id == 96))
+        {
+            $num_reg = $QStoresForCompany - $QAuditClose;
+            $regInsertAudit = $num_reg;
+            return View::make('audits/auditListForCampaignIbk', compact('customer','campaigne','detailAudit','QStoresForCompany','QAuditClose','regInsertAudit','audit_id','menus'));
+        }
+        //alicorp Helena Evaluación
+        if (($audit_id >= 73) and ($audit_id <= 76))
+        {
+            $num_reg = $QStoresForCompany - $QAuditClose;
+            $regInsertAudit = $num_reg;
+            return View::make('audits/auditListForCampaignIbk', compact('customer','campaigne','detailAudit','QStoresForCompany','QAuditClose','regInsertAudit','audit_id','menus'));
+        }
+        if ((($audit_id >= 7) and ($audit_id <= 11)) or (($audit_id >= 20) and ($audit_id <= 24)) or (($audit_id >= 25) and ($audit_id <= 29)) or (($audit_id >= 30) and ($audit_id <= 34)  and ($audit_id == 54)) or ($audit_id == 52) or ($audit_id == 61) or ($audit_id == 62) or   (($audit_id >= 100)  and ($audit_id <= 104) ) or (($audit_id >= 108)  and ($audit_id <= 114) ) )
         {
             $num_reg = $QStoresForCompany - $QAuditClose;
             $regInsertAudit = $num_reg;
@@ -997,11 +1272,13 @@ class AuditsController extends BaseController{
             $regInsertAudit = $num_reg;
             return View::make('audits/auditListForCampaignIbk', compact('customer','campaigne','detailAudit','QStoresForCompany','QAuditClose','regInsertAudit','audit_id','menus'));
         }
-        if (($audit_id >= 63) and ($audit_id <= 66)){
+        //Bayer transferencista
+        if ((($audit_id >= 63) and ($audit_id <= 66))  or  (($audit_id >= 85) and ($audit_id <= 87))){
             $num_reg = $QStoresForCompany - $QAuditClose;
             $regInsertAudit = $num_reg;
-            /*return View::make('audits/auditBayerTransferencista', compact('customer','campaigne','detailAudit','QStoresForCompany','QAuditClose','regInsertAudit','audit_id','menus'));*/
-            return View::make('audits/audit63', compact('customer','campaigne','detailAudit','QStoresForCompany','QAuditClose','regInsertAudit','audit_id','menus'));
+            return View::make('audits/auditBayerTransferencista', compact('customer','campaigne','detailAudit','QStoresForCompany','QAuditClose','regInsertAudit','audit_id','menus'));
+            //return View::make('audits/audit63', compact('customer','campaigne','detailAudit','QStoresForCompany','QAuditClose','regInsertAudit','audit_id','menus'));
+            //audit63 se usuara como prueba de VUE
         }
         if ($audit_id == 2)
         {
@@ -1034,7 +1311,7 @@ class AuditsController extends BaseController{
             return View::make('audits/auditExhiCampaign3', compact('objStore','city','auditor','alertas','sod','publictyDetail_id','publicity_id','publicities','urlsFotos','filtro','storesxCampaigne','company_id','auditors','ciudades','customer','campaigne','detailAudit','cantidadStoresForCampaigne','cantidadStoresRouting','cantidadStoresAudit','audit_id','menus'));
         }
 
-        if (($audit_id == 14) or ($audit_id == 48) or ($audit_id ==49) or ($audit_id ==50) or ($audit_id ==51))
+        if (($audit_id == 14) or ($audit_id == 48) or ($audit_id ==49) or ($audit_id ==50) or ($audit_id ==51) or ($audit_id ==93))
         {
             $cantidadStoresForCampaigne = $this->companyStoreRepo->getStoresForCampaigne($company_id,"1","0","0","0","0","0","0","0","0","0");
             $cantidadStoresRouting = $this->companyStoreRepo->getStoresRoadsRouting($company_id);

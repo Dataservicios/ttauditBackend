@@ -16,13 +16,25 @@
                     </div> <!-- end .navbar-header -->
 
                     <div class="navbar-collapse collapse">
+                        <div class="logo">TT Audit</div>
                         <ul id="ulnav" class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="#top">Inicio</a></li>
-                            <li><a href="#screenshots">Reportes</a></li>
-                            <li><a href="#description">Servicios</a></li>
-                            <li><a href="#price">Cobertura</a></li>
-                            <li><a href="#team">Clientes</a></li>
-                            <li><a href="#download">Contacto</a></li>
+                            <li >
+                                <a href="#puntosdeventa" id="bt-reportes">Puntos de venta</a>
+                            </li>
+                            <li>
+                                <a href="#horeca" id="bt-horeca">HORECA</a>
+                            </li>
+                            <li>
+                                <a href="#canalesdeventa" id="bt-servicios">Canales de Venta</a>
+                            </li>
+                            <li>
+                                <a href="#plataforma" id="bt-cobertura">Plataforma</a>
+                            </li>
+                            <li><a href="#clientes" id="bt-clientes">Clientes</a></li>
+                            <li><a href="#contacto" id="bt-contacto">Contacto</a></li>
+                            <li class="active">
+                                <a href="#top" id="bt-inicio">Login</a>
+                            </li>
                         </ul>
 
                     </div><!-- end .navbar-collapse -->
@@ -31,6 +43,7 @@
         </div> <!-- end .navigation -->
     </section>
     <!-- ====== End Menu Section ====== -->
+
     <!-- ====== Header Section ====== -->
     <header id="top">
         <div class="bg-color">
@@ -40,25 +53,25 @@
 
                         <div class="col-sm-7 col-md-7">
                             <div class="content">
-                                <h1><strong>TT Audit</strong><br>AUDITORIA DE PUNTO DE VENTA</h1>
-                                <h2>Investigación y Control de Puntos de Venta</h2>
-
+                                <h1><strong>TT Audit</strong><br>AUDITORÍA Y EJECUCIONES DE TRADE
+                                    MARKETING</h1>
+                                <h2>con herramientas tecnológicas y análisis en tiempo real</h2>
                                 @if (Auth::check())
                                     @if (Auth::user()->type=='auditor')
-                                        {{Redirect::to('auditor');}}
+                                        {{Redirect::to('auditor')}}
                                     @endif
                                     @if (Auth::user()->type=='admin')
-                                        {{ Redirect::to('admin/panel'); }}
+                                        {{ Redirect::to('admin/panel') }}
                                     @endif
                                     @if ((Auth::user()->type=='company') or (Auth::user()->type=='executive'))
                                         @if (Auth::user()->userCompany[count(Auth::user()->userCompany)-1]->company->customer_id == 5)
-                                            {{ Redirect::to('reportBayer'); }}
+                                            {{ Redirect::to('reportBayer') }}
                                         @endif
                                         @if (Auth::user()->userCompany[count(Auth::user()->userCompany)-1]->company->customer_id == 4)
-                                            {{ Redirect::to('reportAlicorp'); }}
+                                            {{ Redirect::to('reportAlicorp') }}
                                         @endif
                                         @if (Auth::user()->userCompany[count(Auth::user()->userCompany)-1]->company->customer_id == 1)
-                                            {{ Redirect::to('report'); }}
+                                            {{ Redirect::to('report') }}
                                         @endif
 
                                     @endif
@@ -100,13 +113,13 @@
                                     </ol>
                                     <div class="carousel-inner">
                                         <div class="item">
-                                            <img src="home/images/phone1.png" alt="">
+                                            <img src="home/images/fono1.png" alt="">
                                         </div>
                                         <div class="item active left">
-                                            <img src="home/images/phone2.png" alt="">
+                                            <img src="home/images/fono2.png" alt="">
                                         </div>
                                         <div class="item next left">
-                                            <img src="home/images/phone3.png" alt="">
+                                            <img src="home/images/fono3.png" alt="">
                                         </div>
                                     </div> <!-- end .carousel-inner -->
                                 </div> <!-- end #carousel -->
@@ -124,312 +137,436 @@
     <section id="features">
         <div class="features section-padding">
             <div class="container">
-
                 <div class="header">
-                    <h1>Información en tiempo real</h1>
-                    <p>A través de una red de auditores distribuida en todo el territorio nacional y un equipo profesional de investigación, que apoyados en la más alta tecnología móvil, trabajan personalizando y optimizando la plataforma para comprobar las hipótesis específicas de su investigación.</p>
+                    <h1>TT AUDIT EN NÚMEROS</h1>
+
                     <div class="underline">
                         <i class="fa fa-certificate"></i>
                     </div>
-                </div> <!-- end .container> .header -->
+                </div>
+                <!-- end .container> .header -->
 
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="featured-item-img">
-                            <img src="home/images/phone1.png" alt="">
-                        </div>
+                        <img
+                                src="home/images/001-dashboard.png"
+                                alt="Datos procesados al mes"
+                        />
+                        <h2>500,000+</h2>
+                        <p>DATOS PROCESADOS<br />AL MES.</p>
                     </div>
-                    <div class="col-md-8 feature-list">
-                        <div class="row">
+                    <div class="col-md-4">
+                        <img
+                                src="home/images/002-camera.png"
+                                alt="REGISTROS FOTOGRÁFICOS RELEVADOS"
+                        />
+                        <h2>50,000+</h2>
+                        <p>REGISTROS FOTOGRÁFICOS<br />RELEVADOS.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="home/images/003-shop.png" alt="VISITAS A PDV MENSUALES" />
+                        <h2>10,000+</h2>
+                        <p>VISITAS A<br />PDV MENSUALES.</p>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        <img
+                                src="home/images/004-update.png"
+                                alt="APLICATIVOS DESARROLLADOS PARA DIFERENTES SERVICIOS."
+                        />
+                        <h4>TIEMPO REAL:</h4>
+                        <h2 class="sinmt">+200</h2>
+                        <p>APLICATIVOS DESARROLLADOS PARA DIFERENTES SERVICIOS.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="home/images/005-peru.png" alt="COBERTURA NN: +100" />
+                        <h4>COBERTURA NN:</h4>
+                        <h2 class="sinmt">+100</h2>
+                        <p>COLABORADORES EN TODAS<br />LAS CIUDADES DEL PERÚ.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="home/images/006-group.png" alt="BACK OFFICE: +20" />
+                        <h4>BACK OFFICE</h4>
+                        <h2 class="sinmt">+20</h2>
+                        <p>CONSOLIDANDO DATA Y<br />DESARROLLANDO INDICADORES.</p>
+                    </div>
+                </div>
 
-                            <div class="col-sm-6 col-md-6">
-                                <div class="featured-item">
-                                    <div class="icon">
-                                        <div class="icon-style"><i class="fa fa-map-marker"></i></div>
-                                    </div> <!-- end icon -->
-                                    <div class="meta-text">
-                                        <h3>Más puntos de venta en menos tiempo</h3>
-                                        <p>Sistema de Inteligente de Optimización de Rutas.</p>
-                                    </div> <!-- end .meta-text -->
-                                </div> <!-- end .featured-item -->
-                            </div> <!-- end .feature-list> .row > .col-md-6 (1st item) -->
-
-                            <div class="col-sm-6 col-md-6">
-                                <div class="featured-item">
-                                    <div class="icon">
-                                        <div class="icon-style"><i class="fa fa-camera"></i></div>
-                                    </div> <!-- end icon -->
-                                    <div class="meta-text">
-                                        <h3>Archivo fotográfico</h3>
-                                        <p>Seguimiento y archivo detallado de todo el proceso de recolección de información.</p>
-                                    </div> <!-- end .meta-text -->
-                                </div> <!-- end .featured-item -->
-                            </div> <!-- end .feature-list> .row > .col-md-6 (2nd item) -->
-
-                            <div class="col-sm-6 col-md-6">
-                                <div class="featured-item">
-                                    <div class="icon">
-                                        <div class="icon-style"><i class="fa fa-file"></i></div>
-                                    </div> <!-- end icon -->
-                                    <div class="meta-text">
-                                        <h3>Reportes en linea</h3>
-                                        <p>Acceso seguro y en tiempo real al avance y resultados generales del estudio.</p>
-                                    </div> <!-- end .meta-text -->
-                                </div> <!-- end .featured-item -->
-                            </div> <!-- end .feature-list> .row > .col-md-6 (3rd item) -->
-
-                            <div class="col-sm-6 col-md-6">
-                                <div class="featured-item">
-                                    <div class="icon">
-                                        <div class="icon-style"><i class="fa fa-gears"></i></div>
-                                    </div> <!-- end icon -->
-                                    <div class="meta-text">
-                                        <h3>Flexibilidad y Personalización</h3>
-                                        <p>Todos los reportes y metodologías son adaptadas a las necesidades específicas de su negocio.</p>
-                                    </div> <!-- end .meta-text -->
-                                </div> <!-- end .featured-item -->
-                            </div> <!-- end .feature-list> .row > .col-md-6 (4th item) -->
-
-                            <div class="col-sm-6 col-md-6">
-                                <div class="featured-item">
-                                    <div class="icon">
-                                        <div class="icon-style"><i class="fa fa-users"></i></div>
-                                    </div> <!-- end icon -->
-                                    <div class="meta-text">
-                                        <h3>Red de Auditores</h3>
-                                        <p>Más de 100 auditores profesionales y capacitados en nuestra metodología y herramientas en todo el Perú.</p>
-                                    </div> <!-- end .meta-text -->
-                                </div> <!-- end .featured-item -->
-                            </div> <!-- end .feature-list> .row > .col-md-6 (5th item) -->
-
-                            <div class="col-sm-6 col-md-6">
-                                <div class="featured-item">
-                                    <div class="icon">
-                                        <div class="icon-style"><i class="fa fa-briefcase"></i></div>
-                                    </div> <!-- end icon -->
-                                    <div class="meta-text">
-                                        <h3>Experiencia</h3>
-                                        <p>Equipo con más de 15 años de experiencia en la investigación y ejecución en campañas de retail a nivel nacional.</p>
-                                    </div> <!-- end .meta-text -->
-                                </div> <!-- end .featured-item -->
-                            </div> <!-- end .feature-list> .row > .col-md-6 (6th item) -->
-                        </div> <!-- end .feature-list> .row -->
-                    </div> <!-- end .feature-list -->
-                </div> <!-- end .container> .row -->
-            </div> <!-- end .container -->
-        </div> <!-- end .features -->
+                <!-- end .container> .row -->
+            </div>
+            <!-- end .container -->
+        </div>
+        <!-- end .features -->
     </section>
     <!-- ====== End Features Section ====== -->
 
-
-    <!-- ====== Screenshots Section ====== -->
-    <section id="screenshots">
+    <!-- ====== Puntos de Venta Section ====== -->
+    <section id="puntosdeventa">
         <div class="screenshots section-padding dark-bg">
             <div class="container">
+                <div class="row">
+                    <!-- .container> .row> .col-md-6 -->
 
-                <div class="header">
-                    <h1>Reportes Personalizados</h1>
-                    <p>Trabajamos junto con el cliente en la adaptación y personalización de los reportes de resultados para ajustarlos a las necesidades especificas de su negocio.</p>
-                    <div class="underline"><i class="fa fa-table"></i></div>
+                    <div class="col-sm-5 col-md-6">
+                        <div class="app-image">
+                            <img
+                                    class="img-responsive"
+                                    src="home/images/punto-de-venta.png"
+                                    alt=""
+                            />
+                        </div>
+                        <!-- end .app-image -->
+                    </div>
+                    <!-- .container> .row> .col-md-6 -->
+
+                    <div class="col-sm-7 col-md-6">
+                        <div class="content">
+                            <h1>Puntos de Venta Canal Tradicional</h1>
+
+                            <ul class="list-item">
+                                <li>
+                                    <i class="fa fa-check"></i>
+                                    <strong
+                                    >Auditoría de Fundamentales de Trade Marketing:</strong
+                                    ><br />
+                                    Presencia de Producto y/o Surtido Ideal (OSA), Visibilidad
+                                    de Marca, Material POP, Chequeo de Precios.
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i>
+                                    <strong>Auditoría de Servicios:</strong><br />
+                                    Recomendación y Conocimiento de Marca – Promociones
+                                    (Modalidad Cliente Incógnito).
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i>
+                                    <strong>Auditoría de Planes de Fidelización.</strong>
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i>
+                                    <strong>Ejecuciones de Trade Marketing:</strong
+                                    ><br />Promotoría, Mercaderismo, Autoventa/Transferencistas,
+                                    Siembra de Productos, Instalación y Ejecución de Material
+                                    POP, BTL.
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end .content -->
+                    </div>
                 </div>
-
-                <div class="owl-carousel owl-theme">
-                    <div class="item">
-                        <a href="home/images/app.jpg" data-rel="prettyPhoto"><img src="home/images/app.jpg" alt="item photo"></a>
-                    </div> <!-- end item -->
-                    <div class="item">
-                        <a href="home/images/app2.jpg" data-rel="prettyPhoto"><img src="home/images/app2.jpg" alt="item photo"></a>
-                    </div> <!-- end item -->
-                    <div class="item">
-                        <a href="home/images/app3.jpg" data-rel="prettyPhoto"><img src="home/images/app3.jpg" alt="item photo"></a>
-                    </div> <!-- end item -->
-                    <div class="item">
-                        <a href="home/images/app4.jpg" data-rel="prettyPhoto"><img src="home/images/app4.jpg" alt="item photo"></a>
-                    </div> <!-- end item -->
-                    <div class="item">
-                        <a href="home/images/app5.jpg" data-rel="prettyPhoto"><img src="home/images/app5.jpg" alt="item photo"></a>
-                    </div> <!-- end item -->
-                    <div class="item">
-                        <a href="home/images/app6.jpg" data-rel="prettyPhoto"><img src="home/images/app6.jpg" alt="item photo"></a>
-                    </div> <!-- end item -->
-                </div> <!-- end owl carousel -->
-
-            </div> <!-- .container -->
-        </div> <!-- end .screenshots -->
+                <!-- .container> .row -->
+            </div>
+            <!-- .container -->
+        </div>
+        <!-- end .screenshots -->
     </section>
-    <!-- ====== End Screenshots Section ====== -->
+    <!-- ====== End Puntos de Venta Section ====== -->
 
-    <!-- ====== Description Section ====== -->
-    <section id="description">
+    <!-- ====== Horeca Section ====== -->
+    <section id="horeca">
+        <div class="screenshots section-padding dark-bg">
+            <div class="container">
+                <div class="row">
+                    <!-- .container> .row> .col-md-6 -->
+
+                    <div class="col-sm-7 col-md-6">
+                        <div class="content">
+                            <h1>Ejecuciones de Trade Marketing HORECA</h1>
+
+                            <ul class="list-item">
+                                <li>
+                                    <i class="fa fa-check"></i>
+                                    <strong>Gestión de Venta:</strong><br />
+                                    MVP (Producto Mínimo Viable), Sell Sampling, Autoventa,
+                                    Venta Cruzada, Telemarketing, Promotoría de Venta.
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i>
+                                    <strong>Servicio de Mercaderismo.</strong>
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i>
+                                    <strong>Prueba de producto – Demostraciones.</strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end .content -->
+                    </div>
+
+                    <div class="col-sm-5 col-md-6">
+                        <div class="app-image">
+                            <img
+                                    class="img-responsive"
+                                    src="home/images/punto-de-venta.png"
+                                    alt=""
+                            />
+                        </div>
+                        <!-- end .app-image -->
+                    </div>
+                    <!-- .container> .row> .col-md-6 -->
+                </div>
+                <!-- .container> .row -->
+            </div>
+            <!-- .container -->
+        </div>
+        <!-- end .screenshots -->
+    </section>
+    <!-- ====== End Horeca Section ====== -->
+
+    <!-- ====== Canales Section ====== -->
+    <section id="canalesdeventa">
         <div class="description">
             <div class="description-two section-padding -bg">
                 <div class="container">
                     <div class="row">
-
-                        <div class="col-sm-7 col-md-6">
+                        <div class="col-sm-6 col-md-5">
                             <div class="content">
-                                <h1>Control de Ejecución, Información y Análisis</h1>
+                                <h1>Gestión en Canales de Venta</h1>
 
                                 <ul class="list-item">
-                                    <li><i class="fa fa-thumbs-o-up"></i> Visibilidad de Marca y Marcado de Precios</li>
-                                    <li><i class="fa fa-thumbs-o-up"></i> Inversión PTO de Venta y Material POP</li>
-                                    <li><i class="fa fa-thumbs-o-up"></i> Capacitación en Servicios y Cliente Incognito</li>
-                                    <li><i class="fa fa-thumbs-o-up"></i> Distribución Numérica y Ponderada</li>
-                                    <li><i class="fa fa-thumbs-o-up"></i> Nivel de Inventarios</li>
-                                    <li><i class="fa fa-thumbs-o-up"></i> Promotoría de Ventas</li>
-
+                                    <li>
+                                        <i class="fa fa-check"></i>
+                                        <strong
+                                        >Gestión de Información en Distribuidores No Exclusivos
+                                            y Mayoristas:</strong
+                                        ><br />Sell Out, Cobertura, Stock, Indicadores por
+                                        Vendedor, Ticket Promedio, Profundidad de Pedidos.
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check"></i>
+                                        <strong
+                                        >Seguimiento y Premiación de Concursos a FFVV.</strong
+                                        >
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check"></i>
+                                        <strong>Información Actividades Competencia.</strong>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check"></i>
+                                        <strong>Ruta al Mercado:</strong><br />Márgenes, FFVV,
+                                        Oferta de valor.
+                                    </li>
                                 </ul>
-                            </div> <!-- end .content -->
-                        </div> <!-- .container> .row> .col-md-6 -->
+                            </div>
+                            <!-- end .content -->
+                        </div>
+                        <!-- .container> .row> .col-md-6 -->
 
-                        <div class="col-sm-5 col-md-6">
+                        <div class="col-sm-6 col-md-7">
                             <div class="app-image">
-                                <img class="img-responsive" src="home/images/duel-phone-big.png" alt="">
-                            </div> <!-- end .app-image -->
-                        </div> <!-- .container> .row> .col-md-6 -->
-
-                    </div> <!-- .container> .row -->
-                </div> <!-- .container -->
-            </div> <!-- end .description-two -->
-
-        </div> <!-- end .description -->
+                                <img
+                                        class="img-responsive"
+                                        src="home/images/gestion-ventas.jpg"
+                                        alt=""
+                                />
+                            </div>
+                            <!-- end .app-image -->
+                        </div>
+                        <!-- .container> .row> .col-md-6 -->
+                    </div>
+                    <!-- .container> .row -->
+                </div>
+                <!-- .container -->
+            </div>
+            <!-- end .description-two -->
+        </div>
+        <!-- end .description -->
     </section>
-    <!-- ====== End Description Section ====== -->
+    <!-- ====== End Canales Section ====== -->
 
-
-    <!-- ====== Price Section ====== -->
-    <section id="price">
-        <div class="price section-padding dark-bg">
+    <!-- ====== Plataforma Section ====== -->
+    <section id="plataforma">
+        <div class="price section-padding">
             <div class="container">
-
-                <div class="header">
-                    <h1>Cobertura en todo el Perú</h1>
-                    <p>Contamos con una red propia de auditores profesionales distribuidos por todo el territorio nacional.</p>
-                    <div class="underline"><i class="fa fa-certificate"></i></div>
-                </div> <!-- end .container> .header -->
-
+                <!-- end .container> .header -->
                 <div class="row">
-                    <div class="price-list">
-                        <div class="col-md-4">
-                            <div class="price-table">
-                                <h2>Canal Tradicional</h2>
-                                <ul>
-                                    <li><i class="fa fa-check"></i>Bodegas</li>
-                                    <li><i class="fa fa-check"></i>Mercados</li>
-                                    <li><i class="fa fa-check"></i>Mayoristas</li>
-                                    <li><i class="fa fa-check"></i>Kioskos</li>
-                                    <li><i class="fa fa-check"></i>Cruceristas</li>
-                                </ul>
-                            </div> <!-- end .price-table -->
-                        </div> <!-- end .price-list> .col-md-4 (1) -->
-
-                        <div class="col-md-4">
-                            <div class="price-table featured-price">
-                                <h2>Canal Moderno</h2>
-                                <ul>
-                                    <li><i class="fa fa-check"></i>Autoservicios</li>
-                                    <li><i class="fa fa-check"></i>Cadenas de Farmacias</li>
-                                    <li><i class="fa fa-check"></i>Estaciones de Servicio</li>
-                                </ul>
-                            </div> <!-- end .price-table -->
-                        </div> <!-- end .price-list> .col-md-4 (2) -->
-
-                        <div class="col-md-4">
-                            <div class="price-table">
-                                <h2>Otros Canales</h2>
-                                <ul>
-                                    <li><i class="fa fa-check"></i>Agentes Bancarios</li>
-                                    <li><i class="fa fa-check"></i>Farmacias</li>
-                                    <li><i class="fa fa-check"></i>Panaderias</li>
-                                    <li><i class="fa fa-check"></i>Ferreterias</li>
-                                </ul>
-                            </div> <!-- end .price-table -->
-                        </div> <!-- end .price-list> .col-md-4 (3) -->
-                    </div> <!-- end .price-list -->
-                </div> <!-- end .container> .row -->
-
-            </div> <!-- end .container -->
-        </div> <!-- end .price -->
+                    <div class="col-md-7">
+                        <img
+                                src="home/images/plataforma-tec.jpg"
+                                alt="Plataforma Tecnologica"
+                        />
+                    </div>
+                    <div class="col-md-5">
+                        <h1>Consultoría de Comunicaciones</h1>
+                        <ul>
+                            <li>
+                                <i class="fa fa-check"></i>
+                                <strong>Plataforma Tecnológica </strong>
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i>
+                                <strong
+                                >Desarrollo de aplicativos móviles y entornos web para el
+                                    análisis de información en tiempo real.
+                                </strong>
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i>
+                                <strong
+                                >Medición de visibilidad en entorno web.
+                                </strong>
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i>
+                                <strong
+                                >Reportes a medida del cliente en Power BI y Web.</strong
+                                >
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i>
+                                <strong>Estrategias de comunicación multicanal. </strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end .container -->
+        </div>
+        <!-- end .price -->
     </section>
-    <!-- ====== End Price Section ====== -->
-    <!-- ====== Team Section ====== -->
-    <section id="team">
-        <div class="team section-padding">
-            <div class="container">
+    <!-- ====== End Plataforma Section ====== -->
 
+    <!-- ====== Team Section ====== -->
+    <section id="clientes">
+        <div class="team section-padding dark-bg">
+            <div class="container">
                 <div class="header">
                     <h1>Nuestros Clientes</h1>
-                </div> <!-- end .container> .header -->
+                </div>
+                <!-- end .container> .header -->
 
                 <div class="row">
                     <div class="app-dev">
-
-                        <div class="col-sm-6 col-md-6 col-lg-3 info">
+                        <div class="col-sm-6 col-md-4 info">
                             <div class="member">
-                                <img src="home/images/01.jpg" alt="">
-                            </div> <!-- end .member -->
-                        </div> <!-- end .info (1) -->
+                                <img src="home/images/alicorp.jpg" alt="Alicorp" />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (1) -->
 
-                        <div class="col-sm-6 col-md-6 col-lg-3 info">
+                        <div class="col-sm-6 col-md-4 info">
                             <div class="member">
-                                <img src="home/images/02.jpg" alt="">
-                            </div> <!-- end .member -->
-                        </div> <!-- end .info (2) -->
+                                <img src="home/images/logo-gloria.jpg" alt="Gloria" />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (2) -->
 
-                        <div class="col-sm-6 col-md-6 col-lg-3 info">
+                        <div class="col-sm-6 col-md-4 info">
                             <div class="member">
-                                <img src="home/images/03.jpg" alt="">
-                            </div> <!-- end .member -->
-                        </div> <!-- end .info (3) -->
+                                <img src="home/images/logo-molitalia.jpg" alt="Molitalia" />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (3) -->
+                    </div>
+                    <!-- end .app-dev -->
+                </div>
+                <!-- end .container> .row -->
 
-                        <div class="col-sm-6 col-md-6 col-lg-3 info">
+                <div class="row">
+                    <div class="app-dev">
+                        <div class="col-sm-6 col-md-4 info">
                             <div class="member">
-                                <img src="home/images/04.jpg" alt="">
-                            </div> <!-- end .member -->
-                        </div> <!-- end .info (3) -->
+                                <img src="home/images/01.jpg" alt="Bayer" />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (3) -->
 
-                        <div class="col-sm-6 col-md-6 col-lg-3 info">
+                        <div class="col-sm-6 col-md-4 info">
                             <div class="member">
-                                <img src="home/images/05.jpg" alt="">
-                            </div> <!-- end .member -->
-                        </div> <!-- end .info (3) -->
+                                <img src="home/images/unilever-food.jpg" alt="Unilever" />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (1) -->
 
-                        <div class="col-sm-6 col-md-6 col-lg-3 info">
+                        <div class="col-sm-6 col-md-4 info">
                             <div class="member">
-                                <img src="home/images/06.jpg" alt="">
-                            </div> <!-- end .member -->
-                        </div> <!-- end .info (4) -->
+                                <img
+                                        src="home/images/alicorp-soluciones.jpg"
+                                        alt="Alicorp Soluciones"
+                                />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (2) -->
+                    </div>
+                    <!-- end .app-dev -->
+                </div>
+                <!-- end .container> .row -->
 
-                    </div> <!-- end .app-dev -->
-                </div> <!-- end .container> .row -->
+                <div class="row">
+                    <div class="app-dev">
+                        <div class="col-sm-6 col-md-4 info">
+                            <div class="member">
+                                <img src="home/images/pepsicologo.jpg" alt="Pepsico" />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (3) -->
 
-            </div> <!-- end .container -->
-        </div> <!-- end .team -->
+                        <div class="col-sm-6 col-md-4 info">
+                            <div class="member">
+                                <img src="home/images/interbank.jpg" alt="Interbank" />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (3) -->
+
+                        <div class="col-sm-6 col-md-4 info">
+                            <div class="member">
+                                <img src="home/images/palmera-logo.jpg" alt="Palmera" />
+                            </div>
+                            <!-- end .member -->
+                        </div>
+                        <!-- end .info (2) -->
+                    </div>
+                    <!-- end .app-dev -->
+                </div>
+                <!-- end .container> .row -->
+            </div>
+            <!-- end .container -->
+        </div>
+        <!-- end .team -->
     </section>
     <!-- ====== Team Section ====== -->
     <!-- ====== Download Section ====== -->
-    <section id="download">
+    <section id="contacto">
         <div class="bg-color">
             <div class="download section-padding">
                 <div class="container">
                     <div class="header">
                         <h1>Contacto</h1>
                         <div class="underline"><i class="fa fa-home"></i></div>
-                        <h3>Traditional Trade Audit SAC<br>
-                            Saenz Peña 109, Barranco - Lima, Peru.</h3><br>
-                        <h3>ellerena@ttaudit.com</h3>
-                        <h1> <i class="fa fa-phone"> </i>  (511) 487 8757</h1>
-                    </div> <!-- end .container > .header -->
-                </div> <!-- end .container > .row/.download-area -->
+                        <p>
+                            <strong>Raúl Pulido</strong><br />
+                            Director de Cuentas<br />
+                            <a href="mailto:rpulido@ttaudit.com">rpulido@ttaudit.com</a
+                            ><br />
+                            Av. Almirante Miguel Grau 629 Oficina 506, Barranco.
+                        </p>
+
+                        <p><i class="fa fa-phone"> </i> (51) 977 828 194</p>
+                    </div>
+                    <!-- end .container > .header -->
+                </div>
+                <!-- end .container > .row/.download-area -->
             </div>
-        </div> <!-- end .container -->
+        </div>
+        <!-- end .container -->
     </section>
     <!-- ====== End Download Section ====== -->
 
     <!-- ====== Copyright Section ====== -->
     <section class="copyright dark-bg">
         <div class="container">
-            <p>&copy; 2017 | TT Audit</p>
+            <p>&copy; 2020 | TT Audit</p>
         </div> <!-- end .container -->
     </section>
     <!-- ====== End Copyright Section ====== -->

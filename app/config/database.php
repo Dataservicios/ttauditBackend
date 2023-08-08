@@ -51,8 +51,19 @@ return array(
 			'database' => __DIR__.'/../database/production.sqlite',
 			'prefix'   => '',
 		),
+        /*'mysql' => array(
+            'driver'    => 'mysql',
+            'host'      => '104.197.133.79',
+            'database'  => 'ttaudit_auditors',
+            'username'  => 'dataser_admin',
+            'password'  => 'franbrsj09',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),*/
 
-		/*'mysql' => array(
+            /*
+		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'ttaudit_auditors',
@@ -64,10 +75,11 @@ return array(
 		),*/
         'mysql' => array(
             'driver'    => 'mysql',
-            'host'      => '35.225.97.74',
+            //'host'      => '35.202.167.221',
+            'host'      => '104.197.133.79',
             'database'  => 'ttaudit_auditors',
             'username'  => 'dataser_admin',
-            'password'  => 'franbrsj09',
+            'password'  => 'JQ7:a/D$+"roIeVl',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

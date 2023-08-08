@@ -221,7 +221,7 @@ $campos = array(
 
 
 //$query_detalle_premiados = "call sp_reporte_company_89_premiados";
-$query_detalle_premiados = "call sp_alicorp_helena_premiados(".$company_id.")";
+$query_detalle_premiados = "call sp_alicorp_helena_premiados(".$company_id.",0)";
 $resEmp = mysql_query($query_detalle_premiados, $conexion_db) or die(mysql_error());
 $total_comercios = mysql_num_rows($resEmp);
 $contador_1 = 3;

@@ -7,7 +7,7 @@
  */
 error_reporting(E_ALL);
 
-$conexion_db = @mysql_connect("35.225.97.74", "root", "Fbrsjgfc09");
+$conexion_db = @mysql_connect("104.197.133.79", "root", "Fbrsjgfc09");
 //$conexion_db = mysql_connect("localhost", "retotec_admin", "franbrsj09");
 mysql_select_db("ttaudit_auditors", $conexion_db);
 //Activa el para salida en el buffering

@@ -140,6 +140,8 @@ $objPHPExcel->setActiveSheetIndex(0)->setCellValue('Y2' ,'Ventana Refrescos (Neg
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('AB2','Ventana postres Negrita'   );
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('AE2','Cortina Alacena+Don Vittorio'   );
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('AH2','Cajonera Salsas,Refrescos y/o Postres'   );
+$objPHPExcel->setActiveSheetIndex(0)->setCellValue('AK2','Ventana Aceites Cil'   );
+$objPHPExcel->setActiveSheetIndex(0)->setCellValue('AN2','Ventana Aceites Friol'   );
 /* Une las Celdas para la cabecera0*/
 $objPHPExcel->setActiveSheetIndex(0)->mergeCells('S2:U2');
 $objPHPExcel->setActiveSheetIndex(0)->mergeCells('V2:X2');
@@ -241,6 +243,14 @@ $cabecera = array(
 	'¿Cumple Visibilidad?',
 	'Foto',
 
+    '¿Existe Ventana?',
+    '¿Cumple Visibilidad?',
+    'Foto',
+
+    '¿Existe Ventana?',
+    '¿Cumple Visibilidad?',
+    'Foto',
+
 
 );
 
@@ -298,6 +308,14 @@ $campos = array(
     array('3_6_Respuesta', '0'),
     array('4_6_Respuesta', '0'),
     array('3_6_Foto', '1'),
+
+    array('3_7_Respuesta', '0'),
+    array('4_7_Respuesta', '0'),
+    array('3_7_Foto', '1'),
+
+    array('3_8_Respuesta', '0'),
+    array('4_8_Respuesta', '0'),
+    array('3_8_Foto', '1'),
 
 );
 

@@ -24,4 +24,10 @@ class ProjectionSaleRepo extends BaseRepo{
         return $detailResult;
     }
 
+    public function getCodProductForProvider($company_id,$provider_id,$product_id)
+    {
+        $detailResult = \DB::table('projection_sales')->where('projection_sales.company_id', $company_id)->where('list_prices',1)->where('projection_sales.provider_id', $provider_id)->where('projection_sales.product_id', $product_id)->first();
+        return $detailResult;
+    }
+
 } 

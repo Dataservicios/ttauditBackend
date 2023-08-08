@@ -25,13 +25,16 @@ class PollOptionDetailRepo extends BaseRepo{
         if ($tipo=="1"){
             $result_poll_detail = PollOptionDetail::where('poll_option_id', $pollOptionDetail->poll_option_id)->where('store_id',$pollOptionDetail->store_id)->where('company_id',$pollOptionDetail->company_id)->where('product_id',$pollOptionDetail->product_id)->where('visit_id',$pollOptionDetail->visit_id)->first();
         }
+        if ($tipo=="2"){
+            $result_poll_detail = PollOptionDetail::where('poll_option_id', $pollOptionDetail->poll_option_id)->where('store_id',$pollOptionDetail->store_id)->where('company_id',$pollOptionDetail->company_id)->where('product_id',$pollOptionDetail->product_id)->where('category_product_id',$pollOptionDetail->category_product_id)->first();
+        }
 
         return $result_poll_detail;
     }
 
-    public function getPollOptionDetail($store_id,$poll_option_id,$company_id,$product_id,$publicity_id)
+    public function getPollOptionDetail($store_id,$poll_option_id,$company_id,$product_id,$publicity_id,$visit_id="0")
     {
-        $result_poll_option_detail = PollOptionDetail::where('poll_option_id', $poll_option_id)->where('store_id',$store_id)->where('company_id',$company_id)->where('product_id',$product_id)->where('publicity_id',$publicity_id)->get();
+        $result_poll_option_detail = PollOptionDetail::where('poll_option_id', $poll_option_id)->where('store_id',$store_id)->where('company_id',$company_id)->where('product_id',$product_id)->where('publicity_id',$publicity_id)->where('visit_id',$visit_id)->get();
         return $result_poll_option_detail;
     }
 
@@ -1499,12 +1502,12 @@ GROUP BY
         return $detailResult;
     }
 
-    public function deleteOptions($store_id,$company_id,$product_id,$publicity_id,$poll_option_id="0")
+    public function deleteOptions($store_id,$company_id,$product_id,$publicity_id,$poll_option_id="0",$visit_id="0")
     {
         if ($poll_option_id=="0"){
-            $affectedRows = PollOptionDetail::where('store_id', $store_id)->where('company_id', $company_id)->where('product_id', $product_id)->where('publicity_id', $publicity_id)->delete();
+            $affectedRows = PollOptionDetail::where('store_id', $store_id)->where('company_id', $company_id)->where('product_id', $product_id)->where('publicity_id', $publicity_id)->where('visit_id',$visit_id)->delete();
         }else{
-            $affectedRows = PollOptionDetail::where('store_id', $store_id)->where('company_id', $company_id)->where('product_id', $product_id)->where('publicity_id', $publicity_id)->where('poll_option_id',$poll_option_id)->delete();
+            $affectedRows = PollOptionDetail::where('store_id', $store_id)->where('company_id', $company_id)->where('product_id', $product_id)->where('publicity_id', $publicity_id)->where('poll_option_id',$poll_option_id)->where('visit_id',$visit_id)->delete();
         }
 
         if ($affectedRows>0){

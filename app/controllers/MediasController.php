@@ -28,6 +28,7 @@ use Auditor\Repositories\ProductDetailRepo;
 use Auditor\Repositories\PublicityStoreRepo;
 use Auditor\Repositories\CategoryProductRepo;
 use Auditor\Repositories\UserRepo;
+use Auditor\Repositories\PublicityCampaigneRepo;
 
 
 class MediasController extends BaseController{
@@ -52,6 +53,7 @@ class MediasController extends BaseController{
     protected $publicityStoreRepo;
     protected $categoryProductRepo;
     protected $userRepo;
+    protected $publicityCampaigneRepo;
 
     public $urlBase;
     public $urlImagesFotos;
@@ -60,7 +62,7 @@ class MediasController extends BaseController{
     public $estudio;
     public $pollsWeb;
 
-    public function __construct(UserRepo $userRepo,CategoryProductRepo $categoryProductRepo,PublicityStoreRepo $publicityStoreRepo,ProductDetailRepo $ProductDetailRepo,ProductRepo $ProductRepo,PollOptionRepo $PollOptionRepo,PollOptionDetailRepo $PollOptionDetailRepo,PollDetailRepo $PollDetailRepo,CompanyAuditRepo $CompanyAuditRepo,PublicitiesDetailRepo $publicitiesDetailRepo,PublicityRepo $publicityRepo,RoadDetailRepo $roadDetailRepo,CompanyRepo $companyRepo,CustomerRepo $customerRepo,AuditRepo $auditRepo,MediaRepo $MediaRepo, PollRepo $pollRepo, StoreRepo $storeRepo, CompanyStoreRepo $companyStoreRepo, ImageManager $imageManager)
+    public function __construct(PublicityCampaigneRepo $publicityCampaigneRepo,UserRepo $userRepo,CategoryProductRepo $categoryProductRepo,PublicityStoreRepo $publicityStoreRepo,ProductDetailRepo $ProductDetailRepo,ProductRepo $ProductRepo,PollOptionRepo $PollOptionRepo,PollOptionDetailRepo $PollOptionDetailRepo,PollDetailRepo $PollDetailRepo,CompanyAuditRepo $CompanyAuditRepo,PublicitiesDetailRepo $publicitiesDetailRepo,PublicityRepo $publicityRepo,RoadDetailRepo $roadDetailRepo,CompanyRepo $companyRepo,CustomerRepo $customerRepo,AuditRepo $auditRepo,MediaRepo $MediaRepo, PollRepo $pollRepo, StoreRepo $storeRepo, CompanyStoreRepo $companyStoreRepo, ImageManager $imageManager)
     {
         $this->MediaRepo = $MediaRepo;
         $this->pollRepo = $pollRepo;
@@ -81,6 +83,7 @@ class MediasController extends BaseController{
         $this->ProductDetailRepo = $ProductDetailRepo;
         $this->publicityStoreRepo = $publicityStoreRepo;
         $this->categoryProductRepo = $categoryProductRepo;
+        $this->publicityCampaigneRepo = $publicityCampaigneRepo;
         $this->userRepo = $userRepo;
         $this->urlBase = \App::make('url')->to('/');
         $this->urlImagesFotos = '/media/fotos/';
@@ -334,7 +337,7 @@ class MediasController extends BaseController{
         }else{
             $objRoadDetail = [];
         }
-
+        $publicityStores=[];
         $customer =$this->customerRepo->find($campaigne->customer_id);//dd($customer);
         $objStore = $this->storeRepo->find($store_id);//dd($store_id);
         $logo = $this->urlBase.$this->urlImageBase.$customer->corto.'/'.$customer->logo;
@@ -347,6 +350,10 @@ class MediasController extends BaseController{
                 $publicityStores= $this->publicityStoreRepo->getPublicityStores("0",$company_id);
             }else{
                 $publicityStores= $this->publicityStoreRepo->getPublicityStores($objStore->tipo_bodega,$company_id);
+                if (count($publicityStores)==0)
+                {
+                    $publicityStores= $this->publicityCampaigneRepo->getPublicityForCampaigne($company_id,2);
+                }
             }
             foreach ($Polls as $poll)
             {
@@ -359,10 +366,18 @@ class MediasController extends BaseController{
                 if ($poll->publicity==1)
                 {
                     if (($objStore->tipo_bodega=='3D') or ($objStore->tipo_bodega=='6D') or ($objStore->tipo_bodega=='CONGLOMERADO') or ($objStore->tipo_bodega=='') or ($objStore->tipo_bodega==null)){
-                        $arrayClase[]= array('objeto' =>$this->publicityStoreRepo->getPublicityStores("0",$company_id), 'tipo' => 'Publicity');
-                        //dd($objStore->tipo_bodega,$arrayClase);
+                        $valor_publicities = $this->publicityStoreRepo->getPublicityStores("0",$company_id);
+                        if (count($valor_publicities)>0){
+                            $arrayClase[]= array('objeto' =>$this->publicityStoreRepo->getPublicityStores("0",$company_id), 'tipo' => 'Publicity');
+                        }else{
+                            $arrayClase[] = array('objeto' => [], 'tipo' => 'Publicity');
+                        }
                     }else{
-                        $arrayClase[]= array('objeto' =>$this->publicityStoreRepo->getPublicityStores($objStore->tipo_bodega,$company_id), 'tipo' => 'Publicity');
+                        if (count($publicityStores)==0)
+                        {
+                            $publicityStores= $this->publicityCampaigneRepo->getPublicityForCampaigne($company_id,2);
+                        }
+                        $arrayClase[]= array('objeto' =>$publicityStores, 'tipo' => 'Publicity');
                     }
                 }else{
                     $arrayClase[] = array('objeto' => [], 'tipo' => 'Publicity');
@@ -436,7 +451,7 @@ class MediasController extends BaseController{
                 }*/
                 //$responsePolls = $this->getResponsePolls($store_id,$company_id,0,$poll->id,'YesNo');
                 $objPollDetails = $this->PollDetailRepo->getRegForStoreCompanyPoll($store_id,$valorCompany,$poll->id);
-                if (($customer->id== 5) or ($customer->id== 1) or ($customer->id== 4) or ($customer->id== 9) or ($customer->id== 10) or ($customer->id== 12)){
+                if (($customer->id== 5) or ($customer->id== 1) or ($customer->id== 4) or ($customer->id== 9) or ($customer->id== 10) or ($customer->id== 12) or ($customer->id== 15) or ($customer->id== 14) or ($customer->id== 18)){
                     //$valFotos[$poll->id] = array('arrayFoto'=>$datosFoto,'poll_detail' => $objPollDetails,'respSiNo' => $respSiNo, 'respOption' => $respOption);unset($datosFoto);unset($respSiNo);unset($respOption);
                     $valFotos[$poll->id] = array('publicities' => $publicityStores,'products'=> $productosCampaigne,'ObjArrayClase' => $arrayClase,'media'=>$photos,'urlFoto' => $this->urlBase.$this->urlImagesFotos,'responses' => $datos);unset($datosFoto);unset($arrayClase);
                 }
@@ -444,11 +459,10 @@ class MediasController extends BaseController{
                     $valFotos[$poll->id] = array('arrayFoto'=>$datosFoto,'poll_detail' => $objPollDetails);unset($datosFoto);
                 }*/
             }
-            //dd($valFotos[2940]['responses']['poll_details']);
+            //dd($valFotos[3753]['ObjArrayClase']);
             //dd($valFotos[2009]['ObjArrayClase']);
             //dd($customer);
-            //dd($objRoadDetail);
-            if (($customer->id== 5)  or ($customer->id== 4) or ($customer->id== 9) or ($customer->id== 10)  or ($customer->id== 12)){
+            if (($customer->id== 5)  or ($customer->id== 4) or ($customer->id== 9) or ($customer->id== 10)  or ($customer->id== 12) or ($customer->id== 15) or ($customer->id== 14)){
                 if (($campaigne->auditoria==1) or ($campaigne->auditoria==2)){
                     $view = 'ResponsesPolls';
                 }else{
@@ -456,7 +470,10 @@ class MediasController extends BaseController{
                 }
 
             }
-            if($customer->id== 1){
+            if(($customer->id== 1) or ($customer->id== 15) or ($customer->id== 18)){
+                $view = 'ResponsesPollsIBK';
+            }
+            if(($customer->id== 4) and (($campaigne->study_id==17) or ($campaigne->study_id==19)  or ($campaigne->study_id==6))){
                 $view = 'ResponsesPollsIBK';
             }
             /*if (($customer->id== 4) and ($company_id<>37)){
@@ -559,7 +576,213 @@ class MediasController extends BaseController{
 
 
     }
-    
+
+    public function detailPhotoVisits($company_id="0",$audit_id="0",$tipo="0",$objeto_id="0",$store_ids="0",$cliente="0")
+    {
+        //tipo=0->encuesta, tipo=1->publicity 'admin/audits/medias/detailPhoto/{company_id}/{audit_id}/{tipo}/{id}/{store_id}/{cliente?}/{info?}'
+        if ($company_id=="0"){
+            $valoresPost= Input::all();//dd($valoresPost);
+            $company_id = $valoresPost['company_id'];
+            $audit_id = $valoresPost['audit_id'];
+            $tipo = $valoresPost['tipo'];
+            $store_ids = $valoresPost['store_id'];
+            $cliente = $valoresPost['cliente'];
+        }
+        $store_id_explode = explode('|',$store_ids);
+        $store_id = $store_id_explode[0];
+        $visit_id = $store_id_explode[1];
+        $menus = $this->generateMenusAudits($audit_id,$company_id);
+        $detailAudit = $this->auditRepo->find($audit_id);//dd($detailAudit);
+        $campaigne = $this->companyRepo->find($company_id);//dd($campaigne);
+        if ($campaigne->auditoria==1){
+            $objRoadDetail_sql = $this->roadDetailRepo->getRoadForStoreCompanyVisits($store_id,$company_id,$visit_id);//dd($objRoadDetail_sql);
+            $objRoadDetail = $this->roadDetailRepo->find($objRoadDetail_sql[0]->road_detail_id);//dd($objRoadDetail_sql,count($objRoadDetail));
+        }else{
+            $objRoadDetail = [];
+        }
+
+        $customer =$this->customerRepo->find($campaigne->customer_id);//dd($customer);
+        $objStore = $this->storeRepo->find($store_id);//dd($store_id);
+        $logo = $this->urlBase.$this->urlImageBase.$customer->corto.'/'.$customer->logo;
+        if ($tipo==0){
+            $titulo = 'Encuestas';
+            $companyAuditId= $this->CompanyAuditRepo->getIdForAuditForCompany($audit_id,$company_id);
+            $Polls = $this->pollRepo->getPollsForAuditForCompany($companyAuditId);//dd($audit_id,$company_id);
+            $productosCampaigne = $this->ProductDetailRepo->getProductsForCampaigne($company_id);
+            $publicityStores= $this->publicityCampaigneRepo->getPublicityForCampaigne($company_id,2);
+            foreach ($Polls as $poll)
+            {//if($poll->id==3055){dd($poll);}
+                if ($poll->product==1)
+                {
+                    $arrayClase[] = array('objeto' => $this->ProductDetailRepo->getProductsForCampaigne($company_id), 'tipo' => 'Product');
+                }else{
+                    $arrayClase[] = array('objeto' => [], 'tipo' => 'Product');
+                }
+                if ($poll->publicity==1)
+                {
+                    $arrayClase[]= array('objeto' =>$publicityStores, 'tipo' => 'Publicity');
+                }else{
+                    $arrayClase[] = array('objeto' => [], 'tipo' => 'Publicity');
+                }
+
+                if ($poll->categoryProduct==1)
+                {
+                    //$categoryProducts= $this->getCategoryProductCampaigne();dd($categoryProducts);
+                    $categoryProducts = $this->categoryProductRepo->getCatMaterialsForCustomer(1,0,$company_id);
+                    //dd($categoryProducts);
+                    foreach ($categoryProducts as $categoryProduct) {
+                        $valoCategory[] = $this->categoryProductRepo->find($categoryProduct->id);
+                    }//dd($valoCategory);
+                    $arrayClase[] = array('objeto' => $valoCategory, 'tipo' => 'CategoryProduct');
+                }else{
+                    $arrayClase[] = array('objeto' => [], 'tipo' => 'CategoryProduct');
+                }
+
+                $photos = $this->MediaRepo->photosProductPollStore($poll->id,$store_id,$company_id,"0","0","0",$visit_id);
+                //photosProductPollStore($poll_id="0",$store_id="0", $company_id="0",$product_id="0",$publicity_id="0",$category_product_id="0",$visit_id="0")
+                $valPoll[] = $poll;
+                $arrayClase[] = array('objeto' => $valPoll, 'tipo' => 'Poll');unset($valPoll);
+
+                if(! empty($photos)){
+                    //dd($photos);
+                    //dd(\App::make('url')->to('/'));
+                    foreach ($photos as $photo){
+                        $datosFoto[] = array('id' => $photo->id,'archivo' => $photo->archivo, 'urlFoto' => $this->urlBase.$this->urlImagesFotos.$photo->archivo);
+                    }
+                }else{
+                    $datosFoto[] = array('id' => '0','archivo' => '', 'urlFoto' => '');
+                }//dd($datosFoto);
+                if ($cliente== 'Interbank'){
+                    if ($company_id>=45)
+                    {
+                        $valorCompany = $company_id;
+                    }else{
+                        $valorCompany = "0";
+                    }
+
+                }else{
+                    $valorCompany = $company_id;
+                }
+                $datos = $this->getResponsesForPoll($store_id,$valorCompany,0,$poll->id,0,$visit_id);//Nuevo: getStoresPollDetails
+
+                //$objPollDetails = $this->PollDetailRepo->getRegForStoreCompanyPoll($store_id,$valorCompany,$poll->id);
+                if (($customer->id== 5) or ($customer->id== 1) or ($customer->id== 4) or ($customer->id== 9) or ($customer->id== 10) or ($customer->id== 12)){
+                    //$valFotos[$poll->id] = array('arrayFoto'=>$datosFoto,'poll_detail' => $objPollDetails,'respSiNo' => $respSiNo, 'respOption' => $respOption);unset($datosFoto);unset($respSiNo);unset($respOption);
+                    $valFotos[$poll->id] = array('publicities' => $publicityStores,'products'=> $productosCampaigne,'ObjArrayClase' => $arrayClase,'media'=>$photos,'urlFoto' => $this->urlBase.$this->urlImagesFotos,'responses' => $datos);unset($datosFoto);unset($arrayClase);
+                }
+                /*if (($customer->id== 4) and ($company_id<>37)){
+                    $valFotos[$poll->id] = array('arrayFoto'=>$datosFoto,'poll_detail' => $objPollDetails);unset($datosFoto);
+                }*/
+            }
+            //dd($valFotos[3435]);
+            //dd($valFotos[2009]['ObjArrayClase']);
+            //dd($customer);
+            //dd($objRoadDetail);
+
+            if(($customer->id== 5) and ($campaigne->study_id==13)){
+                $view = 'ResponsesPollsBT';
+            }
+            /*if (($customer->id== 4) and ($company_id<>37)){
+                $view = 'detalleMediaEncuestaIBK';
+            }*/
+            //dd($valFotos[2034]['media']);
+            //dd($valFotos[2034]['ObjArrayClase']);
+
+            return View::make('medias/'.$view, compact('visit_id','cliente','company_id','valFotos','Polls','objRoadDetail','objStore','campaigne','customer','menus','titulo','logo','detailAudit'));
+        }
+        if ($tipo==1){
+            $titulo = 'Publicidades';
+            //obtener valores de polls web
+            foreach ($this->pollsWeb as $pollWeb) {
+                if (($pollWeb['identificador']=='abierto') and ($pollWeb['company_id']==$company_id))
+                {
+                    $pollAbierto = $pollWeb['poll_id'];
+                }
+                if (($pollWeb['identificador']=='permitio') and ($pollWeb['company_id']==$company_id))
+                {
+                    $pollPermitio = $pollWeb['poll_id'];
+                }
+                if (($pollWeb['identificador']=='existeVent') and ($pollWeb['company_id']==$company_id))
+                {
+                    $pollExisteVent = $pollWeb['poll_id'];
+                }
+                if (($pollWeb['identificador']=='visibleVent') and ($pollWeb['company_id']==$company_id))
+                {
+                    $pollVisibleVent = $pollWeb['poll_id'];
+                }
+                if (($pollWeb['identificador']=='ventanaW') and ($pollWeb['company_id']==$company_id))
+                {
+                    $pollVentanaW = $pollWeb['poll_id'];
+                }
+                if (($pollWeb['identificador']=='comoEstaVent') and ($pollWeb['company_id']==$company_id))
+                {
+                    $pollComoEstaVent = $pollWeb['poll_id'];
+                }
+                if (($pollWeb['identificador']=='encontroExhi') and ($pollWeb['company_id']==$company_id))
+                {
+                    $pollEncontroExhi = $pollWeb['poll_id'];
+                }
+            }
+            $objPublicity = $this->publicityRepo->find($objeto_id);//dd($objPublicity);
+            $categoryProduct_id = $objPublicity->category_product_id;
+            $objPublicity = $this->publicityRepo->getPublicityForCatMat($categoryProduct_id,$company_id);
+            foreach ($objPublicity as $publicity)
+            {
+                $photos = $this->MediaRepo->photosProductPollStore("0", $store_id,$company_id,"0",$publicity->id);//dd($photos);
+                if(! empty($photos)){
+
+                    foreach ($photos as $photo){
+                        $datosFoto[] = array('id' => $photo->id,'archivo' => $photo->archivo, 'urlFoto' => $this->urlBase.$this->urlImagesFotos.$photo->archivo);
+                    }
+                }else{
+                    $datosFoto[] = array('id' => '0','archivo' => '', 'urlFoto' => '');
+                }
+                $objPublicityDetails = $this->publicitiesDetailRepo->getRegForStoreCompanyPubli($store_id,$company_id,$publicity->id);//dd($objPublicityDetails[0]);
+
+                //$valoresPolls= $this->getValores();
+                $storeOpen =$pollAbierto;
+                $storeAbierto = $this->getResponsePolls($store_id,$company_id,0,$storeOpen,'YesNo');
+
+                $storePermitio = $pollPermitio;
+                $permitio = $this->getResponsePolls($store_id,$company_id,0,$storePermitio,'YesNo');
+                if ($audit_id==1){
+                    $storeExiste = $pollExisteVent;
+                    $existeVent = $this->getResponsePolls($store_id,$company_id,$publicity->id,$storeExiste,'YesNo');
+
+                    $storeVisible = $pollVisibleVent;
+                    $visibleVent = $this->getResponsePolls($store_id,$company_id,$publicity->id,$storeVisible,'YesNo');
+
+                    $storeW = $pollVentanaW;
+                    $ventW = $this->getResponsePolls($store_id,$company_id,$publicity->id,$storeW,'YesNo');
+
+                    $poll_comoEstaVent = $pollComoEstaVent;
+                    $comoEstaVent = $this->getResponsePolls($store_id,$company_id,$publicity->id,$poll_comoEstaVent,'Option');
+
+                    $resultFiltro = array('abierto' => $storeAbierto,'permitio' => $permitio,'existe' => $existeVent,'visible' => $visibleVent,'trabajada' => $ventW,'comoEstaVent'=>$comoEstaVent);
+                }
+                if ($audit_id==3){
+                    $storeEncExhi = $pollEncontroExhi;
+                    if ($storeEncExhi<>0){
+                        $existeExhi = $this->getResponsePolls($store_id,$company_id,$publicity->id,$storeEncExhi,'YesNo');
+                    }else{
+                        $existeExhi = array('texto' => "No hay ingreso",'objeto' => 0);
+                    }
+                    //dd($objPublicityDetails);
+                    $resultFiltro = array('abierto' => $storeAbierto,'permitio' => $permitio,'existe' => $existeExhi);
+                }
+
+                //unset($storeAbierto);unset($permitio);unset($existeVent);unset($visibleVent);unset($ventW);unset($comoEstaVent);
+                //dd($resultFiltro);
+                $valFotos[$publicity->id] = array('arrayFoto'=>$datosFoto,'publicity_detail' => $objPublicityDetails,'pollsResult' => $resultFiltro);unset($objPublicityDetails);unset($datosFoto);unset($resultFiltro);
+
+            }//$this->valoresCampaigne[22] = array('ventanaW' => 255,'abierto' => 252,'permitio' =>254,'existeVent' => 256, 'visibleVent' =>257, 'comoEstaVent'=>258);
+            //dd($valFotos);
+            return View::make('medias/detalleMedia', compact('valFotos','objPublicity','objRoadDetail','objStore','campaigne','customer','menus','titulo','logo','detailAudit'));
+        }
+
+
+    }
+
     public function getDetailsPhotosForQuestions($company_id)
     {
         $campaigne = $this->companyRepo->find($company_id);

@@ -31,6 +31,7 @@ Route::get('detailPhotoElementsIbk/{company_id}/{audit_id}/{tipo}/{store_id}/{po
 Route::post('getCategoryProducts', ['as' => 'getCategoryProducts', 'uses' => 'InventoryIBKController@getCategoryProducts']);
 Route::get('getPhotosInventory/{company_id?}/{store_id?}', ['as' => 'getPhotosInventory', 'uses' => 'InventoryIBKController@getPhotosInventory']);
 Route::post('getPhotosInventoryFilter', ['as' => 'getPhotosInventoryFilter', 'uses' => 'InventoryIBKController@getPhotosInventory']);
+Route::post('getCategoriesGeneral', ['as' => 'getCategoriesGeneral', 'uses' => 'InventoryIBKController@getCategoriesGeneral']);
 //ibkInventory end
 
 Route::post('insertPollPalmeras', ['as' => 'insertPollPalmeras', 'uses' => 'StoreController@insertPollStore']);
@@ -41,7 +42,10 @@ Route::post('listStoreAuditPalmeraNow', ['as' => 'listStoreAuditPalmeraNow', 'us
 Route::post('getJsonControlTime', ['as' => 'getJsonControlTime', 'uses' => 'AuditsController@getJsonControlTime']);
 Route::post('getJsonLastDayControlTime', ['as' => 'getJsonLastDayControlTime', 'uses' => 'AuditsController@getJsonLastDayControlTime']);
 Route::post('changeContactStore', 'StoreController@updateContact');
-Route::post('changeAddressStore', 'StoreController@updateAddress');
+Route::post('changeAddressStore', 'StoreController@updateAddress');//updateGeoRef
+Route::post('changeAddressNameStore', 'StoreController@updateAddressName');
+Route::post('updatedGeoStore', 'StoreController@updateGeoRef');
+Route::post('updateCodeSellStore', 'StoreController@updateCodeSellStore');
 Route::get('testPrograming/{type}', ['as' => 'testPrograming', 'uses' => 'HomeController@testManagement']);
 Route::post('ajaxGetVisitors', ['as' => 'ajaxGetVisitors', 'uses' => 'ReportBayerController@ajaxGetVisitors']);//Obtiene datos para grafico de visitantes
 Route::post('ajaxGetRecomendSalesForSeller', ['as' => 'ajaxGetRecomendSalesForSeller', 'uses' => 'ReportBayerController@ajaxGetRecomendSalesForSeller']);
@@ -73,7 +77,6 @@ Route::get('excelOrdersBayerTrans/{company_id}', 'ExcelController@ordersBayerTra
 Route::get('excelVisibilidadOriente/{company_id}', 'ExcelController@visibilidadOriente');
 Route::get('excelVisibilidadBayerTrans/{company_id}/{visit_id}/{tipo}/{regular}', 'ExcelController@visibilidadBayerTrans');
 Route::get('excelPreguntasBTCadenas/{company_id}/{visit_id}/{tipo}/{desde}/{hasta}', 'ExcelController@preguntasGeneralesCadenas');
-Route::get('excelPreguntasBTTradicional/{company_id}/{visit_id}/{tipo}/{desde}/{hasta}', 'ExcelController@preguntasGeneralesTradicional');
 Route::get('excelCompetenciasBayerTrans/{company_id}/{visit_id}/{tipo}', 'ExcelController@competenciasBayer');
 Route::resource('visibilidadOrienteNewStore/{ini}/{end}/', 'ExcelController@visibilidadOrienteNewStore');
 Route::resource('pedidsGalletasNewStore/{ini}/{end}/', 'ExcelController@ordersAlicorpGalletas');
@@ -83,6 +86,11 @@ require (__DIR__.'/routes/crearRutas.php');
 require (__DIR__.'/routes/canjes.php');
 require (__DIR__.'/routes/transferencistas.php');
 require (__DIR__.'/routes/operationsadmin.php');
+require (__DIR__.'/routes/alicorp.php');
+require (__DIR__.'/routes/gloria.php');
+require (__DIR__.'/routes/angel.php');
+require (__DIR__.'/routes/lipton.php');
+require (__DIR__.'/routes/apiAdminTools.php');
 
 //Bayer Projectista rutas app
 Route::post('getProjectsSales', ['as' => 'getProjectsSales', 'uses' => 'ProspeccionBayerController@getProjectionSales']);
@@ -103,7 +111,8 @@ Route::post('ajaxGetProductsForCity', ['as' => 'ajaxGetProductsForCity', 'uses' 
 Route::post('ajaxInsertRoutingVisits', ['as' => 'ajaxInsertRoutingVisits', 'uses' => 'RoadController@saveRouteVisits']);
 //End Create routings
 
-
+Route::post('insertRegPollDetailAll', ['as' => 'insertRegPollDetailAll', 'uses' => 'AuditsController@insertPollDetail']);
+Route::post('insertRegPollDetailAllVisits', ['as' => 'insertRegPollDetailAllVisits', 'uses' => 'AuditsController@insertPollDetailVisits']);
 //Mercaderismo Bayer Ajax
 Route::post('ajaxGetPricesFound', ['as' => 'ajaxGetPricesFound', 'uses' => 'MercantilistaBayerController@getAjaxPricesOfProducts']);//web
 Route::post('ajaxGetProductsCompetition', ['as' => 'ajaxGetProductsCompetition', 'uses' => 'MercantilistaBayerController@getProductsForCompetition']);
@@ -154,6 +163,7 @@ Route::post('ajaxHistoryPop', ['as' => 'ajaxHistoryPrices', 'uses' => 'HistoryPo
 Route::post('ajxInsertCommentAlert', ['as' => 'ajxInsertCommentAlert', 'uses' => 'AlertsController@insertComment']);
 Route::post('ajxLoadCommentAlert', ['as' => 'ajxLoadCommentAlert', 'uses' => 'AlertsController@ajxLoadComments']);
 Route::post('admin/audits/medias/detailPhotoFilter', ['as' => 'mediaDetailPhotofilter', 'uses' => 'MediasController@detailPhoto']);
+Route::post('admin/audits/medias/detailPhotoFilterVisits', ['as' => 'mediaDetailPhotofilterVisits', 'uses' => 'MediasController@detailPhotoVisits']);
 
 Route::group(['before'=>'auth'], function(){
 
@@ -310,7 +320,7 @@ Route::group(['before'=>'auth'], function(){
     Route::get('admin/audits/Campaign/{campaign_id}', ['as' => 'auditsForCampaign', 'uses' => 'AuditsController@auditsForCampaign']);
     Route::get('admin/audits/list/{audit_id}/{campaign_id}/{opcion?}', ['as' => 'auditListStoresForAudit', 'uses' => 'AuditsController@ListStoresForAudit']);
     Route::post('admin/audits/listStoresPublicity', ['as' => 'listStoresPublicity', 'uses' => 'AuditsController@ListStoresPublicity']);
-    Route::get('admin/audits/getListStoresPublicity/{ciudad}/{publicity_id}/{auditor_id}/{audit_id}/{company_id}/{ventana?}', ['as' => 'getListStoresPublicity', 'uses' => 'AuditsController@ListStoresPublicity']);
+    Route::get('admin/audits/getListStoresPublicity/{ciudad}/{publicity_id}/{auditor_id}/{audit_id}/{company_id}/{ventana?}/{trabajada?}', ['as' => 'getListStoresPublicity', 'uses' => 'AuditsController@ListStoresPublicity']);
     Route::get('admin/audits/detailsPublicitySod/{campaign_id}/{audit_id}/{store_id}/{publicity_id}/{foto}/{publicity_detail_id}/{ciudad?}/{auditor?}', ['as' => 'detailsPublicitySod', 'uses' => 'AuditsController@detailsPublicitySod']);
     Route::get('admin/audits/detail/{audit_id}/{campaign_id}/{store_id}', ['as' => 'auditDetailForStore', 'uses' => 'AuditsController@DetailAudit']);
     Route::get('admin/audits/Presences/{id}/{store_id?}', ['as' => 'adminAuditPresences', 'uses' => 'ReportColgateController@getCountForPresenceDetail']);
@@ -320,10 +330,13 @@ Route::group(['before'=>'auth'], function(){
     Route::post('admin/audits/medias/insertPhotos', ['as' => 'mediaInsertPhotos', 'uses' => 'MediasController@insertPhotos']);
     Route::post('admin/audits/pollDetails/updateReg', ['as' => 'updateRegPollDetail', 'uses' => 'AuditsController@updatePollDetails']);
     Route::post('admin/audits/pollDetails/updateRegAll', ['as' => 'updateRegPollDetailAll', 'uses' => 'AuditsController@updatePollDetailsAll']);
+    Route::post('admin/audits/pollDetails/updateRegAllVisits', ['as' => 'updateRegPollDetailAllVisits', 'uses' => 'AuditsController@updatePollDetailsAllVisits']);
     Route::post('girarFotos', ['as' => 'girarFotos', 'uses' => 'MediasController@girarFoto']);
     Route::post('admin/audits/pollDetails/deleteAllOptions', ['as' => 'deleteAllOptions', 'uses' => 'AuditsController@deleteAllOptions']);
+    Route::post('admin/audits/pollDetails/deleteAllOptionsVisits', ['as' => 'deleteAllOptionsVisits', 'uses' => 'AuditsController@deleteAllOptionsVisits']);
     Route::post('admin/audits/pollDetails/insertRegOptionDetailAll', ['as' => 'insertRegPollOptionDetailAll', 'uses' => 'AuditsController@insertOptions']);
-    Route::post('insertRegPollDetailAll', ['as' => 'insertRegPollDetailAll', 'uses' => 'AuditsController@insertPollDetail']);
+    Route::post('admin/audits/pollDetails/insertRegOptionDetailAllVisits', ['as' => 'insertRegPollOptionDetailAllVisits', 'uses' => 'AuditsController@insertOptionsVisits']);
+
     Route::get('admin/trackingOffline/{auditor?}/{company_id?}/{ubigeo?}', ['as' => 'trackingOffline', 'uses' => 'AuditsController@trackingOffline']);
     Route::post('trackingOfflineFilter', ['as' => 'trackingOfflineFilter', 'uses' => 'AuditsController@trackingOffline']);
     Route::get('admin/trackingOnline/{auditor?}', ['as' => 'trackingOnline', 'uses' => 'AuditsController@trackingOnline']);
@@ -398,24 +411,43 @@ Route::post('JsonRoadsTotal', ['as' =>'JsonRoadsTotal', function(){
 
     $id = Input::only('id');
     $company_id = Input::only('company_id');
+// -- CONSULTA DE FRANCO
+//    $sql = "SELECT
+//  COUNT(`roads_resume`.`road_id`) AS `pdvs`,
+//  `roads_resume`.`road_id` as id,
+//  SUM(`roads_resume`.`audit`) AS `auditados`,
+//  `roads_resume`.`road` as fullname
+//FROM
+//  `roads_resume`
+//WHERE
+//  `roads_resume`.`company_id` = '".$company_id['company_id']."' AND
+//  `roads_resume`.`user_id` = '".$id['id']."' and
+//  `roads_resume`.`type_road` = '0'
+//GROUP BY
+//  `roads_resume`.`road_id`,
+//  `roads_resume`.`user_id`,
+//  `roads_resume`.`road`,
+//  `roads_resume`.`auditor`,
+//  `roads_resume`.`company_id`";
 
-    $sql = "SELECT
-  COUNT(`roads_resume`.`road_id`) AS `pdvs`,
-  `roads_resume`.`road_id` as id,
-  SUM(`roads_resume`.`audit`) AS `auditados`,
-  `roads_resume`.`road` as fullname
-FROM
-  `roads_resume`
-WHERE
-  `roads_resume`.`company_id` = '".$company_id['company_id']."' AND
-  `roads_resume`.`user_id` = '".$id['id']."' and 
-  `roads_resume`.`type_road` = '0'
-GROUP BY
-  `roads_resume`.`road_id`,
-  `roads_resume`.`user_id`,
-  `roads_resume`.`road`,
-  `roads_resume`.`auditor`,
-  `roads_resume`.`company_id`";
+// -- FIN CONSULTA DE FRANCO
+
+
+    $sql = "SELECT 
+            count(`road_details`.`store_id`) AS `pdvs`,
+              `roads`.`id`,
+            
+              SUM(`road_details`.`audit`) AS `auditados`,
+              `roads`.`fullname`
+            FROM
+              `road_details`
+              LEFT OUTER JOIN `roads` ON (`road_details`.`road_id` = `roads`.`id`)
+            WHERE
+              `road_details`.`company_id` = '".$company_id['company_id']."'  AND 
+              `roads`.`user_id` =  '".$id['id']."' 
+            GROUP BY
+              `roads`.`id`,
+              `roads`.`fullname`";
 
     $consulta=DB::select($sql);
     if(sizeof($consulta) > 0) {
@@ -598,7 +630,7 @@ Route::post('JsonRoadDetail', ['as' =>'JsonRoadDetail', function(){
 
     //$sql = "SELECT s.fullname,s.address, s.district, s.latitude, s.longitude FROM stores s where s.id='" . $id['id']  . "'";
     //$sql = "SELECT s.cadenaRuc,s.fullname,s.codclient,s.address, s.district, s.urbanization,s.type,s.tipo_bodega,s.region,s.ejecutivo, s.latitude, s.longitude FROM stores s where s.id='" . $id['id']  . "'";
-    $sql = "SELECT id, case when s.cadenaRuc is null or s.cadenaRuc= ''  then s.dni else s.cadenaruc end documento, case when s.cadenaRuc is null or s.cadenaRuc= '' then 'DNI' else 'RUC' end tipo_documento, s.cadenaRuc,s.fullname,s.codclient,s.address, s.district, s.urbanization,s.type,s.tipo_bodega,s.region,s.ejecutivo, s.latitude, s.longitude, s.telephone, s.cell,s.comment,s.owner,s.fnac FROM stores s where s.id='" . $id['id']  . "'";
+    $sql = "SELECT id, case when s.cadenaRuc is null or s.cadenaRuc= ''  then s.dni else s.cadenaruc end documento, case when s.cadenaRuc is null or s.cadenaRuc= '' then 'DNI' else 'RUC' end tipo_documento, s.cadenaRuc,s.fullname,s.codclient,s.address, s.district, s.urbanization,s.type,s.tipo_bodega,s.region,s.ejecutivo, s.latitude, s.longitude, s.telephone, s.cell,s.comment,s.owner,s.fnac,s.rubro FROM stores s where s.id='" . $id['id']  . "'";
     return \Response::json([ 'success'=> 1, "roadsDetail" => DB::select($sql)]);
 
 
@@ -1055,6 +1087,7 @@ Route::post('JsonInsertAuditPollsBim', ['as' =>'JsonInsertAuditPollsBim', functi
             {
                 DB::update("UPDATE  audit_road_stores set audit= 1,updated_at=? where company_id = ? and  road_id = ? and audit_id = ? and store_id = ?" , array($horaSistema, $idcompany['idCompany'], $idroute['idRuta'], $idaudit['idAuditoria'], $store_id['store_id'] ));
             }
+            dd($idPollDetail);
             if ($idPollDetail>0){
                 return \Response::json(['success' => 1]);
             }else{
@@ -1080,7 +1113,7 @@ Route::post('JsonInsertAuditPollsProduct', ['as' =>'JsonInsertAuditPollsProduct'
     $status = Input::only('status');
     $mytime = Carbon\Carbon::now();
     $horaSistema = $mytime->toDateTimeString();
-    $company_id_active=163;$company_id_old=144;
+    $company_id_active=230;$company_id_old=163;
 
     $sqlnum="SELECT count(id) as numero FROM poll_details where poll_id='" . $poll_id['poll_id'] . "' and store_id='".$store_id['store_id']."' and product_id='".$product_id['product_id']."' and company_id='".$idcompany['company_id']."'";
     $consultaNum = DB::select($sqlnum);
@@ -1092,8 +1125,8 @@ Route::post('JsonInsertAuditPollsProduct', ['as' =>'JsonInsertAuditPollsProduct'
         $consulta2 = DB::select($sql2);
 
         $auditor = $consultaAuditor[0]->auditor."(".$consultaAuditor[0]->user_id.")";
-        $valoresCampaigne[$company_id_old] = array('stock' => 2435,'premio' => 2436,'recomendo' =>2433,'cerrado' =>2431);
-        $valoresCampaigne[$company_id_active] = array('stock' => 2690,'premio' => 2691,'recomendo' =>2688,'cerrado' =>2686);
+        $valoresCampaigne[$company_id_old] = array('stock' => 2690,'premio' => 2691,'recomendo' =>2688,'cerrado' =>2686);
+        $valoresCampaigne[$company_id_active] = array('stock' => 3994,'premio' => 3995,'recomendo' =>3992,'cerrado' =>3990);
         $valoresProducts = array('apronax' => 534,'aspirina_forte' => 644);
         $company_id = $idcompany['company_id'];$motivo="";$comentario="";
         $sqlcoord="SELECT  a.cadenaRuc,a.type,a.fullname,a.chanel,a.address,a.district,a.ejecutivo,a.region,a.ubigeo FROM stores a WHERE a.id = '".$store_id['store_id']."'";
@@ -1257,7 +1290,7 @@ Route::post('JsonInsertAuditPollsProduct', ['as' =>'JsonInsertAuditPollsProduct'
             }
         }
 
-        if ($sw==1){
+        if ($sw==100){
             $datai = ['origen' => $store_id['store_id'],
                 'tipo'  =>  $tipoTemplate,
                 'titulo'=> $textoContent,
@@ -1790,7 +1823,7 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
     $result = Input::only('result');
     $coment_options = Input::only('coment_options');// 0 o 1
     $comentario_options = Input::only('comentario_options');//comentario options
-
+    //dd(Input::all());
     $idcompany = Input::only('idCompany');
     $user_id = Input::only('user_id');
     $idroute  = Input::only('idRuta');
@@ -1813,9 +1846,8 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
         $sql2="SELECT fullname FROM companies where id='" . $idcompany['idCompany'] . "'";
         $consulta2 = DB::select($sql2);
 
-        //$valoresCampaigne[177] = array('cobro' => 2939,'NoTransaccion' => 2936,'externo' =>2920,'interno' => 2921, 'cerrado' =>2919,'NoTransaccionBIM' => 2954);
-        $valoresCampaigne[198] = array('cobro' => 3202,'NoTransaccion' => 3199,'externo' =>3183,'interno' => 3184, 'cerrado' =>3182,'NoTransaccionBIM' => 2954);
-        $valoresCampaigne[202] = array('cobro' => 0,'NoTransaccion' => 0,'externo' =>0,'interno' => 0, 'cerrado' =>0,'NoTransaccionBIM' => 0);//BCP
+        //$valoresCampaigne[226] = array('cobro' => 3900,'NoTransaccion' => 3897,'externo' =>3881,'interno' => 3882, 'cerrado' =>3880,'NoTransaccionBIM' => 2954);//BCP
+        $valoresCampaigne[241] = array('cobro' => 4222,'NoTransaccion' => 4219,'externo' =>4203,'interno' => 4204, 'cerrado' =>4202,'NoTransaccionBIM' => 2954);//BCP
         $company_id = $idcompany['idCompany'];
         $sqlcoord1="SELECT  b.id,b.fullname as nomb_ejecutivo,a.cadenaRuc,a.type,a.ejecutivo,a.coordinador,a.gerzonal,a.fullname, a.codclient,a.address,a.district,a.ubigeo,b.email FROM stores a, users b WHERE a.id = '".$store_id['store_id']."' AND b.email = a.ejecutivo";
         $consulEmailEjecutivo = DB::select($sqlcoord1);
@@ -1840,7 +1872,7 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
                 $textoContent = $textoEmail;
                 $nombreEnvio = $consulEmailEjecutivo[0]->nomb_ejecutivo;
                 $motivo = 'Agente hizo un cobro fuera del Voucher';
-                $sqlmedia = "SELECT archivo,created_at FROM medias m where store_id='".$store_id['store_id']."' and poll_id='".$valoresCampaigne[$company_id]['externo']."' and tipo=1;";
+                $sqlmedia = "SELECT archivo,created_at FROM medias m where store_id='".$store_id['store_id']."' and poll_id='".$poll_id['poll_id']."' and tipo=1;";
                 $consulMedia = DB::select($sqlmedia);
                 if (count($consulMedia)>0){
                     $foto = $urlBase.$urlImages.$consulMedia[0]->archivo;
@@ -1926,7 +1958,7 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
                 $textoContent = $textoEmail;
 
                 $motivo = 'Dependiente NO acepto Transacción motivo <b>'.strtoupper($consulta1[0]->options).'</b>';
-                $sqlmedia = "SELECT archivo,created_at FROM medias m where store_id='".$store_id['store_id']."' and poll_id='".$valoresCampaigne[$company_id]['externo']."' and tipo=1;";
+                $sqlmedia = "SELECT archivo,created_at FROM medias m where store_id='".$store_id['store_id']."' and poll_id='".$poll_id['poll_id']."' and tipo=1;";
                 $consulMedia = DB::select($sqlmedia);
                 if (count($consulMedia)>0){
                     $foto = $urlBase.$urlImages.$consulMedia[0]->archivo;
@@ -2242,8 +2274,10 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
                 $emails[]=array('nombres'=>'Gino','email'=>'gtori@intercorp.com.pe');
             }
 
-            $emails[]=array('nombres'=>'Roberto','email'=>'roblitas@ttaudit.com');
-            $emails[]=array('nombres'=>'Montenegro','email'=>'mmontenegro@ttaudit.com');
+            //$emails[]=array('nombres'=>'Roberto','email'=>'roblitas@ttaudit.com');
+            $emails[]=array('nombres'=>'Camila','email'=>'ctavera@ttaudit.com');
+            $emails[]=array('nombres'=>'Daniela','email'=>'dolaguibel@ttaudit.com');
+            $emails[]=array('nombres'=>'Jaime','email'=>'jcdiaz356@gmail.com');
             $emails[]=array('nombres'=>'Elba','email'=>'ellerena@ttaudit.com');
             $emails[]=array('nombres'=>'Carlos Medina','email'=>'cmedinap@intercorp.com.pe');
             $emails[]=array('nombres'=>'Franco','email'=>'franbrsj@gmail.com');
@@ -2283,6 +2317,7 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
                         $message->to($envio['email'], $envio['responsable'])->subject($envio['subject']);
                     });
                 }
+
                 DB::update("UPDATE  alerts set emails= ? where id = ?" , array($ListEmails, $idAlertInsert));
             }
 
@@ -2292,9 +2327,10 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
             if ($poll_id['poll_id']==$valoresCampaigne[$company_id]['cobro']){
                 $emails[]=array('nombres'=>'Karina','email'=>'Kpalominof@intercorp.com.pe');
             }
-            $emails[]=array('nombres'=>'Montenegro','email'=>'mmontenegro@ttaudit.com');
+            $emails[]=array('nombres'=>'Camila','email'=>'ctavera@ttaudit.com');
             $emails[]=array('nombres'=>'Elba','email'=>'ellerena@ttaudit.com');
             $emails[]=array('nombres'=>'Franco','email'=>'franbrsj@gmail.com');
+            $emails[]=array('nombres'=>'Mauricio','email'=>'mmontenegro@ttaudit.com');
 
             if (count($emails)>0){$c=0;$ListEmails='';
 
@@ -2305,9 +2341,11 @@ Route::post('JsonInsertAuditPolls', ['as' =>'JsonInsertAuditPolls', function(){
                         $ListEmails .= "|";
                     }
                     $envio = ['responsable' => $email['nombres'],'email' =>$email['email'], 'subject' =>$textoEmail];
+
                     \Mail::send('emails.localCerrado', $datai, function($message) use ($envio){
                         $message->to($envio['email'], $envio['responsable'])->subject($envio['subject']);
                     });
+
                 }
                 DB::update("UPDATE  alerts set emails= ? where id = ?" , array($ListEmails, $idAlertInsert));
             }
@@ -2436,8 +2474,8 @@ Route::post('insertaTiempoNew', ['as' =>'insertaTiempoNew', function(){
     $horaSistema = $mytime->toDateTimeString();
 
 
-    DB::update("UPDATE  road_details set audit= 1, updated_at=? where store_id = ? and  road_id = ? " , array($horaSistema,$storeid ['id'], $idruta['idruta']));
-    DB::insert("INSERT INTO control_time (closes,user_id, store_id,lat_close,long_close, lat_open,long_open,time_open,time_close,company_id, created_at,updated_at) VALUES('store',?,?,?,?,?,?,?,?,?,?,?)" , array($tduser['tduser'],$storeid['id'], $latitud_close['latitud_close'], $longitud_close['longitud_close'],$latitud_open['latitud_open'],$longitud_open['longitud_open'],$tiempo_inicio['tiempo_inicio'],$tiempo_fin['tiempo_fin'],$company_id['company_id'],$horaSistema,$horaSistema));
+    DB::update("UPDATE  road_details set audit= 1, updated_at=? where store_id = ? and  road_id = ? and company_id= ?" , array($horaSistema,$storeid ['id'], $idruta['idruta'], $company_id['company_id']));
+    //DB::insert("INSERT INTO control_time (closes,user_id, store_id,lat_close,long_close, lat_open,long_open,time_open,time_close,company_id, created_at,updated_at) VALUES('store',?,?,?,?,?,?,?,?,?,?,?)" , array($tduser['tduser'],$storeid['id'], $latitud_close['latitud_close'], $longitud_close['longitud_close'],$latitud_open['latitud_open'],$longitud_open['longitud_open'],$tiempo_inicio['tiempo_inicio'],$tiempo_fin['tiempo_fin'],$company_id['company_id'],$horaSistema,$horaSistema));
     $idPollDetail = DB::getPdo()->lastInsertId();
 
     $sql = "SELECT * FROM road_details r where road_id='" . $idruta['idruta'] . "' and audit=0";
@@ -2445,12 +2483,13 @@ Route::post('insertaTiempoNew', ['as' =>'insertaTiempoNew', function(){
     if (count($consulta1) == 0){
         DB::update("UPDATE  roads set audit= 1, updated_at=? where id = ? " , array($horaSistema,$idruta['idruta']));//update de la ruta
     }
+    return \Response::json([ 'success'=> 1]);
+    /*
     if ($idPollDetail >0){
         return \Response::json([ 'success'=> 1]);
     }else{
         return \Response::json([ 'success'=> 0]);
-    }
-
+    }*/
 
 }]);
 
@@ -2588,46 +2627,45 @@ Route::post('insertaRoadDetails', ['as' =>'insertaRoadDetails', function(){
 
     $mytime = Carbon\Carbon::now();
     $mytime->setTimezone('America/Lima');
-    $mercado=94484;
-    $company_id=204;
-    $user_id=587;
-    $f_ejecucion='2018-08-25';
-    $nomb_ruta ="Teresa VES Sabado 25";
+    $mercado=94888;
+    $company_id=275;
+    $user_id=1542;
+    $f_ejecucion='2019-05-25';
+    $nomb_ruta ="Mistery Giuliana Arequipa 25/05";
     $horaSistema = $mytime->toDateTimeString();$c=0;$sw=0;
     DB::insert("INSERT INTO roads (fullname,user_id, audit, f_ejecucion, created_at,updated_at) VALUES(?,?,?,?,?,?)" , array($nomb_ruta,$user_id,0,$f_ejecucion,$horaSistema,$horaSistema));
     $road_id = DB::getPdo()->lastInsertId();
+    //$road_id =13477;
     //$sql1="SELECT store_id,nivel FROM road_details where road_id='".$road_id."' and company_id='".$company_id."'";
-    $sql1="SELECT id FROM stores where id in (157117,
-38688
-)";
+    $sql1="SELECT id FROM stores where id>=315401 and id<=315408";
     $consulta1 = DB::select($sql1);//dd($consulta1);
     if (count($consulta1)>0){
         foreach ($consulta1 as $valor) {
-            /*$sql2="SELECT store_id FROM company_stores c where company_id='".$company_id."' and store_id='".$valor->id."'";
-            $consulta2 = DB::select($sql2);
-            if (count($consulta2)==0){
-                $sw=1;
-                DB::insert("INSERT INTO company_stores (company_id,store_id, ruteado, created_at,updated_at) VALUES(?,?,?,?,?)" , array($company_id,$valor->id,0,$horaSistema,$horaSistema));
-            }else{
-                $sw=0;
-                DB::delete('DELETE FROM company_stores where company_id=? and store_id = ?',[$company_id,$valor->id]);
-            }*/
+            // $sql2="SELECT store_id FROM company_stores c where company_id='".$company_id."' and store_id='".$valor->id."'";
+            // $consulta2 = DB::select($sql2);
+            // if (count($consulta2)==0){
+            //     $sw=1;
+            //     DB::insert("INSERT INTO company_stores (company_id,store_id, ruteado, created_at,updated_at) VALUES(?,?,?,?,?)" , array($company_id,$valor->id,1,$horaSistema,$horaSistema));
+            // }else{
+            //     $sw=0;
+            //     DB::update("UPDATE  company_stores set ruteado= 1, updated_at=? where  store_id = ? and company_id= ?" , array($horaSistema,$valor->id,$company_id));
+            // }
 
-            DB::insert("INSERT INTO company_stores (company_id,store_id, ruteado, created_at,updated_at) VALUES(?,?,?,?,?)" , array($company_id,$valor->id,1,$horaSistema,$horaSistema));
+            //DB::insert("INSERT INTO company_stores (company_id,store_id, ruteado, created_at,updated_at) VALUES(?,?,?,?,?)" , array($company_id,$valor->id,1,$horaSistema,$horaSistema));
             if ($c==0){
-                DB::insert("INSERT INTO road_details (company_id,store_id, audit, road_id,nivel, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$mercado,0,$road_id,1,$horaSistema,$horaSistema));
+                //DB::insert("INSERT INTO road_details (company_id,store_id, audit, road_id,nivel, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$mercado,0,$road_id,1,$horaSistema,$horaSistema));
             }
-            DB::insert("INSERT INTO road_details (company_id,store_id, audit, road_id,nivel, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$valor->id,0,$road_id,0,$horaSistema,$horaSistema));
-            $sql11="SELECT store_id FROM market_details c where store_id='".$mercado."' and point_id='".$valor->id."' and company_id='".$company_id."'";
+            DB::insert("INSERT INTO road_details (company_id,store_id, audit, road_id,nivel, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$valor->id,0,$road_id,1,$horaSistema,$horaSistema));
+            /*$sql11="SELECT store_id FROM market_details c where store_id='".$mercado."' and point_id='".$valor->id."' and company_id='".$company_id."'";
             $consulta11 = DB::select($sql11);
             if (count($consulta11)==0){
                 DB::insert("INSERT INTO market_details (company_id,store_id, point_id, cuota_venta, created_at,updated_at) VALUES(?,?,?,?,?,?)" , array($company_id,$mercado,$valor->id,'0',$horaSistema,$horaSistema));
-            }
+            }*/
 
             $sql2="SELECT audit_id FROM company_audits c where company_id='".$company_id."'";
             $consulta2 = DB::select($sql2);
             foreach ($consulta2 as $valor1) {
-                DB::insert("INSERT INTO audit_road_stores (company_id,road_id, audit_id,store_id,audit,visit_id, created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)" , array($company_id,$road_id, $valor1->audit_id,$valor->id,0,2,$horaSistema,$horaSistema));
+                DB::insert("INSERT INTO audit_road_stores (company_id,road_id, audit_id,store_id,audit,visit_id, created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)" , array($company_id,$road_id, $valor1->audit_id,$valor->id,0,0,$horaSistema,$horaSistema));
             }
             $c=$c+1;
             //DB::insert("INSERT INTO visit_stores (company_id, store_id, visit_id,road_id,ruteado, created_at,updated_at) VALUES(?,?,?,?,?,?,?)" , array($company_id,$valor->id,1,$road_id,0,$horaSistema,$horaSistema));
@@ -2847,7 +2885,7 @@ GROUP BY
 }]);
 Route::post('getAuditors', ['as' =>'getAuditors', function(){
 
-    $sql1 = "SELECT id,fullname FROM users u where type='auditor' order by fullname desc";
+    $sql1 = "SELECT id,fullname FROM users u where type='auditor' and active='1' order by fullname desc";
     header('Access-Control-Allow-Origin: *');
 
     return \Response::json( DB::select($sql1));
@@ -2990,9 +3028,13 @@ Route::post('insertImagesProductPollAlicorp', 'Api\AlicorpController@insertImage
 Route::post('insertImagesAlicorp', 'Api\AlicorpController@insertImagesAlicorp');
 Route::post('insertImages', 'PollDetailController@insertImages');
 Route::post('insertImagesMayorista', 'PollDetailController@insertImagesMayorista');
+Route::post('insertDataImages', 'PollDetailController@insertDataImages');
+Route::post('insertFileImages', 'PollDetailController@insertFileImages');
 Route::post('closeAudit', 'Api\AlicorpController@closeAudit');
 Route::post('savePollDetails', 'PollDetailController@index');
 Route::post('savePollDetailsReg', 'PollDetailController@saveRegisters');
+Route::post('savePollDetailsNew', 'PollDetailController@savePollsNew');
+
 Route::post('savePollDetailsRegAllProduct', 'PollDetailController@saveReg2');
 Route::post('updateStore', 'StoreController@index');
 
@@ -3932,9 +3974,8 @@ FROM
   INNER JOIN stores ON (company_stores.store_id = stores.id)
   INNER JOIN companies ON (company_stores.company_id = companies.id)
 WHERE
-  stores.fullname like '%". $dir. "%' or  stores.id like '%". $dir. "%' and
-  stores.ruteado = 0
-LIMIT 15";
+  (stores.fullname like '%". $dir. "%' or  stores.id like '%". $dir. "%') and company_stores.ruteado=0
+LIMIT 20";
     $stores = DB::select($sqlcoord);
     header('Access-Control-Allow-Origin: *');
     return \Response::json($stores);

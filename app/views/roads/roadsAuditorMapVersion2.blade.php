@@ -1,4 +1,7 @@
 @extends('layouts/adminLayout')
+
+
+@section('reportCSS')
 <link rel="stylesheet" href="{{ asset('css/mapa-styles.css') }}">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style>
@@ -43,7 +46,7 @@
     }
 
     .site-skintools-content h1 {
-       font-size: 1em;
+        font-size: 1em;
     }
     .site-skintools-content h1 {
         font-size: 1em;
@@ -75,9 +78,100 @@
     #guardar{
         display: none;
     }
+
+    .search-store-id .form-control {
+
+        height: 27px !important;
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+
+    .search-store-id .input-group-addon {
+        padding: 4px 9px;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 1;
+        color: #555;
+        text-align: center;
+        background-color: #eee;
+
+        border-radius: 0;
+    }
+
+    .search-store-id .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 100;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 8px;
+        font-size: 12px;
+        line-height: 1;
+        border-radius: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* SnakBar */
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #da1d13;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        top: 30px;
+        font-size: 17px;
+    }
+
+
+
+    #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {top: 0; opacity: 0;}
+        to {top: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {top: 0; opacity: 0;}
+        to {top: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {top: 30px; opacity: 1;}
+        to {top: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {top: 30px; opacity: 1;}
+        to {top: 0; opacity: 0;}
+    }
 </style>
 
+
+@stop
+
 @section('content')
+
+    <div id="snackbar"></div>
+
     <div id="map_canvas">
         <!-- css3 preLoading-->
         <div class="mapPerloading"> <span>Cargando</span>
@@ -112,6 +206,18 @@
 
                             <div>
                                 <h1 id="total-pdv">Total PDVS </h1>
+                            </div>
+                            <div class="search-store-id form-inline">
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                                            <input type="text" class="form-control" id="et-search" placeholder="Buscar por ID tienda">
+                                        </div>
+                                    </div>
+                                    <button type="submit" id="bt-search" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                <a href="#" target="_blank"><img src="" alt=""></a>
                             </div>
                             <div id="puntosEmpresa">
                                 {{--<div class="checkbox">--}}
@@ -327,7 +433,7 @@ $(document).ready(function() {
             if (item[8]>0)
             {
                 $('#puntosEmpresa').append('<p style="padding-left: 5px;">Visits:<br>');
-                for (var i = 1; i <= 3; i++) {
+                for (var i = 1; i <= 5; i++) {
                     $('#puntosEmpresa').append('<div class="checkbox"><label><input companyId="' + item[0] + '" class="visit_id" type="checkbox"  checked="checked"  value="' + i + '">' + 'Visita '+i +  '</label> </div>');
                 }
                 $('#puntosEmpresa').append('</p>');
@@ -683,6 +789,77 @@ $(document).ready(function() {
 
 
     });
+
+//    Search Stores
+
+    $( "#bt-search" ).on( "click", function() {
+
+        var tienda = $( "#et-search" ).val();
+
+//        console.log(tienda);
+//        console.log(_markersCompany[0]);
+        console.log(tienda.split(","));
+
+
+        if(tienda==""){
+            snackBar("Ingrese un código de tienda");
+        }
+
+//        ------------nuevo----------
+//        $.each(_markersCompany, function(i,item){
+//            item[0].setAnimation(null);
+//        });
+
+        var counter_store_id = 0;
+        $.each(_markersCompany, function(i,item){
+
+            if(tienda == item[2] ){
+                item[0].setAnimation(google.maps.Animation.BOUNCE);
+                _map.panTo(item[0].getPosition());
+                counter_store_id ++;
+            }  else{
+                    item[0].setAnimation(null);
+            }
+//            ----------------NUEVO para buscar varias tiendas
+//            var tiendas_split = tienda.split(",")
+//            $.each(tiendas_split, function(i,item_split){
+//                if(item_split == item[2] ){
+//                    item[0].setAnimation(google.maps.Animation.BOUNCE);
+//                    _map.panTo(item[0].getPosition());
+//                    counter_store_id ++;
+//                }
+////                else{
+////                    item[0].setAnimation(null);
+////
+////                }
+//            });
+
+        });
+        if(counter_store_id == 0){
+            snackBar('No se encontró el ID <b>' +  tienda + '</b>');
+        }
+
+
+//        snackBar("Holaaa");
+//
+    });
+
+    function snackBar(message){
+        var x = $("#snackbar");
+        //x.className = "show";
+
+        x.html(message);
+        x.addClass( "show" );
+        setTimeout(function(){
+            // x.className = x.className.replace("show", "");
+            // x.removeClass( "show" ).addClass( "" );
+            x.removeClass( "show" );
+        }, 3000);
+
+    }
+
+
+
 });
 
 

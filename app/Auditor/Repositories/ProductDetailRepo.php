@@ -24,7 +24,7 @@ class ProductDetailRepo extends BaseRepo{
 
     public function getProductsCompetitionForCampaigne($company_id,$valor="1")
     {
-        return ProductDetail::where('company_id',$company_id)->where('competencia',$valor)->orderBy('orden', 'ASC')->get();
+        return ProductDetail::with('product')->with('storeType')->where('company_id',$company_id)->where('competencia',$valor)->orderBy('orden', 'ASC')->get();
 
     }
 

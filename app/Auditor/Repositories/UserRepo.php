@@ -40,7 +40,7 @@ class UserRepo extends BaseRepo{
     {
         if ($customer_id=="0")
         {
-            $users = User::where('type', $type)->orderBy('fullname','ASC')->get();
+            $users = User::where('type', $type)->orderBy('fullname','ASC')->where('active',1)->get();
         }else{
             $sql = "SELECT 
   `users`.`id`,
@@ -54,7 +54,7 @@ FROM
   INNER JOIN `companies` ON (`customers`.`id` = `companies`.`customer_id`)
 WHERE
   `companies`.`id` = '".$customer_id."' AND 
-  `users`.`type` = '".$type."' ORDER BY  `users`.`fullname` ASC";
+  `users`.`type` = '".$type."' AND `users`.`active`=1  ORDER BY  `users`.`fullname` ASC";
             $users=\DB::select($sql);
         }
 
@@ -90,4 +90,14 @@ order by stores.ejecutivo asc";
         return $regResult;
     }
 
+    public function verifyContactStore(User $user)
+    {
+        $users = User::where('type', $user->type)->where('fullname',$user->fullname)->where('cargo',$user->cargo)->where('tipo_contact',$user->tipo_contact)->where('f_nac',$user->f_nac)->where('celular',$user->celular)->where('phone',$user->phone)->where('email',$user->email)->where('active',$user->active)->get();
+        if (count($users)==0)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
 } 

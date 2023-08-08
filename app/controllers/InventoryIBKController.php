@@ -77,6 +77,19 @@ class InventoryIBKController extends BaseController {
         return Response::json([ 'success'=> 1, 'categories' => $regsCategoryProducts]);
 
     }
+    public function getCategoriesGeneral(){
+        $valoresPost= Input::all();
+        $customer_id = $valoresPost['customer_id'];
+        $company_id = $valoresPost['company_id'];
+        $tipo = $valoresPost['tipo'];
+        $idpadre = $valoresPost['idPadre'];
+
+        $regsCategoryProducts = $this->categoryProductRepo->getCatMaterialsForCustomer($customer_id,$tipo,$company_id,$idpadre);
+
+        header('Access-Control-Allow-Origin: *');
+        return Response::json([ 'success'=> 1, 'categories' => $regsCategoryProducts]);
+
+    }
 
     public function getPhotosInventory($company_id="0",$store_id_post="0")
     {

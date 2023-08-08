@@ -5,7 +5,7 @@ var MyStores = angular.module('MyStores', []);
 MyStores.controller('SearchCtrl' , function ($scope, $http, $element){
 
     $scope.search = function(){
-        $http.get('http://ttaudit.test/SearchResults', {
+        $http.get('http://ttaudit.com/SearchResults', {
             params: {dir: $scope.searchInput}
         }).success(function (data){
             $scope.stores = data;
@@ -42,7 +42,7 @@ MyStoresN.controller('SearchCtrl' , function ($scope, $http, $element){
 
     $scope.search = function(){
         var company = $('#company_id').val();
-        $http.get('http://ttaudit.test/SearchResultsForCompany', {
+        $http.get('http://ttaudit.com/SearchResultsForCompany', {
             params: {dir: $scope.searchInput + '|' + company}
         }).success(function (data){
             $scope.stores = data;
@@ -83,7 +83,7 @@ var MyStores1 = angular.module('MyStores1', []);
 MyStores1.controller('SearchCtrl1' , function ($scope, $http, $element){
 
     $scope.search = function(){
-        $http.get('http://ttaudit.test/SearchResults0', {
+        $http.get('http://ttaudit.com/SearchResults0', {
             params: {dir: $scope.searchInput}
         }).success(function (data){
             $scope.stores = data;

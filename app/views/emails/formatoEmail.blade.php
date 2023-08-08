@@ -122,7 +122,7 @@
                     </tr>
                     <tr>
                         <td>Responder este email a:</td>
-                        <td>aguerra@ttaudit.com ó rpulido@ttaudit.com </td>
+                        <td>Daniela: dolaguibel@ttaudit.com</td>
                     </tr>
                 </table>
             </td>

@@ -133,13 +133,13 @@ $total_comercios = mysql_num_rows($resEmp);
 
 /* Definen la Cabecera */
 
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('T2', utf8_encode('DEX'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('U2', utf8_encode('Ventana Salsas'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AA2', utf8_encode('Ventana Pastas'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AG2', utf8_encode('Ventana Aceites'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AM2', utf8_encode('Ventana Galletas'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AS2', utf8_encode('Ventana Refrescos'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AY2', utf8_encode('Ventana Detergentes'));
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('T2', 'DEX');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('U2', 'Ventana Salsas');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AA2','Ventana Pastas');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AG2','Ventana Aceites');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AM2','Ventana Galletas');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AS2','Ventana Refrescos');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AY2','Ventana Detergentes');
 
 
 
@@ -339,7 +339,7 @@ while ($rowEmp = mysql_fetch_assoc($resEmp)) {
             if (utf8_encode($rowEmp[$campo] ) == null || $rowEmp[$campo]   == "") {
                 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '' );
             } else {
-                $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '=HYPERLINK( "'. utf8_encode($rowEmp[$campo]) .'"  , "Foto" )' );
+                $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '=HYPERLINK( "'. $rowEmp[$campo] .'"  , "Foto" )' );
             }
         }
         $contador_columna++;

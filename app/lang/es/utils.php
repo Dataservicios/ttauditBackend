@@ -4,7 +4,10 @@ return [
         'admin'     =>  'Administrador',
         'auditor'   =>  'Auditor',
         'company'   =>  'Empresa',
-        'executive'   =>  'Ejecutivo Cliente'
+        'executive'   =>  'Ejecutivo Cliente',
+        'seller' => 'Vendedor Bat',
+        'supervisor' => 'Supervisor Bat',
+        'head' => 'Jefe Bat'
     ],
     "store"          => array(
         "Bar" => "Bar",

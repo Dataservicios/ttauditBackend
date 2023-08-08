@@ -134,7 +134,7 @@ $total_comercios = mysql_num_rows($resEmp);
 /* Definen la Cabecera */
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('B3', 'PSE');
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('C3', 'Comercio');
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('D3', utf8_encode('Direcciï¿½n'));
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('D3', utf8_encode('Dirección'));
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('E3', 'Distrito');
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('F3', 'Provincia');
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('G3', 'Departamento');
@@ -148,39 +148,39 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue('N3', 'Auditor');
 
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('B2', 'Nombre Agente');
 
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('D2', utf8_encode('Direcciï¿½n'));
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('D2', utf8_encode('Dirección'));
 
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('L2', utf8_encode('Dï¿½a de Visita'));
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('L2', utf8_encode('Día de Visita'));
 
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(12  + 2 , 2), utf8_encode('1. Indicar Rubro (id = 137)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(18  + 2 , 2), utf8_encode('2. ï¿½Se encuentra abierto el agente? (id = 138)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(23  + 2 , 2), utf8_encode('3. Al llegar al establecimiento el cliente incï¿½gnito deberï¿½ preguntar directamente por el agente de Interbank. Ejemplo: Buenos dï¿½as/tardes, ï¿½hay agente de Interbank aquï¿½? (id = 112)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(25  + 2 , 2), utf8_encode('4. ï¿½El letrero de IBK Agente era visible desde fuera? (id = 113)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(32  + 2 , 2), utf8_encode('5. ï¿½El Interbank Agente es visible estando dentro del establecimiento? (id = 114)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(37  + 2 , 2), utf8_encode('6. ï¿½Existe algï¿½n otro Agente / corresponsal bancario? (id = 115)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(39  + 2 , 2), utf8_encode('7. El CI deberï¿½ preguntar, ï¿½Puedo pagar una tarjeta de crï¿½dito de Interbank acï¿½? (id = 116)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(41  + 2 , 2), utf8_encode('8. En el caso de que exista mï¿½s de un agente en el comercio, preguntar, ï¿½acï¿½ puedo pagar mi telï¿½fono? (id = 117)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(42  + 2 , 2), utf8_encode('9. Si responde que si en la P8, preguntar ï¿½Y en cuï¿½l agente me conviene pagar mi telï¿½fono? (id = 135)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(46  + 2 , 2), utf8_encode('10. Si me envï¿½an dinero del exterior ï¿½Lo puedo cobrar acï¿½? (id = 140)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(47  + 2 , 2), utf8_encode('11. Escoger tipo de Transacciï¿½n (id = 139)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(51  + 2 , 2), utf8_encode('12. Al preguntar si se podï¿½a hacer la operaciï¿½n correspondiente, ï¿½el dependiente aceptï¿½ realizar la operaciï¿½n? (id = 118)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(52  + 2 , 2), utf8_encode('13. ï¿½Su solicitud fue atendido de inmediato? (id = 119)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(18  + 2 , 2), utf8_encode('2. ¿Se encuentra abierto el agente? (id = 138)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(23  + 2 , 2), utf8_encode('3. Al llegar al establecimiento el cliente incógnito deberá preguntar directamente por el agente de Interbank. Ejemplo: Buenos días/tardes, ¿hay agente de Interbank aquí? (id = 112)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(25  + 2 , 2), utf8_encode('4. ¿El letrero de IBK Agente era visible desde fuera? (id = 113)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(32  + 2 , 2), utf8_encode('5. ¿El Interbank Agente es visible estando dentro del establecimiento? (id = 114)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(37  + 2 , 2), utf8_encode('6. ¿Existe algún otro Agente / corresponsal bancario? (id = 115)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(39  + 2 , 2), utf8_encode('7. El CI deberá preguntar, ¿Puedo pagar una tarjeta de crédito de Interbank acá? (id = 116)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(41  + 2 , 2), utf8_encode('8. En el caso de que exista más de un agente en el comercio, preguntar, ¿acá puedo pagar mi teléfono? (id = 117)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(42  + 2 , 2), utf8_encode('9. Si responde que si en la P8, preguntar ¿Y en cuál agente me conviene pagar mi teléfono? (id = 135)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(46  + 2 , 2), utf8_encode('10. Si me envían dinero del exterior ¿Lo puedo cobrar acá? (id = 140)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(47  + 2 , 2), utf8_encode('11. Escoger tipo de Transacción (id = 139)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(51  + 2 , 2), utf8_encode('12. Al preguntar si se podía hacer la operación correspondiente, ¿el dependiente aceptó realizar la operación? (id = 118)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(52  + 2 , 2), utf8_encode('13. ¿Su solicitud fue atendido de inmediato? (id = 119)') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(53  + 2 , 2), utf8_encode('14. Su solicitud no fue atendida de inmediato porque (id = 120)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(56  + 2 , 2), utf8_encode('15. Mientras esperaba. ï¿½La persona que lo atendiï¿½ se preocupï¿½ por su tiempo? (id = 121)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(59  + 2 , 2), utf8_encode('16. Despuï¿½s de esperar (id = 122)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(61  + 2 , 2), utf8_encode('17. ï¿½La transacciï¿½n se llegï¿½ a realizar de manera exitosa? (Se considera exitosa cuando se entrega el voucher) (id = 123)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(62  + 2 , 2), utf8_encode('18. ï¿½El agente hizo algï¿½n cobro fuera del voucher? (id = 141)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(63  + 2 , 2), utf8_encode('19. ï¿½Cuï¿½ntos MINUTOS transcurrieron entre que solicitï¿½ la transacciï¿½n y la persona terminï¿½ (le entregï¿½ el voucher)? (id = 124)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(64  + 2 , 2), utf8_encode('20. ï¿½La persona que lo atendiï¿½ tuvo que solicitar ayuda de alguna otra persona o hacer alguna consulta al respecto? (id = 125)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(65  + 2 , 2), utf8_encode('21. ï¿½Le entregaron ESPONTï¿½ï¿½NEAMENTE un comprobante luego de la transacciï¿½n? (Si no le entregaron espontï¿½neamente el voucher deben solicitarlo y adjuntarlo al formulario) (id = 126)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(67  + 2 , 2), utf8_encode('22. (Sï¿½LO SI NO SE REALIZï¿½ LA TRANSACCIï¿½N) ï¿½Por quï¿½ no se pudo realizar la transacciï¿½n? (id = 127)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(74  + 2 , 2), utf8_encode('23. (Sï¿½LO SI NO SE REALIZï¿½ LA TRANSACCIï¿½N) ï¿½Le dieron alguna soluciï¿½n para poder realizar la transacciï¿½n? (id = 136)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(78  + 2 , 2), utf8_encode('24. En una escala del 0 al 3 donde 0 significa Debajo del estï¿½ndar, 2 Estï¿½ndar y 3 Superior, ï¿½cï¿½mo calificarï¿½as la amabilidad de la persona que te atendiï¿½? (id = 128)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(86  + 2 , 2), utf8_encode('25. En una escala del 0 al 3 donde 0 significa Debajo del estï¿½ndar, 2 Estï¿½ndar y 3 Superior, ï¿½cï¿½mo calificarï¿½as el conocimiento de la persona que lo atendiï¿½? (id = 129)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(91  + 2 , 2), utf8_encode('26. En una escala del 0 al 3 donde 0 significa Debajo del estï¿½ndar, 2 Estï¿½ndar y 3 Superior, ï¿½cï¿½mo calificarï¿½as la disposiciï¿½n de la persona que lo atendiï¿½? (id = 130)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(95  + 2 , 2), utf8_encode('27. El CI deberï¿½ mostrar interï¿½s: Voy a abrir un negocio, ï¿½usted me recomendarï¿½a tener un agente Interbank? (id = 131)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(105 + 2  , 2), utf8_encode('28. ï¿½Sabe si tienen alguna pï¿½gina web para conseguir informaciï¿½n (id = 132)') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(106 + 2  , 2), utf8_encode('29. ï¿½La persona encargada le proporcionï¿½ dicha informaciï¿½n (id = 133)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(56  + 2 , 2), utf8_encode('15. Mientras esperaba. ¿La persona que lo atendió se preocupó por su tiempo? (id = 121)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(59  + 2 , 2), utf8_encode('16. Después de esperar (id = 122)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(61  + 2 , 2), utf8_encode('17. ¿La transacción se llegó a realizar de manera exitosa? (Se considera exitosa cuando se entrega el voucher) (id = 123)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(62  + 2 , 2), utf8_encode('18. ¿El agente hizo algún cobro fuera del voucher? (id = 141)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(63  + 2 , 2), utf8_encode('19. ¿Cuántos MINUTOS transcurrieron entre que solicitó la transacción y la persona terminó (le entregá el voucher)? (id = 124)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(64  + 2 , 2), utf8_encode('20. ¿La persona que lo atendió tuvo que solicitar ayuda de alguna otra persona o hacer alguna consulta al respecto? (id = 125)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(65  + 2 , 2), utf8_encode('21. ¿Le entregaron ESPONTÁNEAMENTE un comprobante luego de la transacción? (Si no le entregaron espontáneamente el voucher deben solicitarlo y adjuntarlo al formulario) (id = 126)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(67  + 2 , 2), utf8_encode('22. (SÓLO SI NO SE REALIZÓ LA TRANSACCIÓN) ¿Por qué no se pudo realizar la transacción? (id = 127)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(74  + 2 , 2), utf8_encode('23. (SÓLO SI NO SE REALIZÓ LA TRANSACCIÓN) ¿Le dieron alguna solución para poder realizar la transacción? (id = 136)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(78  + 2 , 2), utf8_encode('24. En una escala del 0 al 3 donde 0 significa Debajo del estándar, 2 Estándar y 3 Superior, ¿cómo calificarías la amabilidad de la persona que te atendió? (id = 128)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(86  + 2 , 2), utf8_encode('25. En una escala del 0 al 3 donde 0 significa Debajo del estándar, 2 Estándar y 3 Superior, ¿cómo calificarías el conocimiento de la persona que lo atendió? (id = 129)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(91  + 2 , 2), utf8_encode('26. En una escala del 0 al 3 donde 0 significa Debajo del estándar, 2 Estándar y 3 Superior, ¿cómo calificarías la disposición de la persona que lo atendió? (id = 130)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(95  + 2 , 2), utf8_encode('27. El CI deberá mostrar interés: Voy a abrir un negocio, ¿usted me recomendaría tener un agente Interbank? (id = 131)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(105 + 2  , 2), utf8_encode('28. ¿Sabe si tienen alguna página web para conseguir información (id = 132)') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(106 + 2  , 2), utf8_encode('29. ¿La persona encargada le proporcionó dicha información (id = 133)') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(107 + 2  , 2), utf8_encode('30. Otras apreciaciones a comentar (id = 134)') );
 
 
@@ -194,13 +194,13 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(17  + 2, 3), utf8
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(18  + 2, 3), utf8_encode('Respuesta') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(19  + 2, 3), utf8_encode('Local Cerrado') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(20  + 2, 3), utf8_encode('Ya no es Agente') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(21  + 2, 3), utf8_encode('Existe seï¿½alizaciï¿½n pero pidio retiro') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(21  + 2, 3), utf8_encode('Existe señalización pero pidio retiro') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(22  + 2, 3), utf8_encode('Foto') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(23  + 2, 3), utf8_encode('Respuesta') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(24  + 2, 3), utf8_encode('Comentario') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(25  + 2, 3), utf8_encode('Respuesta') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(26  + 2, 3), utf8_encode('Letrero de metal o madera') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(27  + 2, 3), utf8_encode('Rompe trï¿½fico') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(27  + 2, 3), utf8_encode('Rompe tráfico') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(28  + 2, 3), utf8_encode('Letrero luminoso') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(29  + 2, 3), utf8_encode('Letrero luminoso Bandera') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(30  + 2, 3), utf8_encode('Letrero compartido') );
@@ -227,10 +227,10 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(50  + 2, 3), utf8
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(51  + 2, 3), utf8_encode('Respuesta') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(52  + 2, 3), utf8_encode('Respuesta') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(53  + 2, 3), utf8_encode('El encargado estaba ocupado	') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(54  + 2, 3), utf8_encode('Porque me indicï¿½ que no habï¿½a sistema') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(54  + 2, 3), utf8_encode('Porque me indicó que no había sistema') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(55  + 2, 3), utf8_encode('Otro') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(56  + 2, 3), utf8_encode('Pidiï¿½ndole que por favor espere mientras terminaba de atender a otro cliente') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(57  + 2, 3), utf8_encode('Preguntï¿½ndole desde que llegï¿½, quï¿½ operaciï¿½n iba a realizar, para saber cï¿½mo atenderlo cuando se desocupe') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(56  + 2, 3), utf8_encode('Pidiéndole que por favor espere mientras terminaba de atender a otro cliente') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(57  + 2, 3), utf8_encode('Preguntándole desde que llegá, qué operación iba a realizar, para saber cómo atenderlo cuando se desocupe') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(58  + 2, 3), utf8_encode('Otro') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(59  + 2, 3), utf8_encode('Me atendieron ') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(60  + 2, 3), utf8_encode('No me atendieron') );
@@ -240,44 +240,44 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(63  + 2, 3), utf8
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(64  + 2, 3), utf8_encode('Respuesta') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(65  + 2, 3), utf8_encode('Respuesta') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(66  + 2, 3), utf8_encode('Foto') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(67  + 2, 3), utf8_encode('No habï¿½a sistema') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(68  + 2, 3), utf8_encode('La lï¿½nea estaba copada para el depï¿½sito') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(67  + 2, 3), utf8_encode('No había sistema') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(68  + 2, 3), utf8_encode('La línea estaba copada para el depósito') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(69  + 2, 3), utf8_encode('La persona que atiende (operador) no estaba disponible') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(70  + 2, 3), utf8_encode('POS no operativo') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(71  + 2, 3), utf8_encode('No habï¿½a efectivo disponible para el retiro') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(71  + 2, 3), utf8_encode('No había efectivo disponible para el retiro') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(72  + 2, 3), utf8_encode('Otro') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(73  + 2, 3), utf8_encode('Comentario') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(74  + 2, 3), utf8_encode('Le pidiï¿½ regrese mï¿½s tarde') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(74  + 2, 3), utf8_encode('Le pidió regrese más tarde') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(75  + 2, 3), utf8_encode('Lo guio hacia otro Agente') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(76  + 2, 3), utf8_encode('Le dijo como llegar a alguna Tienda Interbank') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(77  + 2, 3), utf8_encode('Otros Indicar Cual') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(78  + 2, 3), utf8_encode('Saluda ') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(79  + 2, 3), utf8_encode('Usa el por favor') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(80  + 2, 3), utf8_encode('Da las gracias') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(81  + 2, 3), utf8_encode('Sonrï¿½e') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(81  + 2, 3), utf8_encode('Sonríe') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(82  + 2, 3), utf8_encode('Mira a los ojos') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(83  + 2, 3), utf8_encode('No interrumpe') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(84  + 2, 3), utf8_encode('Despedida') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(85  + 2, 3), utf8_encode('Estandar') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(86  + 2, 3), utf8_encode('Conoce las operaciones que se puede realizar en agente ') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(87  + 2, 3), utf8_encode('Sabe cï¿½mo operar el pos al realizar la operaciï¿½n') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(88  + 2, 3), utf8_encode('No solicita ayuda para realizar la operaciï¿½n') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(89  + 2, 3), utf8_encode('Conoce la pï¿½gina web para conseguir informaciï¿½n') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(87  + 2, 3), utf8_encode('Sabe cómo operar el pos al realizar la operación') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(88  + 2, 3), utf8_encode('No solicita ayuda para realizar la operación') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(89  + 2, 3), utf8_encode('Conoce la página web para conseguir información') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(90  + 2, 3), utf8_encode('Estandar') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(91  + 2, 3), utf8_encode('Pendiente de  usted durante la atenciï¿½n') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(92  + 2, 3), utf8_encode('Concentrado en la operaciï¿½n mientras atendï¿½a ') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(93  + 2, 3), utf8_encode('Le ofreciï¿½ un producto o servicio adicional') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(91  + 2, 3), utf8_encode('Pendiente de  usted durante la atención') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(92  + 2, 3), utf8_encode('Concentrado en la operación mientras atendía ') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(93  + 2, 3), utf8_encode('Le ofreció un producto o servicio adicional') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(94  + 2, 3), utf8_encode('Estandar') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(95  + 2, 3), utf8_encode('Respuesta') );
 
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(96  + 2, 3), utf8_encode('Incremento clientes') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(97  + 2, 3), utf8_encode('Mï¿½s ventas') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(97  + 2, 3), utf8_encode('Más ventas') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(98  + 2, 3), utf8_encode('Comisiones') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(99  + 2, 3), utf8_encode('Mejora de imagen') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(100 + 2 , 3), utf8_encode('Diferencia competencia') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(101 + 2 , 3), utf8_encode('Porque los clientes lo solicitan') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(102 + 2 , 3), utf8_encode('Seguridad') );
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(103 + 2 , 3), utf8_encode('Pï¿½rdida de tiempo') );
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(103 + 2 , 3), utf8_encode('Pérdida de tiempo') );
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(104 + 2 , 3), utf8_encode('Comisiones bajas') );
 
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates(105 + 2 , 3), utf8_encode('Respuesta') );
@@ -498,7 +498,7 @@ $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
 	->setCategory("Test result file");
 
 
-// Redirect output to a clientï¿½s web browser (Excel2007)
+// Redirect output to a client’s web browser (Excel2007)
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
 //header('Content-Disposition: attachment;filename="01simple.xlsx"');

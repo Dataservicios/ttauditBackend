@@ -2,12 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
+//ini_set('max_execution_time', 1600);
+//ini_set('memory_limit', '3048M');
 date_default_timezone_set('America/Lima');
-/*ini_set('max_execution_time', 900);
-ini_set('memory_limit', '3048M');
-ini_set('display_errors', TRUE);
-ini_set('display_startup_errors', TRUE);
-date_default_timezone_set('America/Lima');*/
 include("includes/configure.php");
 
 
@@ -313,10 +310,10 @@ $objPHPExcel->setActiveSheetIndex(1)->mergeCells('A2:M2');//DATOS DE COMERCIO
 $objPHPExcel->setActiveSheetIndex(1)->mergeCells('N2:P2');//Se encuentra abierto el establecimiento?
 $objPHPExcel->setActiveSheetIndex(1)->mergeCells('Q2:AL2');//Canesten
 $objPHPExcel->setActiveSheetIndex(1)->mergeCells('BG2:CO2');/* ASPIRINA FORTE */
-$objPHPExcel->setActiveSheetIndex(1)->mergeCells('CP2:CR2');/* EXIHBIDOR */
-$objPHPExcel->setActiveSheetIndex(1)->mergeCells('CS2:CG2');/* Si la respuesta es si, indicar que marcas de Bayer están exhibidas */
-$objPHPExcel->setActiveSheetIndex(1)->mergeCells('CH2:CO2');/*¿Qué variable es importante para recomendar un producto o marca OTC (venta sin receta) por encima de otro?*/
-$objPHPExcel->setActiveSheetIndex(1)->mergeCells('CP2:CS2');/* PREMIACION */
+$objPHPExcel->setActiveSheetIndex(1)->mergeCells('CP2:CS2');/* EXIHBIDOR */
+$objPHPExcel->setActiveSheetIndex(1)->mergeCells('CT2:DA2');/* Si la respuesta es si, indicar que marcas de Bayer están exhibidas */
+$objPHPExcel->setActiveSheetIndex(1)->mergeCells('DB2:DH2');/*¿Qué variable es importante para recomendar un producto o marca OTC (venta sin receta) por encima de otro?*/
+$objPHPExcel->setActiveSheetIndex(1)->mergeCells('DJ2:DL2');/* PREMIACION */
 
 /* Aplica estilo a las cabeceras */
 

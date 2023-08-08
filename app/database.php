@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '104.197.133.79',
+			'host'      => '35.202.167.221',
 			'database'  => 'ttaudit_auditors',
 			'username'  => 'root',
 			'password'  => 'Fbrsjgfc09',

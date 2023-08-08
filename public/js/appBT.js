@@ -6,7 +6,7 @@ MyStoresBT.controller('SearchCtrl' , function ($scope, $http, $element){
 
     $scope.search = function(){
         var company = $('#company_id').val();
-        $http.get('http://ttaudit.test/SearchStoresVisits', {
+        $http.get('http://ttaudit.com/SearchStoresVisits', {
             params: {dir: $scope.searchInput + '|' + company}
         }).success(function (data){
             $scope.stores = data;

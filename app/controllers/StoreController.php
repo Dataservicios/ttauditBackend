@@ -5,6 +5,10 @@ use Auditor\Managers\StoreManager;
 use Auditor\Repositories\CompanyStoreRepo;
 use Auditor\Repositories\CompanyRepo;
 use Auditor\Repositories\CustomerRepo;
+use Auditor\Repositories\LogProcessRepo;
+use Auditor\Repositories\RoadDetailRepo;
+use Auditor\Repositories\CompanyAuditRepo;
+use Auditor\Repositories\AuditRoadStoreRepo;
 
 class StoreController extends BaseController{
 
@@ -12,13 +16,21 @@ class StoreController extends BaseController{
     protected $companyStoreRepo;
     protected $campaigneRepo;
     protected $customerRepo;
+    protected $logProcessRepo;
+    protected $roadDetailRepo;
+    protected $companyAuditRepo;
+    protected $AuditRoadStoreRepo;
 
-    public function __construct(CustomerRepo $customerRepo,CompanyRepo $campaigneRepo,CompanyStoreRepo $companyStoreRepo,StoreRepo $storeRepo)
+    public function __construct(AuditRoadStoreRepo $AuditRoadStoreRepo,CompanyAuditRepo $companyAuditRepo,RoadDetailRepo $roadDetailRepo,LogProcessRepo $logProcessRepo,CustomerRepo $customerRepo,CompanyRepo $campaigneRepo,CompanyStoreRepo $companyStoreRepo,StoreRepo $storeRepo)
     {
         $this->storeRepo = $storeRepo;
         $this->companyStoreRepo = $companyStoreRepo;
         $this->campaigneRepo = $campaigneRepo;
         $this->customerRepo = $customerRepo;
+        $this->logProcessRepo = $logProcessRepo;
+        $this->roadDetailRepo = $roadDetailRepo;
+        $this->companyAuditRepo = $companyAuditRepo;
+        $this->AuditRoadStoreRepo = $AuditRoadStoreRepo;
     }
 
     public function index()
@@ -156,6 +168,7 @@ class StoreController extends BaseController{
         $ubigeo = $valoresPost['departamento'];
         $address = $valoresPost['address'];
         $ejecutivo = $valoresPost['ejecutivo'];
+        $campaigneDetail = $this->campaigneRepo->find($company_id);
 
         if ($distributor1=="NewStore")
         {
@@ -165,6 +178,9 @@ class StoreController extends BaseController{
             $emailContact = $valoresPost['econtact'];
             $phoneContact = $valoresPost['pcontact'];
             $distributor = $valoresPost['code'];
+            if (($campaigneDetail->study_id==26) or ($campaigneDetail->study_id==36)){
+                $route_id = $valoresPost['route_id'];
+            }
         }else{
             if ($distributor1=="Alicorp"){
                 $codclient = $valoresPost['codclient'];
@@ -172,6 +188,11 @@ class StoreController extends BaseController{
                 $distributor = $valoresPost['dex'];
             }else{
                 $distributor = $valoresPost['code'];
+            }
+            if ($distributor1=="Life"){
+                $codclient = $valoresPost['codclient'];
+                $contact = $valoresPost['contact'];
+                $distributor = $valoresPost['dex'];
             }
         }
 
@@ -189,6 +210,7 @@ class StoreController extends BaseController{
         $objStore->ejecutivo = $ejecutivo;
         if ($distributor1=="NewStore")
         {
+            $objStore->comment ="NewStore Palmera";
             $objStore->rubro = $giro;
             $objStore->cadenaRuc = $ruc;
             $objStore->contact1 = $contact;
@@ -199,6 +221,10 @@ class StoreController extends BaseController{
                 $objStore->codclient = $codclient;
                 $objStore->rubro = $giro;
             }
+            if ($distributor1=="Life"){
+                $objStore->codclient = $codclient;
+                $objStore->contact1 = $contact;
+            }
         }
 
         if ($objStore->save()){
@@ -207,6 +233,36 @@ class StoreController extends BaseController{
             $companyStore->store_id = $objStore->id;
             $companyStore->ruteado=1;
             $companyStore->save();
+            if (($campaigneDetail->study_id==26) or ($campaigneDetail->study_id==36)){
+                $objRoadDetail = $this->roadDetailRepo->getModel();
+                $objRoadDetail->store_id = $objStore->id;
+                if ($campaigneDetail->study_id==36){
+                    $objRoadDetail->audit = 0;
+                }else{
+                    $objRoadDetail->audit = 1;
+                }
+                //$objRoadDetail->audit = 1;
+                $objRoadDetail->road_id = $route_id;
+                $objRoadDetail->company_id = $company_id;
+                $objRoadDetail->save();
+                $audits = $this->companyAuditRepo->getAuditsForCompany($company_id);
+                if (count($audits)>0) {
+                    foreach ($audits as $v) {//company_id,road_id,audit_id,store_id
+                        $objAuditRoadStore = $this->AuditRoadStoreRepo->getModel();
+                        $objAuditRoadStore->company_id = $company_id;
+                        $objAuditRoadStore->road_id = $route_id;
+                        $objAuditRoadStore->audit_id = $v->audit_id;
+                        $objAuditRoadStore->store_id = $objStore->id;
+                        if ($campaigneDetail->study_id==36){
+                            $objAuditRoadStore->audit = 0;
+                        }else{
+                            $objAuditRoadStore->audit = 1;
+                        }
+
+                        $objAuditRoadStore->save();
+                    }
+                }
+            }
             return Response::json([ 'success'=> 1, 'store_id' => $objStore->id]);
         }else{
             return Response::json([ 'success'=> 0, 'store_id' => 0]);
@@ -273,7 +329,7 @@ class StoreController extends BaseController{
             $tipo_bodega = $objStoreRepo->tipo_bodega;
             $agente = $objStoreRepo->fullname;
             $dir = $objStoreRepo->codclient;
-            $address =  $objStoreRepo->address." Referencia: ".$objStoreRepo->urbanization;
+            $address =  $objStoreRepo->address." Referencia: ".$referencia;
             $district = $objStoreRepo->district;
             $foto="";
             foreach ($questions as $question)
@@ -295,6 +351,94 @@ class StoreController extends BaseController{
         }
     }
 
+    public function updateAddressName()
+    {
+        $valoresPost= Input::all();
+        $store_id = $valoresPost['store_id'];
+        $user_id = $valoresPost['user_id'];
+        $company_id = $valoresPost['company_id'];
+        $direccion  = $valoresPost['direccion'];
+        $referencia = $valoresPost['referencia'];
+        $userName = $valoresPost['userName'];
+        $storeName = $valoresPost['storeName'];
+        //$comentario = Input::only('comentario');
+        $objStoreRepo = $this->storeRepo->find($store_id);
+        $address1 = "Dirección: ".$direccion." Referencia: ".$referencia;
+        $objStoreRepo->address = $direccion;
+        $objStoreRepo->fullname = $storeName;
+        $objStoreRepo->urbanization = $referencia;
+        $objStoreRepo->address1 = $address1;
+
+        if ($objStoreRepo->save())
+        {
+
+            return Response::json([ 'success'=> 1]);
+        }else{
+            return Response::json([ 'success'=> 0]);
+        }
+    }
+
+    public function updateAniversario()
+    {
+        $valoresPost= Input::all();
+        $store_id = $valoresPost['store_id'];
+        $fani= $valoresPost['fani'];
+        $objStoreRepo = $this->storeRepo->find($store_id);
+        header('Access-Control-Allow-Origin: *');
+        if ($fani<>''){
+            $objStoreRepo->ani_local = $fani;
+        }
+        if ($objStoreRepo->save())
+        {
+            return Response::json([ 'success'=> 1]);
+        }else{
+            return Response::json([ 'success'=> 0]);
+        }
+    }
+
+    public function updateGeoRef()
+    {
+        $valoresPost= Input::all();
+        $store_id = $valoresPost['store_id'];
+        $company_id= $valoresPost['company_id'];
+        $latitude= $valoresPost['latitude'];
+        $longitude= $valoresPost['longitude'];
+        $auditor_id= $valoresPost['auditor_id'];
+
+        $objStoreRepo = $this->storeRepo->find($store_id);
+        header('Access-Control-Allow-Origin: *');
+        $latOrigen=$objStoreRepo->latitude;
+        $longOrigen=$objStoreRepo->longitude;
+
+        $objStoreRepo->latitude = $latitude;
+        $objStoreRepo->longitude = $longitude;
+
+        if ($objStoreRepo->save())
+        {
+            //public function insertLog($log_process,$poll_id,$user_id,$process,$objeto,$sino,$result_origin,$result,$poll_objeto_id,$table,$type_operation)
+            $log_process = $this->logProcessRepo->getModel();
+            $poll_id = 0;
+            $user_id = $auditor_id;
+            //$this->insertLog($log_process,$poll_id,$user_id,'geoReferences',$objPublicityDetail,0,0,0,$publicityDetail_id,'publicity_details','updated');
+
+            $log_process->processes = "geoReferences";
+            $log_process->user_id = $user_id;
+            $log_process->auditor_id = $user_id;
+            $log_process->poll_id = $poll_id;
+            $log_process->company_id = $company_id;
+            $log_process->store_id = $store_id;
+            $log_process->table_bd = "stores";
+            $log_process->description = "latOrig:".$latOrigen.", LongOrig:".$longOrigen." - LatNew:".$latitude.", LongNew:".$longitude;
+            $log_process->type_operation = "updated";
+            if ($log_process->save())
+            {
+                return Response::json([ 'success'=> 1]);
+            }
+        }else{
+            return Response::json([ 'success'=> 0]);
+        }
+    }
+
     public function searchStore($dir, $type="auditor")
     {
         $valores = explode('|',$dir);
@@ -303,5 +447,21 @@ class StoreController extends BaseController{
         $stores = $this->storeRepo->searchStores($dir,$company_id,$type);
         header('Access-Control-Allow-Origin: *');
         return \Response::json($stores);
+    }
+
+    public function updateCodeSellStore()
+    {
+        $valoresPost= Input::all();
+        $store_id= $valoresPost['store_id'];
+        $codeSell = $valoresPost['codeSell'];
+        $objStore = $this->storeRepo->find($store_id);
+        $objStore->comment = $codeSell;
+        if ($objStore->save())
+        {
+            return Response::json([ 'success'=> 1]);
+        }else{
+            return Response::json([ 'success'=> 0]);
+        }
+
     }
 } 

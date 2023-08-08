@@ -127,19 +127,19 @@ $objPHPExcel->createSheet(NULL, 1);
 /* Ejecuta el Store Procedure que tiene el resumen del reporte */
 //mysql_query("call sp_reporte_dia_company_8", $conexion_db) or die(mysql_error());
 
-$query_detalle_puntos = "call sp_reporte_company_22_category_53";
+$query_detalle_puntos = "call sp_reporte_company_29_category_53";
 $resEmp = mysql_query($query_detalle_puntos, $conexion_db) or die(mysql_error());
 $total_comercios = mysql_num_rows($resEmp);
 
 /* Definen la Cabecera */
 
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('T2', utf8_encode('DEX'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('U2', utf8_encode('Ganchera Salsas'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('Y2', utf8_encode('Ganchera Frutísimos'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AC2', utf8_encode('Portafiche Multicategoría'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AG2', utf8_encode('Exhibidores Margarinas'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AK2', utf8_encode('Exhibidor Galletas'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AO2', utf8_encode('Posavuelto Galletas'));
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('T2', 'DEX');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('U2', 'Ganchera Salsas');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('Y2', 'Ganchera FrutÃ­simos');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AC2','Portafiche MulticategorÃ­a');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AG2','Exhibidores Margarinas');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AK2','Exhibidor Galletas');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AO2','Posavuelto Galletas');
 
 
 
@@ -192,43 +192,44 @@ $cabecera = array(
 	'AUDITOR',
 	'FECHA',
 	'HORA',
-	'¿Se encuentra Abierto? Si/No',
+	'Â¿Se encuentra Abierto? Si/No',
 	'Opciones',
 	'FOTO',
-	'¿Cliente permitió tomar información?',
+	'Â¿Cliente permitiÃ³ tomar informaciÃ³nn?',
 	'Opciones',
 	'Comentario',
 	'Nombre DEX',
-	'Se encontró?',
+	'Se encontrÃ³?',
 	'Es visible?',
-	'Está Contaminado',
+	'EstÃ¡ Contaminado',
 	'Foto',
-	'Se encontró?',
+	
+	'Se encontrÃ³?',
 	'Es visible?',
-	'Está Contaminado',
+	'EstÃ¡ Contaminado',
 	'Foto',
-	'Se encontró?',
+	'Se encontrÃ³?',
 	'Es visible?',
-	'Está Contaminado',
+	'EstÃ¡ Contaminado',
 	'Foto',
-	'Se encontró?',
+	'Se encontrÃ³?',
 	'Es visible?',
-	'Está Contaminado',
+	'EstÃ¡ Contaminado',
 	'Foto',
-	'Se encontró?',
+	'Se encontrÃ³?',
 	'Es visible?',
-	'Está Contaminado',
+	'EstÃ¡ Contaminado',
 	'Foto',
-	'Se encontró?',
+	'Se encontrÃ³?',
 	'Es visible?',
-	'Está Contaminado',
+	'EstÃ¡ Contaminado',
 	'Foto'
 );
 
 $contador_columna_cabecera = 0;
 for ($row = 0; $row < count($cabecera) ; $row++) {
 	$valor = $cabecera[$row];
-	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna_cabecera , 3), utf8_encode($valor));
+	$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna_cabecera , 3), $valor);
 		
 	$contador_columna_cabecera++;
 }	
@@ -261,7 +262,7 @@ $campos = array(
 
 	array('396_result', '0'),
 	array('396_visible', '0'),
-	array('396_contamin396ated', '0'),
+	array('396_contaminated', '0'),
 	array('396_foto', '1'),
 	array('397_result', '0'),
 	array('397_visible', '0'),
@@ -297,12 +298,12 @@ while ($rowEmp = mysql_fetch_assoc($resEmp)) {
 		$tipo_campo = $campos[$row][1];
 
 		if ($tipo_campo == "0") {
-			 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), utf8_encode($rowEmp[$campo] ));
+			 $objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), $rowEmp[$campo] );
 		} else {
-			if (utf8_encode($rowEmp[$campo] ) == null || utf8_encode($rowEmp[$campo]  ) == "") {
+			if ($rowEmp[$campo] == null || $rowEmp[$campo]   == "") {
 				$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '' );
 			} else {
-				$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '=HYPERLINK( "'. utf8_encode($rowEmp[$campo]) .'"  , "Foto" )' );
+				$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '=HYPERLINK( "'. $rowEmp[$campo] .'"  , "Foto" )' );
 			}
 		}		
 	$contador_columna++;
@@ -322,7 +323,7 @@ $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
 	->setCategory("Test result file");
 
 
-// Redirect output to a client’s web browser (Excel2007)
+// Redirect output to a clientï¿½s web browser (Excel2007)
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
 //header('Content-Disposition: attachment;filename="01simple.xlsx"');

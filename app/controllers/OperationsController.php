@@ -13,6 +13,8 @@ use Auditor\Repositories\PollOptionDetailRepo;
 use Auditor\Repositories\AuditRoadStoreRepo;
 use Auditor\Repositories\CompanyStoreRepo;
 use Auditor\Repositories\VisitStoreRepo;
+use Auditor\Repositories\LogProcessRepo;
+use Auditor\Repositories\MarketDetailRepo;
 
 class OperationsController extends BaseController{
 
@@ -29,11 +31,13 @@ class OperationsController extends BaseController{
     protected $auditRoadStoreRepo;
     protected $companyStoreRepo;
     protected $visitStoreRepo;
+    protected $logProcessRepo;
+    protected $marketDetailRepo;
 
     public $urlBase;
     public $urlPhotos;
 
-    public function __construct(VisitStoreRepo $visitStoreRepo,CompanyStoreRepo $companyStoreRepo,AuditRoadStoreRepo $auditRoadStoreRepo,PollOptionDetailRepo $pollOptionDetailRepo,RoadDetailRepo $roadDetailRepo,PollRepo $pollRepo,CompanyRepo $companyRepo,PollDetailRepo $pollDetailRepo,PublicitiesDetailRepo $publicitiesDetailRepo,ProductDetailRepo $productDetailRepo,MediaRepo $mediaRepo,StoreRepo $storeRepo,ProductStoreRegionRepo $ProductStoreRegionRepo)
+    public function __construct(MarketDetailRepo $marketDetailRepo,LogProcessRepo $logProcessRepo,VisitStoreRepo $visitStoreRepo,CompanyStoreRepo $companyStoreRepo,AuditRoadStoreRepo $auditRoadStoreRepo,PollOptionDetailRepo $pollOptionDetailRepo,RoadDetailRepo $roadDetailRepo,PollRepo $pollRepo,CompanyRepo $companyRepo,PollDetailRepo $pollDetailRepo,PublicitiesDetailRepo $publicitiesDetailRepo,ProductDetailRepo $productDetailRepo,MediaRepo $mediaRepo,StoreRepo $storeRepo,ProductStoreRegionRepo $ProductStoreRegionRepo)
     {
         $this->ProductStoreRegionRepo = $ProductStoreRegionRepo;
         $this->storeRepo = $storeRepo;
@@ -48,6 +52,8 @@ class OperationsController extends BaseController{
         $this->auditRoadStoreRepo = $auditRoadStoreRepo;
         $this->companyStoreRepo = $companyStoreRepo;
         $this->visitStoreRepo = $visitStoreRepo;
+        $this->logProcessRepo = $logProcessRepo;
+        $this->marketDetailRepo = $marketDetailRepo;
 
         $this->urlBase = \App::make('url')->to('/');
         $this->urlPhotos = 'media/fotos/';
@@ -124,7 +130,7 @@ class OperationsController extends BaseController{
             }
 
         }
-dd('ok');
+
     }
 
     public function updateEjecutivoStore($archivo)
@@ -263,6 +269,12 @@ dd('ok');
         $objPublicityDetail->sod =1;
         $objPublicityDetail->photo = $foto;
         $objPublicityDetail->update();$sw=0;
+
+        $log_process = $this->logProcessRepo->getModel();
+        $poll_id = $pollSodPorMarca;
+        $user_id = Auth::id();
+        $this->insertLog($log_process,$poll_id,$user_id,'sod',$objPublicityDetail,0,0,0,$publicityDetail_id,'publicity_details','updated');
+
         if (count($sods)>0)
         {
             for($i = 0; $i < count($sods); ++$i) {
@@ -480,4 +492,30 @@ dd('ok');
         }
         dd('ok');
     }*/
+
+    public function insertPointMarket()
+    {
+        $valoresPost= Input::all();
+        $point_id = $valoresPost['point_id'];
+        $store_id = $valoresPost['store_id'];
+        $company_id = $valoresPost['company_id'];
+
+        $objMarketDetail = $this->marketDetailRepo->getModel();
+        $objMarketDetail->store_id=$store_id;
+        $objMarketDetail->point_id=$point_id;
+        $objMarketDetail->company_id=$company_id;
+        header('Access-Control-Allow-Origin: *');
+        header('Content-type: application/json');
+        if ($objMarketDetail->save())
+        {
+            $success = 1;
+            return  Response::json([ 'success'=> $success,'objMarketDetail'=>$objMarketDetail]);
+        }else{
+            $success = 0;
+            return  Response::json([ 'success'=> $success,'objMarketDetail'=>[]]);
+        }
+
+        
+        
+    }
 } 

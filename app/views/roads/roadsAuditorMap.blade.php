@@ -1,83 +1,174 @@
 @extends('layouts/adminLayout')
-<link rel="stylesheet" href="{{ asset('css/mapa-styles.css') }}">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<style>
-    .site-skintools {
-        top: 100px;
-    }
 
-    .site-skintools {
-        /*position: fixed;*/
-        position: absolute;
-        top: 100px;
-        right: 0px;
-        z-index: 2;
-        width: 380px;
-        color: #76838f;
-        -webkit-transition: all .3s;
-        -o-transition: all .3s;
-        transition: all .3s;
-    }
+@section('reportCSS')
+    <link rel="stylesheet" href="{{ asset('css/mapa-styles.css') }}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .site-skintools {
+            top: 100px;
+        }
 
-    .site-skintools .site-skintools-toggle {
-        position: absolute;
-        top: 0;
-        left: -34px;
-        padding: 10px 8px;
-        font-size: 18px;
-        cursor: pointer;
-        background-color: #fff;
-        border-color: rgba(0,0,0,.09);
-        border-style: solid;
-        border-width: 1px 0 1px 1px;
-        border-radius: 3px 0 0 3px;
-    }
+        .site-skintools {
+            /*position: fixed;*/
+            position: absolute;
+            top: 100px;
+            right: 0px;
+            z-index: 2;
+            width: 380px;
+            color: #76838f;
+            -webkit-transition: all .3s;
+            -o-transition: all .3s;
+            transition: all .3s;
+        }
 
-    .site-skintools .site-skintools-content {
-        height: 100%;
-        min-height: 100px;
-        padding: 5px 20px 20px;
-        background-color: #fff;
-        border: 1px solid rgba(0,0,0,.08);
-        border-radius: 0 3px 3px;
-    }
+        .site-skintools .site-skintools-toggle {
+            position: absolute;
+            top: 0;
+            left: -34px;
+            padding: 10px 8px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #fff;
+            border-color: rgba(0,0,0,.09);
+            border-style: solid;
+            border-width: 1px 0 1px 1px;
+            border-radius: 3px 0 0 3px;
+        }
 
-    .site-skintools-content h1 {
-       font-size: 1em;
-    }
-    .site-skintools-content h1 {
-        font-size: 1em;
-    }
-    .site-skintools-content #tiendas p {
-        font-size: 0.7em;
-        margin-bottom: 4px;
-        border-bottom: dashed 1px #464646;
-    }
-    .site-skintools-content  p {
-        font-size: 0.7em;
-        margin-bottom: 4px;
+        .site-skintools .site-skintools-content {
+            height: 100%;
+            min-height: 100px;
+            padding: 5px 20px 20px;
+            background-color: #fff;
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 0 3px 3px;
+        }
 
-    }
+        .site-skintools-content h1 {
+            font-size: 1em;
+        }
+        .site-skintools-content h1 {
+            font-size: 1em;
+        }
+        .site-skintools-content #tiendas p {
+            font-size: 0.7em;
+            margin-bottom: 4px;
+            border-bottom: dashed 1px #464646;
+        }
+        .site-skintools-content  p {
+            font-size: 0.7em;
+            margin-bottom: 4px;
 
-    #puntosEmpresa{
-        background-color: #f8f8f8;
-        padding: 2px 8px;
-        font-size: 12px;
-        margin-bottom: 10px;
-    }
+        }
 
-    #puntosEmpresa img{
+        #puntosEmpresa{
+            background-color: #f8f8f8;
+            padding: 2px 8px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
 
-        height: 30px;
-    }
+        #puntosEmpresa img{
+
+            height: 30px;
+        }
 
 
-    #guardar{
-        display: none;
-    }
-</style>
+        #guardar{
+            display: none;
+        }
 
+
+
+        .search-store-id .form-control {
+
+            height: 27px !important;
+            padding: 6px 12px !important;
+            font-size: 12px !important;
+        }
+
+        .search-store-id .input-group-addon {
+            padding: 4px 9px;
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 1;
+            color: #555;
+            text-align: center;
+            background-color: #eee;
+
+            border-radius: 0;
+        }
+
+        .search-store-id .btn {
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: 100;
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            padding: 6px 8px;
+            font-size: 12px;
+            line-height: 1;
+            border-radius: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* ----------------------SnakBar */
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #da1d13;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 30px;
+            font-size: 17px;
+        }
+
+
+
+        #snackbar.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {top: 0; opacity: 0;}
+            to {top: 30px; opacity: 1;}
+        }
+
+        @keyframes fadein {
+            from {top: 0; opacity: 0;}
+            to {top: 30px; opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeout {
+            from {top: 30px; opacity: 1;}
+            to {top: 0; opacity: 0;}
+        }
+
+        @keyframes fadeout {
+            from {top: 30px; opacity: 1;}
+            to {top: 0; opacity: 0;}
+        }
+    </style>
+
+@stop
 @section('content')
+    <div id="snackbar"></div>
     <div id="map_canvas">
         <!-- css3 preLoading-->
         <div class="mapPerloading"> <span>Cargando</span>
@@ -113,6 +204,19 @@
                             <div>
                                 <h1 id="total-pdv">Total PDVS </h1>
                             </div>
+
+                            <div class="search-store-id form-inline">
+
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                                        <input type="text" class="form-control" id="et-search" placeholder="Buscar por ID tienda">
+                                    </div>
+                                </div>
+                                <button type="submit" id="bt-search" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                <a href="#" target="_blank"><img src="" alt=""></a>
+                            </div>
                             <div id="puntosEmpresa">
                                 {{--<div class="checkbox">--}}
                                     {{--<label>--}}
@@ -141,8 +245,6 @@
             </div>
         </div>
     </div>
-
-
 
 
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
@@ -196,6 +298,7 @@
 @section('scripts_ajax')
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7tL9pwWTxpywD6zMUDw32yaml7lr9oi4"></script>
+{{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjhSjSyrRzynH9QNTub4Tlalkddj_5nys"></script>--}}
 
 {{--<script type="text/javascript" src="lib/mapa/infobox.js"></script>--}}
 {{ HTML::script('lib/mapa/infobox.js'); }}
@@ -259,6 +362,25 @@ $(document).ready(function() {
             total_puntos ++;
             var icono;
 
+            if (item.estudio_id == 6 && item.tipo == "Puesto de Mercado" ){
+                item.marker_point_web =  "{{ asset('/') }}" + "/rutas-auditor/img/maker_alicorp_mercado.png"
+            }
+
+
+            if (item.estudio_id == 30 ){
+                if(item.owner == 1  || item.owner == 2 ) {
+                    item.marker_point_web =  "{{ asset('/') }}" + "/rutas-auditor/img/maker_regalito.png"
+                }
+
+            }
+
+            if (item.company_id == 265 ) {
+                if(item.tipo == 'Mercado') {
+                        item.marker_point_web = 'http://ttaudit.com/rutas-auditor/img/maker_bayer_4.png';
+                } else {
+                    item.marker_point_web =  'http://ttaudit.com/rutas-auditor/img/maker_bayer_1.png';
+                }
+            }
             var marker = new google.maps.Marker({
                 id 		:i,
                 clickable 	:true,
@@ -300,15 +422,41 @@ $(document).ready(function() {
             var contador = 0;
             $.each(data, function(x, item2){
                 if(comp == item2.company_id){
+
                     contador ++ ;
-                    _campaign[i] = [item2.company_id,
-                                    item2.customer,
-                                    item2.customer_id,
-                                    item2.estudio,
-                                    item2.estudio_id,
-                                    item2.marker_point_web,
-                                    item2.campaigne,
-                                    contador];
+
+
+
+                    // if (item2.company_id == 265 ) {
+                    //     if(item2.tipo == 'Mercado') {
+                    //         _campaign[i] = [item2.company_id,
+                    //             item2.customer,
+                    //             item2.customer_id,
+                    //             item2.estudio,
+                    //             item2.estudio_id,
+                    //             'http://ttaudit.com/rutas-auditor/img/maker_bayer_4.png',
+                    //             item2.campaigne,
+                    //             contador];
+                    //     } else {
+                    //         _campaign[i] = [item2.company_id,
+                    //             item2.customer,
+                    //             item2.customer_id,
+                    //             item2.estudio,
+                    //             item2.estudio_id,
+                    //             'http://ttaudit.com/rutas-auditor/img/maker_bayer_1.png',
+                    //             item2.campaigne,
+                    //             contador];
+                    //     }
+                    // } else {
+                        _campaign[i] = [item2.company_id,
+                            item2.customer,
+                            item2.customer_id,
+                            item2.estudio,
+                            item2.estudio_id,
+                            item2.marker_point_web,
+                            item2.campaigne,
+                            contador];
+                    // }
 
                 }
             });
@@ -600,7 +748,7 @@ $(document).ready(function() {
             $("#guarda_ruta").prop( "disabled", true );
             $("#mensaje").text("Espere se está guardando la ruta ...");
             // console.log(date);
-            var response = $.post("{{ asset('/') }}" + 'saveRoute',  { nombreRuta : nombre, user_id : {{ $user[0]->id }} , id_store : data_store , date: date_ },
+            var response = $.post("{{ asset('/') }}" + 'ajaxInsertRoutingVisits',  { nombreRuta : nombre, user_id : {{ $user[0]->id }} , id_store : data_store , date: date_ },
                 function(data){
                     //if (item.latitud != 0 && item.longitud != 0){
                     //console.log(data);
@@ -613,7 +761,8 @@ $(document).ready(function() {
 
                 } );
 
-            response.fail(function() {
+            response.fail(function(e) {
+                console.log(e);
                 alert( "Error no pudo recibir respuesta del servidor" );
                 location.reload();
             })
@@ -641,6 +790,56 @@ $(document).ready(function() {
 
 
     });
+
+
+
+    //    Search Stores
+
+    $( "#bt-search" ).on( "click", function() {
+
+        var tienda = $( "#et-search" ).val();
+
+        console.log(tienda);
+        console.log(_markersCompany[0]);
+
+        if(tienda==""){
+            snackBar("Ingrese un código de tienda");
+        }
+
+        var counter_store_id = 0;
+        $.each(_markersCompany, function(i,item){
+            if(tienda == item[2] ){
+                item[0].setAnimation(google.maps.Animation.BOUNCE);
+                _map.panTo(item[0].getPosition());
+                counter_store_id ++;
+            } else{
+                item[0].setAnimation(null);
+
+            }
+        });
+        if(counter_store_id == 0){
+            snackBar('No se encontró el ID <b>' +  tienda + '</b>');
+        }
+
+
+//        snackBar("Holaaa");
+//
+    });
+
+    function snackBar(message){
+        var x = $("#snackbar");
+        //x.className = "show";
+
+        x.html(message);
+        x.addClass( "show" );
+        setTimeout(function(){
+            // x.className = x.className.replace("show", "");
+            // x.removeClass( "show" ).addClass( "" );
+            x.removeClass( "show" );
+        }, 3000);
+
+    }
+
 });
 
 

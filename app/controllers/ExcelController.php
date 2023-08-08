@@ -3530,7 +3530,8 @@ class ExcelController extends  BaseController {
                     "MONTO",
                     "ATENDIDO",
                     "LINEA DE CREDITO",
-                    "ZONA_SUP"
+                    "ZONA_SUP",
+                    "TIPO DE PAGO"
                 );
 
                 $sheet->prependRow(4, $headings);
@@ -3543,7 +3544,20 @@ class ExcelController extends  BaseController {
                     $row->setAlignment('center');
                     $row->setFontSize(10);
                 });
-                $sheet->setAutoFilter('A4:AE' . count($data));
+                $sheet->getColumnDimension('B')->setVisible(false);
+                $sheet->getColumnDimension('C')->setVisible(false);
+                $sheet->getColumnDimension('H')->setVisible(false);
+                $sheet->getColumnDimension('K')->setVisible(false);
+                $sheet->getColumnDimension('M')->setVisible(false);
+                $sheet->getColumnDimension('N')->setVisible(false);
+                $sheet->getColumnDimension('P')->setVisible(false);
+                $sheet->getColumnDimension('R')->setVisible(false);
+                $sheet->getColumnDimension('S')->setVisible(false);
+                $sheet->getColumnDimension('V')->setVisible(false);
+                $sheet->getColumnDimension('X')->setVisible(false);
+                $sheet->getColumnDimension('AD')->setVisible(false);
+                $sheet->getColumnDimension('AE')->setVisible(false);
+                $sheet->setAutoFilter('A4:AF' . count($data));
                 $sheet->mergeCells('N3:Q3');
 
             });
@@ -4281,7 +4295,7 @@ class ExcelController extends  BaseController {
         $mytime = Carbon\Carbon::now();
         $fecha= $mytime->toDateTimeString();
         header('Access-Control-Allow-Origin: *');
-        Excel::create('Visibilidad Bayer Transferencista '.$company_id."-".$fecha, function($excel) use ($tipo, $company_id, $visit_id,$regular) {
+        Excel::create('Visibilidad Bayer Transferencista '.$regular.'-'.$company_id."-".$fecha, function($excel) use ($tipo, $company_id, $visit_id,$regular) {
             $excel->setTitle('Presencia POP '.$regular);
             if ($regular==1){
 
@@ -5037,6 +5051,7 @@ class ExcelController extends  BaseController {
                         /*561*/
                         "Respuesta",//U
                         "Foto",//V
+                        "Comentario",
 
                         "Base",//W
 
@@ -5061,6 +5076,7 @@ class ExcelController extends  BaseController {
                         /*563*/
                         "Respuesta",//AM
                         "Foto",//AN
+                        "Comentario",
 
                         "Base",//AO
 
@@ -5084,6 +5100,7 @@ class ExcelController extends  BaseController {
                         /*565*/
                         "Respuesta",//BC
                         "Foto",//BD
+                        "Comentario",
 
                         "Base",//BE
 
@@ -5131,15 +5148,15 @@ class ExcelController extends  BaseController {
                             $sheet->getCell('Q' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
 
-                        $url_foto =trim($sheet->getCell('AG' . ($i + 4))->getValue());
+                        $url_foto =trim($sheet->getCell('AH' . ($i + 4))->getValue());
                         if(strlen($url_foto)>0) {
-                            $sheet->getCell('AG' . ($i + 4))->setValue("Foto");
-                            $sheet->getCell('AG' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                            $sheet->getCell('AH' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('AH' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
-                        $url_foto =trim($sheet->getCell('AI' . ($i + 4))->getValue());
+                        $url_foto =trim($sheet->getCell('AJ' . ($i + 4))->getValue());
                         if(strlen($url_foto)>0) {
-                            $sheet->getCell('AI' . ($i + 4))->setValue("Foto");
-                            $sheet->getCell('AI' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                            $sheet->getCell('AJ' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('AJ' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
                         $url_foto =trim($sheet->getCell('AY' . ($i + 4))->getValue());
                         if(strlen($url_foto)>0){
@@ -5152,12 +5169,17 @@ class ExcelController extends  BaseController {
                             $sheet->getCell('BA' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
 
-                        $url_foto =trim($sheet->getCell('BP' . ($i + 4))->getValue());
+                        $url_foto =trim($sheet->getCell('BC' . ($i + 4))->getValue());
                         if(strlen($url_foto)>0) {
-                            $sheet->getCell('BP' . ($i + 4))->setValue("Foto");
-                            $sheet->getCell('BP' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                            $sheet->getCell('BC' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('BC' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
 
+                        $url_foto =trim($sheet->getCell('BS' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('BS' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('BS' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
                     }
                     $sheet->setAutoFilter('A4:BP'.count($data));
                     $sheet->mergeCells('N3:O3');
@@ -5170,7 +5192,7 @@ class ExcelController extends  BaseController {
                         $cell->setBorder('solid', 'none', 'none', 'solid');
                     });
                     /*561*/
-                    $sheet->mergeCells('P2:AG2');
+                    $sheet->mergeCells('P2:AH2');
                     $sheet->cell('P2', function($cell) {
                         $cell->setValue(' CORPOREO ');
                         $cell->setBackground('#89D329');
@@ -5180,28 +5202,18 @@ class ExcelController extends  BaseController {
                         // Set all borders (top, right, bottom, left)
                         $cell->setBorder('solid', 'none', 'none', 'solid');
                     });
-                    $sheet->mergeCells('P3:Q3');
+                    $sheet->mergeCells('P3:R3');
                     $sheet->cell('P3', function($cell) {
                         $cell->setValue('¿Existe Material POP Corpóreos?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('P3:Q3', function($cells) {
+                    $sheet->cells('P3:R3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->cell('R3', function($cell) {
-                        $cell->setValue(' Bayer');
-                        $cell->setFontColor('#fefffe');
-                        $cell->setAlignment('center');
-                        $cell->setBackground('#0e5a97');
-                    });
-                    $sheet->cells('R3', function($cells) {
-                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
-                    });
-
                     $sheet->cell('S3', function($cell) {
-                        $cell->setValue(' ¿Funciona luz Led? ');
+                        $cell->setValue(' Bayer');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
@@ -5210,34 +5222,44 @@ class ExcelController extends  BaseController {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
 
-                    $sheet->mergeCells('T3:W3');
                     $sheet->cell('T3', function($cell) {
+                        $cell->setValue(' ¿Funciona luz Led? ');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('T3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                    $sheet->mergeCells('U3:X3');
+                    $sheet->cell('U3', function($cell) {
                         $cell->setValue('¿Es visible material POP Corpóreos?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('T3:W3', function($cells) {
+                    $sheet->cells('U3:X3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('X3:AA3');
-                    $sheet->cell('X3', function($cell) {
+                    $sheet->mergeCells('Y3:AB3');
+                    $sheet->cell('Y3', function($cell) {
                         $cell->setValue('¿Cuál es el estado del material POP Corpóreos?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('X3:AA3', function($cells) {
+                    $sheet->cells('Y3:AB3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('AB3:AG3');
-                    $sheet->cell('AB3', function($cell) {
+                    $sheet->mergeCells('AC3:AH3');
+                    $sheet->cell('AC3', function($cell) {
                         $cell->setValue(' ¿Realizó cambios en material Corpóreos? ');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AB3:AG3', function($cells) {
+                    $sheet->cells('AC3:AH3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });/*563*/
                     if ($company_id<195){
@@ -5245,8 +5267,8 @@ class ExcelController extends  BaseController {
                     }else{
                         $nombrePublicity563 = "DISPENSADOR";
                     }
-                    $sheet->mergeCells('AH2:AY2');
-                    $sheet->cell('AH2', function($cell) use ($nombrePublicity563) {
+                    $sheet->mergeCells('AI2:BA2');
+                    $sheet->cell('AI2', function($cell) use ($nombrePublicity563) {
                         $cell->setValue(' '.$nombrePublicity563.' ');
                         $cell->setBackground('#89D329');
                         $cell->setAlignment('center');
@@ -5256,57 +5278,57 @@ class ExcelController extends  BaseController {
                         $cell->setBorder('solid', 'none', 'none', 'solid');
                     });
 
-                    $sheet->mergeCells('AH3:AI3');
-                    $sheet->cell('AH3', function($cell) use ($nombrePublicity563) {
+                    $sheet->mergeCells('AI3:AK3');
+                    $sheet->cell('AI3', function($cell) use ($nombrePublicity563) {
                         $cell->setValue('¿Existe Material POP '.$nombrePublicity563."?");
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AH3:AI3', function($cells) {
+                    $sheet->cells('AI3:AK3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->cell('AJ3', function($cell) {
+                    $sheet->cell('AL3', function($cell) {
                         $cell->setValue(' Bayer');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AJ3', function($cells) {
+                    $sheet->cells('AL3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('AK3:AN3');
-                    $sheet->cell('AK3', function($cell) use ($nombrePublicity563) {
+                    $sheet->mergeCells('AM3:AP3');
+                    $sheet->cell('AM3', function($cell) use ($nombrePublicity563) {
                         $cell->setValue('¿Es visible material POP '.$nombrePublicity563.'?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AK3:AN3', function($cells) {
+                    $sheet->cells('AM3:AP3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('AO3:AS3');
-                    $sheet->cell('AO3', function($cell) use ($nombrePublicity563) {
+                    $sheet->mergeCells('AQ3:AU3');
+                    $sheet->cell('AQ3', function($cell) use ($nombrePublicity563) {
                         $cell->setValue('¿Cuál es el estado del material POP '.$nombrePublicity563.'?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AO3:AS3', function($cells) {
+                    $sheet->cells('AQ3:AU3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('AT3:AY3');
-                    $sheet->cell('AT3', function($cell) use ($nombrePublicity563) {
+                    $sheet->mergeCells('AV3:BA3');
+                    $sheet->cell('AV3', function($cell) use ($nombrePublicity563) {
                         $cell->setValue(' ¿Realizó cambios en material '.$nombrePublicity563.'?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AT3:AY3', function($cells) {
+                    $sheet->cells('AV3:BA3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });/*565*/
-                    $sheet->mergeCells('AZ2:BP2');
-                    $sheet->cell('AZ2', function($cell) {
+                    $sheet->mergeCells('BB2:BS2');
+                    $sheet->cell('BB2', function($cell) {
                         $cell->setValue(' PANELES ');
                         $cell->setBackground('#89D329');
                         $cell->setAlignment('center');
@@ -5316,62 +5338,62 @@ class ExcelController extends  BaseController {
                         $cell->setBorder('solid', 'none', 'none', 'solid');
                     });
 
-                    $sheet->mergeCells('AZ3:BA3');
-                    $sheet->cell('AZ3', function($cell) {
+                    $sheet->mergeCells('BB3:BD3');
+                    $sheet->cell('BB3', function($cell) {
                         $cell->setValue('¿Existe Material POP Paneles?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AZ3:BA3', function($cells) {
+                    $sheet->cells('BA3:BD3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->cell('BB3', function($cell) {
+                    $sheet->cell('BE3', function($cell) {
                         $cell->setValue(' Bayer');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BB3', function($cells) {
+                    $sheet->cells('BE3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->cell('BC3', function($cell) {
+                    $sheet->cell('BF3', function($cell) {
                         $cell->setValue(' ¿Funciona luz Led? ');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BC3', function($cells) {
+                    $sheet->cells('BF3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('BD3:BG3');
-                    $sheet->cell('BD3', function($cell) {
+                    $sheet->mergeCells('BG3:BJ3');
+                    $sheet->cell('BG3', function($cell) {
                         $cell->setValue('¿Es visible material POP Paneles?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BD3:BG3', function($cells) {
+                    $sheet->cells('BG3:BJ3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('BH3:BJ3');
-                    $sheet->cell('BH3', function($cell) {
+                    $sheet->mergeCells('BK3:BM3');
+                    $sheet->cell('BK3', function($cell) {
                         $cell->setValue(' ¿Cuál es el estado del material POP Paneles?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BH3:BJ3', function($cells) {
+                    $sheet->cells('BK3:BM3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('BK3:BP3');
-                    $sheet->cell('BK3', function($cell) {
+                    $sheet->mergeCells('BN3:BS3');
+                    $sheet->cell('BN3', function($cell) {
                         $cell->setValue(' ¿Realizó cambios en material Paneles? ');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BK3:BP3', function($cells) {
+                    $sheet->cells('BN3:BS3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
 
@@ -5410,11 +5432,13 @@ class ExcelController extends  BaseController {
 
                         "Base",
 
+                        //visible
                         "Respuesta",
                         "Mala Ubicación",
                         "Contaminado",
                         "Comentario",
 
+                        //estado
                         "Respuesta",
                         "Imagen Deteriorada",
                         "Decolorado",
@@ -5441,6 +5465,7 @@ class ExcelController extends  BaseController {
                         "Respuesta",
                         "Imagen Deteriorada",
                         "Decolorado",
+                        "Vacio",
                         "Comentario",
 
                         "Respuesta",
@@ -5506,25 +5531,25 @@ class ExcelController extends  BaseController {
                             $sheet->getCell('AI' . ($i + 4))->setValue("Foto");
                             $sheet->getCell('AI' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
-                        $url_foto =trim($sheet->getCell('AX' . ($i + 4))->getValue());
+                        $url_foto =trim($sheet->getCell('AY' . ($i + 4))->getValue());
                         if(strlen($url_foto)>0){
-                            $sheet->getCell('AX' . ($i + 4))->setValue("Foto");
-                            $sheet->getCell('AX' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                            $sheet->getCell('AY' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('AY' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
-                        $url_foto =trim($sheet->getCell('AZ' . ($i + 4))->getValue());
+                        $url_foto =trim($sheet->getCell('BA' . ($i + 4))->getValue());
                         if(strlen($url_foto)>0){
-                            $sheet->getCell('AZ' . ($i + 4))->setValue("Foto");
-                            $sheet->getCell('AZ' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                            $sheet->getCell('BA' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('BA' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
 
-                        $url_foto =trim($sheet->getCell('BN' . ($i + 4))->getValue());
+                        $url_foto =trim($sheet->getCell('BO' . ($i + 4))->getValue());
                         if(strlen($url_foto)>0) {
-                            $sheet->getCell('BN' . ($i + 4))->setValue("Foto");
-                            $sheet->getCell('BN' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                            $sheet->getCell('BO' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('BO' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
                         }
 
                     }
-                    $sheet->setAutoFilter('A4:BN'.count($data));
+                    $sheet->setAutoFilter('A4:BO'.count($data));
                     $sheet->mergeCells('N3:O3');
 
                     $sheet->cell('N3', function($cell) {
@@ -5596,10 +5621,12 @@ class ExcelController extends  BaseController {
                     });/*562*/
                     if ($company_id<195){
                         $nombrePublicity562 = "FICTICIO";
+                        $sheet->mergeCells('AH2:AX2');
                     }else{
                         $nombrePublicity562 = "LATERALES";
+                        $sheet->mergeCells('AH2:AY2');
                     }
-                    $sheet->mergeCells('AH2:AX2');
+
                     $sheet->cell('AH2', function($cell) use ($nombrePublicity562) {
                         $cell->setValue(' '.$nombrePublicity562.' ');
                         $cell->setBackground('#89D329');
@@ -5641,29 +5668,29 @@ class ExcelController extends  BaseController {
                     });
 
 
-                    $sheet->mergeCells('AO3:AR3');
+                    $sheet->mergeCells('AO3:AS3');
                     $sheet->cell('AO3', function($cell) use ($nombrePublicity562) {
                         $cell->setValue('¿Cuál es el estado del material POP '.$nombrePublicity562.'?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AO3:AR3', function($cells) {
+                    $sheet->cells('AO3:AS3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
 
-                    $sheet->mergeCells('AS3:AX3');
-                    $sheet->cell('AS3', function($cell) use ($nombrePublicity562) {
+                    $sheet->mergeCells('AT3:AY3');
+                    $sheet->cell('AT3', function($cell) use ($nombrePublicity562) {
                         $cell->setValue(' ¿Realizó cambios en material '.$nombrePublicity562.'?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AS3:AX3', function($cells) {
+                    $sheet->cells('AT3:AY3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });/*565*/
-                    $sheet->mergeCells('AY2:BN2');
-                    $sheet->cell('AY2', function($cell) {
+                    $sheet->mergeCells('AZ2:BO2');
+                    $sheet->cell('AZ2', function($cell) {
                         $cell->setValue(' VINILES DE MESÓN ');
                         $cell->setBackground('#89D329');
                         $cell->setAlignment('center');
@@ -5673,56 +5700,515 @@ class ExcelController extends  BaseController {
                         $cell->setBorder('solid', 'none', 'none', 'solid');
                     });
 
-                    $sheet->mergeCells('AY3:AZ3');
-                    $sheet->cell('AY3', function($cell) {
+                    $sheet->mergeCells('AZ3:BA3');
+                    $sheet->cell('AZ3', function($cell) {
                         $cell->setValue(' ¿Existe Material POP Viniles de Mesón?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('AY3:AZ3', function($cells) {
+                    $sheet->cells('AZ3:BA3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
 
-                    $sheet->cell('BA3', function($cell) {
+                    $sheet->cell('BB3', function($cell) {
                         $cell->setValue(' Bayer');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BA3', function($cells) {
+                    $sheet->cells('BB3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
 
-                    $sheet->mergeCells('BB3:BE3');
-                    $sheet->cell('BB3', function($cell) {
+                    $sheet->mergeCells('BC3:BF3');
+                    $sheet->cell('BC3', function($cell) {
                         $cell->setValue('¿Es visible material POP Viniles de Mesón?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BB3:BE3', function($cells) {
+                    $sheet->cells('BC3:BF3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
 
-                    $sheet->mergeCells('BF3:BH3');
-                    $sheet->cell('BF3', function($cell) {
+                    $sheet->mergeCells('BG3:BI3');
+                    $sheet->cell('BG3', function($cell) {
                         $cell->setValue('¿Cuál es el estado del material POP Viniles de Mesón?');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BF3:BH3', function($cells) {
+                    $sheet->cells('BG3:BI3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
-                    $sheet->mergeCells('BI3:BN3');
-                    $sheet->cell('BI3', function($cell) {
+                    $sheet->mergeCells('BJ3:BO3');
+                    $sheet->cell('BJ3', function($cell) {
                         $cell->setValue(' ¿Realizó cambios en material Viniles de Mesón? ');
                         $cell->setFontColor('#fefffe');
                         $cell->setAlignment('center');
                         $cell->setBackground('#0e5a97');
                     });
-                    $sheet->cells('BI3:BN3', function($cells) {
+                    $sheet->cells('BJ3:BO3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                });
+            }
+            if ($regular==5){
+                $excel->sheet('Presencia POP REGULARES 2', function($sheet) use ($tipo, $visit_id, $company_id) {
+                    $sqlcoord="CALL sp_bayert_visibilidad(".$company_id.",".$visit_id.",".$tipo.",2,0,0,". Auth::user()->id .")";
+                    $stores = DB::select($sqlcoord);
+                    $data = array();
+                    $count=0;
+                    foreach ($stores as $result) {
+                        $data[] = (array)$result;
+                        $count ++ ;
+                    }
+                    $headings = array(
+                        "ID",
+                        "TIPO",
+                        "CLIENTE",
+                        "NOMBRE",
+                        "DIRECCIÓN",
+                        "DISTRITO",
+                        "REGION",
+                        "EJECUTIVO",
+                        "UBIGEO",
+                        "AUDITOR",
+                        "FECHA",
+                        "HORA",
+                        "VISITA",
+                        "Respuesta",
+                        "Foto",
+
+                        /*566*/
+                        "Respuesta",
+                        "Foto",
+                        "Comentario",
+
+                        "Base",
+
+                        //visible
+                        "Respuesta",
+                        "Mala Ubicación",
+                        "Contaminado",
+                        "Comentario",
+
+                        //estado
+                        "Respuesta",
+                        "Imagen Deteriorada",
+                        "Decolorado",
+                        "Roto",
+                        "Comentario",
+
+                        "Respuesta",
+                        "Lo Descontamine",
+                        "Mejore Ubicación",
+                        "Otros",
+                        "Comentario",
+                        "Foto",
+                        /*562*/
+                        "Respuesta",
+                        "Foto",
+                        "Comentario",
+
+                        "Base",
+
+                        "Respuesta",
+                        "Mala Ubicación",
+                        "Contaminado",
+                        "Comentario",
+
+                        "Respuesta",
+                        "Imagen Deteriorada",
+                        "Decolorado",
+                        "Vacio",
+                        "Comentario",
+
+                        "Respuesta",
+                        "Lo Descontamine",
+                        "Mejore Ubicación",
+                        "Otros",
+                        "Comentario",
+                        "Foto",
+                        /*567*/
+                        "Respuesta",
+                        "Foto",
+                        "Comentario",
+
+                        "Base",
+
+                        "Respuesta",
+                        "Mala Ubicación",
+                        "Contaminado",
+                        "Comentario",
+
+                        "Respuesta",
+                        "Imagen Deteriorada",
+                        "Comentario",
+
+                        "Respuesta",
+                        "Lo Descontamine",
+                        "Mejore Ubicación",
+                        "Otros",
+                        "Comentario",
+                        "Foto",
+                        /*996*/
+                        "Respuesta",
+                        "Foto",
+                        "Comentario",
+
+                        "Base",
+
+                        "Respuesta",
+                        "Mala Ubicación",
+                        "Contaminado",
+                        "Comentario",
+
+                        "Respuesta",
+                        "Deteriorado",
+                        "Roto",
+                        "Vacio",
+                        "Comentario",
+
+                        "Respuesta",
+                        "Lo Descontamine",
+                        "Mejore Ubicación",
+                        "Otros",
+                        "Comentario",
+                        "Foto"
+                    );
+
+                    $sheet->prependRow(4, $headings);
+                    $sheet->getCell('A1')->setValue($count);
+                    $sheet->fromArray($data,null,'A5',false,false);
+                    $sheet->row(4, function($row) {
+                        $row->setFontColor('#fefffe');
+                        $row->setBackground('#2196F3');
+                        $row->setFontWeight('bold');
+                        $row->setAlignment('center');
+                        $row->setFontSize(10);
+                    });
+                    for ($i = 1; $i <= count($data); $i++) {
+
+                        $url_foto =trim($sheet->getCell('O' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('O' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('O' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+
+                        $url_foto =trim($sheet->getCell('Q' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('Q' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('Q' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+
+                        $url_foto =trim($sheet->getCell('AH' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('AH' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('AH' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+                        $url_foto =trim($sheet->getCell('AJ' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('AJ' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('AJ' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+
+                        $url_foto =trim($sheet->getCell('BA' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0){
+                            $sheet->getCell('BA' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('BA' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+
+                        $url_foto =trim($sheet->getCell('BC' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('BC' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('BC' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+
+                        $url_foto =trim($sheet->getCell('BR' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('BR' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('BR' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+
+                        $url_foto =trim($sheet->getCell('BT' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('BT' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('BT' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+                        $url_foto =trim($sheet->getCell('CK' . ($i + 4))->getValue());
+                        if(strlen($url_foto)>0) {
+                            $sheet->getCell('CK' . ($i + 4))->setValue("Foto");
+                            $sheet->getCell('CK' . ($i + 4))->getHyperlink()->setUrl($url_foto)->setTooltip('Abrir imagen');
+                        }
+
+                    }
+                    $sheet->setAutoFilter('A4:CG'.count($data));
+                    $sheet->mergeCells('N3:O3');
+
+                    $sheet->cell('N3', function($cell) {
+                        $cell->setValue('¿ Se encuentra abierto el punto ?');
+                        $cell->setBackground('#0e5a97');
+                        $cell->setAlignment('center');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+                    /*566*/
+                    $sheet->mergeCells('P2:AH2');
+                    $sheet->cell('P2', function($cell) {
+                        $cell->setValue(' VITRINAS ');
+                        $cell->setBackground('#89D329');
+                        $cell->setAlignment('center');
+                        $cell->setFontWeight('bold');
+                        $cell->setFontColor('#FFFFFF');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+                    $sheet->mergeCells('P3:R3');
+                    $sheet->cell('P3', function($cell) {
+                        $cell->setValue('¿Existe Material POP Vitrinas?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('P3:R3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+                    $sheet->cell('S3', function($cell) {
+                        $cell->setValue('Bayer');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('S3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+                    $sheet->mergeCells('T3:W3');
+                    $sheet->cell('T3', function($cell) {
+                        $cell->setValue('¿Es visible material POP Vitrinas?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('T3:W3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+                    $sheet->mergeCells('X3:AB3');
+                    $sheet->cell('X3', function($cell) {
+                        $cell->setValue('¿Cuál es el estado del material POP Vitrinas?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('X3:AB3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+                    $sheet->mergeCells('AC3:AH3');
+                    $sheet->cell('AC3', function($cell) {
+                        $cell->setValue(' ¿Realizó cambios en material Vitrinas? ');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('AC3:AH3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });/*562*/
+                    if ($company_id<195){
+                        $nombrePublicity562 = "FICTICIO";
+                        $sheet->mergeCells('AH2:AX2');
+                    }else{
+                        $nombrePublicity562 = "LATERALES";
+                        $sheet->mergeCells('AI2:BA2');
+                    }
+
+                    $sheet->cell('AI2', function($cell) use ($nombrePublicity562) {
+                        $cell->setValue(' '.$nombrePublicity562.' ');
+                        $cell->setBackground('#89D329');
+                        $cell->setAlignment('center');
+                        $cell->setFontWeight('bold');
+                        $cell->setFontColor('#FFFFFF');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+
+                    $sheet->mergeCells('AI3:AK3');
+                    $sheet->cell('AI3', function($cell) use ($nombrePublicity562) {
+                        $cell->setValue('¿Existe Material POP '.$nombrePublicity562.'?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('AI3:AK3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+                    $sheet->cell('AL3', function($cell) {
+                        $cell->setValue(' Bayer');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('AL3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+                    $sheet->mergeCells('AM3:AP3');
+                    $sheet->cell('AM3', function($cell) use ($nombrePublicity562) {
+                        $cell->setValue('¿Es visible material POP '.$nombrePublicity562.'?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('AM3:AP3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+
+                    $sheet->mergeCells('AQ3:AU3');
+                    $sheet->cell('AQ3', function($cell) use ($nombrePublicity562) {
+                        $cell->setValue('¿Cuál es el estado del material POP '.$nombrePublicity562.'?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('AQ3:AU3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                    $sheet->mergeCells('AV3:BA3');
+                    $sheet->cell('AV3', function($cell) use ($nombrePublicity562) {
+                        $cell->setValue(' ¿Realizó cambios en material '.$nombrePublicity562.'?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('AV3:BA3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });/*565*/
+                    $sheet->mergeCells('BB2:BR2');
+                    $sheet->cell('BB2', function($cell) {
+                        $cell->setValue(' VINILES DE MESÓN ');
+                        $cell->setBackground('#89D329');
+                        $cell->setAlignment('center');
+                        $cell->setFontWeight('bold');
+                        $cell->setFontColor('#FFFFFF');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+
+                    $sheet->mergeCells('BB3:BD3');
+                    $sheet->cell('BB3', function($cell) {
+                        $cell->setValue(' ¿Existe Material POP Viniles de Mesón?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('BB3:BD3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                    $sheet->cell('BE3', function($cell) {
+                        $cell->setValue(' Bayer');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('BE3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                    $sheet->mergeCells('BF3:BI3');
+                    $sheet->cell('BF3', function($cell) {
+                        $cell->setValue('¿Es visible material POP Viniles de Mesón?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('BF3:BI3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                    $sheet->mergeCells('BJ3:BL3');
+                    $sheet->cell('BJ3', function($cell) {
+                        $cell->setValue('¿Cuál es el estado del material POP Viniles de Mesón?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('BJ3:BL3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+                    $sheet->mergeCells('BM3:BR3');
+                    $sheet->cell('BM3', function($cell) {
+                        $cell->setValue(' ¿Realizó cambios en material Viniles de Mesón? ');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('BM3:BR3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });/*996*/
+                    $sheet->mergeCells('BS2:CK2');
+                    $sheet->cell('BS2', function($cell) {
+                        $cell->setValue(' PEDESTAL ');
+                        $cell->setBackground('#89D329');
+                        $cell->setAlignment('center');
+                        $cell->setFontWeight('bold');
+                        $cell->setFontColor('#FFFFFF');
+                        // Set all borders (top, right, bottom, left)
+                        $cell->setBorder('solid', 'none', 'none', 'solid');
+                    });
+
+                    $sheet->mergeCells('BS3:BU3');
+                    $sheet->cell('BS3', function($cell) {
+                        $cell->setValue(' ¿Existe Material POP Pedestal?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('BS3:BU3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                    $sheet->cell('BV3', function($cell) {
+                        $cell->setValue(' Bayer');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('BV3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                    $sheet->mergeCells('BW3:BZ3');
+                    $sheet->cell('BW3', function($cell) {
+                        $cell->setValue('¿Es visible material POP Pedestal?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('BW3:BZ3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+
+                    $sheet->mergeCells('CA3:CE3');
+                    $sheet->cell('CA3', function($cell) {
+                        $cell->setValue('¿Cuál es el estado del material POP Pedestal?');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('CA3:CE3', function($cells) {
+                        $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    });
+                    $sheet->mergeCells('CF3:CK3');
+                    $sheet->cell('CF3', function($cell) {
+                        $cell->setValue(' ¿Realizó cambios en material Pedestal? ');
+                        $cell->setFontColor('#fefffe');
+                        $cell->setAlignment('center');
+                        $cell->setBackground('#0e5a97');
+                    });
+                    $sheet->cells('CF3:CK3', function($cells) {
                         $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     });
 
@@ -5736,7 +6222,7 @@ class ExcelController extends  BaseController {
         $mytime = Carbon\Carbon::now();
         $fecha= $mytime->toDateTimeString();
         header('Access-Control-Allow-Origin: *');
-        Excel::create('Preguntas Bayer Transferencista'.$company_id."-".$fecha."-".$desde."-".$hasta, function($excel) use ($tipo, $company_id, $visit_id,$desde,$hasta) {
+        Excel::create('Preguntas Cadenas Bayer Transferencista'.$company_id."-".$fecha."-".$desde."-".$hasta, function($excel) use ($tipo, $company_id, $visit_id,$desde,$hasta) {
             $excel->setTitle('Preguntas Bayer');
             $excel->sheet('CADENAS '."-".$desde."-".$hasta, function($sheet) use ($tipo, $visit_id, $company_id,$desde,$hasta) {
                 $sqlcoord="CALL sp_bayert_visibilidad(".$company_id.",".$visit_id.",".$tipo.",1,".$desde.",".$hasta.",". Auth::user()->id .")";
@@ -5889,6 +6375,9 @@ class ExcelController extends  BaseController {
                     $cell->setAlignment('center');
                     $cell->setBackground('#0e5a97');
                 });
+                $sheet->getColumnDimension('O')->setVisible(false);
+                $sheet->getColumnDimension('P')->setVisible(false);
+                $sheet->getColumnDimension('Q')->setVisible(false);
 
             });
         })->export('xls',['Set-Cookie'=>'fileDownload=true; path=/']);
@@ -5897,7 +6386,7 @@ class ExcelController extends  BaseController {
         $mytime = Carbon\Carbon::now();
         $fecha= $mytime->toDateTimeString();
         header('Access-Control-Allow-Origin: *');
-        Excel::create('Preguntas Bayer Transferencista'.$company_id."-".$fecha."-".$desde."-".$hasta, function($excel) use ($tipo, $company_id, $visit_id,$desde,$hasta) {
+        Excel::create('Preguntas Tradicional Bayer Transferencista'.$company_id."-".$fecha."-".$desde."-".$hasta, function($excel) use ($tipo, $company_id, $visit_id,$desde,$hasta) {
             $excel->setTitle('Preguntas Bayer');
             $excel->sheet('TRADICIONAL '."-".$desde."-".$hasta, function($sheet) use ($tipo, $visit_id, $company_id,$desde,$hasta) {
                 $sqlcoord="CALL sp_bayert_visibilidad(".$company_id.",".$visit_id.",".$tipo.",2,".$desde.",".$hasta.",". Auth::user()->id .")";
@@ -7672,5 +8161,110 @@ class ExcelController extends  BaseController {
             });
 
         })->export('xls');
+    }
+
+    public function preguntasOcultasTradicional($company_id,$visit_id,$desde,$hasta){
+        $mytime = Carbon\Carbon::now();
+        $fecha= $mytime->toDateTimeString();
+        header('Access-Control-Allow-Origin: *');
+        Excel::create('Preguntas Ocultas Bayer Transferencista'.$company_id."-".$fecha."-".$desde."-".$hasta, function($excel) use ( $company_id, $visit_id,$desde,$hasta) {
+            $excel->setTitle('Preguntas Bayer');
+            $excel->sheet('TRADICIONAL '."-".$desde."-".$hasta, function($sheet) use ( $visit_id, $company_id,$desde,$hasta) {
+                $sqlcoord="CALL sp_bayert_preguntas_ocultas(".$company_id.",".$desde.",".$hasta.",". Auth::user()->id.",".$visit_id .")";
+                $stores = DB::select($sqlcoord);
+                $data = array();
+                $count=0;
+                foreach ($stores as $result) {
+                    $data[] = (array)$result;
+                    $count ++ ;
+                }
+                $headings = array(
+                    "ID",
+                    "TIPO",
+                    "ZONA",
+                    "NOMBRE",
+                    "DIRECCIÓN",
+                    "DISTRITO",
+                    "REGION",
+                    "UBIGEO",
+                    "EJECUTIVO",
+                    "AUDITOR",
+                    "FECHA",
+                    "HORA",
+                    "VISITA",
+                    "Aniversario Local",
+                    "Contacto Principal",
+                    "Celular",//AC
+                    "Telefono",
+                    "Email",//AD
+                    "Fecha Nacimiento",//AE
+                    "Cargo",//AF
+                    "Quimica",//AF
+                    "Dimexa",//AF
+                    "Alfaro",
+                    "Deco",
+                    "Farmacos del Norte",
+                    "Quimica",//AF
+                    "Dimexa",//AF
+                    "Alfaro",
+                    "Deco",
+                    "Farmacos del Norte"
+                );
+
+                $sheet->prependRow(4, $headings);
+                $sheet->getCell('A1')->setValue($count);
+                $sheet->fromArray($data,null,'A5',false,false);
+                $sheet->row(4, function($row) {
+                    $row->setFontColor('#fefffe');
+                    $row->setBackground('#2196F3');
+                    $row->setFontWeight('bold');
+                    $row->setAlignment('center');
+                    $row->setFontSize(10);
+                });
+
+
+                $sheet->setAutoFilter('A4:X'.count($data));
+                $sheet->mergeCells('O3:T3');
+
+                $sheet->cell('O3', function($cell) {
+                    $cell->setValue(' CONTACTO');
+                    $cell->setBackground('#0e5a97');
+                    $cell->setAlignment('center');
+                    $cell->setFontColor('#fefffe');
+                    $cell->setBorder('solid', 'none', 'none', 'solid');
+                });
+                $sheet->cells('O3:T3', function($cells) {
+                    $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                });
+
+
+                $sheet->mergeCells('U3:Y3');
+
+                $sheet->cell('U3', function($cell) {
+                    $cell->setValue(' Linea de Credito total soles ');
+                    $cell->setBackground('#0e5a97');
+                    $cell->setAlignment('center');
+                    $cell->setFontColor('#fefffe');
+                    $cell->setBorder('solid', 'none', 'none', 'solid');
+                });
+                $sheet->cells('U3:Y3', function($cells) {
+                    $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                });
+
+                $sheet->mergeCells('Z3:AD3');
+
+                $sheet->cell('Z3', function($cell) {
+                    $cell->setValue(' Plazo de Pago Distribuidores ');
+                    $cell->setBackground('#0e5a97');
+                    $cell->setAlignment('center');
+                    $cell->setFontColor('#fefffe');
+                    $cell->setBorder('solid', 'none', 'none', 'solid');
+                });
+                $sheet->cells('Z3:AD3', function($cells) {
+                    $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                });
+
+            });
+        })->export('xls',['Set-Cookie'=>'fileDownload=true; path=/']);
     }
 }

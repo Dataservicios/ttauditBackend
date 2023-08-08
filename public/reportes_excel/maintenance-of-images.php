@@ -13,17 +13,20 @@ $contador_file = 0;
 $total_rows = null;
 
 $query = "select archivo from  medias"  ;
+
 $resEmp = mysql_query($query, $conexion_db) or die(mysql_error());
 $total_rows = mysql_num_rows($resEmp);
 $rowEmp = mysql_fetch_assoc($resEmp) ;
 
 $fotos_db = null;
+
 while ($result = mysql_fetch_assoc($resEmp)) {
     $fotos_db[] =  $result['archivo'];
 }
 
 $success = false ;
 $file_fotos = null;
+$fileDeletes= null;
 //if ($file != "." && $file != ".." && strtolower(substr($file, strrpos($file, '.') + 1)) == 'xml')
 
 if (is_dir($dir)){
@@ -38,39 +41,33 @@ if (is_dir($dir)){
     }
 }
 
+//print_r($file_fotos) ;
+
 if(isset($_POST['action']) && $_POST['action'] = 'delete' ){
 
-    foreach ($file_fotos as $item){
 
-        $find = search($item,$fotos_db);
-        if ($find) {
-            $contador_file_db ++ ;
-        } else{
-            if (file_exists($dir . $item)) {
-//                unlink($dir . $item);
-                $contador_file ++ ;
-            }
 
+    for ($i = 80000; $i <= 90000; $i++) {
+        //echo $file_fotos[$i];
+        $clave = array_search($file_fotos[$i], $fotos_db);
+//                        if ($clave != null) {
+//                            echo '<li>' . $file_fotos[$clave] . '</li>' ;
+//                        }
+
+        if ($clave == null) {
+           // echo '<li>' . $file_fotos[$i] . '</li>' ;
+            unlink($dir . $file_fotos[$i]);
+            //$fileDeletes[] = $file_fotos[$i] ;
         }
 
     }
+
+
     $success = true;
     
 }
 
 
-
-function search($element , $array_asoc ) {
-    $i=0 ;
-    foreach ($array_asoc as $item){
-        if($element == $item){
-                $i = $i + 1;
-                break;
-            }
-    }
-    if($i >0)   return true ;
-    return false ;
-} ;
 ?>
 
 
@@ -124,13 +121,13 @@ function search($element , $array_asoc ) {
         ?>
 
         <?php
-        if ($success) {
+        if ($success==true) {
         ?>
             <div class="alert  alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 Se eliminaron: <strong><?php echo $contador_file ?></strong>  correctamente.
             </div>
-            
+
             <p>
                 <a href="maintenance-of-images.php" class="btn-default btn">VOLVER</a>
             </p>
@@ -141,26 +138,27 @@ function search($element , $array_asoc ) {
 
         ?>
 
-                    <p>Se encontraron en base de datos: <?php echo $total_rows ?> imágenes registradas</p>
-                    <p>Se encontraron en en el directorio media: <?php echo count($file_fotos)?> imágenes registradas</p>
+                    <p>Se encontraron en base de datos: <?php echo $total_rows ?> (<?php echo count($fotos_db) ?>) imágenes registradas</p>
+                    <p>Se encontraron en en el directorio media: <?php echo count($file_fotos)?> (<?php echo count($file_fotos) ?>) imágenes registradas</p>
                     <p>Archivos que no se encuentran en la base de datos:</p>
+
 
                     <ol>
 
                     <?php
 
-                    foreach ($file_fotos as $item){
+                    //for ($i = 0; $i <= count($file_fotos) -1; $i++) {
+                    for ($i = 80000; $i <= 90000; $i++) {
+                        //echo $file_fotos[$i];
+                        $clave = array_search($file_fotos[$i], $fotos_db);
+//                        if ($clave != null) {
+//                            echo '<li>' . $file_fotos[$clave] . '</li>' ;
+//                        }
 
-                            //echo "<li>" .$item . "</li>";
-
-                            $find = search($item,$fotos_db);
-                                if ($find) {
-                                    $contador_file_db ++ ;
-                                } else{
-                                     echo '<li>' . $item . '</li>' ;
-
-                                }
-
+                        if ($clave == null) {
+                            echo '<li>' . $file_fotos[$i] . '</li>' ;
+                        }
+                       // if ($i)
                     }
 
 

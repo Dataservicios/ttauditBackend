@@ -142,7 +142,7 @@ $objPHPExcel->setActiveSheetIndex(1)->setCellValue('BH2','Exhibidor Galletas');
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('BR2','Posavuelto Galletas');
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('CB2','Cenefas DV(shelfttaker DV)');
 $objPHPExcel->setActiveSheetIndex(1)->setCellValue('CL2','Ganchera de grageados');
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('CV2','Ganchera de grageados');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('CV2','Cubos de impulso');
 
 
 

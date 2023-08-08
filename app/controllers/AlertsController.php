@@ -48,7 +48,6 @@ class AlertsController extends BaseController
         }else{
             $arrayComments = [];
         }
-
         $titulo = "Notificaciones de Alerta IBK";
         $objAlert = $this->alertRepo->find($alert_id);
         $customer_id = $objAlert->customer_id;

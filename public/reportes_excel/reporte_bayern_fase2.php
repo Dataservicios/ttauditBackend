@@ -133,10 +133,10 @@ $total_comercios = mysql_num_rows($resEmp);
 
 /* Definen la Cabecera */
 
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('O2', utf8_encode('Recomendaci�n APRONAX'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('Y2', utf8_encode('Recomendaci�n ASPIRINA FORTE'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AI2', utf8_encode('Recomendaci�n REDOXON'));
-$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AS2', utf8_encode('Recomendaci�n BEPANTHEN CREMA X 30 '));
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('O2', 'Recomendación APRONAX');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('Y2', 'Recomendación ASPIRINA FORTE');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AI2', 'Recomendación REDOXON');
+$objPHPExcel->setActiveSheetIndex(1)->setCellValue('AS2', 'Recomendación BEPANTHEN CREMA X 30 ');
 
 /* Une las Celdas para la cabecera */
 
@@ -184,7 +184,7 @@ $cabecera = array(
 	'AUDITOR',
 	'FECHA',
 	'HORA',
-	'Bayer - Apronax',
+
 	'Apronax',
 	'Dologyna',
 	'Iraxen',
@@ -194,7 +194,9 @@ $cabecera = array(
 	'Doloflam Extra Fuerte',
 	'Naproxeno',
 	'Otros',
-	'Bayer - Aspirina Forte',
+	'Comentario',
+
+	'Aspirina Forte',
 	'Dolofac',
 	'Mifralivio x 100',
 	'Migrapac x 30',
@@ -202,9 +204,10 @@ $cabecera = array(
 	'Panadol Forte',
 	'Kitadol',
 	'Acido Acetilsalicilico',
-	'Aspirina Forte',
 	'Otros',
-	'Bayer - Redoxon',
+	'comentario',
+
+
 	'Redoxon',
 	'Mi vic',
 	'Redoxin Tobo',
@@ -214,10 +217,13 @@ $cabecera = array(
 	'Crevet',
 	'Cebion',
 	'Otros',
-	'Bayer - BEPANTHEN CREMA X 30 ',
+	'Comentario',
+
+
 	'Bepanthen',
 	'Mucovit',
-	'Otros'
+	'Otros',
+	'Comentario',
 );
 
 $contador_columna_cabecera = 0;
@@ -246,7 +252,8 @@ $campos = array(
 	array('Auditor','0') ,
 	array('fecha','0') ,
 	array('hora','0') ,
-	array('Apronax','3') ,
+
+
 	array('435_534_a','0') ,
 	array('435_534_b','0') ,
 	array('435_534_c','0') ,
@@ -256,7 +263,10 @@ $campos = array(
 	array('435_534_g','0') ,
 	array('435_534_h','0') ,
 	array('435_534_ab','0') ,
-	array('Aspirina Forte','3') ,
+	array('435_534_comentario_otros','0') ,
+
+
+	array('435_644_r','0') ,
 	array('435_644_k','0') ,
 	array('435_644_l','0') ,
 	array('435_644_m','0') ,
@@ -264,9 +274,9 @@ $campos = array(
 	array('435_644_o','0') ,
 	array('435_644_p','0') ,
 	array('435_644_q','0') ,
-	array('435_644_r','0') ,
 	array('435_644_ab','0') ,
-	array('Bayer - Redoxon','3') ,
+	array('435_644_comentario_otros','0') ,
+
 	array('435_539_s','0') ,
 	array('435_539_t','0') ,
 	array('435_539_u','0') ,
@@ -276,11 +286,13 @@ $campos = array(
 	array('435_539_z','0') ,
 	array('435_539_aa','0') ,
 	array('435_539_ab','0') ,
-	array('BEPANTHEN CREMA X 30 ','3') ,
+	array('435_539_comentario_otros','0') ,
+
+
 	array('435_640_i','0') ,
 	array('435_640_j','0') ,
-	array('435_640_ab','0') 
-
+	array('435_640_ab','0'),
+	array('435_640_comentario_otros','0') ,
 );
 
 
@@ -289,29 +301,34 @@ $contador_1 = 3;
 /* Llenamos el detalle del reporte */
 while ($rowEmp = mysql_fetch_assoc($resEmp)) {
 
-	$contador_1 ++;
-	$contador_columna = 0;
-	for ($row = 0; $row < count($campos) ; $row++) {
-		$campo = $campos[$row][0];
-		$tipo_campo = $campos[$row][1];
+	//$rowEmp['432_Respuesta'] == 2   verifica solo los puntos abiertos
+ 	if($rowEmp['432_Respuesta'] == 2) {
 
-
-
-		if ($tipo_campo == "0") {
-			$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), $rowEmp[$campo] );
-		} else {
-			if ($tipo_campo == "3") {
-				$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), $campo);
-			}else{
-				if (utf8_encode($rowEmp[$campo] ) == null || utf8_encode($rowEmp[$campo]  ) == "") {
-					$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '' );
-				} else {
-					$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '=HYPERLINK( "'. $rowEmp[$campo] .'"  , "Foto" )' );
+		$contador_1 ++;
+		$contador_columna = 0;
+		for ($row = 0; $row < count($campos) ; $row++) {
+			$campo = $campos[$row][0];
+			$tipo_campo = $campos[$row][1];
+			if ($tipo_campo == "0") {
+				
+				$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), $rowEmp[$campo] );
+			} else {
+				if ($tipo_campo == "3") {
+					$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), $campo);
+				}else{
+					if ($rowEmp[$campo]  == null || $rowEmp[$campo]  == "") {
+						$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '' );
+					} else {
+						$objPHPExcel->setActiveSheetIndex(1)->setCellValue(coordinates($contador_columna , $contador_1), '=HYPERLINK( "'. $rowEmp[$campo] .'"  , "Foto" )' );
+					}
 				}
 			}
+			$contador_columna++;
 		}
-	$contador_columna++;
 	}
+
+
+
 }
 
 

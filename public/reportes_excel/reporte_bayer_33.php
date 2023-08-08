@@ -253,8 +253,8 @@ $campos = array(
 	array('fecha','0') ,
 	array('hora','0') ,
 
+// Apronax
 
-	array('444_534_h_priority','0') ,
 	array('444_534_a_priority','0') ,
 	array('444_534_b_priority','0') ,
 	array('444_534_c_priority','0') ,
@@ -262,7 +262,9 @@ $campos = array(
 	array('444_534_e_priority','0') ,
 	array('444_534_f_priority','0') ,
 	array('444_534_g_priority','0') ,
+	array('444_534_h_priority','0') ,
 	array('444_534_ab_priority','0') ,
+
 	array('444_534_comentario_otros','1') ,
 
 

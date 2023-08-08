@@ -980,99 +980,101 @@ GROUP BY a.store_id";
     public function getStoresForRouting($routing,$departamento,$company_id="0",$visit="0"){
         if ($visit=="0"){
             if ($company_id=="0"){
-                $regs = CompanyStore::join('stores','company_stores.store_id','=','stores.id')->join('companies','company_stores.company_id','=','companies.id')->join('customers','companies.customer_id','=','customers.id')->join('studies','companies.study_id','=','studies.id')->select('company_stores.id','company_stores.store_id','company_stores.company_id','stores.codclient', 'stores.fullname','stores.cadenaRuc','stores.type','stores.address','stores.urbanization','stores.region','stores.ubigeo','stores.district','stores.codclient','stores.latitude','stores.longitude','stores.cell','companies.active','companies.fullname as campaigne','customers.fullname as customer','customers.id as customer_id','companies.study_id','studies.fullname as estudio','companies.marker_point_web as marker_point_web', 'stores.visits', 'stores.chanel_store_id')->where('company_stores.ruteado',$routing)->where('stores.ubigeo',$departamento)->where('stores.test',0)->where('companies.visits',0)->get();
+                $regs = CompanyStore::join('stores','company_stores.store_id','=','stores.id')->join('companies','company_stores.company_id','=','companies.id')->join('customers','companies.customer_id','=','customers.id')->join('studies','companies.study_id','=','studies.id')->select('company_stores.id','company_stores.store_id','company_stores.company_id','stores.codclient', 'stores.fullname','stores.cadenaRuc','stores.owner','stores.type','stores.address','stores.urbanization','stores.region','stores.ubigeo','stores.district','stores.codclient','stores.latitude','stores.longitude','stores.cell','companies.active','companies.fullname as campaigne','customers.fullname as customer','customers.id as customer_id','companies.study_id','studies.fullname as estudio','companies.marker_point_web as marker_point_web', 'stores.visits', 'stores.chanel_store_id')->where('company_stores.ruteado',$routing)->where('stores.ubigeo',$departamento)->where('stores.test',0)->where('stores.visits',1)->get();
             }else{
-                $regs = CompanyStore::join('stores','company_stores.store_id','=','stores.id')->join('companies','company_stores.company_id','=','companies.id')->join('customers','companies.customer_id','=','customers.id')->join('studies','companies.study_id','=','studies.id')->select('company_stores.id','company_stores.store_id','company_stores.company_id','stores.codclient', 'stores.fullname','stores.cadenaRuc','stores.type','stores.address','stores.urbanization','stores.region','stores.ubigeo','stores.district','stores.codclient','stores.latitude','stores.longitude','stores.cell','companies.active','companies.fullname as campaigne','customers.fullname as customer','customers.id as customer_id','companies.study_id','studies.fullname as estudio','companies.marker_point_web as marker_point_web', 'stores.visits', 'stores.chanel_store_id')->where('company_stores.company_id',$company_id)->where('company_stores.ruteado',$routing)->where('stores.ubigeo',$departamento)->where('stores.test',0)->where('companies.visits',0)->get();
+                $regs = CompanyStore::join('stores','company_stores.store_id','=','stores.id')->join('companies','company_stores.company_id','=','companies.id')->join('customers','companies.customer_id','=','customers.id')->join('studies','companies.study_id','=','studies.id')->select('company_stores.id','company_stores.store_id','company_stores.company_id','stores.codclient', 'stores.fullname','stores.cadenaRuc','stores.owner','stores.type','stores.address','stores.urbanization','stores.region','stores.ubigeo','stores.district','stores.codclient','stores.latitude','stores.longitude','stores.cell','companies.active','companies.fullname as campaigne','customers.fullname as customer','customers.id as customer_id','companies.study_id','studies.fullname as estudio','companies.marker_point_web as marker_point_web', 'stores.visits', 'stores.chanel_store_id')->where('company_stores.company_id',$company_id)->where('company_stores.ruteado',$routing)->where('stores.ubigeo',$departamento)->where('stores.test',0)->where('companies.visits',0)->get();
             }
         }else{
             if ($company_id=="0"){
                 //$regs = CompanyStore::join('stores','company_stores.store_id','=','stores.id')->join('companies','company_stores.company_id','=','companies.id')->join('customers','companies.customer_id','=','customers.id')->join('studies','companies.study_id','=','studies.id')->select('company_stores.id','company_stores.store_id','company_stores.company_id','stores.codclient', 'stores.fullname','stores.cadenaRuc','stores.type','stores.address','stores.urbanization','stores.region','stores.ubigeo','stores.district','stores.codclient','stores.latitude','stores.longitude','stores.cell','companies.active','companies.fullname as campaigne','customers.fullname as customer','customers.id as customer_id','companies.study_id','studies.fullname as estudio','companies.marker_point_web as marker_point_web', 'stores.visits', 'stores.chanel_store_id')->where('company_stores.ruteado',$routing)->where('stores.ubigeo',$departamento)->where('stores.test',0)->where('companies.visits',1)->get();
                 $regs = \DB::select("(SELECT
-  `s`.`id` as `store_id`,
-  `s`.`cadenaRuc`,
-  `s`.`ruc`,
-  `s`.`fullname`,
-  `s`.`tipo_bodega`,
-  `s`.`type`,
-  `s`.`latitude`,
-  `s`.`longitude`,
-  `s`.`visits`,
-  `s`.`district`,
-  `s`.`address`,
-  `s`.`urbanization`,
-  `s`.`codclient`,
-  `s`.`region`,
-  `s`.`chanel_store_id`,
-  `s`.`ubigeo`,
-  `s`.`cell`,
-  `cs`.`company_id`,
-  `s`.`chanel`,
-  `c`.`fullname` as `campaigne`,
-  `c`.`customer_id`,
-  `c`.`active`,
-  `c`.`fullname` as `customer`,
-  `c`.`marker_point_web`,
-  `c`.`study_id`,
-  `st`.`fullname` as `estudio`,  
-    if(`visit_stores`.`visit_id` IS NULL, 0, `visit_stores`.`visit_id`) AS `visit_id`,
-  if(`visit_stores`.`visit_id` IS NULL, 1, `visit_stores`.`visit_id` + 1) AS `visit_id_new`
-FROM
-  `company_stores` `cs`
-  LEFT OUTER JOIN `stores` `s` ON (`cs`.`store_id` = `s`.`id`)
-  LEFT OUTER JOIN `companies` `c` ON (`cs`.`company_id` = `c`.`id`)
-  LEFT OUTER JOIN `customers` `cus` ON (`c`.`customer_id` = `cus`.`id`)
-  LEFT OUTER JOIN `studies` `st` ON (`c`.`study_id` = `st`.`id`)
-  LEFT OUTER JOIN `visit_stores` ON (`cs`.`store_id` = `visit_stores`.`store_id`)
-  AND (`cs`.`company_id` = `visit_stores`.`company_id`)
-WHERE
-  `cs`.`ruteado`='".$routing."' and `s`.`test`=0 and `s`.`ubigeo`='".$departamento."' and `c`.`visits`=1 and  `visit_stores`.`ruteado`=0)
- union all (SELECT
-  `s`.`id` AS `store_id`,
-  `s`.`cadenaRuc`,
-  `s`.`ruc`,
-  `s`.`fullname`,
-  `s`.`tipo_bodega`,
-  `s`.`type`,
-  `s`.`latitude`,
-  `s`.`longitude`,
-  `s`.`visits`,
-  `s`.`district`,
-  `s`.`address`,
-  `s`.`urbanization`,
-  `s`.`codclient`,
-  `s`.`region`,
-  `s`.`chanel_store_id`,
-  `s`.`ubigeo`,
-  `s`.`cell`,
-  `cs`.`company_id`,
-  `s`.`chanel`,
-  `c`.`fullname` AS `campaigne`,
-  `c`.`customer_id`,
-  `c`.`active`,
-  `c`.`fullname` AS `customer`,
-  `c`.`marker_point_web`,
-  `c`.`study_id`,
-  `st`.`fullname` AS `estudio`,
-  if(`visit_stores`.`visit_id` IS NULL, 0, `visit_stores`.`visit_id`) AS `visit_id`,
-  if(`visit_stores`.`visit_id` IS NULL, 1, `visit_stores`.`visit_id` + 1) AS `visit_id_new`
-FROM
-  `company_stores` `cs`
-  LEFT OUTER JOIN `stores` `s` ON (`cs`.`store_id` = `s`.`id`)
-  LEFT OUTER JOIN `companies` `c` ON (`cs`.`company_id` = `c`.`id`)
-  LEFT OUTER JOIN `customers` `cus` ON (`c`.`customer_id` = `cus`.`id`)
-  LEFT OUTER JOIN `studies` `st` ON (`c`.`study_id` = `st`.`id`)
-  LEFT OUTER JOIN `visit_stores` ON (`cs`.`store_id` = `visit_stores`.`store_id`)
-  AND (`cs`.`company_id` = `visit_stores`.`company_id`)
-WHERE
-  `cs`.`ruteado` = '".$routing."' AND
-  `s`.`test` = 0 AND 
-  `s`.`ubigeo` = '".$departamento."' AND
-  `c`.`visits` = 1 AND
-  `visit_stores`.`ruteado` IS NULL) 
-  ");
+                `s`.`id` as `store_id`,
+                `s`.`cadenaRuc`,
+                `s`.`ruc`,
+                `s`.`fullname`,
+                `s`.`tipo_bodega`,
+                `s`.`type`,
+                `s`.`latitude`,
+                `s`.`longitude`,
+                `s`.`visits`,
+                `s`.`district`,
+                `s`.`address`,
+                `s`.`urbanization`,
+                `s`.`codclient`,
+                `s`.`region`,
+                `s`.`owner`,
+                `s`.`chanel_store_id`,
+                `s`.`ubigeo`,
+                `s`.`cell`,
+                `cs`.`company_id`,
+                `s`.`chanel`,
+                `c`.`fullname` as `campaigne`,
+                `c`.`customer_id`,
+                `c`.`active`,
+                `c`.`fullname` as `customer`,
+                `c`.`marker_point_web`,
+                `c`.`study_id`,
+                `st`.`fullname` as `estudio`,  
+                    if(`visit_stores`.`visit_id` IS NULL, 0, `visit_stores`.`visit_id`) AS `visit_id`,
+                if(`visit_stores`.`visit_id` IS NULL, 1, `visit_stores`.`visit_id` + 1) AS `visit_id_new`
+                FROM
+                `company_stores` `cs`
+                LEFT OUTER JOIN `stores` `s` ON (`cs`.`store_id` = `s`.`id`)
+                LEFT OUTER JOIN `companies` `c` ON (`cs`.`company_id` = `c`.`id`)
+                LEFT OUTER JOIN `customers` `cus` ON (`c`.`customer_id` = `cus`.`id`)
+                LEFT OUTER JOIN `studies` `st` ON (`c`.`study_id` = `st`.`id`)
+                LEFT OUTER JOIN `visit_stores` ON (`cs`.`store_id` = `visit_stores`.`store_id`)
+                AND (`cs`.`company_id` = `visit_stores`.`company_id`)
+                WHERE
+                `cs`.`ruteado`='".$routing."' and `s`.`test`=0 and `s`.`ubigeo`='".$departamento."' and `c`.`visits`=1 and  `visit_stores`.`ruteado`=0)
+                union all (SELECT
+                `s`.`id` AS `store_id`,
+                `s`.`cadenaRuc`,
+                `s`.`ruc`,
+                `s`.`fullname`,
+                `s`.`tipo_bodega`,
+                `s`.`type`,
+                `s`.`latitude`,
+                `s`.`longitude`,
+                `s`.`visits`,
+                `s`.`district`,
+                `s`.`address`,
+                `s`.`urbanization`,
+                `s`.`codclient`,
+                `s`.`region`,
+                `s`.`owner`,
+                `s`.`chanel_store_id`,
+                `s`.`ubigeo`,
+                `s`.`cell`,
+                `cs`.`company_id`,
+                `s`.`chanel`,
+                `c`.`fullname` AS `campaigne`,
+                `c`.`customer_id`,
+                `c`.`active`,
+                `c`.`fullname` AS `customer`,
+                `c`.`marker_point_web`,
+                `c`.`study_id`,
+                `st`.`fullname` AS `estudio`,
+                if(`visit_stores`.`visit_id` IS NULL, 0, `visit_stores`.`visit_id`) AS `visit_id`,
+                if(`visit_stores`.`visit_id` IS NULL, 1, `visit_stores`.`visit_id` + 1) AS `visit_id_new`
+                FROM
+                `company_stores` `cs`
+                LEFT OUTER JOIN `stores` `s` ON (`cs`.`store_id` = `s`.`id`)
+                LEFT OUTER JOIN `companies` `c` ON (`cs`.`company_id` = `c`.`id`)
+                LEFT OUTER JOIN `customers` `cus` ON (`c`.`customer_id` = `cus`.`id`)
+                LEFT OUTER JOIN `studies` `st` ON (`c`.`study_id` = `st`.`id`)
+                LEFT OUTER JOIN `visit_stores` ON (`cs`.`store_id` = `visit_stores`.`store_id`)
+                AND (`cs`.`company_id` = `visit_stores`.`company_id`)
+                WHERE
+                `cs`.`ruteado` = '".$routing."' AND
+                `s`.`test` = 0 AND 
+                `s`.`ubigeo` = '".$departamento."' AND
+                `c`.`visits` = 1 AND
+                `visit_stores`.`ruteado` IS NULL) 
+                ");
 
             }else{
-                $regs = CompanyStore::join('stores','company_stores.store_id','=','stores.id')->join('companies','company_stores.company_id','=','companies.id')->join('customers','companies.customer_id','=','customers.id')->join('studies','companies.study_id','=','studies.id')->select('company_stores.id','company_stores.store_id','company_stores.company_id','stores.codclient', 'stores.fullname','stores.cadenaRuc','stores.type','stores.address','stores.urbanization','stores.region','stores.ubigeo','stores.district','stores.codclient','stores.latitude','stores.longitude','stores.cell','companies.active','companies.fullname as campaigne','customers.fullname as customer','customers.id as customer_id','companies.study_id','studies.fullname as estudio','companies.marker_point_web as marker_point_web', 'stores.visits', 'stores.chanel_store_id')->where('company_stores.company_id',$company_id)->where('company_stores.ruteado',$routing)->where('stores.ubigeo',$departamento)->where('stores.test',0)->where('companies.visits',1)->get();
+                $regs = CompanyStore::join('stores','company_stores.store_id','=','stores.id')->join('companies','company_stores.company_id','=','companies.id')->join('customers','companies.customer_id','=','customers.id')->join('studies','companies.study_id','=','studies.id')->select('company_stores.id','company_stores.store_id','company_stores.company_id','stores.codclient', 'stores.fullname','stores.cadenaRuc','stores.type','stores.address','stores.urbanization','stores.region','stores.owner','stores.ubigeo','stores.district','stores.codclient','stores.latitude','stores.longitude','stores.cell','companies.active','companies.fullname as campaigne','customers.fullname as customer','customers.id as customer_id','companies.study_id','studies.fullname as estudio','companies.marker_point_web as marker_point_web', 'stores.visits', 'stores.chanel_store_id')->where('company_stores.company_id',$company_id)->where('company_stores.ruteado',$routing)->where('stores.ubigeo',$departamento)->where('stores.test',0)->where('companies.visits',1)->get();
             }
         }
 

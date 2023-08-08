@@ -57,21 +57,21 @@
                                         {{ Form::hidden('tipo', 'Sod') }}
                                         <label for="ciudad">Ciudad</label>
                                         {{--{{Form::select('ciudad', array('0' => 'Seleccionar', 'Lima' => 'Lima','Piura'=>'Piura','Callao'=>'Callao','1'=>'Todo Lima','2'=>'Todo Arequipa','3'=>'Toda Ica','4'=>'Todo Trujillo','5'=>'Todo Provincias'), '0', ['id'=>'ciudad','onchange'=>'ejecutaEvento(this,1)','class' => 'form-control']);}}--}}
-                                        {{Form::select('ciudad', $ciudades, '0', ['id'=>'ciudad','class' => 'form-control']);}}
+                                        {{Form::select('ciudad', $ciudades, '0', ['id'=>'ciudad','class' => 'form-control'])}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="auditor">Auditor</label>
-                                        {{Form::select('auditor', $auditors, '0', ['id'=>'auditor','class' => 'form-control']);}}
+                                        {{Form::select('auditor', $auditors, '0', ['id'=>'auditor','class' => 'form-control'])}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="publicity">Categoria</label>
-                                        {{Form::select('publicity', $publicities, '0', ['id'=>'publicity','class' => 'form-control']);}}
+                                        {{Form::select('publicity', $publicities, '0', ['id'=>'publicity','class' => 'form-control'])}}
                                     </div>
                                 </div>
 
@@ -94,6 +94,8 @@
 
                                 {{--<a href="{{route('getDetailQuestionAdmin',[$pollW,$city.'-0-0-0-0-0-1-0-0',$company_id,"0","0",$publicity_id,1,$auditor])}}" target="_blank">Ver Sod Trabajados</a>
                                 <a href="{{route('getDetailQuestionAdmin',[$pollW,$city.'-0-0-0-0-0-0-0-0',$company_id,"0","0",$publicity_id,1,$auditor])}}" target="_blank">Ver Sod NO Trabajados</a>--}}
+                                {{--{ciudad}/{publicity_id}/{auditor_id}/{audit_id}/{company_id}/{ventana?}/{trabajada?}--}}
+                                <a href="{{route('getListStoresPublicity',[$city,$publicity_id,$auditor,$audit_id,$company_id,'Sod',0])}}" target="_blank">Ver Sod NO Trabajados</a>
                             @endif
                         </div>
                     </div>
@@ -101,7 +103,7 @@
                     <div class="row pt pb">
                         <div class="col-sm-12 table-responsive">
                             @if ($filtro=='SOD')
-                                @if (count($storesxCampaigne)>1)
+                                @if (count($storesxCampaigne)>0)
 
                                         <table class="table table-hover">
                                             <thead>

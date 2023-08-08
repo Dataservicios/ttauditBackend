@@ -374,7 +374,7 @@
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            {{ Form::text('principal', 0, ['class' => 'form-control','id' => 'principal']) }}
+                                            {{ Form::text('principal', 0, ['class' => 'form-control','id' => 'principal','disabled']) }}
                                         </div>
                                     </div>
                                 </div>
@@ -385,7 +385,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="form-group">
-                                                {{ Form::text('valor'.$product->product->id, 0, ['class' => 'form-control','id' => 'valor'.$product->product->id]) }}
+                                                {{ Form::text('valor'.$product->product->id, 0, ['class' => 'form-control input_sum','id' => 'valor'.$product->product->id,'onchange'=>'sumar(this.value);']) }}
                                             </div>
                                         </div>
                                     </div>
@@ -665,7 +665,8 @@
         {
             data_store[{{$index}}] = {{$product->product->id}} + "|" + 0 ;
         }else{
-            data_store[{{$index}}] = {{$product->product->id}} + "|" + parseFloat($('#valor{{$product->product->id}}').val())/parseFloat(principal)*100 ;
+            //data_store[{{$index}}] = {{$product->product->id}} + "|" + parseFloat($('#valor{{$product->product->id}}').val())/parseFloat(principal)*100 ;
+            data_store[{{$index}}] = {{$product->product->id}} + "|" + $('#valor{{$product->product->id}}').val();
         }
 
         @endforeach
@@ -710,5 +711,16 @@
 
                 });
         }
+    </script>
+    <script>
+        function sumar (valor) {
+            var sumas=0;
+            $(".input_sum").each(function(){
+                sumas = parseInt(sumas) + parseInt($(this).val());
+                //console.log($(this).val());
+            });
+            $("#principal").val(sumas);
+        }
+
     </script>
 @endsection
