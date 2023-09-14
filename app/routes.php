@@ -3028,6 +3028,7 @@ Route::post('insertImagesProductPollAlicorp', 'Api\AlicorpController@insertImage
 Route::post('insertImagesAlicorp', 'Api\AlicorpController@insertImagesAlicorp');
 Route::post('insertImages', 'PollDetailController@insertImages');
 Route::post('insertImagesMayorista', 'PollDetailController@insertImagesMayorista');
+Route::post('insertImagesNewCp', 'PollDetailController@insertImagesNewCp');
 Route::post('insertDataImages', 'PollDetailController@insertDataImages');
 Route::post('insertFileImages', 'PollDetailController@insertFileImages');
 Route::post('closeAudit', 'Api\AlicorpController@closeAudit');

@@ -706,6 +706,10 @@ class PollDetailController extends BaseController {
         $objPollDetail = $this->PollDetailRepo->getModel();
         //$objPollDetail->poll_id = 34;
         $valoresPost= Input::all();//dd($valoresPost);
+        if (isset($valoresPost['response_number_id']))
+        {
+            $objPollDetail->response_number_id= $valoresPost['response_number_id'];
+        }
         $poll_id = $valoresPost['poll_id'];
         $store_id= $valoresPost['store_id'];
         $sino= $valoresPost['sino'];
@@ -837,7 +841,7 @@ class PollDetailController extends BaseController {
             $ejecutivoID=0;
         }
 
-        if (count($valor)==0){
+        if ((count($valor)==0) or (isset($valoresPost['response_number_id']))){
             $objPollDetail->sino = $sino;
             $objPollDetail->options = $options;
             $objPollDetail->limits = $limits;
@@ -1462,24 +1466,106 @@ class PollDetailController extends BaseController {
 		return \Response::json([ 'success'=> 1]);
 	}
 
+    private function printTextPhoto($namePhoto,$agente,$datePhoto)
+    {
+
+        $link =  "http://$_SERVER[HTTP_HOST]";
+
+        // Ruta de la imagen original
+        $imagenOriginal = 'media/fotos/'.$namePhoto;
+
+        $fotoExist=false;
+
+        if (file_exists($imagenOriginal) && is_file($imagenOriginal)) {
+            $fotoExist=true;
+            // Crear una imagen a partir del archivo
+            $imagen = imagecreatefromjpeg($imagenOriginal);
+
+            // Color del texto (en RGB)
+            $colorTexto = imagecolorallocate($imagen, 255, 255, 255); // Blanco
+
+            // Tamaño y fuente del texto
+            $tamanioTexto = 25;
+            $fuente = 'Photography.ttf'; // Ruta a un archivo de fuente TrueType (TTF)
+
+
+
+            // Texto que deseas agregar
+            $texto = 'TTAUDIT';
+            $texto1 = $datePhoto;
+            $texto2 = $agente;
+
+
+            // Obtener las dimensiones de la imagen
+            $anchoImagen = imagesx($imagen);
+            $altoImagen = imagesy($imagen);
+
+            // Obtener las dimensiones del texto
+            $dimensionesTexto = imagettfbbox($tamanioTexto, 0, $fuente, $texto2);
+            $anchoTexto = $dimensionesTexto[4] - $dimensionesTexto[6];
+            $altoTexto = $dimensionesTexto[1] - $dimensionesTexto[7];
+
+            /*// Calcular la posición del texto en la esquina inferior derecha
+            $posX = $anchoImagen - $anchoTexto - 10; // 10 píxeles desde el borde derecho
+            $posY = $altoImagen - 10;                // 10 píxeles desde el borde inferior*/
+
+            // Calcular la posición del texto en la esquina inferior izquierda
+            $posX = 10; // 10 píxeles desde el borde izquierdo
+            $posY = $altoImagen - $altoTexto - 10; // 10 píxeles desde el borde inferior
+
+
+
+            // Agregar el texto a la imagen
+            imagettftext($imagen, $tamanioTexto, 0, $posX, $posY, $colorTexto, $fuente, $texto2);
+            // Desplaza la posición vertical para la siguiente línea
+            $posY -= 30; // Ajusta la distancia entre líneas según tu preferencia
+            imagettftext($imagen, $tamanioTexto, 0, $posX, $posY, $colorTexto, $fuente, $texto1);
+            $posY -= 30;
+            imagettftext($imagen, $tamanioTexto, 0, $posX, $posY, $colorTexto, $fuente, $texto);
+
+            // Guardar la imagen resultante (puedes reemplazar la original o guardarla con un nuevo nombre)
+            $imageFinal ='media/fotos/imagentexto.jpg';
+            imagejpeg($imagen, $imagenOriginal);
+
+            // Liberar la memoria
+            imagedestroy($imagen);
+        } else {
+            $fotoExist=false;
+        }
+
+    }
+
 	public function insertImagesMayorista() {
-		if(Input::hasFile('fotoUp')) {
-			$archivo=Input::file('fotoUp');
-			$archivo->move('media/fotos/',$archivo->getClientOriginalName());
-		}
-		$product_id = Input::only('product_id');
-		$poll_id = Input::only('poll_id');
-		$store_id = Input::only('store_id');
-		$publicities_id = Input::only('publicities_id');
-		$tipo = Input::only('tipo');
-		$archivo = Input::only('archivo');
-		$company_id = Input::only('company_id');
-		$monto = Input::only('monto');
-		$razon_social = Input::only('razon_social');
-		$category_product_id = Input::only('category_product_id');
-		$mytime = Carbon::now();
-		$horaSistemaUpdate = $mytime->toDateTimeString();
-		$horaSistema = Input::only('created_at');
+
+        $valoresPost= Input::all();//dd($valoresPost);
+
+        if(Input::hasFile('fotoUp')) {
+            $archivo=Input::file('fotoUp');
+            $archivo->move('media/fotos/',$archivo->getClientOriginalName());
+        }
+        $product_id = Input::only('product_id');
+        $poll_id = Input::only('poll_id');
+        $store_id = Input::only('store_id');
+        $publicities_id = Input::only('publicities_id');
+        $tipo = Input::only('tipo');
+        $archivo = Input::only('archivo');
+        $company_id = Input::only('company_id');
+        $monto = Input::only('monto');
+        $razon_social = Input::only('razon_social');
+        $category_product_id = Input::only('category_product_id');
+        $mytime = Carbon::now();
+        $horaSistemaUpdate = $mytime->toDateTimeString();
+
+        $horaSistema = Input::only('horaSistema');
+        /*
+        date_default_timezone_set('America/Lima'); // Establece la zona horaria de Perú
+
+        $horaSistema = Input::only('created_at'); // Suponiendo que $horaSistema contiene la cadena de fecha y hora en formato 'Y-m-d H:i:s'
+
+        $horaPeru = new DateTime($horaSistema);
+        $horaPeru->setTimezone(new DateTimeZone('America/Lima'));*/
+
+
 
         $sql1 = "SELECT id FROM medias p 
 					  where 
@@ -1495,7 +1581,104 @@ class PollDetailController extends BaseController {
 					  razon_social='".$razon_social['razon_social']."'";
         $consulta11 = DB::select($sql1);
         if (count($consulta11)==0){
-            DB::insert("INSERT INTO medias (store_id,poll_id,publicities_id,product_id, tipo,archivo,company_id,category_product_id,monto,razon_social, created_at,updated_at) 
+
+            if (isset($valoresPost['response_number_id']))
+            {
+                $resultado =DB::insert("INSERT INTO medias (response_number_id,store_id,poll_id,publicities_id,product_id, tipo,archivo,company_id,category_product_id,monto,razon_social, created_at,updated_at) 
+					VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)" ,
+                    array(
+                        $valoresPost['response_number_id'],
+                        $store_id['store_id'],
+                        $poll_id['poll_id'],
+                        $publicities_id['publicities_id'],
+                        $product_id['product_id'],
+                        $tipo['tipo'],
+                        $archivo['archivo'],
+                        $company_id['company_id'],
+                        $category_product_id['category_product_id'],
+                        $monto['monto'],
+                        $razon_social['razon_social'],
+                        $horaSistema['horaSistema'],
+                        $horaSistemaUpdate
+                    )
+                );
+                if ($resultado)
+                {
+                    $objStore = $this->StoreRepo->find($store_id['store_id']);
+                    $agente = $objStore->fullname;
+                    //$idMedia = DB::getPdo()->lastInsertId();
+                    $this->printTextPhoto($archivo['archivo'],$agente,$horaSistema['horaSistema']);
+                    return \Response::json([ 'success'=> 1,'store'=>$objStore]);
+                }
+            }else{
+                DB::insert("INSERT INTO medias (store_id,poll_id,publicities_id,product_id, tipo,archivo,company_id,category_product_id,monto,razon_social, created_at,updated_at) 
+					VALUES(?,?,?,?,?,?,?,?,?,?,?,?)" ,
+                    array(
+                        $store_id['store_id'],
+                        $poll_id['poll_id'],
+                        $publicities_id['publicities_id'],
+                        $product_id['product_id'],
+                        $tipo['tipo'],
+                        $archivo['archivo'],
+                        $company_id['company_id'],
+                        $category_product_id['category_product_id'],
+                        $monto['monto'],
+                        $razon_social['razon_social'],
+                        $horaSistema['created_at'],
+                        $horaSistemaUpdate
+                    )
+                );
+            }
+
+
+        }
+        return \Response::json([ 'success'=> 1]);
+	}
+
+    public function insertImagesNewCp() {
+        if(Input::hasFile('fotoUp')) {
+            $archivo=Input::file('fotoUp');
+            $archivo->move('media/fotos/',$archivo->getClientOriginalName());
+        }
+        $product_id = Input::only('product_id');
+        $poll_id = Input::only('poll_id');
+        $store_id = Input::only('store_id');
+        $publicities_id = Input::only('publicities_id');
+        $tipo = Input::only('tipo');
+        $archivo = Input::only('archivo');
+        $company_id = Input::only('company_id');
+        $monto = Input::only('monto');
+        $razon_social = Input::only('razon_social');
+        $category_product_id = Input::only('category_product_id');
+        $mytime = Carbon::now();
+        $horaSistemaUpdate = $mytime->toDateTimeString();
+
+        $horaSistema = Input::only('horaSistema');
+        /*
+        date_default_timezone_set('America/Lima'); // Establece la zona horaria de Perú
+
+        $horaSistema = Input::only('created_at'); // Suponiendo que $horaSistema contiene la cadena de fecha y hora en formato 'Y-m-d H:i:s'
+
+        $horaPeru = new DateTime($horaSistema);
+        $horaPeru->setTimezone(new DateTimeZone('America/Lima'));*/
+
+
+
+        $sql1 = "SELECT id FROM medias p 
+					  where 
+					  poll_id='" . $poll_id['poll_id']  . "' and 
+					  store_id='".$store_id['store_id']."' and 
+					  publicities_id='".$publicities_id['publicities_id']."' and 
+					  product_id='".$product_id['product_id']."' and 
+					  tipo='".$tipo['tipo']."' and 
+					  archivo='".$archivo['archivo']."' and 
+					  company_id='".$company_id['company_id']."' and 
+					  category_product_id='".$category_product_id['category_product_id']."' and  
+					  monto='".$monto['monto']."' and 
+					  razon_social='".$razon_social['razon_social']."'";
+        $consulta11 = DB::select($sql1);
+        if (count($consulta11)==0){
+            $resultado =DB::insert("INSERT INTO medias (store_id,poll_id,publicities_id,product_id, tipo,archivo,company_id,category_product_id,monto,razon_social, created_at,updated_at) 
 					VALUES(?,?,?,?,?,?,?,?,?,?,?,?)" ,
                 array(
                     $store_id['store_id'],
@@ -1508,13 +1691,21 @@ class PollDetailController extends BaseController {
                     $category_product_id['category_product_id'],
                     $monto['monto'],
                     $razon_social['razon_social'],
-                    $horaSistema['created_at'],
+                    $horaSistema['horaSistema'],
                     $horaSistemaUpdate
                 )
             );
+            if ($resultado)
+            {
+                $objStore = $this->StoreRepo->find($store_id['store_id']);
+                $agente = $objStore->fullname;
+                //$idMedia = DB::getPdo()->lastInsertId();
+                $this->printTextPhoto($archivo['archivo'],$agente,$horaSistema['horaSistema']);
+                return \Response::json([ 'success'=> 1,'store'=>$objStore]);
+            }
         }
-		return \Response::json([ 'success'=> 1]);
-	}
+        return \Response::json([ 'success'=> 1]);
+    }
 
     public function insertDataImages()
     {

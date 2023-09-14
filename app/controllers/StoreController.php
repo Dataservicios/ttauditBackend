@@ -350,6 +350,63 @@ class StoreController extends BaseController{
             return Response::json([ 'success'=> 0]);
         }
     }
+    
+    public function changeAddressAndSubTypeStore()
+    {
+        $valoresPost= Input::all();
+        $store_id = $valoresPost['store_id'];
+        $user_id = $valoresPost['user_id'];
+        $company_id = $valoresPost['company_id'];
+        $direccion  = $valoresPost['direccion'];
+        $referencia = $valoresPost['referencia'];
+        $userName = $valoresPost['userName'];
+        $subtype = $valoresPost['subtype'];
+        $storeName = Input::only('storeName');
+        $comentario = Input::only('comentario');
+        $objStoreRepo = $this->storeRepo->find($store_id);
+        header('Access-Control-Allow-Origin: *');
+        $address1 = "Dirección: ".$objStoreRepo->address." Referencia: ".$objStoreRepo->urbanization;
+        $objStoreRepo->address = $direccion;
+        $objStoreRepo->urbanization = $referencia;
+        $objStoreRepo->address1 = $address1;
+        $objStoreRepo->type = $subtype;
+        $campaigneDetail = $this->campaigneRepo->find($company_id);//dd($campaigneDetail);
+        $customer =$this->customerRepo->find($campaigneDetail->customer_id);
+        $cliente = $customer->corto;
+
+        if ($objStoreRepo->save())
+        {
+            $questions = $this->getQuestionsSendEmail();
+            $textoContent = 'Se actualizo Dirección Tienda '.$objStoreRepo->fullname;
+            $motivo = 'Cambio de Dirección '.$objStoreRepo->fullname.'('.$objStoreRepo->id.')';
+            $datoAuditor= $userName."(".$user_id.")";
+            $fechaHoraEnvio = $objStoreRepo->updated_at;
+            $comment= $campaigneDetail->fullname."("."Cliente: ".$customer->fullname." id campaña: ".$company_id.")"."<br>"."Datos anterior=> ".$address1;
+            $tipo_bodega = $objStoreRepo->tipo_bodega;
+            $agente = $objStoreRepo->fullname;
+            $dir = $objStoreRepo->codclient;
+            $address =  $objStoreRepo->address." Referencia: ".$referencia;
+            $district = $objStoreRepo->district;
+            $foto="";
+            foreach ($questions as $question)
+            {
+                if (($question['company_id']=='change_address') and ($question['send']==1))
+                {
+                    $gruposEmails = $this->getGroupsEmails();
+                    $mascaras = explode('|',$question['mask']);
+                    for($i=0;$i<count($mascaras);$i++) {
+                        $emails = $gruposEmails[$mascaras[$i]];
+
+                        $this->sendEmails($store_id,$textoContent,$motivo,$datoAuditor,$comment,$cliente,$tipo_bodega,$agente,$dir,$address,$district,$foto,$fechaHoraEnvio,$emails);
+                    }
+                }
+            }
+            return Response::json([ 'success'=> 1]);
+        }else{
+            return Response::json([ 'success'=> 0]);
+        }
+    }
+
 
     public function updateAddressName()
     {

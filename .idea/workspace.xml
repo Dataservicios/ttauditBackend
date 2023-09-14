@@ -5,360 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="470c9b69-5898-45cf-aae6-acbf48105379" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/Attribute.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/AttributeDetail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/ContactStore.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/CreditDistributor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/LogProcess.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/Reservation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/ReservationServiceDetail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/ReservationStatu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Entities/StoreType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/AttributeDetailRepo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/AttributeRepo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ContactStoreRepo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/CreditDistributorRepo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/LogProcessRepo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ReservationRepo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ReservationServiceDetailRepo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ReservationStatuRepo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/ExcelControllerV2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/ExcelGloriaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/ProductsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/temp22.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/temp3.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/tempNew.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/alicorp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/apiAdminTools.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/gloria.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/home_back.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/layouts/home_back.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPollsBT.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/roads/partials/roadsAuditor.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/roads/roadsAuditorMap_xxx.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home.rar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/001-dashboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/002-camera.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/003-shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/004-update.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/005-peru.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/006-group.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/fono1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/fono2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/fono3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/gestion-ventas.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/palmera-logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/pepsico.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/pepsicologo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/plataforma-tec.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/punto-de-venta.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/punto-de-venta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/unilever-food.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/css/color/white.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/css/owl.carousel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/css/prettyPhoto.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/css/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/05.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/06.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/alicorp-soluciones.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/alicorp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/alicorpsoluciones.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app/app6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/app6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/bg5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/cobertura.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/comunal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/duel-phone-big.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/ga-logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/ga.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/gloria.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/interbank.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logo-gloria.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logo-kasnet.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logo-molitalia.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/logounilever.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/molitalia.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/pattern5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/phone1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/phone2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/phone3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/phone4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/btnNext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/btnPrevious.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/contentPattern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/default_thumbnail.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_rounded/sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/btnNext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/btnPrevious.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/contentPattern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/default_thumbnail.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/dark_square/sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/default_thumb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite_next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite_prev.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite_x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/default/sprite_y.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/btnNext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/btnPrevious.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/contentPatternBottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/contentPatternLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/contentPatternRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/contentPatternTop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/default_thumbnail.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/facebook/sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/btnNext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/btnPrevious.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/default_thumbnail.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_rounded/sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/btnNext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/btnPrevious.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/default_thumbnail.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/prettyPhoto/light_square/sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/real.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/images/unilever.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.localScroll.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.nav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.parallax-1.1.3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.prettyPhoto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/jquery.scrollto.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/modernizr-latest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/owl.carousel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/js/skrollr.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home_2019/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/alicorp/publicities/balde_victorio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/alicorp/publicities/paleta_precios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/78511172_s-1280x720.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/Logo-TT-Audit-solo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/bat-fondo.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/logo_bat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-1-d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-1-e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-2-d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-2-e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-3-d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-3-e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-4-d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-4-e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-5-d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/ps-5-e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_28.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/images/bat/publicities/377_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_JsonRoadsDetail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_JsonRoadsDetailMarket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_JsonRoadsDetailNoAudits.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_add_assitent_control.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_all_mechanic.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_audit_road_store.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_audit_road_stores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_category_product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_close_audit_road_stores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_close_audit_road_stores_visit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_company.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_company_85.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_company_app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_company_audits.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_distributor_mechanic.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_get_distributors_app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_get_products.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_get_visit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_liberation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_orders_detail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_orders_detail_store.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_orders_store.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_poll.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_poll_option.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_publicity_history.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_publicity_type_bodega.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_search_cod_client_app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_search_stores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_search_stores_distributor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_search_stores_markets.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_audit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_audit_visit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_liberation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_open_for_orders.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_store_visit_liberation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_swaps.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/api_update_assitent_control.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_events.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_files_store.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_files_store_all.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_markets.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_poll_type_stores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_sectors.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/get_type_store.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/includes/configure.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/phpinfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/prueba.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ttaudit_api/validate_qr.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Photography.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/imagentexto.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/fotos/010631_474_alicorp_20230627_004214.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/media/fotos/imagentexto.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/rutas-auditor/Photography.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ttaudit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ttaudit.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Entities/PollDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Entities/PollDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Entities/PollOptionDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Entities/PollOptionDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Entities/ProductDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Entities/ProductDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/CategoryProductRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/CategoryProductRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/CompanyStoreRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/CompanyStoreRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/MediaRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/MediaRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/PollDetailRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/PollOptionDetailRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/ProductDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ProductDetailRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/ProjectionSaleRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/ProjectionSaleRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/PublicitiesDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/PublicitiesDetailRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/RoadDetailRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/RoadDetailRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/UserCompanyRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/UserCompanyRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Auditor/Repositories/UserRepo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auditor/Repositories/UserRepo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AlertsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AlertsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AuditsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuditsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/CompanyStoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CompanyStoreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelAlicorpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelAlicorpController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelBayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ExcelGeneralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ExcelGeneralController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/InventoryIBKController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/InventoryIBKController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/MapRoadAuditorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MapRoadAuditorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/MediasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MediasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/MercantilistaBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MercantilistaBayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/OperationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/OperationsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/PollDetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PollDetailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ProspeccionBayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ReportBayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ReportBayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ReportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/RoadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/RoadController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/StoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/StoreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/temp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/temp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/temp26.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/temp26.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lang/es/utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/lang/es/utils.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/canjes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/canjes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/jaime.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/jaime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/transferencistas.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/transferencistas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/audits/auditBayerTransferencista.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/auditBayerTransferencista.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/auditSodVentCampaign3.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/audits/detailSod.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/audits/detailSod.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/emails/formatoEmail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/emails/formatoEmail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/emails/localCerrado.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/emails/localCerrado.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPolls.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/medias/ResponsesPollsIBK.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roads/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roads/partials/menuLeft.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/partials/menuLeft.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roads/roadsAuditorMap.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/roadsAuditorMap.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roads/roadsAuditorMapVersion2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/roadsAuditorMapVersion2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roads/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roads/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/api_JsonRoadsDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_JsonRoadsDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/api_audit_road_store.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_audit_road_store.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/api_audit_road_stores.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_audit_road_stores.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/api_company.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_company.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/api_company_audits.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_company_audits.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/api_poll.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_poll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/api_poll_option.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_poll_option.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/api_store_liberation.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/api_store_liberation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin_api/includes/configure.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin_api/includes/configure.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/css/color/white.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/color/white.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/css/owl.carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/owl.carousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/css/prettyPhoto.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/prettyPhoto.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/appBT.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/appBT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/phpinfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/phpinfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/includes/Classes/PHPExcel/locale/bg/config" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/includes/Classes/PHPExcel/locale/bg/config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/includes/configure.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/includes/configure.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/maintenance-of-images.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/maintenance-of-images.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_alicorp_helena_premiacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_alicorp_helena_premiacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_alicorp_helena_v3.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_alicorp_helena_v3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_bayer_33.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_bayer_33.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_bayer_35.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_bayer_35.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_bayern_fase2.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_bayern_fase2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_18_category_54.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_18_category_54.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_22_category_53.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_22_category_53.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_22_category_54.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_22_category_54.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_23.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_23.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_29_category_53.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_29_category_53.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_29_category_54.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_29_category_54.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_37.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_37.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_53_category_53.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_53_category_53.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_60.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_60.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_63.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_63.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_78.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_78.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/reporte_company_ibk_3.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/reporte_company_ibk_3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/reportes_excel/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/reportes_excel/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/temp1.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/temp1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/panelAdmin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/panelAdmin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -367,7 +27,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -439,6 +101,9 @@
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="1QkHw25p8m3mW02oJxkRmKuziDc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -453,6 +118,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/www/ttauditsystems&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -471,7 +138,11 @@
       <recent name="D:\www\ttaudit\app\Auditor\Entities" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Web Page.debug_ttaudit">
+    <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
     <configuration name="debug_ttaudit" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="ttaudit">
       <method v="2" />
     </configuration>
@@ -992,6 +663,10 @@
       <workItem from="1686710762022" duration="4238000" />
       <workItem from="1687812648775" duration="1385000" />
       <workItem from="1687815209843" duration="2771000" />
+      <workItem from="1692982642254" duration="3201000" />
+      <workItem from="1692992741307" duration="19039000" />
+      <workItem from="1693065529681" duration="2979000" />
+      <workItem from="1694660032074" duration="4087000" />
     </task>
     <servers />
   </component>

@@ -44,7 +44,6 @@
                     </td>
                 </tr>
                 @endforeach
-
                 </tbody>
             </table>
             <!-- Paginador-->
@@ -55,6 +54,22 @@
                      </nav>
                  </div>
              </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    imagen original
+                </div>
+                <div class="col-sm-4">
+                    <img src="{{$link.'/'.$imagenOriginal}}" alt="pruebas">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    imagen final
+                </div>
+                <div class="col-sm-4">
+                    <img src="{{$link.'/'.$imageFinal}}">
+                </div>
+            </div>
       </div>
     </div>
 </section>
