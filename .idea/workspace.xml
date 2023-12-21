@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="470c9b69-5898-45cf-aae6-acbf48105379" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Photography.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/imagentexto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/fotos/010631_474_alicorp_20230627_004214.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/media/fotos/imagentexto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/rutas-auditor/Photography.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ttaudit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ttaudit.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/PollDetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PollDetailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/StoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/StoreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/panelAdmin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/panelAdmin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +20,11 @@
     </execution>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master_211223" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
@@ -158,6 +151,13 @@
         </serviceView>
       </list>
     </option>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-74080bdb84d3-com.jetbrains.php.sharedIndexes-PS-233.11799.297" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -666,7 +666,23 @@
       <workItem from="1692982642254" duration="3201000" />
       <workItem from="1692992741307" duration="19039000" />
       <workItem from="1693065529681" duration="2979000" />
-      <workItem from="1694660032074" duration="4087000" />
+      <workItem from="1694660032074" duration="4505000" />
+      <workItem from="1694714210258" duration="1269000" />
+      <workItem from="1696805846827" duration="1922000" />
+      <workItem from="1696826554438" duration="12000" />
+      <workItem from="1696857818562" duration="11000" />
+      <workItem from="1696876976812" duration="2137000" />
+      <workItem from="1696886103866" duration="1188000" />
+      <workItem from="1696966868305" duration="25000" />
+      <workItem from="1697413281931" duration="1915000" />
+      <workItem from="1698086498982" duration="618000" />
+      <workItem from="1698180312301" duration="20000" />
+      <workItem from="1698421721059" duration="49000" />
+      <workItem from="1698520017894" duration="12000" />
+      <workItem from="1699851488314" duration="17000" />
+      <workItem from="1699852038823" duration="6000" />
+      <workItem from="1700018233161" duration="13000" />
+      <workItem from="1703175117980" duration="499000" />
     </task>
     <servers />
   </component>

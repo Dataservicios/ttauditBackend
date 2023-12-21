@@ -977,6 +977,9 @@ class PollDetailController extends BaseController {
                     $objReservation->statu_id=1;
                     $objReservation->service_id=1;
                     $objReservation->priority='ALTA';
+                    $objReservation->product_id=$product_id;
+                    $objReservation->poll_detail_id=$idPollDetail;
+                    //$objReservation->road_id=$road_id;
                     $objReservation->comment=$comentario;
                     $objReservation->origin_type=2;
                     $objReservation->user_id=$auditor;
@@ -1624,7 +1627,7 @@ class PollDetailController extends BaseController {
                         $category_product_id['category_product_id'],
                         $monto['monto'],
                         $razon_social['razon_social'],
-                        $horaSistema['created_at'],
+                        $horaSistema['horaSistema'],
                         $horaSistemaUpdate
                     )
                 );

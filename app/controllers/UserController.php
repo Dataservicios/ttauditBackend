@@ -87,73 +87,7 @@ class UserController extends BaseController{
     {
         $users =$this->userRepo->listUser();
         /*dd($category);*/
-        $link =  "http://$_SERVER[HTTP_HOST]";
-
-        // Ruta de la imagen original
-        $imagenOriginal = 'media/fotos/102693_94_alicorp_reg_20170819_105022.jpg';
-
-        $fotoExist=false;
-
-        if (file_exists($imagenOriginal) && is_file($imagenOriginal)) {
-            $fotoExist=true;
-            // Crear una imagen a partir del archivo
-            $imagen = imagecreatefromjpeg($imagenOriginal);
-
-            // Color del texto (en RGB)
-            $colorTexto = imagecolorallocate($imagen, 255, 255, 255); // Blanco
-
-            // Tamaño y fuente del texto
-            $tamanioTexto = 25;
-            $fuente = 'Photography.ttf'; // Ruta a un archivo de fuente TrueType (TTF)
-
-
-
-            // Texto que deseas agregar
-            $texto = 'TTAUDIT';
-            $texto1 = ' 2023-08-09 12:00:00';
-            $texto2 = str_replace('media/fotos/','',$imagenOriginal);
-
-
-            // Obtener las dimensiones de la imagen
-            $anchoImagen = imagesx($imagen);
-            $altoImagen = imagesy($imagen);
-
-            // Obtener las dimensiones del texto
-            $dimensionesTexto = imagettfbbox($tamanioTexto, 0, $fuente, $texto2);
-            $anchoTexto = $dimensionesTexto[4] - $dimensionesTexto[6];
-            $altoTexto = $dimensionesTexto[1] - $dimensionesTexto[7];
-
-            /*// Calcular la posición del texto en la esquina inferior derecha
-            $posX = $anchoImagen - $anchoTexto - 10; // 10 píxeles desde el borde derecho
-            $posY = $altoImagen - 10;                // 10 píxeles desde el borde inferior*/
-
-            // Calcular la posición del texto en la esquina inferior izquierda
-            $posX = 10; // 10 píxeles desde el borde izquierdo
-            $posY = $altoImagen - $altoTexto - 10; // 10 píxeles desde el borde inferior
-
-
-
-            // Agregar el texto a la imagen
-            imagettftext($imagen, $tamanioTexto, 0, $posX, $posY, $colorTexto, $fuente, $texto2);
-            // Desplaza la posición vertical para la siguiente línea
-            $posY -= 30; // Ajusta la distancia entre líneas según tu preferencia
-            imagettftext($imagen, $tamanioTexto, 0, $posX, $posY, $colorTexto, $fuente, $texto1);
-            $posY -= 30;
-            imagettftext($imagen, $tamanioTexto, 0, $posX, $posY, $colorTexto, $fuente, $texto);
-
-            // Guardar la imagen resultante (puedes reemplazar la original o guardarla con un nuevo nombre)
-            $imageFinal ='media/fotos/imagentexto.jpg';
-            imagejpeg($imagen, $imageFinal);
-
-            // Liberar la memoria
-            imagedestroy($imagen);
-        } else {
-            $fotoExist=false;
-        }
-
-
-
-        return View::make('panelAdmin',compact('users','imagenOriginal','imageFinal','link','fotoExist'));
+        return View::make('panelAdmin',compact('users'));
     }
 
 
